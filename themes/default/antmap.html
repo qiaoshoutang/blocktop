@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>蚂蚁导航</title>
+    <meta name="baidu-site-verification" content="9h2o7ScMIE" />
+    <meta name="keywords" content="蚂蚁节点联盟，社群组织，区块链，区块链社区，区块链社区联盟，区块链服务平台"/>
+    <meta name="description" content="蚂蚁节点联盟-蚂蚁节点联盟是国内知名的区块链线下社群组织，联盟以引领行业新生态、 促进区块链行业稳健发展为宗旨，致力于聚合全球区块链行业专家及区块链爱好者， 整合区块链产业上下游资源，为区块链行业参与者提供第三方综合服务。"/>
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/AntNavigation.css">
+    <script src="js/jquery.js"></script>
+    <script src="js/jquery.fancybox.pack.js"></script>
+
+</head>
+<style>
+    .navList ul{
+        /*border-bottom: 3px solid #2e84fb;*/
+    }
+    .line_Ac{
+        height: 4px;
+        border-radius: 12px;
+        background: #2e84fb;
+        position: relative;
+        transition:1s all cubic-bezier(.23, 1, .23, 1);;
+        bottom: 20px;
+        width: 0%;
+        /*display: inline-block;*/
+    }
+    .AcLine{
+        width: 100%;
+        text-align: center;
+    }
+
+    .navList ul li{
+        font-size: 22px;
+
+    }
+    .navList ul li a{
+        display: inline-block;
+        vertical-align:top;
+    }
+    .active a{
+        font-size: 25px;
+        color: black;
+    }
+    .LookMore img{
+        position: relative;
+        top: 2px;
+    }
+    .Partner-LinksText p:nth-child(1){
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-line-clamp: 1;
+        -webkit-box-orient: vertical;
+    }
+</style>
+<body>
+<div class="box">
+    <!--导航栏-->
+    <!--#include file="header.html"-->
+    
+    <!--轮播-->
+    <div class="banner-nav">
+        <div class="in exhibition_hall">
+            <div id="" class="roundabout_box">
+                <ul>
+                    <li><a href="https://www.ximalaya.com/shangye/24353752/"><img src="images/Antamp.jpg" alt=""><span class="text"></span></a></li>
+                    <li><a href="https://mp.weixin.qq.com/s/4s6zN5XGckVETr8fuZqikA"><img src="images/Antamp02.jpg" alt=""><span class="text"></span></a></li>
+                    <li><a href="http://bizhong.io/"><img src="images/Antamp03.jpg" alt=""><span class="text"></span></a></li>
+                    <!--<li><a href="#"><img src="images/zt4.png" alt=""><span class="text"></span></a></li>-->
+                </ul>
+            </div>
+            <div class="clear"></div>
+        </div>
+    </div>
+    <!--主要内容导航-->
+    <div class="navList">
+        <ul>
+            <li class='<!--{if condition="$class_id eq recom"}--> active <!--{/if}-->'>
+                <a href='/antmap/recom'>推荐</a>
+                <div class="line_Ac"></div>
+            </li>
+            <!--{foreach name='cateList' item='vo' }-->
+            <li class='<!--{if condition="$class_id eq $vo['id']"}--> active <!--{/if}-->'>
+                <a href="/antmap/{$vo['id']}">{$vo.name}</a>
+                <div class="line_Ac"></div>
+            </li>
+            <!--{/foreach}-->
+        </ul>
+        <div class="ApplyIncluded">
+            <div class="ApplyIncluded_btn" onclick='window.open("http://mayi.org/Apply")'>
+                申请收录
+            </div>
+        </div>
+    </div>
+    <!--行情查看-->
+    <div class="Market_view">
+        <!--推荐-->
+        <!--{if condition="$class_id eq recom"}-->
+        <ul class="Market_view_ul" >
+            <li class="Market_view_ul_list">
+                <div class="Market_view_order">
+                    <div class="Market">
+                        行情
+                    </div>
+                    <div class="LookMore" >
+                        <a href='/antmap/1'>
+                            查看更多 <img src="images/MoreMoreM.png" alt="" width="5%">
+                        </a>
+                    </div>
+                </div>
+                <ul class="type_NavList">
+                    <!--{foreach name='naviList1' item='vo' }-->
+                    <li onclick='window.open("{$vo.target}")'>
+                         <div class="type_NavList_box">
+                             <div class="Partner-T">
+                                 <img src="{$vo.icon}" alt="" width="100%">
+                             </div>
+                             <div class="Partner-LinksText">
+                                 <p>{$vo.name}</p>
+                                 <p>{$vo.descrip}</p>
+                             </div>
+                         </div>
+                    </li>
+                    <!--{/foreach}-->
+                </ul>
+            </li>
+            <li class="Market_view_ul_list">
+                <div class="Market_view_order">
+                    <div class="Market">
+                        资产管理
+                    </div>
+                    <div class="LookMore">
+                        <a href='/antmap/2'>查看更多 <img src="images/MoreMoreM.png" alt="" width="5%"></a>
+                    </div>
+                </div>
+                <ul class="type_NavList">
+                    <!--{foreach name='naviList2' item='vo' }-->
+                    <li onclick='window.open("{$vo.target}")'>
+                         <div class="type_NavList_box">
+                             <div class="Partner-T">
+                                 <img src="{$vo.icon}" alt="" width="100%">
+                             </div>
+                             <div class="Partner-LinksText">
+                                 <p>{$vo.name}</p>
+                                 <p>{$vo.descrip}</p>
+                             </div>
+                         </div>
+                    </li>
+                    <!--{/foreach}-->
+                </ul>
+            </li>
+            <li class="Market_view_ul_list">
+                <div class="Market_view_order">
+                    <div class="Market">
+                        TOP200
+                    </div>
+                    <div class="LookMore">
+                        <a href='/antmap/3'>查看更多 <img src="images/MoreMoreM.png" alt="" width="5%"></a>
+                    </div>
+                </div>
+                <ul class="type_NavList">
+                    <!--{foreach name='naviList3' item='vo' }-->
+                    <li onclick='window.open("{$vo.target}")'>
+                         <div class="type_NavList_box">
+                             <div class="Partner-T">
+                                 <img src="{$vo.icon}" alt="" width="100%">
+                             </div>
+                             <div class="Partner-LinksText">
+                                 <p>{$vo.name}</p>
+                                 <p>{$vo.descrip}</p>
+                             </div>
+                         </div>
+                    </li>
+                    <!--{/foreach}-->
+                </ul>
+            </li>
+            <li class="Market_view_ul_list">
+                <div class="Market_view_order">
+                    <div class="Market">
+                        钱包
+                    </div>
+                    <div class="LookMore">
+                        <a href='/antmap/4'>查看更多 <img src="images/MoreMoreM.png" alt="" width="5%"></a>
+                    </div>
+                </div>
+                <ul class="type_NavList">
+                    <!--{foreach name='naviList4' item='vo' }-->
+                    <li onclick='window.open("{$vo.target}")'>
+                         <div class="type_NavList_box">
+                             <div class="Partner-T">
+                                 <img src="{$vo.icon}" alt="" width="100%">
+                             </div>
+                             <div class="Partner-LinksText">
+                                 <p>{$vo.name}</p>
+                                 <p>{$vo.descrip}</p>
+                             </div>
+                         </div>
+                    </li>
+                    <!--{/foreach}-->
+                </ul>
+            </li>
+            <li class="Market_view_ul_list">
+                <div class="Market_view_order">
+                    <div class="Market">
+                        矿池
+                    </div>
+                    <div class="LookMore">
+                        <a href='/antmap/5'>查看更多 <img src="images/MoreMoreM.png" alt="" width="5%"></a>
+                    </div>
+                </div>
+                <ul class="type_NavList">
+                    <!--{foreach name='naviList5' item='vo' }-->
+                    <li onclick='window.open("{$vo.target}")' >
+                         <div class="type_NavList_box">
+                             <div class="Partner-T">
+                                 <img src="{$vo.icon}" alt="" width="100%">
+                             </div>
+                             <div class="Partner-LinksText">
+                                 <p>{$vo.name}</p>
+                                 <p>{$vo.descrip}</p>
+                             </div>
+                         </div>
+                    </li>
+                    <!--{/foreach}-->
+                </ul>
+            </li>
+            <li class="Market_view_ul_list">
+                <div class="Market_view_order">
+                    <div class="Market">
+                        媒体
+                    </div>
+                    <div class="LookMore">
+                        <a href='/antmap/6'>查看更多 <img src="images/MoreMoreM.png" alt="" width="5%"></a>
+                    </div>
+                </div>
+                <ul class="type_NavList">
+                    <!--{foreach name='naviList6' item='vo' }-->
+                    <li onclick='window.open("{$vo.target}")'>
+                         <div class="type_NavList_box">
+                             <div class="Partner-T">
+                                 <img src="{$vo.icon}" alt="" width="100%">
+                             </div>
+                             <div class="Partner-LinksText">
+                                 <p>{$vo.name}</p>
+                                 <p>{$vo.descrip}</p>
+                             </div>
+                         </div>
+                    </li>
+                    <!--{/foreach}-->
+                </ul>
+            </li>
+            <li class="Market_view_ul_list">
+                <div class="Market_view_order">
+                    <div class="Market">
+                        技术服务
+                    </div>
+                    <div class="LookMore">
+                        <a href='/antmap/7'>查看更多 <img src="images/MoreMoreM.png" alt="" width="5%"></a>
+                    </div>
+                </div>
+                <ul class="type_NavList">
+                    <!--{foreach name='naviList7' item='vo' }-->
+                    <li onclick='window.open("{$vo.target}")'>
+                         <div class="type_NavList_box">
+                             <div class="Partner-T">
+                                 <img src="{$vo.icon}" alt="" width="100%">
+                             </div>
+                             <div class="Partner-LinksText">
+                                 <p>{$vo.name}</p>
+                                 <p>{$vo.descrip}</p>
+                             </div>
+                         </div>
+                    </li>
+                    <!--{/foreach}-->
+                </ul>
+            </li>
+            <li class="Market_view_ul_list">
+                <div class="Market_view_order">
+                    <div class="Market">
+                        其他
+                    </div>
+                    <div class="LookMore">
+                        <a href='/antmap/8'>查看更多 <img src="images/MoreMoreM.png" alt="" width="5%"></a>
+                    </div>
+                </div>
+                <ul class="type_NavList">
+                    <!--{foreach name='naviList8' item='vo' }-->
+                    <li onclick='window.open("{$vo.target}")'>
+                         <div class="type_NavList_box">
+                             <div class="Partner-T">
+                                 <img src="{$vo.icon}" alt="" width="100%">
+                             </div>
+                             <div class="Partner-LinksText">
+                                 <p>{$vo.name}</p>
+                                 <p>{$vo.descrip}</p>
+                             </div>
+                         </div>
+                    </li>
+                    <!--{/foreach}-->
+                </ul>
+            </li>
+        </ul>
+        <!--{elseif condition="$class_id lt 9" /}-->
+        <ul class="Market_view_ul" >
+            <li class="Market_view_ul_list">
+                <ul class="type_NavList">
+                    <!--{foreach name='naviList' item='vo' }-->
+                    <li onclick='window.open("{$vo.target}")'>
+                         <div class="type_NavList_box">
+                             <div class="Partner-T">
+                                 <img src="{$vo.icon}" alt="" width="100%">
+                             </div>
+                             <div class="Partner-LinksText">
+                                 <p>{$vo.name}</p>
+                                 <p>{$vo.descrip}</p>
+                             </div>
+                         </div>
+                    </li>
+                    <!--{/foreach}-->
+                    
+                </ul>
+            </li>
+            <div class="btnMORE" id='navi_more'>查看更多</div>
+        </ul>
+        <!--{else /}-->
+        <ul class="Market_view_ul" >
+            <li class="Market_view_ul_list">
+                <ul class="type_NavList">
+                    <span>没有找到相关内容</span>
+                </ul>
+            </li>
+        </ul>
+        <!--{/if}-->
+
+    </div>
+    <!--底部-->
+    <!--#include file="footer.html"-->
+</div>
+</body>
+</html>
+
+<script src="js/jquery.roundabout.min.js"></script>
+<script src="js/commom.js"></script>
+<script>
+    $(document).ready(function(){
+        $('.roundabout_box ul').roundabout({
+            duration: 1000,
+            minScale: 0.8,
+            autoplay: true,
+            autoplayDuration: 5000,
+            minOpacity:.5,
+            maxOpacity: 1,
+            reflect: true,
+            startingChild: 3,
+            autoplayInitialDelay: 5000,
+            autoplayPauseOnHover: true,
+            enableDrag: true
+        });
+    });
+
+    $(".navList ul li").click(function () {
+       var $this=$(this);
+       var index=$this.index()
+       var Market_view_ul=$(".Market_view_ul");
+        Market_view_ul.hide().eq(index).show();
+        $this.addClass("font-cx");
+        $this.siblings().removeClass("font-cx")
+    })
+
+
+    var page_num = 2;
+    var class_id = '{$class_id}'
+    $('#navi_more').click(function(){
+        
+        $.ajax({
+          type:"post",
+          url:"/Home/Ajax/get_navi",
+          data:{class_id:class_id,page_num:page_num},
+          dataType:'json',
+          success:function(rdata){
+
+            if(rdata.code==1){
+                $('.type_NavList').append(rdata.data);
+                page_num++;
+            }else{
+                $('#navi_more').html(rdata.info);
+            }
+          }
+        });
+    })
+</script>
+
+<script>
+
+  // $(".line_Ac").eq(0).addClass("AcLine");
+
+  // $(".navList ul li").hover(function () {
+  //     $(this).find(".line_Ac").addClass("AcLine");
+  //     $(this).siblings("li").find(".line_Ac").removeClass("AcLine");
+  // },function () {
+  //         $(this).find(".line_Ac").removeClass("AcLine");
+  //         $(".active").find(".line_Ac").addClass("AcLine");
+  // })
+
+</script>

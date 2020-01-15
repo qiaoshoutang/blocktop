@@ -1,0 +1,29 @@
+.contact_img,.contact_img img{
+    width: 100%;
+}
+.contact_us{
+    width: 100%;
+}
+.Operationhz{
+    width: 1200px;
+    margin: 0 auto;
+    height: 650px;
+    text-align: center;
+    padding-top:95px ;
+}
+.operationList{
+    width: 80%;
+    margin: 0 auto;
+    margin-top: 100px;
+}
+.operationList li{
+    float: left;
+    width: 30%;
+    margin-left: 3%;
+}
+.operationList li img{
+    width: 100%;
+}
+body{
+    background: #eef3f9;
+}

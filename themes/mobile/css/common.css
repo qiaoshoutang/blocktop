@@ -1,0 +1,122 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+body{
+    font-family: 'open sans','PingFang SC','Lantinghei SC','Helvetica Neue',Helvetica,Arial,'Microsoft YaHei',"sans-serif"
+}
+ul li{
+    list-style: none;
+}
+
+.box{
+    width: 100%;
+    height: 100%;
+    min-width: 320px;
+    max-width: 640px;
+    margin: 0 auto;
+}
+.header-nav{
+    width: 100%;
+    height: 1rem;
+    background: #090723;
+    position: relative;
+}
+
+.Mylogo{
+    position: absolute;
+    width: 35%;
+    top: .2rem;
+    left: .2rem;
+}
+.Dropdown{
+    width: 20%;
+    height: 100%;
+    position: absolute;
+    right: 0;
+    top: 0;
+    z-index: 9999999;
+}
+.DropdownImg{
+    width: 25%;
+    position: absolute;
+    top: .4rem;
+    right: .2rem;
+}
+#Dhl{
+    font-size: .18rem;
+    position: relative;
+    top: 1rem;
+    background: #090723;
+    display: none;
+}
+.header_list a{
+    width: 100%;
+    height: 100%;
+    display: inline-block;
+    color: white;
+    text-decoration: none;
+}
+.header_list a{
+    font-size: .22rem!important;
+}
+#Dhl li{
+    width: 100%;
+    text-align: center;
+    height: .5rem;
+    line-height: .5rem;
+    font-weight: 300;
+}
+
+.food_nav{
+    width: 100%;
+    height: 2.5rem;
+    background: #090723;
+}
+.food_nav_box{
+    width: 90%;
+    margin: 0 auto;
+}
+.contactUs_food{
+    width: 60%;
+    float: left;
+    font-size: .18rem;
+    color: white;
+    margin-top: .15rem;
+    font-weight: 200;
+}
+.contactUs_food div{
+    margin-top: .2rem;
+}
+.contactUs_food div img{
+    width: 5%;
+    position: relative;
+    top: .02rem;
+}
+.contactUs_food div span{
+    margin-left: .1rem;
+}
+.contactUs_food div:nth-child(1){
+    font-size: .25rem;
+    font-weight: bold;
+}
+.Focus_Us{
+    float: right;
+    width: 30%;
+    font-size: .18rem;
+    color: white;
+    text-align: right;
+    margin-top: .7rem;
+}
+
+.Focus_Us_Img img{
+    width: 60%;
+}
+.text_Focus{
+    width: 60%;
+    text-align: center;
+    font-weight: bold;
+    float: right;
+    padding-bottom: .1rem;
+}
+

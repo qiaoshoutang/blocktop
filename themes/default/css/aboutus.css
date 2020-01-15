@@ -1,0 +1,183 @@
+.FoundingTeam,.TeamStyle{
+    width: 100%;
+    height: 990px;
+    background-size: 100% 100%;
+    overflow: hidden;
+    position: relative;
+    background: url("../images/cantactUs.png")center top ;
+}
+.FoundTeam_Cont{
+    width: 1200px;
+    height: 990px;
+    margin: 0 auto;
+    position: relative;
+
+}
+.FoundTitle{
+    width: 100%;
+    text-align: center;
+    padding-top: 50px;
+}
+.FoundContent{
+    width: 90%;
+    margin: 0 auto;
+    position: relative;
+}
+.pictureTx{
+    width: 430px;
+    height: 540px;
+
+    position: absolute;
+    top: 100px;
+    left: 90px;
+}
+.pictureTx img{
+    width: 100%;
+}
+.NameFound{
+    color: white;
+    font-size: 55px;
+    letter-spacing: 10px;
+    position: absolute;
+    left: 670px;
+    display: inline-block;
+    top: 90px;
+}
+.appellation{
+    color: white;
+    position: absolute;
+    left:635px;
+    top: 220px;
+    font-size: 18px;
+    line-height: 170%;
+    letter-spacing: 2px;
+}
+.List_Team{
+    width:460px;
+    position: absolute;
+    display: inline-block;
+    right: 0;
+    bottom: 0;
+}
+.List_Team ul{
+    position: relative;
+}
+.List_Team ul li{
+    width: 145px;
+    border-left: 1px white solid;
+    position: absolute;
+    bottom: 0;
+    z-index: 999;
+}
+.List_Team ul li:nth-child(1){
+     height: 305px;
+     left:0;
+}
+.List_Team ul li:nth-child(2){
+    height: 370px;
+    left:145px;
+}
+.List_Team ul li:nth-child(3){
+    height: 240px;
+    left:290px;
+}
+.List_TeamTx{
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin-left:10px ;
+}
+.List_Team ul li:hover .List_TeamTx{
+    border: 3px white solid;
+}
+.NameList{
+    width: 110px;
+    text-align: center;
+    color: white;
+    font-size: 15px;
+    position: absolute;
+    top: 110px;
+    letter-spacing: 2px;
+    left: 8px;
+}
+
+.List_TeamTx img{
+    width: 100%;
+}
+.yuan{
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: white;
+    position: absolute;
+    left: -3px;
+    top: -3px;
+}
+.banner-nav{
+    margin-top: 100px;
+}
+table{border-collapse:collapse;border-spacing:0;}
+ul,li,dd,dl,dt,img {list-style:none;}
+legend{display:none;}
+.exhibition_hall {text-align:center;position: relative;overflow:hidden;}
+.exhibition_hall h4 {font-size:30px;font-family:"微软雅黑";text-align:center;margin:0px auto;padding-top:50px;color:#000;}
+.tline {color:#dedede;}
+.roundabout_box {width:980px;height:480px;}
+.roundabout_box ul {}
+.roundabout_box img {width:100%;}
+/**********roundabout**********/
+.roundabout_box {height:425px;width:980px;margin:0px auto 20px auto;}
+.roundabout-holder{list-style:none;width:815px;height:425px;margin:0px auto;}
+.roundabout-moveable-item{font-size:12px!important;height:420px;width:815px;cursor:pointer;background:#f9f9f9;}
+.roundabout-moveable-item img{height:100%;width:100%;background-color:#FFFFFF;margin:0;}
+.roundabout-in-focus{cursor:auto;/*border-left:1px #fff solid;border-right:1px #fff solid;*/}
+.roundabout-in-focus000:hover{-webkit-box-shadow:0px 0px 20px #787878;-moz-box-shadow:0px 0px 20px #787878;background:#f9f9f9;}
+.roundabout-holder .text{color:#999;}
+.roundabout-in-focus000:hover span{display:inline;position:absolute;bottom:5px;right:5px;padding:8px 20px;background:#f9f9f9;color:#3366cc;z-index:999;-webkit-border-top-left-radius:5px;-moz-border-radius-topLeft:5px;border-left:1px solid #aaaaaa;border-top:1px solid #aaaaaa;}
+.roundabout a:active, .roundabout a:focus, .roundabout a:visited{outline:none;text-decoration:none;}
+.roundabout li{margin:0}
+
+
+.JumpDown{
+    width: 160px;
+    height: 140px;
+    position: absolute;
+    bottom: 150px;
+    left: 30px;
+    overflow: hidden;
+}
+.JumpDown ul{
+    width: 100%;
+    height: 100%;
+}
+.JumpDown ul li{
+    width: 100%;
+    height: 70px;
+    line-height: 70px;
+    color: white;
+
+}
+.JumpDown ul li span{
+   font-size: 18px;
+    position: relative;
+    bottom: 20px;
+}
+.JumpDown ul li img{
+    width: 55px;
+    height: 55px;
+    margin-top: 7.5px;
+}
+
+
+#particles-js{
+    width: 100%; height: 100%;
+
+    background-size: 100%;
+    background-position: 50% 50%;
+    position: relative;
+}
+.particles-js-canvas-el{
+    position: absolute;
+    top: 0;
+    left: 0;
+}

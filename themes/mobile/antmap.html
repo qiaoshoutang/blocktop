@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>蚂蚁导航</title>
+    <meta name="baidu-site-verification" content="9h2o7ScMIE" />
+    <meta name="keywords" content="蚂蚁节点联盟，社群组织，区块链，区块链社区，区块链社区联盟，区块链服务平台"/>
+    <meta name="description" content="蚂蚁节点联盟-蚂蚁节点联盟是国内知名的区块链线下社群组织，联盟以引领行业新生态、 促进区块链行业稳健发展为宗旨，致力于聚合全球区块链行业专家及区块链爱好者， 整合区块链产业上下游资源，为区块链行业参与者提供第三方综合服务。"/>
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <script>
+        (function (doc, win) {
+            var docEl = doc.documentElement,
+                resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+                recalc = function () {
+                    var clientWidth = docEl.clientWidth;
+                    if (!clientWidth) return;
+                    if(clientWidth>=640){
+                        docEl.style.fontSize = '100px';
+                    }else{
+                        docEl.style.fontSize = 100 * (clientWidth / 640) + 'px';
+                    }
+                };
+            if (!doc.addEventListener) return;
+            win.addEventListener(resizeEvt, recalc, false);
+            doc.addEventListener('DOMContentLoaded', recalc, false);
+        })(document, window);
+    </script>
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/antmap.css?567231">
+
+</head>
+<style>
+    .BzName{
+        text-overflow: -o-ellipsis-lastline;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        line-clamp: 2;
+        -webkit-box-orient: vertical;
+        width: 100%;
+    }
+    .Content_ulBall{
+
+    }
+    .active a{
+        font-size: .3rem!important;
+        color: #333!important;
+    }
+    .nav_Content{
+        margin-top: .2rem;
+    }
+</style>
+<body>
+<div class="box">
+    <!--顶部导航栏-->
+    <!--#include file="header.html"-->
+    <!--轮播-->
+    <div id="slideBox" class="slideBox">
+
+        <div class="bd">
+            <ul>
+                <li>
+                    <a class="pic" href="#"><img src="images/ActImg01.jpg" /></a>
+                    <a class="tit" href="#"></a>
+                </li>
+                <li>
+                    <a class="pic" href="#"><img src="images/ActImg02.jpg"/></a>
+                    <a class="tit" href="#"></a>
+                </li>
+                <li>
+                    <a class="pic" href="#"><img src="images/ActImg03.jpg"/></a>
+                    <a class="tit" href="#"></a>
+                </li>
+
+            </ul>
+        </div>
+
+        <div class="hd">
+            <ul></ul>
+        </div>
+    </div>
+    <!--导航-->
+    <div class="nav_ss">
+      <ul>
+            <li class='<!--{if condition="$class_id eq recom"}--> active <!--{/if}-->'>
+                <a href="/antmap_m/recom">推荐</a>
+            </li>
+            <!--{foreach name='cateList' item='vo' }-->
+            <li class='<!--{if condition="$class_id eq $vo['id']"}--> active <!--{/if}-->'>
+                <a href="/antmap_m/{$vo['id']}">{$vo['name']}</a>
+            </li>
+            <!--{/foreach}-->
+      </ul>
+    </div>
+    <!--{if condition="$class_id eq recom"}-->
+    <div class='antmap-content'>
+        <!--交易所-->
+        <div class="nav_Content">
+            <p class="nav_Title">
+                行情
+                <span style="float: right;margin-right: .2rem;color: #999999">
+                    <a href="/antmap_m/1" style="color: #999999;font-size: .23rem">更多</a>
+                </span>
+            </p>
+            <ul class="nav_Content_ul">
+                <!--{foreach name='naviList1' item='vo' }-->
+                <li onclick='window.location.href="{$vo.target}"' target="_blank">
+                    <div class="Content_ulBall">
+                        <img src="{$vo.icon}" alt="">
+                    </div>
+                    <div class="BzName">{$vo.name}</div>
+                </li>
+                <!--{/foreach}-->
+            </ul>
+        </div>
+        <div class="nav_Content nav_Top">
+
+            <p class="nav_Title">资产管理
+                <span style="float: right;margin-right: .2rem;">
+                    <a href="/antmap_m/2" style="color: #999999;font-size: .23rem">更多</a>
+                </span>
+            </p>
+            <ul class="nav_Content_ul">
+                <!--{foreach name='naviList2' item='vo' }-->
+                <li onclick='window.location.href="{$vo.target}"'>
+                    <div class="Content_ulBall">
+                        <img src="{$vo.icon}" alt="">
+                    </div>
+                    <div class="BzName">{$vo.name}</div>
+                </li>
+                <!--{/foreach}-->
+            </ul>
+        </div>
+
+        <div class="nav_Content">
+            <p class="nav_Title">应用
+                <span style="float: right;margin-right: .2rem;">
+                    <a href="/antmap_m/3" style="color: #999999;font-size: .23rem">更多</a>
+                </span>
+            </p>
+            <ul class="nav_Content_ul">
+                <!--{foreach name='naviList3' item='vo' }-->
+                <li onclick='window.location.href="{$vo.target}"'>
+                    <div class="Content_ulBall">
+                        <img src="{$vo.icon}" alt="">
+                    </div>
+                    <div class="BzName">{$vo.name}</div>
+                </li>
+                <!--{/foreach}-->
+            </ul>
+        </div>
+
+        <div class="nav_Content">
+            <p class="nav_Title">钱包
+                <span style="float: right;margin-right: .2rem;">
+                    <a href="/antmap_m/4" style="color: #999999;font-size: .23rem">更多</a>
+                </span>
+            </p>
+            <ul class="nav_Content_ul">
+                <!--{foreach name='naviList4' item='vo' }-->
+                <li onclick='window.location.href="{$vo.target}"'>
+                    <div class="Content_ulBall">
+                        <img src="{$vo.icon}" alt="">
+                    </div>
+                    <div class="BzName">{$vo.name}</div>
+                </li>
+                <!--{/foreach}-->
+            </ul>
+        </div>
+
+        <div class="nav_Content">
+            <p class="nav_Title">矿池
+                <span style="float: right;margin-right: .2rem;">
+                    <a href="/antmap_m/5" style="color: #999999;font-size: .23rem">更多</a>
+                </span>
+            </p>
+            <ul class="nav_Content_ul">
+                <!--{foreach name='naviList5' item='vo' }-->
+                <li onclick='window.location.href="{$vo.target}"'>
+                    <div class="Content_ulBall">
+                        <img src="{$vo.icon}" alt="">
+                    </div>
+                    <div class="BzName">{$vo.name}</div>
+                </li>
+                <!--{/foreach}-->
+            </ul>
+        </div>
+
+        <div class="nav_Content">
+            <p class="nav_Title">媒体
+                <span style="float: right;margin-right: .2rem;">
+                    <a href="/antmap_m/6" style="color: #999999;font-size: .23rem">更多</a>
+                </span>
+            </p>
+            <ul class="nav_Content_ul">
+                <!--{foreach name='naviList6' item='vo' }-->
+                <li onclick='window.location.href="{$vo.target}"'>
+                    <div class="Content_ulBall">
+                        <img src="{$vo.icon}" alt="">
+                    </div>
+                    <div class="BzName">{$vo.name}</div>
+                </li>
+                <!--{/foreach}-->
+            </ul>
+        </div>
+        <div class="nav_Content">
+            <p class="nav_Title">技术服务
+                <span style="float: right;margin-right: .2rem;">
+                    <a href="/antmap_m/7" style="color: #999999;font-size: .23rem">更多</a>
+                </span>
+            </p>
+            <ul class="nav_Content_ul">
+                <!--{foreach name='naviList7' item='vo' }-->
+                <li onclick='window.location.href="{$vo.target}"'>
+                    <div class="Content_ulBall">
+                        <img src="{$vo.icon}" alt="">
+                    </div>
+                    <div class="BzName">{$vo.name}</div>
+                </li>
+                <!--{/foreach}-->
+            </ul>
+        </div>
+        <div class="nav_Content">
+            <p class="nav_Title">社区
+                <span style="float: right;margin-right: .2rem;">
+                    <a href="/antmap_m/8" style="color: #999999;font-size: .23rem">更多</a>
+                </span>
+            </p>
+            <ul class="nav_Content_ul">
+                <!--{foreach name='naviList8' item='vo' }-->
+                <li onclick='window.location.href="{$vo.target}"'>
+                    <div class="Content_ulBall">
+                        <img src="{$vo.icon}" alt="">
+                    </div>
+                    <div class="BzName">{$vo.name}</div>
+                </li>
+                <!--{/foreach}-->
+            </ul>
+        </div>
+    </div>
+    <!--{/if}-->
+    <!--{if condition="$class_id neq recom"}-->
+    <ul class="nav_Content_ul">
+        <!--{foreach name='naviList' item='vo' }-->
+        <li onclick='window.location.href="{$vo.target}"'>
+            <div class="Content_ulBall">
+                <img src="{$vo.icon}" alt="">
+            </div>
+            <div class="BzName">{$vo.name}</div>
+        </li>
+        <!--{/foreach}-->
+    </ul>
+    <!--{/if}-->
+
+
+
+    <!--底部框-->
+    <!--#include file="footer.html"-->
+</div>
+
+</body>
+<script src="js/jquery.js"></script>
+<script src="js/TouchSlide.1.1.js"></script>
+<script src="js/common.js"></script>
+</html>
+<script type="text/javascript">
+    TouchSlide({
+        slideCell:"#slideBox",
+        titCell:".hd ul", //开启自动分页 autoPage:true ，此时设置 titCell 为导航元素包裹层
+        mainCell:".bd ul",
+        effect:"leftLoop",
+        autoPage:true,//自动分页
+        autoPlay:true //自动播放
+    });
+</script>

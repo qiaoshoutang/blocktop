@@ -1,0 +1,127 @@
+.NewType-Dynamic{
+    width: 855px;
+    height: 100%;
+    padding-bottom: 80px;
+    float: left;
+}
+.News-Dynamic-Content-box{
+    width: 855px;
+    margin-top: 30px;
+    padding-bottom: 20px;
+    background: white;
+    border: 1px #eeeeee solid;
+}
+.News-Dynamic-Content{
+    width: 95%;
+    height: 100%;
+    margin: 0 auto;
+}
+.Dynamic-Content-Title{
+   font-size: 28px;
+    margin-top: 40px;
+}
+.authorAndTime{
+    margin-top: 45px;
+}
+.authorAndTime span{
+    font-size: 18px;
+    color: #999999;
+    font-weight: 400;
+}
+.authorAndTime span:nth-child(1){
+    font-size: 21px;
+    font-weight: normal;
+    color: black;
+}
+.DynamicArticle{
+    font-size: 18px;
+    text-align: justify;
+    letter-spacing: 1px;
+    line-height: 180%;
+}
+.DynamicArticle p{
+    margin-top: 20px;
+}
+.video-Dynamic{
+    width: 525px;
+    height: 280px;
+    margin-top: 30px;
+    margin-left: 30px;
+}
+.DynamicArticleImg{
+    width: 80%;
+    margin: 30px auto 0 auto;
+}
+.DynamicArticleImg img{
+    width: 100%;
+}
+.statement{
+    color: silver;
+    margin-top: 10px;
+    font-size: 19px;
+    font-weight: 200;
+}
+.Hot-v{
+    margin-top: 30px;
+}
+.hot_New_Img{
+    width: 100%;
+}
+.hot_Img_TT{
+    width: 100%;
+    height: 175px;
+    position: relative;
+}
+.hot_Hover_A{
+    position: absolute;
+    width: 100%;
+    height: 40px;
+    line-height: 40px;
+    background: rgba(0,0,0,.6);
+    color: white;
+    text-align: center;
+    bottom: 0;
+    font-size: 20px;
+}
+.hot_NewContent_ul li{
+    width: 100%;
+    height: 90px;
+    border-top:1px #eeeeee solid ;
+    margin-top: 10px;
+    overflow: hidden;
+}
+.hot_NewContentImg_Left{
+    width: 35%;
+    margin-top: 10px;
+    float: left;
+    border-radius: 4px;
+    overflow: hidden;
+}
+.hot_NewContentImg_Left img{
+   width: 120px;
+    height: 70px;
+}
+.hot_NewContent_Right{
+    width: 60%;
+    float: right;
+}
+.hot_NewContent_Right div:nth-child(1){
+    margin-top: 16px;
+    font-weight: bold;
+    font-size: 15px;
+    letter-spacing: .5px;
+    text-overflow: -o-ellipsis-lastline;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    -webkit-box-orient: vertical;
+}
+.hot_NewContent_Right div:nth-child(1):hover{
+    color: #2e84fb;
+}
+.hot_NewContent_Right div:nth-child(2){
+    margin-top: 5px;
+    font-size: 14px;
+}

@@ -1,0 +1,204 @@
+.Partner-Links{
+    width: 1200px;
+    height:115px ;
+    border: 1px solid #eeeeee;
+    margin: 50px auto 0 auto;
+    background: white;
+}
+.Partner-Links ul{
+    width: 1200px;
+    height: 100%;
+}
+.Partner-Links ul li{
+    width: 19.5%;
+    height: 100%;
+    float: left;
+    position: relative;
+}
+.Partner-Links-WinD{
+    width: 210px;
+    height: 80px;
+    border: 1px #eeeeee silver;
+    position: absolute;
+    margin: auto;
+    right: 0;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    cursor: pointer;
+}
+.Partner-T{
+    width: 46px;
+    height: 46px;
+    margin-top: 18px;
+    margin-left: 10px;
+}
+.Partner-LinksText{
+    width: 70%;
+    float: right;
+    margin-top: -52px;
+}
+.Partner-LinksText p{
+    font-size: 12px;
+    color: silver;
+}
+.Partner-LinksText p:nth-child(1){
+    font-size: 16px;
+    color: #111216;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+.Partner-LinksText p:nth-child(2){
+    text-overflow: -o-ellipsis-lastline;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp:1;
+    line-clamp: 1;
+    -webkit-box-orient: vertical;
+}
+.Ac_Content{
+    width: 1200px;
+    margin: 55px auto 0 auto;
+}
+.TitAc{
+    width: 100%;
+    text-align: left;
+    font-size: 25px;
+}
+.Ac_Text{
+    width: 100%;
+    height: 325px;
+    border: 1px #eeeeee solid;
+    margin-top: 10px;
+}
+.Ac_TextImg{
+    float: left;
+    width: 45%;
+}
+.Ac_TextImg img{
+    width: 90%;
+    margin-top:25px ;
+    margin-left: 25px;
+}
+.Ac_TextNr{
+    width: 55%;
+    float: right;
+    text-align: left;
+}
+.Ac_TextNr_Tit{
+    margin-top: 25px;
+    font-size: 25px;
+}
+.Ac_TextNr_Content{
+    font-size: 17px;
+    margin-top: 20px;
+}
+.Ac_TextNr_Content span:nth-child(3){
+    margin-left: 18px;
+}
+.LiuL{
+    margin-top: 52px;
+}
+.Ac_Substance{
+    width: 1200px;
+    margin:20px auto 0 auto ;
+}
+.Ac_Substance_Left{
+    width: 65%;
+    float: left;
+}
+.Ac_Substance_Right{
+    width: 33%;
+    float: right;
+}
+.Activity_Target{
+    width: 100%;
+    margin: 20px auto;
+    font-size: 17px;
+    text-align: justify;
+    border: 1px #eeeeee solid;
+}
+.Activity_Target_box{
+    width: 95%;
+    margin: 20px auto;
+    padding-bottom: 30px;
+}
+.Activity_Target_box p{
+    line-height: 150%;
+}
+.Target_T img{
+    width: 100%;
+    margin-top: 15px;
+}
+.TTT{
+    margin-top: 45px;
+}
+.food-nav{
+    position: relative;
+    top:200px;
+}
+.Event_Organizer{
+    width: 100%;
+}
+.Event_Organizer ul{
+    width: 100%;
+}
+.Event_Organizer ul li{
+    width: 100%;
+    border: 1px #eeeeee solid;
+    height: 140px;
+    margin-top: 20px;
+    position: relative;
+    cursor: pointer;
+}
+.Organizer-T{
+    width: 75px;
+    height: 75px;
+    float: left;
+    margin-top: 32.5px;
+    margin-left: 32.5px;
+}
+.Organizer-T img{
+    width: 100%;
+}
+.Organizer-Text{
+    float: right;
+    width: 70%;
+    height: 75px;
+    margin-top: 32.5px;
+    font-size: 20px;
+}
+.Organizer-Text p:nth-child(2){
+    color: #999999;
+    font-size: 15px;
+    margin-top: 5px;
+    line-height: 150%;
+    text-overflow: -o-ellipsis-lastline;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    -webkit-box-orient: vertical;
+}
+.TitAcQR{
+    width: 100%;
+    height: 220px;
+    border: 1px #eeeeee solid;
+    position: relative;
+    margin-top: 20px;
+}
+.TitAcQR img{
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    margin: auto;
+    width: 45%;
+}
+.Sy{
+    margin-top: 40px;
+}

@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>区块链头条 7X24快讯</title>
+    <link rel="stylesheet" href="css/kuaixun_new.css?wangyuxiang3">
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no,initial-scale=1.0">
+    <script src="js/jquery-3.2.1.min.js"></script>
+    <script src="js/jquery-1.8.2.min.js"></script>
+    <script src="js/sweetalert2.all.js"></script>
+    <link rel="stylesheet" href="css/sweetalert.min.css">
+</head>
+<body>
+<div class="box">
+    <!--头部-->
+    <!--<div class="head">
+        <div class="header">
+            <a href=""><img src="/themes/default/image/logo.jpg" alt=""   class="logo"></a>
+        </div>
+    </div>-->
+    <!--导航栏-->
+    <div class="NavigationBar">
+        <div class="NavigationBar_text">
+            <ul class="NavigationBar_ul" data-type='1'>
+                <li class="list" id="list"><span id="list_span">快讯</span></li>
+                <!-- <li class="list"><span>动态</span></li> -->
+               <!-- <li class="list"><span>微博</span></li>-->
+            </ul>
+            <div class="line"></div>
+        </div>
+    </div>
+
+    <!--滑动日期--> 
+    <div class="W_Time" id="W_Time">
+        {$article_list[0]['time_top']}
+    </div>
+
+     <!--文章主题-->
+    <div class="text">
+        <div class="text_big">
+            <!--快讯-->
+
+            <div class="kuaixun sbox">
+                <!--最新文章-->
+                <div class='kuaixun_con'>
+                    <!--{foreach name='article_list' item='vo'}-->
+                    <div class="content_big">
+
+                        <div class="date">
+                            <img src="/themes/default/image/tow_cricleRed.png" alt="">
+                            <span>{$vo.time|format_time='H:i'}</span>
+                            <span class='time_top' style="display: none">{$vo.time_top}</span>
+                            <div class="dataLine">
+
+                            </div>
+                        </div>
+                        <div class="content_small">
+                            <h1> {$vo.title} </h1>
+                            <div class="content_detialArticity">
+                                {$vo.content}
+                            </div>
+                            <!--{if condition="$vo['image']"}-->
+                            <img src="{$vo['image']}" width='100%' class='content_img' style='padding-top:10px'>
+                            <!--{/if}-->
+                            <div class="share">
+                                <!--{if condition="$vo['wxurl']"}-->
+                                <div class="Yw_link">
+                                    <img src="/themes/default/image/YwLinkRed.png" alt="" class="share_div_img">
+                                    <span> <a href="{$vo.url}">{$vo.wxurl}</a></span>
+                                </div>
+                                <!--{/if}-->
+                                <div class="share_div">
+                                    <img src="/themes/default/image/FjRed.png" alt="" class="share_div_img">
+                                    <span onclick="share(this)" >分享</span>
+                                    <input name="time_date" type="hidden" value="{$vo.time|format_time='Y-m-d H:i'}" class="input">
+                                    <!--{if condition="$vo['qr_code']"}-->
+                                    <img src="{$vo['qr_code']}" style='display:none' class='qr_code'>
+                                    <!--{else/}-->
+                                    <img src="{$info['gzh_code']}" style='display:none' class='qr_code'>
+                                    <!--{/if}-->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--{/foreach}-->
+                </div>
+                <div class='msg'><span></span></div>
+            </div>
+
+
+            <!--动态-->
+            <div class="dongtai sbox" style="display: none">
+                <div  class="dongtai_con">
+                    <!--{foreach name='twitter_list' item='vo'}-->
+                    <div class="dongtai_big">
+                        <div class="big_all">
+                            <div class="big_top">
+                                <div class="yuan">
+                                    <img src="{$vo.auth_avatar}" style="width:100%;height:100%">
+                                </div>
+                                <div  class="name_1">{$vo.auth_name}</div>
+                                <div  class="name1">
+                                    <!--{if condition="$vo['country']"}-->
+                                    <span class="name1_span">{$vo.country}</span>
+                                    <!--{/if}-->
+                                    
+                                    <!--{if condition="$vo['type']"}-->
+                                    <span class="name2_span">{$vo.type}</span>
+                                    <!--{/if}-->
+                                    <span class="D_time">{$vo.time|format_time='m月d日 H:i'}</span>
+                                </div>
+                            </div>
+                            <div class="dongtai_content">
+                                {$vo.content}
+                            </div>
+                        </div>
+                    </div>
+                    <!--{/foreach}-->
+                </div>
+                <div class='msg'><span></span></div>
+            </div>
+
+        </div>
+    </div>
+  <!--弹窗-->
+    <div id="alert">
+        <button class="dj" style="cursor: pointer">×</button>
+
+        <div class="nr">
+            <div class="center_b" id="view"  style="width: 650px; overflow: hidden">
+                <div class="neirong">
+                    <div class="neirong_img">
+                        <img src="/themes/default/image/topred_Kx.png" alt="" style="width: 100%"  >
+                    </div>
+                    <div class="data_week" style="padding: 5px 30px;">
+                        <p class="data_week_p" style="color: #666;padding-top:8%;width: 95%;margin: 0 auto">
+                            <img src="/themes/default/image/yuan01.png" alt="" width="30px" height="30px">
+                            <span class="data_week_span" style="position: relative;top: -5px;font-size: 1.7em;color:#606060 ;left: 8px;font-weight: 100">星期二 2018-05-31 14:20</span>
+                        </p>
+                        <div id="wrapper">
+                            <p class="wrapper_h1" style="margin-top: 2%">
+
+                            </p>
+                            <p class="wrapper_p" style="margin-top: 5%;min-height: 320px">
+                                昨日，新京报记者从浙江大学获悉，浙大计算机学院和软件学院，将于今年学获悉，浙大计算机学院和软件学院，将于今年学获悉，浙大计算机学院和软件学院，将于今年学获悉，浙大计算机学院和软件学院，将于今年学获悉，浙大计算机学院和软件学院，将于今年秋季面向部分高年级本科生和研究生，设置一门名为《区块链与数字货币》的课程。据悉，这是国内首家开设此类课程的高校。 浙江大学相关课程教师称，在对区块链技术进行讲授时，将无法避免地涉及对于虚拟数字货币的介绍，但课程本身依然以教授区块链通用技术为主，不会鼓励...
+                            </p>
+
+                        </div>
+                    </div>
+
+                    <img src="/themes/default/image/bottomred_Kx.png"  style="width: 100%;margin-top: 45px" >
+
+                </div>
+
+            </div>
+
+        </div>
+        <p class="hb_bottom_p" style="display: none">海报正在加载中</p>
+        <p  class="tupian">长按图片保存</p >
+
+        <!--海报加载中-->
+    </div>
+
+    <div class="window_onload" >
+            <img src="/themes/default/image/zd3x11.png" alt="" class="window_onload_img">
+    </div>
+
+
+    <div class="loading_text">
+
+    </div>
+    <input name="page_p_1" value="1" type="hidden">
+    <input name="page_p_2" value="1" type="hidden">
+    <input name="page_p_3" value="1" type="hidden">
+</div>
+
+<script src="js/html2canvas.js"></script>
+
+<script>
+
+    var isloading = false;
+    var loading_text=document.getElementsByClassName("loading_text")[0];
+    var article_i=0;
+    var scroll_1=$(".date" ).eq(article_i).offset().top;
+    var scroll_2=$(".date" ).eq(article_i).offset().top;
+
+    $('.text').scroll(function (e) {
+            
+            if($('.NavigationBar_ul').attr('data-type')==1){ //快讯
+                scroll_1=scroll_2;
+                scroll_2=$(".date" ).eq(0).offset().top;
+                if(scroll_2<scroll_1){ //向下滚动
+                    if($(".date" ).eq(article_i).offset().top<80){
+                        $('#W_Time').html($(".date" ).eq(article_i).children('.time_top').html());
+                        article_i++;
+                    }
+                };
+
+                if(scroll_2>scroll_1){ //向上滚动
+
+                    if($(".date" ).eq(article_i).offset().top>160){
+                        $('#W_Time').html($(".date" ).eq(article_i).children('.time_top').html());
+                        if(article_i>0){
+                            article_i--;
+                        }
+                    }
+                }
+            }
+    
+        var bot = 550; //bot是底部距离的高度
+        if ((bot +  $('.text').scrollTop()) >= ($('.text_big').height()-165)) {
+
+            if(isloading){
+                return isloading;
+            }
+            /*加载中*/
+            loading_text.style.display="block";
+
+            ajaxMore();
+        }
+    });
+
+    function ajaxMore(){
+        
+        isloading = true;
+        var type=$('.NavigationBar_ul').attr('data-type');
+        var p = $("input[name='page_p_"+type+"']").val();
+        var gzh_code="{$info['gzh_code']}";
+
+        $.ajax({
+          type:"post",
+          url:"/Home/Short/ajax_add",
+          data:{type:type,p:p,gzh_code:gzh_code},
+          dataType:'json',
+          success:function(data){
+            /*去掉加载中*/
+            loading_text.style.display="none";
+            if(data.code==1){
+                if(type==1){ //快讯
+                    $('.kuaixun_con').append(data.article);
+                    $("input[name='page_p_1']").val(data.page_p);
+                }
+                if(type==2){ //动态
+                    $('.dongtai_con').append(data.article);
+                    $("input[name='page_p_2']").val(data.page_p);
+                }
+                if(type==3){ //微博
+                    $('.weibo_con').append(data.article);
+                    $("input[name='page_p_3']").val(data.page_p);
+                }
+
+            }else{
+                if(type==1){ //快讯
+                    $('.kuaixun .msg span').html('没有更多了');
+                }
+                if(type==2){ //动态
+                    $('.dongtai .msg span').html('没有更多了');
+                }
+                if(type==3){ //微博
+                   $('.weibo .msg span').html('没有更多了');
+                }
+                
+              console.log(data);
+            }
+
+            isloading=false;
+          }
+        });
+    }
+
+
+    var img;
+    //canvas 转换img图片
+    function convertCanvasToImage(canvas) {
+        var image = new Image();
+        image.src = canvas.toDataURL("image/png");
+        return image;
+    }
+
+    //获取像素密度
+    function getPixelRatio(conte) {
+        var backingStore = conte.backingStorePixelRatio ||
+            conte.webkitBackingStorePixelRatio ||
+            conte.mozBackingStorePixelRatio ||
+            conte.msBackingStorePixelRatio ||
+            conte.oBackingStorePixelRatio ||
+            conte.backingStorePixelRatio || 1;
+        return (window.devicePixelRatio || 1) / backingStore;
+    }
+
+    //绘制dom 元素，生成截图canvas
+    function html2Canvas() {
+        var shareContent = $("#view");// 需要绘制的部分的 (原生）dom 对象 ，注意容器的宽度不要使用百分比，使用固定宽度，避免缩放问题
+        var width = shareContent.width();  // 获取(原生）dom 宽度
+        var height = shareContent.height(); // 获取(原生）dom 高
+        console.log(width);
+        console.log(height);
+
+        var canvas = document.createElement('canvas');  //创建canvas 对象
+        var context = canvas.getContext('2d');
+        var scaleBy = getPixelRatio(context);//获取像素密度的方法 (也可以采用自定义缩放比例)
+        console.log(scaleBy);
+        canvas.width = width * scaleBy;   //这里 由于绘制的dom 为固定宽度，居中，所以没有偏移
+        canvas.height = height *scaleBy;  // 注意高度问题，由于顶部有个距离所以要加上顶部的距离，解决图像高度偏移问题
+        context.scale(scaleBy, scaleBy);
+
+        var opts = {
+            allowTaint: true,//允许加载跨域的图片
+            tainttest: true, //检测每张图片都已经加载完成
+            scale: scaleBy, // 添加的scale 参数
+            canvas: canvas, //自定义 canvas
+            logging: false, //日志开关，发布的时候记得改成false
+            width: width, //dom 原始宽度
+            height: height //dom 原始高度
+        };
+
+        html2canvas(shareContent, opts).then(function (canvas) {
+            console.log(shareContent);
+
+            $(".nr").append(canvas);
+           /* document.getElementsByClassName("hb_bottom_p")[0].style.display="none";*/
+            img = convertCanvasToImage(canvas);
+            $("canvas").remove();
+            $(img).addClass('img-wjh');
+            if(IsPC() == false){
+                $(img).css({
+                    'display': 'block',
+                    'margin': '13% auto',
+                    'max-height': '80%',
+                    'max-width': '80%',
+                });
+            }else{
+                $(img).css({
+                    'display': 'block',
+                    'margin': '5% auto',
+                    'max-height': '90%',
+                    'max-width': '90%',
+                });
+            }
+
+            $("#alert").append(img);
+            $(".nr").hide();
+        });
+    }
+    //判断pc还是手机
+    function IsPC() {
+        var userAgentInfo = navigator.userAgent;
+        var Agents = ["Android", "iPhone",
+            "SymbianOS", "Windows Phone",
+            "iPad", "iPod"];
+        var flag = true;
+        for (var v = 0; v < Agents.length; v++) {
+            if (userAgentInfo.indexOf(Agents[v]) > 0) {
+                flag = false;
+                break;
+            }
+        }
+        return flag;
+    }
+
+    function share(obj) {
+
+        $(".center_b").css({
+            'background': '#fff',
+        });
+
+        $(".wrapper_p").css({
+            'line-height': '180%',
+            "color": "black",
+            "letter-spacing":"0px",
+            "font-size":'1.5rem'
+        });
+        $(".wrapper_h1").css({
+            'font-size': '2em',
+            "font-weight":"515",
+            "color": "#e61f18",
+        });
+        $(".input").css({
+            'font-size': '1em',
+        });
+        $(".data_week_span").css({
+            "margin-top":"15%"
+        })
+
+        var content = $(obj).parents('.content_small').find(".content_detialArticity").html();
+        var time_date = $(obj).next().val();
+        var h_title=$(obj).parents(".content_small").find("h1").html();
+        var content_img=$(obj).parents('.share').prevAll('img').clone();
+
+  
+        $(".wrapper_h1").html(h_title);
+        $(".wrapper_p").html(content);
+        $(".wrapper_p span").css('color', '#333');
+        $(".data_week_span").html(time_date);
+
+        $('#wrapper').append(content_img);//快讯图片
+
+        $("#alert").show();
+        $(".dj").hide();
+        $('#alert .div_ewm').attr('src',$(obj).nextAll('.qr_code').attr('src'));
+
+        if (content && time_date) { //海报生成
+            html2Canvas();
+        }
+        $('#wrapper').children('img').remove();//删除图片
+        $(".center_b").css('background', 'none');
+        $(".neirong").hide();
+        $(".dj").show();
+
+    }
+
+    $(".dj").click(function () {
+        $("#alert").hide();
+        $(".neirong").css("display", "block");
+        $(".img-wjh").remove();
+        $(".nr").show();
+    })
+    $(".window_onload").click(function(){
+        $(".window_onload").hide();
+    })
+
+</script>
+
+</body>
+
+<script src="js/sweetalert.min.js"></script>
+<script src="js/kuaixun.js?t=13452233267"></script>
+</html>
+<script>
+
+</script>

@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>新闻动态</title>
+    <meta name="baidu-site-verification" content="9h2o7ScMIE" />
+    <meta name="keywords" content="蚂蚁节点联盟，社群组织，区块链，区块链社区，区块链社区联盟，区块链服务平台"/>
+    <meta name="description" content="蚂蚁节点联盟-蚂蚁节点联盟是国内知名的区块链线下社群组织，联盟以引领行业新生态、 促进区块链行业稳健发展为宗旨，致力于聚合全球区块链行业专家及区块链爱好者， 整合区块链产业上下游资源，为区块链行业参与者提供第三方综合服务。"/>
+    <link rel="stylesheet" href="css/NewsInformation.css">
+    <link rel="stylesheet" href="css/common.css">
+
+</head>
+<style>
+    body{
+        background: white!important;
+    }
+    .Hot-News{
+        margin-bottom: 30px;
+    }
+    .TextContent{
+        overflow:hidden;/*超出隐藏*/
+        text-overflow:ellipsis;/*文本溢出时显示省略标记*/
+        display:-webkit-box;/*设置弹性盒模型*/
+        -webkit-line-clamp:4;/*文本占的行数,如果要设置2行加...则设置为2*/
+        -webkit-box-orient:vertical;/*子代元素垂直显示*/
+        height: 72px;
+    }
+    .TextSource{
+        position: relative;
+    }
+    .Guankan{
+        position: absolute;
+        right: 0;
+        top: 0;
+    }
+    .Guankan img{
+        margin-right: 5px;
+    }
+</style>
+<body>
+<div class="box">
+    <!--导航栏-->
+    <!--#include file="header.html"-->
+
+    <!--合作伙伴链接窗-->
+    <div class="Partner-Links">
+        <ul>
+            <!--{foreach name='naviList' item='vo' }-->
+            <li onclick='window.open("{$vo.target}")'>
+                <div class="Partner-Links-WinD">
+                    <div class="Partner-T">
+                        <img src="{$vo.icon}" alt="" width="100%">
+                    </div>
+                    <div class="Partner-LinksText">
+                        <p>{$vo.name}</p>
+                        <p>{$vo.descrip}</p>
+                    </div>
+                </div>
+            </li>
+            <!--{/foreach}-->
+        </ul>
+    </div>
+    <!--各类文章-->
+    <div class="NewType">
+        <div class="NewType-nav">
+            <ul>
+                <li class='<!--{if condition="$class_id eq all"}--> active <!--{/if}-->'>
+                    <a href = '/news/all'>
+                        全部
+                    </a>
+                </li>
+                <!--{foreach name='newsCate' item='vo' }-->
+                <li class='<!--{if condition="$class_id eq $vo['class_id']"}--> active <!--{/if}-->'>
+                    <a href = '/news/{$vo.class_id}'>
+                        {$vo.name}
+                    </a>
+                </li>
+                <!--{/foreach}-->
+
+            </ul>
+        </div>
+        <!--全部-->
+        <!--{if condition="$class_id lt 6"}-->
+        <div class="NewType-Content">
+            <ul>
+            <!--{foreach name='newsList' item='vo' }-->
+                <li onclick='window.location.href="/newsContent/{$vo.content_id}"'>
+                    <div class="NewType-Detail">
+                        <div class="NewTypeImg">
+                            <div class="NewTypeImgBox">
+                                <img src="{$vo.image}" alt="">
+                            </div>
+
+                        </div>
+                        <div class="NewTypeText">
+                            <div class="TextTitle">
+                                {$vo.title}
+                            </div>
+                            <div class="TextContent">
+                                {$vo.description}
+                            </div>
+                            <div class="TextSource">
+                                <span>{$vo.author}</span>
+                                <span>{$vo.time|format_time='Y-m-d H:i:s'}</span>
+                                <span class="Guankan"><img src="images/guankan.png" alt="" width="15px">{$vo.views}</span>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <!--{/foreach}-->
+            </ul>
+            <div class="LookMore">
+                <span id='news_more'>查看更多</span>
+            </div>
+        </div>
+        <!--{else /}-->
+        <div class="NewType-Content">
+            <span>没有找到相关内容</span>
+        </div>
+        <!--{/if}-->
+        <!--热门快讯-->
+        <div class="Hot-News">
+
+            <div class="Hot-News-content">
+                <!--标题-->
+                <div class="HotNewsTitle">
+                    <span>热门快讯</span>
+                    <span class="HotMore">
+                        <a href='/message'>
+                            更多 <img src="images/MoreMoreM.png" alt="" width="5%">
+                        </a>
+                    </span>
+                </div>
+
+                <!--内容-->
+                <div class="HotNewsText">
+                    <!--{foreach name='messageList' item='vo' }-->
+                    <div class="HotNewsText-box">
+                        <div class="TuoY">
+                            <img src="images/TuoY.png" alt="" width="100%">
+                        </div>
+                        <div class="HotNewsText-Article">
+                            <div class="HotNewsTime">
+                                {$vo.time|format_time='H:i'}
+                            </div>
+                            <div class="HotNewsA-T">
+                                {$vo.title}
+                            </div>
+                            <div class="HotNewsTTT">
+                                {$vo.content}
+                            </div>
+                            <div class="Favorable-BadProfit">
+                                <span ><img src="images/up.png" alt=""> 利好<span class="count-f">{$vo.up}</span></span>
+                                <span class="Fb-span"><img src="images/down.png" alt=""> 利空<span class="count-f">{$vo.down}</span></span>
+                            </div>
+                        </div>
+                    </div>
+                    <!--{/foreach}-->
+
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+
+    <!--底部-->
+    <!--#include file="footer.html"-->
+</div>
+</body>
+</html>
+<script src="js/jquery.js"></script>
+<script src="js/commom.js"></script>
+<script>
+var page_num = 2;
+var class_id = '{$class_id}'
+
+    $(".NewType-Content ul li").hover(function () {
+        $(this).addClass("bg-color")
+        $(this).find($(".NewType-Detail")).css({
+            "border-bottom":"none"
+        })
+    }, function () {
+        $(this).removeClass("bg-color");
+        $(this).find($(".NewType-Detail")).css({
+            "border-bottom":"1px #eeeeee solid"
+        })
+    });
+    
+    $('#news_more').click(function(){
+        
+        $.ajax({
+          type:"post",
+          url:"/Home/Ajax/get_news",
+          data:{class_id:class_id,page_num:page_num},
+          dataType:'json',
+          success:function(rdata){
+
+            if(rdata.code==1){
+                $('.NewType-Content ul').append(rdata.data);
+                page_num++;
+            }else{
+                $('#news_more').html(rdata.info);
+            }
+          }
+        });
+    })
+</script>

@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>蚂蚁新闻快讯</title>
+    <meta name="baidu-site-verification" content="9h2o7ScMIE" />
+    <meta name="keywords" content="蚂蚁节点联盟，社群组织，区块链，区块链社区，区块链社区联盟，区块链服务平台"/>
+    <meta name="description" content="蚂蚁节点联盟-蚂蚁节点联盟是国内知名的区块链线下社群组织，联盟以引领行业新生态、 促进区块链行业稳健发展为宗旨，致力于聚合全球区块链行业专家及区块链爱好者， 整合区块链产业上下游资源，为区块链行业参与者提供第三方综合服务。"/>
+    <link rel="stylesheet" href="css/NewsInformation.css">
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/NewsFlash.css">
+    <link rel="stylesheet" href="css/NewsDynamicContent.css">
+</head>
+<body>
+<style>
+    body{
+        background: white!important;
+    }
+    #message_more{
+        width: 100%;
+        text-align: center;
+        margin: 0 auto;
+        color: #2e84fb;
+        font-size: 20px;
+        display: inline-block;
+        position: relative;
+        top: 60px;
+        cursor: pointer;
+    }
+    .shareKx img{
+        width: 2%;
+        position: relative;
+        top: 2px;
+
+    }
+    .Favorable-BadProfit{
+        position: relative;
+        width: 100%;
+    }
+    #GOUPID{
+       margin-left: 500px;
+    }
+    .shareKx{
+        margin-left: 20px;
+        cursor: pointer;
+    }
+    .shareKx:hover .QRKX_Code{
+      display: block;
+    }
+    .QRKX_Code{
+        width: 150px;
+        height: 180px;
+        position: absolute;
+        background: white;
+        bottom: -190px;
+        right: -35px;
+        z-index: 99999999;
+        display: none;
+        border: 1px #eeeeee solid;
+    }
+    #CodeShare{
+        width: 120px;
+        height: 120px;
+        margin-left: 10%;
+        margin-top: 8px;
+    }
+    #WxTxH{
+       width: 20%;
+    }
+    .WxSyX{
+        width: 80%;
+        margin: 10px auto;
+        text-align: center;
+    }
+
+</style>
+<div class="box">
+    <!--导航栏-->
+    <!--#include file="header.html"-->
+
+    <!--合作伙伴链接窗-->
+    <div class="Partner-Links">
+        <ul>
+            <!--{foreach name='naviList' item='vo' }-->
+            <li onclick='window.open("{$vo.target}")'>
+                <div class="Partner-Links-WinD">
+                    <div class="Partner-T">
+                        <img src="{$vo.icon}" alt="" width="100%">
+                    </div>
+                    <div class="Partner-LinksText">
+                        <p>{$vo.name}</p>
+                        <p>{$vo.descrip}</p>
+                    </div>
+                </div>
+            </li>
+            <!--{/foreach}-->
+        </ul>
+    </div>
+    <!--快讯-->
+    <div class="Kx">
+        <div class="NewsFlash">
+            <div class="NewsFlash_box">
+                <div class="NewsFlash_box_Content">
+                    <!--标题-->
+                    <div class="TItle_Flash">
+                        <span>快讯</span>
+                    </div>
+                    <!--快讯内容-->
+                    <div class="KxText">
+                        <ul>
+                            <!--{foreach name='messageList' item='vo' }-->
+                            <li>
+                                <div class="TuoY">
+                                    <img src="images/TuoY.png" alt="" width="100%">
+                                </div>
+                                <div class="KxTime">
+                                    <span>{$vo.time|format_time='H:i'}</span>
+                                </div>
+                                <!--内容-->
+                                <div class="KxConttt">
+                                    <div class="KxConttt_Title">{$vo.title}</div>
+                                    <div class="KxConttt_Text">
+                                        {$vo.content}
+                                    </div>
+                                    <div class="Favorable-BadProfit">
+                                        <span class="badDownGood" data-id='{$vo.id}' data-type='up' id="GOUPID">
+                                            <img src="images/up.png" alt=""> 利好<span class="count-f">{$vo.up}</span>
+                                        </span>
+                                        <span class="badDownGood" data-id='{$vo.id}' data-type='down'>
+                                            <img src="images/down.png" alt=""> 利空<span class="count-f">{$vo.down}</span>
+                                        </span>
+                                        <span class="shareKx">
+                                            <img src="images/fenxiang.png" alt="">
+                                            分享
+                                            <span class="QRKX_Code">
+                                                <img src="images/qrcode_message.png" alt="" id="CodeShare">
+                                                <div class="WxSyX">
+                                                    <img src="images/WxTxH.png" alt="" id="WxTxH">
+                                                    <span>微信扫一扫</span>
+                                                </div>
+
+
+                                            </span>
+                                        </span>
+                                    </div>
+                                </div>
+                            </li>
+                            <!--{/foreach}-->
+                        </ul>
+                    </div>
+                    <div>
+                        <span id='message_more'>加载更多</span>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+        <div class="Hot-News Hot-v">
+            <div class="Hot-News-content">
+                <!--标题-->
+                <div class="HotNewsTitle">
+                    <span>热门新闻</span>
+                    <span class="HotMore">
+                        <a href='/news/all'>
+                            更多>
+                        </a>
+                    </span>
+                </div>
+                <!--内容-->
+                <div class="hot_New_Img">
+                    <div class="hot_Img_TT">
+                        <div onclick='window.location.href="/newsContent/{$newsFirst.content_id}"' class="hot_Img_TT_Im">
+                            <img src="{$newsFirst['image']|default='images/news_default.png'}" alt="" width="100%">
+                            <div class="hot_Hover_A">
+                                {$newsFirst['title']}
+                            </div>
+                        </div>
+                        <ul class="hot_NewContent_ul">
+                            <!--{foreach name='newsList' item='vo' }-->
+                            <li onclick='window.location.href="/newsContent/{$vo.content_id}"'>
+                                <div class="hot_NewContentImg_Left">
+                                    <img src="{$vo.image|default='images/news_default.png'}" alt="" width="100%">
+                                </div>
+                                <div class="hot_NewContent_Right">
+                                    <div class="">
+                                        {$vo.title}
+                                    </div>
+                                    <div>
+                                        {$vo.time|format_time='Y-m-d'}
+                                    </div>
+
+                                </div>
+                            </li>
+                            <!--{/foreach}-->
+                        </ul>
+
+                    </div>
+
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!--底部-->
+    <!--#include file="footer.html"-->
+</div>
+</body>
+</html>
+<script src="js/jquery.js"></script>
+<script src="js/commom.js"></script>
+<script src="/themes/mobile/js/jquery.cookie.js"></script>
+<script>
+
+    function setCookie(c_name,value,expiredays)
+    {
+        var exdate=new Date();
+        exdate.setDate(exdate.getDate()+expiredays);
+        document.cookie=c_name+ "=" +escape(value)+ ((expiredays==null) ? "" : ";expires="+exdate.toGMTString());
+    }
+    //取回cookie
+    function getCookie(c_name)
+    {
+        if (document.cookie.length>0)
+        {
+            c_start=document.cookie.indexOf(c_name + "=");
+            if (c_start!=-1)
+            {
+                c_start=c_start + c_name.length+1;
+                c_end=document.cookie.indexOf(";",c_start);
+                if (c_end==-1) c_end=document.cookie.length;
+                return unescape(document.cookie.substring(c_start,c_end))
+            }
+        }
+        return "";
+    }
+    var page_num = 2;
+    $('#message_more').click(function(){
+        
+        $.ajax({
+          type:"post",
+          url:"/Home/Ajax/get_message",
+          data:{page_num:page_num},
+          dataType:'json',
+          success:function(rdata){
+
+            if(rdata.code==1){
+                $('.KxText ul').append(rdata.data);
+                page_num++;
+            }else{
+                $('#message_more').html(rdata.info);
+            }
+          }
+        });
+    });
+    $("body").on("click",".badDownGood",function () {
+        var obj =$(this);
+        var id = obj.attr('data-id');
+        var type = obj.attr('data-type');
+        var aaa=getCookie(type+id);
+        var cida=type+id;
+        if(aaa==cida){
+            return false
+        }
+        $.ajax({
+          type:"post",
+          url:"/Home/Ajax/opera_message",
+          data:{id:id,type:type},
+          dataType:'json',
+          success:function(rdata){
+            if(rdata.code==1){
+                obj.find('.count-f').addClass("wyx");
+                obj.css({"pointer-events":"none"});
+                obj.find('.count-f').html(parseInt(obj.find('.count-f').html())+1);
+                var cid = obj.find('.count-f').html();
+                setCookie(type+id,type+id, 365);
+            }else{
+
+            }
+          }
+        });
+    })
+</script>

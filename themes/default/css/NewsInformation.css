@@ -1,0 +1,325 @@
+body{
+    background: #f9f9f9;
+}
+.Partner-Links{
+    width: 1200px;
+    height:115px ;
+    border: 1px solid #eeeeee;
+    margin: 50px auto 0 auto;
+    background: white;
+}
+.Partner-Links ul{
+    width: 1200px;
+    height: 100%;
+}
+.Partner-Links ul li{
+    width: 19.5%;
+    height: 100%;
+    float: left;
+    position: relative;
+}
+.Partner-Links-WinD{
+    width: 210px;
+    height: 80px;
+    position: absolute;
+    margin: auto;
+    right: 0;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    cursor: pointer;
+}
+.Partner-T{
+    width: 46px;
+    height: 46px;
+    /*border: 1px solid silver;*/
+    margin-top: 18px;
+    margin-left: 10px;
+}
+.Partner-LinksText{
+    width: 70%;
+    float: right;
+    margin-top: -43px;
+}
+.Partner-LinksText p{
+    font-size: 12px;
+    color: silver;
+    width: 100%;
+
+}
+.Partner-LinksText p:nth-child(1){
+    font-size: 16px;
+    color: #111216;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+.Partner-LinksText p:nth-child(2){
+
+    text-overflow: -o-ellipsis-lastline;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp:1;
+    line-clamp: 1;
+    -webkit-box-orient: vertical;
+}
+.NewType{
+    width: 1200px;
+    margin: 0 auto;
+    height: 100%;
+}
+.NewType-nav{
+    width: 100%;
+    height: 75px;
+
+}
+.NewType-nav ul li{
+    width: 112.5px;
+    float: left;
+    text-align: center;
+    font-size: 26px;
+    height: 75px;
+    line-height: 75px;
+    color: #808080;
+    font-weight: 400
+}
+.NewType-nav ul li.active{
+    color:#333;
+}
+.NewType-nav ul li a{
+    color:#808080;
+}
+.NewType-nav ul li.active a{ 
+    color: #111216;
+    font-weight: bold;
+}
+
+.NewType-Content{
+    width: 855px;
+    float: left;
+    padding-bottom: 80px;
+}
+.NewType-Content ul{
+    width: 100%;
+    border: 1px solid #eeeeee;
+    height: 100%;
+    display: inline-block;
+}
+.NewType-Content ul li{
+    width: 100%;
+    height: 215px;
+
+}
+.NewType-Detail{
+    width: 90%;
+    height: 100%;
+    margin: 0 auto;
+    position: relative;
+    border-bottom: 1px #eeeeee solid;
+}
+.NewTypeImg{
+    width: 30%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    overflow: hidden;
+}
+.NewTypeImgBox{
+    margin-top: 36px;
+    border-radius:8px;
+    overflow: hidden;
+    width: 100%;
+    height: 145px;
+}
+.NewTypeImgBox img{
+   width: 100%;
+    height: 100%;
+
+}
+.NewTypeText{
+    width: 65%;
+    height: 100%;
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+.TextTitle{
+    font-size: 22px;
+    margin-top: 35px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.TextContent{
+    margin-top: 12px;
+    font-size: 13px;
+    width: 90%;
+}
+.TextSource{
+    margin-top: 12px;
+}
+.TextSource span{
+    font-size: 13px;
+}
+.TextSource span:nth-child(1){
+    font-weight: bold;
+
+    font-size: 15px;
+}
+.TextSource span:nth-child(2),.TextSource span:nth-child(3){
+    /*margin-left: 10px;*/
+}
+.bg-color{
+    background: #f1f1f1;
+}
+.LookMore{
+    width: 100%;
+    height: 55px;
+    line-height: 55px;
+    text-align: center;
+    margin-top: 20px;
+    color: #2e84fb;
+    font-size: 20px;
+    cursor: pointer;
+}
+.LookMore a{
+    color: #2e84fb;
+    text-decoration: none;
+}
+/*热门快讯*/
+.Hot-News{
+    width: 325px;
+    height: 780px;
+    border: 1px #eeeeee solid;
+    float: right;
+    background: white;
+
+}
+.HotNewsTitle{
+   width: 100%;
+    height: 50px;
+    line-height: 50px;
+    position: relative;
+}
+.HotMore{
+    position: absolute;
+    right: 0;
+    color: #999999;
+    font-weight: normal;
+    font-size: 18px;
+    text-align: right;
+}
+.HotMore a{
+    color: silver;
+}
+.HotNewsTitle span:nth-child(1){
+    position: absolute;
+    left: 0;
+    font-size: 23px;
+}
+.Hot-News-content{
+    width: 90%;
+    height: 100%;
+    margin: 0 auto;
+}
+.HotNewsText{
+    width: 92%;
+    border-left: 1px #eeeeee solid;
+    height: 710px;
+    margin: 0 auto;
+
+}
+.TuoY{
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    left: -15px;
+    top: 5px;
+}
+.HotNewsText-box{
+    height: 240px;
+    width: 100%;
+    position: relative;
+}
+.HotNewsText-Article{
+    width: 90%;
+    position: absolute;
+    right: 0;
+}
+.HotNewsTime{
+    font-size: 20px;
+    color: grey;
+    font-weight: 300;
+    margin-top:6px;
+}
+.HotNewsA-T{
+    font-size: 18px;
+    color: black;
+    letter-spacing: 1px;
+    font-weight: bold;
+    text-overflow: -o-ellipsis-lastline;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp:2;
+    line-clamp: 2;
+    -webkit-box-orient: vertical;
+    margin-top: 7px;
+}
+.hot_NewContent_ul{
+    margin-top: 10px;
+}
+.HotNewsTTT{
+    font-size: 14px;
+    margin-top: 8px;
+    line-height: 160%;
+    letter-spacing: .5px;
+    text-overflow: -o-ellipsis-lastline;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp:4;
+    line-clamp: 4;
+    -webkit-box-orient: vertical;
+    height: 88px;
+}
+.Favorable-BadProfit{
+    margin-top: 10px;
+}
+.Favorable-BadProfit span{
+    font-size: 14px;
+    color: silver;
+}
+.count-f{
+    margin-left: 10px;
+}
+.Fb-span{
+    margin-left: 20px;
+}
+.HotNewsText-Article:hover .HotNewsA-T{
+    color: #2e84fb;
+
+}
+.HotNewsText-Article:hover{
+    cursor: pointer;
+}
+.NewType-Content ul li:hover .TextTitle{
+    color: #2e84fb;
+    cursor: pointer;
+}
+
+.hot_Hover_A{
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.hot_Img_TT_Im{
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+.hot_Img_TT_Im img{
+    width: 100%;
+}

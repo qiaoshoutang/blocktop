@@ -1,0 +1,97 @@
+.Kx{
+    width: 1200px;
+    margin: 0 auto;
+    height: 100%;
+}
+.NewsFlash{
+    width: 855px;
+    height: 100%;
+    padding-bottom: 80px;
+    float: left;
+    margin: 0 auto;
+}
+.NewsFlash_box{
+
+    width: 855px;
+    margin-top: 30px;
+    padding-bottom: 20px;
+}
+.NewsFlash_box_Content{
+    width: 95%;
+    margin: 0 auto;
+}
+.TItle_Flash{
+    width: 100%;
+    height: 40px;
+    line-height: 40px;
+    font-size: 25px;
+    position: relative;
+}
+.TItle_Flash span{
+    position: absolute;
+    left: -25px;
+
+}
+.KxText{
+    width: 100%;
+    border-left: 1px #eeeeee solid;
+    position: relative;
+    min-height: 800px;
+    margin-top: 25px;
+}
+.KxTime{
+    width: 9%;
+    text-align: center;
+    font-size:18px;
+    color: #333;
+    height: 25px;
+    line-height: 25px;
+    padding-top: 8px;
+    float: left;
+    font-weight: normal;
+}
+.KxTime span{
+
+}
+.KxConttt_Title{
+    font-size: 22px;
+    width: 100%;
+    text-overflow: -o-ellipsis-lastline;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    -webkit-box-orient: vertical;
+}
+.KxConttt{
+    width: 91%;
+    float: right;
+    padding-top: 7px;
+}
+.KxConttt_Text{
+    text-align: justify;
+    margin-top: 10px;
+    line-height: 160%;
+    letter-spacing:1px;
+    color: #333;
+}
+.count-f{
+    margin-left:5px!important;
+}
+.KxText ul li{
+     width: 100%;
+    height: 100%;
+    display: inline-block;
+    position: relative;
+    margin-top: 45px;
+}
+.KxText ul li:nth-child(1){
+    margin-top: 15px;
+}
+.Hot-v{
+    margin-top: 30px;
+}
+.KxConttt:hover .KxConttt_Title{
+    color: #2e84fb;
+}

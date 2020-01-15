@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>蚂蚁活动</title>
+    <meta name="baidu-site-verification" content="9h2o7ScMIE" />
+    <meta name="keywords" content="蚂蚁节点联盟，社群组织，区块链，区块链社区，区块链社区联盟，区块链服务平台"/>
+    <meta name="description" content="蚂蚁节点联盟-蚂蚁节点联盟是国内知名的区块链线下社群组织，联盟以引领行业新生态、 促进区块链行业稳健发展为宗旨，致力于聚合全球区块链行业专家及区块链爱好者， 整合区块链产业上下游资源，为区块链行业参与者提供第三方综合服务。"/>
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <script>
+        (function (doc, win) {
+            var docEl = doc.documentElement,
+                resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+                recalc = function () {
+                    var clientWidth = docEl.clientWidth;
+                    if (!clientWidth) return;
+                    if(clientWidth>=640){
+                        docEl.style.fontSize = '100px';
+                    }else{
+                        docEl.style.fontSize = 100 * (clientWidth / 640) + 'px';
+                    }
+                };
+            if (!doc.addEventListener) return;
+            win.addEventListener(resizeEvt, recalc, false);
+            doc.addEventListener('DOMContentLoaded', recalc, false);
+        })(document, window);
+    </script>
+    <link rel="stylesheet" href="css/common.css">
+    <script src="js/jquery.js"></script>
+</head>
+<style>
+    .activits{
+        width: 100%;
+    }
+    .act_box{
+        width: 95%;
+        margin: .3rem auto 0 auto;
+        border: 1px solid #eeeeee;
+    }
+    .Title_Guan{
+        width: 95%;
+        height: .5rem;
+        line-height: .5rem;
+        margin:  -.1rem auto 0 auto;
+        position: relative;
+        bottom: .1rem;
+    }
+    .Title_Guan span:nth-child(1){
+        width: 65%;
+        text-align: left;
+        font-size:.3rem ;
+        float: left;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+    .Title_Guan span:nth-child(2){
+        width: 35%;
+        text-align: right;
+        font-size: .25rem;
+        color: #585858;
+        float: right;
+    }
+    .locationStyle{
+        width: 95%;
+        position: relative;
+        margin: 0 auto;
+        height: 1rem;
+    }
+    .locationAct{
+        width: 60%;
+        font-size: .25rem;
+        float: left;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+    .EnrolmentAc{
+        width: 1.45rem;
+        height: .4rem;
+        background: #2e84fb;
+        color: white;
+        line-height: .4rem;
+        text-align: center;
+        float: right;
+        font-size: .24rem;
+        font-weight: 200;
+        border-radius: 2px;
+        margin-top: .2rem;
+        letter-spacing: 1px;
+
+    }
+    .FinishAc{
+        width: 1.45rem;
+        height: .4rem;
+        background: #aaaaaa;
+        color: white;
+        line-height: .4rem;
+        text-align: center;
+        float: right;
+        font-size: .24rem;
+        font-weight: 200;
+        border-radius: 2px;
+        margin-top: .2rem;
+        letter-spacing: 1px;
+    }
+    .locationAct img{
+        position: relative;
+        top: .03rem;
+    }
+    .locationActA{
+        color: #585858;
+        margin-top: .05rem;
+    }
+    .LOOKMMM{
+        width: 100%;
+        text-align: center;
+        font-size: .3rem;
+        color: #2e84fb;
+        margin: .2rem auto 0 auto;
+        padding-bottom: .5rem;
+    }
+</style>
+
+<body>
+   <div class="box">
+       <!--顶部导航栏-->
+       <!--#include file="header.html"-->
+       <div class="activits">
+          <!--{foreach name='activityList' item='vo' }-->
+          <div class="act_box" onclick='window.location.href="/activitContent_m/{$vo.id}"'>
+               <img src="{$vo.cover_url}" alt="" width="100%">
+               <div class="Title_Guan">
+                   <span>{$vo.name}</span>
+                   <span><img src="images/guankan.png" alt="" width="13%" style="margin-right: .12rem">{$vo.views}</span>
+               </div>
+               <div class="locationStyle">
+                   <div class="locationAct">
+                       <div class="locationActA">
+                           <img src="images/location.png" alt="" width="6.5%">
+                           <span>{$vo.position}</span>
+                       </div>
+                       <div class="locationActA">
+                           <img src="images/shijian.png" alt="" width="7%">
+                           <span>{$vo.duration}</span>
+                       </div>
+                   </div>
+                   <!--{if condition="$vo.state eq 1"}-->
+                   <div class="EnrolmentAc">
+                         报名中
+                   </div>
+                   <!--{/if}-->
+                   <!--{if condition="$vo.state eq 2"}-->
+                   <div class="FinishAc">
+                       已结束
+                   </div>
+                   <!--{/if}-->
+              </div>
+        </div>
+         <!--{/foreach}-->
+       </div>
+       <div class="LOOKMMM" id='acti_more'>
+                查看更多
+          </div>
+       <!--底部框-->
+       <!--#include file="footer.html"-->
+   </div>
+</body>
+<script src="js/common.js"></script>
+<script>
+    var page_num = 2;
+
+    $('#acti_more').click(function(){
+        $.ajax({
+          type:"post",
+          url:"/Home/Ajax/get_acti",
+          data:{page_num:page_num},
+          dataType:'json',
+          success:function(rdata){
+
+            if(rdata.code==1){
+                $('.activits').append(rdata.data);
+                page_num++;
+            }else{
+                $('#acti_more').html(rdata.info);
+            }
+          }
+        });
+    })
+</script>
+</html>

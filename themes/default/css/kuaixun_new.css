@@ -1,0 +1,621 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+ul  li{
+    list-style: none;
+}
+body,html{
+    width: 100%;
+    height: 100%;
+    max-width:1024px ;
+    min-width: 320px;
+    -webkit-overflow-scrolling:touch;
+    margin: 0 auto;
+}
+.box{
+    width: 100%;
+    height: 100%;
+}
+.head{
+    width: 100%;
+    position: relative;
+
+}
+.header{
+    width: 100%;
+    margin: 0 auto;
+    justify-content: space-between;
+    text-align: center;
+    height: 50px;
+    background: white;
+
+}
+
+.logo{
+    margin-top: 6%;
+    width: 44.5%;
+}
+.search{
+    position: absolute;
+    right: 10%;
+    top: 1em;
+}
+.NavigationBar{
+    width: 100%;
+    position: relative;
+    z-index: 99;
+    padding-top: 6%;
+}
+.NavigationBar_text{
+    width: 100%;
+    height: 2.3em;
+    background: white;
+    position: relative;
+}
+.NavigationBar_ul{
+    width: 100%;
+    height: 3em;
+    background: white;
+
+}
+.list{
+    width: 50%;
+    float: left;
+    height: 2em;
+    text-align: center;
+    font-size: 1.1em;
+    border-bottom: 2px solid #f0f0f0;
+}
+
+.line{
+    position: absolute;
+    bottom: 0;
+    left: 19.5%;
+    width: 11%;
+    height: 3px;
+    background-color: black;
+    transition: all 0.5s;
+}
+.text{
+    width: 100%;
+    overflow: auto;
+    height: 100%;
+    position: relative;
+
+
+}
+
+.kuaixun{
+    width: 100%;
+    height: 100%;
+
+}
+.dongtai{
+    width: 100%;
+    background: #f0f5f9;
+    height: 100%;
+
+
+
+}
+.weibo{
+    width: 100%;
+    background: #f0f5f9;
+    height: 100%;
+    display: none;
+}
+.W_Time{
+    width: 100%;
+    background: #ff6d75;
+    height: 2em;
+    line-height: 2em;
+    font-size: .8em;
+    position: relative;
+    z-index: 999;
+    color: white;
+    text-align: center;
+    letter-spacing: 1px;
+    padding-top: 1px;
+
+}
+.date{
+    width: 100%;
+    margin: 0 auto;
+    padding-bottom: 5%;
+}
+.date img{
+    width:4%;
+    position: relative;
+    right: 2%;
+    top: -4px;
+    z-index: 999;
+}
+.date span{
+    position: relative;
+    top: -6px;
+    height: 1.5em;
+    line-height: 1.6em;
+    font-size: .75em;
+    background: #ff6d75;
+    border-radius: 18px;
+    padding: 0 3.5% 0 3.5%;
+    color: white;
+    display: inline-block;
+    margin-top: 1%;
+}
+
+.content_small h1{
+    font-weight: bold;
+    color: #00121d;
+    display: inline;
+    font-size: 1.05em
+}
+.content_small p{
+    color: #00121d;
+    font-size: 1.05em;
+    /*display: inline;*/
+}
+
+.kuaixun_con{
+    padding-top: 5%;
+}
+.kuaixun_con :nth-child(1) .content_small p{
+    color: #ff0000!important;
+}
+.kuaixun_con :nth-child(1) .content_small h1{
+    color:#ff0000;
+}
+.content_big{
+    width: 90%;
+    margin: 0 auto;
+    /*border-left:1px solid rgba(132,207,255,.3);*/
+    border-left:1px solid #ff6d75;
+    color: #868686;
+}
+
+.content_small{
+    width: 95%;
+    margin: 0 auto;
+    font-size: .9em;
+    color: #4a5054;
+    letter-spacing: 1px;
+    word-break: break-all;
+    word-wrap: break-word;
+    margin-left: 5%;
+    text-align: justify;
+    overflow-x:-moz-hidde-unscrollable ;
+    overflow-x: -webkit-marquee;
+    overflow-x: hidden;
+
+}
+.content_small_old h1{
+    width: 90%;
+    margin: 0 auto;
+    font-size: .9em;
+    color: #242a2e;
+    letter-spacing: 1px;
+}
+.content_small_old{
+    width: 90%;
+    margin: 0 auto;
+    font-size: .9em;
+    color: #4a5054;
+    letter-spacing: 1px;
+}
+.dataLine{
+    width: 77%;
+    background: #ff6d75;
+    height: 1px;
+    position: relative;
+    left: 20%;
+    margin-top: -5%;
+    /*z-index: -1;*/
+
+}
+.blank{
+    height: 2em;
+}
+.share{
+    width: 100%;
+    height: 3.5em;
+    margin: 0 auto;
+    position: relative;
+
+}
+.Yw_link{
+    width: 30%;
+    height: 2.5em;
+    position: absolute;
+    left:0;
+    line-height: 3.5em;
+    color: black;
+    text-align: center;
+    font-size: 1em;
+}
+.share_div{
+    width: 30%;
+    height: 2.5em;
+    position: absolute;
+    right:-6%;
+    line-height: 3.5em;
+    color: black;
+    text-align: center;
+    font-size: 1em;
+}
+.Yw_link span{
+    width: 100%;
+    height: 2.5em;
+    position: relative;
+    top: -5%;
+    color: #ff6d75;
+}
+.Yw_link span a{
+    text-decoration: none;
+    color:#ff6d75 ;
+}
+.share_div span{
+    width: 100%;
+    height: 2.5em;
+    position: relative;
+    top: -5%;
+    color: #ff6d75;
+
+}
+.share_div_img{
+    width: 18%;
+}
+.msg{
+    font-size: .9em;
+    letter-spacing: 1px;
+    margin-top: 5%;
+    margin-left: 40%;
+}
+
+.dongtai_big{
+    width: 95%;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    box-shadow:1px 1px 1px  #f0f0f0;
+    border:2px solid #f0f0f0;
+    background: white;
+    margin: 0 auto;
+    position: relative;
+    margin-top: 2%;
+
+}
+.dongtai_big_top{
+    margin-top: 4%;
+}
+
+.big_top{
+    height: 4em;
+    position: relative;
+
+}
+.yuan{
+    width: 2.5em;
+    height: 2.5em;
+    border-radius: 50%;
+    border: 1px solid #e0e3e7;
+    margin-left: 5%;
+    margin-top: 2%;
+    overflow: hidden;
+    position: relative;
+    top: 8px;
+
+}
+.name{
+    width: 82%;
+    height: 2.5em;
+    position: absolute;
+    right: -2%;
+    top: 15px;
+    font-size: .8em;
+    font-weight: 600;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+
+
+}
+.name_1{
+    width: 82%;
+    height: 2.5em;
+    position: absolute;
+    right: -2%;
+    top: 7%;
+    font-size: .8em;
+    font-weight: 600;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.name1{
+    width:80%;
+    height: 2.5em;
+    position: absolute;
+    right: 0;
+    top: 2em;
+
+
+}
+.name1_span{
+    border: #1f8dd0 solid 1px;
+    text-align: center;
+    border-radius: 4px;
+    font-size: .8em;
+    display: inline-block;
+    padding: 0 2%;
+
+}
+.name2_span{
+    border: #1f8dd0 solid 1px;
+    text-align: center;
+    border-radius: 4px;
+    font-size: .8em;
+    display: inline-block;
+    padding: 0 2%;
+
+}
+.D_time{
+    font-size: 0.8em;
+    position: relative;
+}
+
+.D_time1{
+    font-size: 0.8em;
+    position: relative;
+    top: 12%;
+}
+.dongtai_content{
+    width: 90%;
+    height: 100%;
+    font-size: .9em;
+    letter-spacing: 1px;
+    font-weight: 400;
+    word-break: break-all;
+    word-wrap: break-word;
+    /* overflow: hidden; */
+    padding: 5%;
+    margin: 0 auto;
+    margin-top: 2%;
+
+}
+
+.wrapper_p{
+    line-height: 180%;
+    width: 95%;
+    margin: 0 auto;
+}
+.wrapper_h1{
+    font-size: 2rem;
+    width: 95%;
+    margin: 0 auto;
+    color: #e61f18;
+}
+#alert{
+    display: none;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.5) !important;
+    z-index: 9999;
+
+
+}
+
+.tupian{
+    width: 45%;
+    margin: 0 auto;
+    text-align: center;
+    border:none;
+    background-color: rgba(0,0,0,.7);
+    color: white;
+    font-style: italic;
+    font-weight: lighter;
+    border-radius: 12px;
+    position: absolute;
+    bottom: 30px;
+    left: 28%;
+}
+.div_ewm{
+    width: 140px;
+    height: 140px;
+    font-weight: lighter;
+    position: absolute;
+    bottom: 48px;
+    right:39px;
+    z-index: 999
+}
+.nr{
+
+    margin: auto;
+    position: relative;
+}
+.img-wjh{
+    position: relative;
+    z-index: 999;
+}
+
+.hb_bottom{
+    width: 100%;
+    position: relative;
+    /* background: url("../image/bottom11.png") bottom  no-repeat;*/
+    background-size: contain;
+    top: 15%;
+}
+.hb_bottom_p{
+    color:#1f8dd0;
+    position: absolute;
+    right:15%;
+    top:25%;
+    z-index: 888;
+    font-size: 1em;
+    width: 35%;
+    margin: 0 auto;
+}
+/*@media only screen and (min-width: 320px) and (min-width:360px ){
+    .hb_bottom{
+        width: 100%;
+        position: absolute;
+    }
+}*/
+.hb_bottom img{
+    float: left;
+}
+.dj{
+    width: 30px;
+    height: 30px;
+    border: none;
+    outline: none;
+    border-radius: 50%;
+    background: white;
+    text-align: center;
+    line-height: 25px;
+    font-size: 2em;
+    position: absolute;
+    right: 5%;
+    top: 5%;
+    z-index: 9999;
+}
+.center_b{
+
+}
+.cb{
+    clear: both;
+}
+#view{
+    background: #f7fafc;
+
+
+
+}
+/*.window_onload{
+    !*display: none;*!
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.6) !important;
+    z-index: 9999;
+}*/
+.loading_text{
+    display: none;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 10%;
+    overflow: auto;
+    background-color: rgba(255, 255, 255, 0.6) !important;
+    background: url("../image/logo1.gif")no-repeat center;
+    background-size: 50px 25px;
+    z-index: 9991
+}
+.window_onload{
+    text-align: center;
+    position: fixed;
+    right: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    margin: 0 auto;
+    text-align: center;
+    background: rgba(0,0,0,.7);
+    /*background: url("../image/zd3x.png")no-repeat center;*/
+    background-size: contain;
+    font-size: .8em;
+    z-index: 9999;
+    overflow: hidden;
+
+}
+
+.window_onload_img{
+    width: 60%;
+    margin-left: 23%;
+    margin-top: 10%;
+}
+/*.new_top{
+    margin-top: 10.5%;
+    height: 20px;
+    width: 20px;
+    background-color: rgba(96, 96, 96, .9) !important;
+    z-index: 99999999  ;
+    position: fixed;
+    right: 4.8%;
+    top: 0;
+    transform: rotate(45deg);
+
+}*/
+.data_week_span{
+    font-size: 1.5em;
+    position: relative;
+    top: -6px;
+
+}
+.input{
+    font-size: 1em;
+}
+.yuan1{
+    width: 2.5em;
+    height: 2.5em;
+    border-radius: 50%;
+    border: 1px solid #e0e3e7;
+    margin-left: 5%;
+    margin-top: 2%;
+    overflow: hidden;
+}
+@media screen and ( min-width: 320px ) and ( max-width: 374px ){
+    .dataLine{
+        width: 80%;
+        background: #ff6d75;
+        height: 1px;
+        position: relative;
+        left: 20%;
+        margin-top: -5%;
+    }
+    .date img{
+        top: -5px
+    }
+
+}
+
+@media screen and ( min-width: 375px ) and ( max-width: 410px ){
+    .dataLine{
+        width: 80%;
+        background: #ff6d75;
+        height: 1px;
+        position: relative;
+        left: 20%;
+        margin-top: -4.5%;
+    }
+    .date img{
+        width: 4%;
+        position: relative;
+        right: 2.3%;
+        top: -4px;
+    }
+}
+@media screen and ( min-width: 411px ) and ( max-width: 414px ){
+    .dataLine{
+        width:80%;
+        background: #ff6d75;
+        height: 1px;
+        position: relative;
+        left: 19%;
+        margin-top: -4%;
+    }
+    .date img{
+        width: 4%;
+        position: relative;
+        right: 2.1%;
+        top: -5px;
+    }
+}
+
+

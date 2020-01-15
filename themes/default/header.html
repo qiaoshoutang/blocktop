@@ -1,0 +1,104 @@
+<style>
+    #lang-switch{
+        position: absolute;
+        right: 3.5%;
+        top: 35px;
+        color: white;
+        font-size: 15px;
+    }
+    #lang-switch a{
+        color: white;
+    }
+</style>
+<div class="nav-header">
+    <!--蚂蚁logo-->
+    <div class="My-logo">
+        <a href="http://mayi.org/"><img src="images/logo.png" alt=""></a>
+    </div>
+    <ul class="header-list">
+        <li>
+            <div class="sub-page">
+                <div class="sub-page-first"  onclick='window.location.href="/anthome"' dom-i18n='header01'>首页</div>
+            </div>
+        </li>
+        <li>
+            <div class="sub-page">
+                <div class="sub-page-first" onclick='window.location.href="/news/all"' dom-i18n='header02'>新闻资讯</div>
+                <div class="sub-page-navH">
+                    <div class="sub-page-nav padd-T" onclick='window.location.href="/news/all"' dom-i18n='header021'>新闻动态</div>
+                    <div class="sub-page-nav"  onclick='window.location.href="/message"' dom-i18n='header022'>快讯</div>
+                </div>
+            </div>
+        </li>
+        <li>
+            <div class="sub-page">
+                <div class="sub-page-first" onclick='window.location.href="/antmap/recom"' dom-i18n='header03'>蚂蚁导航</div>
+                <div class="sub-page-navH">
+                    <!--&lt;!&ndash;{foreach name='cateList' item='vo' }&ndash;&gt;-->
+                    <!--<div class="sub-page-nav" onclick='window.location.href="/antmap/{$vo['id']}"'>{$vo.name}</div>-->
+                    <!--&lt;!&ndash;{/foreach}&ndash;&gt;-->
+                    <div class="sub-page-nav" onclick='window.location.href="/antmap/1"' dom-i18n='header031'>行情</div>
+                    <div class="sub-page-nav" onclick='window.location.href="/antmap/2"' dom-i18n='header032'>资产管理</div>
+                    <div class="sub-page-nav" onclick='window.location.href="/antmap/3"' dom-i18n='header033'>应用</div>
+                    <div class="sub-page-nav" onclick='window.location.href="/antmap/4"' dom-i18n='header034'>钱包</div>
+                    <div class="sub-page-nav" onclick='window.location.href="/antmap/5"' dom-i18n='header035'>矿池</div>
+                    <div class="sub-page-nav" onclick='window.location.href="/antmap/6"' dom-i18n='header036'>媒体</div>
+                    <div class="sub-page-nav" onclick='window.location.href="/antmap/7"' dom-i18n='header037'>技术服务</div>
+                    <div class="sub-page-nav" onclick='window.location.href="/antmap/8"' dom-i18n='header038'>社区</div>
+                </div>
+            </div>
+        </li>
+        <li>
+            <div class="sub-page">
+                <div class="sub-page-first" onclick='window.location.href="/activit/all/all"' dom-i18n='header04'>活动</div>
+                <div class="sub-page-navH">
+                    <div class="sub-page-nav" onclick='window.location.href="/activit/1/all"' dom-i18n='header041'>报名中</div>
+                    <div class="sub-page-nav padd-T" onclick='window.location.href="/activit/2/all"' dom-i18n='header042'>已结束</div>
+                </div>
+            </div>
+        </li>
+        <li>
+            <div class="sub-page">
+                <div class="sub-page-first" onclick='window.location.href="/description"' dom-i18n='header05'>关于我们</div>
+                <div class="sub-page-navH">
+                    <div class="sub-page-nav" onclick='window.location.href="/description"' dom-i18n='header051'>简介</div>
+                    <div class="sub-page-nav"  onclick='window.location.href="/aboutus"' dom-i18n='header052'>团队</div>
+                    <div class="sub-page-nav padd-T"  onclick='window.location.href="/contactus"' dom-i18n='header053'>联系我们</div>
+                </div>
+            </div>
+        </li>
+    </ul>
+    <div class="search">
+        <input type="text" placeholder="搜索" class="search-i">
+        <span class="search-s" >
+            <img src="images/SearchK.png" alt="">
+        </span>
+    </div>
+    <div id="lang-switch" class="lang-switch">
+        <a href="javascript:;" class="endingbtn zh-lang" onclick="i18n.setLang('zh')">中文</a>／
+        <a href="javascript:;" class="endingbtn en-lang" onclick="i18n.setLang('en')">EN</a>
+    </div>
+
+</div>
+<script src="js/jquery.js"></script>
+<script src="js/i18n.js"></script>
+<script>
+$('.search-s').click(function(){
+    var keyword = $('.search-i').val();
+    // console.log(keyword)
+    window.location.href="/search/"+keyword;
+})
+
+$( '.search-i').focus( function(){
+    document.onkeydown = function(e){
+        var ev = document.all ? window.event : e;
+        if(ev.keyCode==13) {
+            var keyword = $('.search-i').val();
+            // console.log(keyword)
+            window.location.href="/search/"+keyword;
+        }
+    }
+} )
+
+</script>
+        

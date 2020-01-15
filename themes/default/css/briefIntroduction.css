@@ -1,0 +1,355 @@
+.briefbanner{
+    width: 100%;
+    height: 550px;
+    background: url("../images/briefbanner.png")no-repeat center top;
+    background-size: 100% 100%;
+}
+.AntVideo{
+    width: 1000px;
+    height: 900px;
+    margin: 0 auto;
+    background: #ffffff;
+    position: relative;
+    bottom:115px ;
+    border: 2px #eeeeee solid;
+    text-align: center;
+}
+.AntVideo_Title{
+    margin-top: 50px;
+}
+.AntZhi{
+    width: 80%;
+    margin: 20px auto 0 auto;
+    font-size: 26px;
+    text-align: justify;
+    text-indent: 2em;
+    letter-spacing: 1px;
+    line-height: 160%;
+}
+.video_box{
+    width: 80%;
+    margin: 70px auto 0 auto;
+    height: 435px;
+}
+.videoTrol{
+    width: 100%;
+    height: 100%;
+}
+
+.developmentHistory{
+    width: 1000px;
+    margin: 0 auto;
+}
+.HistoryTitle{
+    width: 100%;
+    text-align: center;
+}
+.HistoryContent{
+    width: 100%;
+    margin-top: 30px;
+}
+.History_Left{
+    width: 395px;
+    height: 100%;
+    float: left;
+    text-align: right;
+}
+.History_Right{
+    width: 395px;
+    height: 100%;
+    float: left;
+    text-align: left;
+}
+.History_Left ul{
+    width: 100%;
+    margin-top: 123px;
+}
+.History_Right ul{
+    width: 100%;
+    margin-top: 100px;
+}
+.History_Left ul li,.History_Right ul li{
+    width: 100%;
+    height: 420px;
+    position: relative;
+    overflow: hidden;
+    margin-top: 50px;
+}
+.HisDetail{
+    font-size: 27.15px;
+    font-weight: bold;
+
+}
+.HisDetail p:nth-child(1){
+    font-size:31.3px;
+    color:#2c83fb ;
+}
+.HisImg{
+    width: 313px;
+    height: 177px;
+    position: absolute;
+    right: 0;
+    bottom: 25px;
+}
+.History_Right .HisImg{
+    width: 313px;
+    height: 177px;
+    position: absolute;
+    left: 0;
+    top:10px;
+}
+.History_Right .HisDetail{
+    position: absolute;
+    bottom: 0px;
+}
+.HisImg img{
+    width: 100%;
+}
+.wyx{
+    position: relative;
+    bottom: 30px!important;
+}
+.SHD{
+    margin-top: 25px;
+}
+.History_Centet{
+    width: 210px;
+    height: 100%;
+    float: left;
+}
+
+.taday{
+    width: 80px;
+    height: 80px;
+    background:#2c83fb;
+    text-align: center;
+    color: white;
+    line-height: 80px;
+    font-size: 30px;
+    border-radius: 50%;
+    margin: 0 auto;
+}
+.lineL,.lineR{
+    width: 103px;
+    height: 100%;
+    float: left;
+}
+.lineR{
+    margin-top: 115px;
+}
+.lineL{
+    border-right: 4px #2c83fb solid;
+}
+.lineL ul li{
+    width: 100%;
+    height: 470px;
+    border-bottom: 4px #2c83fb solid;
+    position: relative;
+}
+.lineL ul li:nth-child(1){
+    height:345px;
+}
+.lineR ul li{
+    width: 100%;
+    height: 470px;
+    border-top: 4px #2c83fb solid;
+    position: relative;
+}
+.ballHistory{
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    background: white;
+    border:6px #2c83fb solid;
+    position: absolute;
+    top: -25px;
+    left:  -25px;
+}
+.ballHistoryB{
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    background: white;
+    border:6px #2c83fb solid;
+    position: absolute;
+    bottom: -25px;
+    right:  -25px;
+}
+
+
+
+.Company-Honor{
+    width: 100%;
+    height: 820px;
+    overflow: hidden;
+}
+.Company-Honor-box{
+    width: 1200px;
+    height: 655px;
+    margin: 75px auto 0 auto;
+    border: 1px #eeeeee solid;
+    background: white;
+    text-align: center;
+    position: relative;
+}
+.Medal{
+    position: absolute;
+    right:40px;
+    top: -100px;
+}
+.Company-Honor-box img{
+    margin-top: 40px;
+}
+.Company-Honor-Text{
+    width: 80%;
+    margin: 45px auto 0 auto;
+    text-align: left;
+}
+.Company-Honor-Text li{
+    font-size: 22px;margin-top: 25px;
+    font-weight: bold;
+}
+.blueBall{
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #2e84fb;
+    display: inline-block;
+    position: relative;
+    top: -4px;
+}
+.blue_sBall{
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: #2e84fb;
+    display: inline-block;
+    position: relative;
+    top: -3px;
+}
+.Company-Honor-Textlist p{
+    text-indent: 2em;
+    font-size: 18px;
+    margin-top: 20px;
+}
+.Company-Honor-Textlist p:nth-child(1){
+    text-indent: 0;
+    font-size: 22px;
+    font-weight: bold;
+}
+.lineDD{
+    width: 4px;
+    height: 150px;
+    background: #2e84fb;
+    position: relative;
+    left: 498px;
+    top: -80px;
+}
+.BallDD{
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background: #2e84fb;
+    position: relative;
+    left: 485px;
+    top: -90px;
+}
+.DevelopmentHistory_Title{
+    width: 100%;
+    text-align: center;
+}
+.DevelopmentHistory_Title img{
+    margin-top: 60px;
+}
+.DevelopmentHistoryContent{
+    width: 1200px;
+    margin: 0 auto;
+    height: 480px;
+    /*background: white;*/
+    position: relative;
+    overflow: hidden;
+}
+.HistoryBall{
+    width: 100%;
+    height: 40px;
+    border-top: 3px #244cc1 solid;
+    position: absolute;
+    bottom: 0;
+
+}
+.HistoryBall li{
+    float: left;
+    width: 10%;
+    height: 100%;
+    text-align: center;
+    position: relative;
+}
+.Time_List{
+    position: absolute;
+    bottom: -2px;
+    left: 25px;
+
+    font-size: 17px;
+    font-weight: 200;
+    color: #aaaaaa;
+}
+.HistoryBall li:hover .Time_List{
+    color: white;
+    font-weight: bold;
+}
+
+.smallBall{
+    /*width: 20px;*/
+    /*height: 20px;*/
+    /*background: url("../images/smallBall.png")no-repeat;*/
+    /*background-size: 100% 100%;*/
+    margin: -10px auto;
+}
+.topUp{
+    position: relative;
+    bottom: 70px;
+}
+.History_Text{
+    width: 100%;
+    height: 300px;
+    margin-top: 50px;
+    overflow: hidden;
+}
+.History_Text ul{
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transition: 1s all;
+}
+.History_Text ul li{
+    width: 100%;
+    height: 300px;
+
+}
+.History_Time{
+    width: 35%;
+    text-align: right;
+    height: 300px;
+    line-height: 300px;
+    font-size: 80px;
+    color: white;
+    overflow: hidden;
+    float: left;
+
+}
+
+.History_content{
+    width: 60%;
+    height: 100%;
+    float: right;
+    text-align: left;
+    /*color: white;*/
+    font-size: 20px;
+    overflow: hidden;
+    color: #cbcbcb;
+}
+.History_content p:nth-child(1){
+    margin-top: 125px;
+}
+
+

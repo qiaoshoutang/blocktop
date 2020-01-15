@@ -1,0 +1,194 @@
+table{border-collapse:collapse;border-spacing:0;}
+ul,li,dd,dl,dt,img {list-style:none;}
+legend{display:none;}
+.exhibition_hall {text-align:center;position: relative;overflow:hidden;}
+.exhibition_hall h4 {font-size:30px;font-family:"微软雅黑";text-align:center;margin:0px auto;padding-top:50px;color:#000;}
+.tline {color:#dedede;}
+.roundabout_box {width:980px;height:480px;}
+.roundabout_box ul {}
+.roundabout_box img {width:100%;}
+/**********roundabout**********/
+.roundabout_box {height:425px;width:1200px;margin:0px auto 20px auto;}
+.roundabout-holder{list-style:none;width:800px;height:425px;margin:0px auto;}
+.roundabout-moveable-item{font-size:12px!important;height:300px;width:580px;cursor:pointer;background:#f9f9f9;}
+.roundabout-moveable-item img{height:100%;width:100%;background-color:#FFFFFF;margin:0;}
+.roundabout-in-focus{cursor:auto;border-left:1px #fff solid;border-right:1px #fff solid;}
+.roundabout-in-focus000:hover{-webkit-box-shadow:0px 0px 20px #787878;-moz-box-shadow:0px 0px 20px #787878;background:#f9f9f9;}
+.roundabout-holder .text{color:#999;}
+.roundabout-in-focus000:hover span{display:inline;position:absolute;bottom:5px;right:5px;padding:8px 20px;background:#f9f9f9;color:#3366cc;z-index:999;-webkit-border-top-left-radius:5px;-moz-border-radius-topLeft:5px;border-left:1px solid #aaaaaa;border-top:1px solid #aaaaaa;}
+.roundabout a:active, .roundabout a:focus, .roundabout a:visited{outline:none;text-decoration:none;}
+.roundabout li{margin:0}
+
+.banner-nav{
+    width: 1200px;
+    margin: 0 auto;
+    height: 425px;
+    background: white;
+}
+.navList{
+    width: 1200px;
+    margin: 0 auto;
+}
+.navList ul{
+    width: 75%;
+    float: left;
+}
+.navList ul li{
+    float: left;
+    margin-right: 30px;
+    height: 80px;
+    line-height: 80px;
+    text-align: center;
+    font-size: 22px;
+}
+.navList ul li.active a{
+    font-weight:bold;
+    color:#333;
+    font-size: 25px;
+}
+.navList ul li a{
+    color:#808080;
+}
+.navList ul li a:hover{
+    /*font-weight: bold;*/
+    /*color:#333;*/
+    cursor: pointer;
+    /*font-size: 25px;*/
+}
+
+/*.navList ul li:nth-child(8){
+    width: 16%;
+}*/
+
+.ApplyIncluded{
+    float: right;
+    width: 25%;
+    position: relative;
+}
+.ApplyIncluded_btn {
+    width: 130px;
+    height: 35px;
+    background: #2e84fb;
+    text-align: center;
+    line-height: 35px;
+    color: white;
+    font-size: 18px;
+    border-radius: 20px;
+    letter-spacing: 1px;
+    position: absolute;
+    right: 0;
+    top: 22px;
+    cursor: pointer;
+}
+.Market_view_ul{
+    width: 100%;
+    padding-top: 30px;
+}
+.Market_view_ul_list{
+    width: 100%;
+
+}
+.Market_view_ul:nth-child(1) .Market_view_ul_list{
+    height: 350px;
+}
+.Market_view{
+    width: 1200px;
+    margin: 0px auto 0 auto;
+    clear: both;
+    padding-bottom: 100px;
+}
+.Market_view_order{
+    width: 100%;
+    height: 50px;
+
+}
+.Market{
+    font-size: 25px;
+    float: left;
+    letter-spacing: 1px;
+}
+.LookMore{
+    font-size: 18px;
+    float: right;
+    letter-spacing: 1px;
+    margin-right: 15px;
+    text-align: right;
+
+}
+.LookMore a{
+    color: #aaaaaa;
+}
+
+.type_NavList{
+    width: 125%;
+}
+.type_NavList li{
+    width: 280px;
+    height: 100px;
+    float: left;
+    margin-right: 1.5%;
+    margin-top: 20px;
+    position: relative;
+    cursor: pointer;
+}
+
+.type_NavList li:hover .type_NavList_box{
+    top: -5px;
+    transition: .2s linear;
+    box-shadow: 0 .5px 2px 1px rgba(0,0,0,.2);
+    border-radius: 2px;
+}
+@keyframes animation {
+
+}
+.type_NavList_box{
+    border: 1px #eeeeee solid;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0
+}
+.Partner-T{
+    width: 65px;
+    height: 65px;
+    margin-top: 18px;
+    margin-left: 10px;
+}
+.Partner-LinksText{
+    width: 70%;
+    float: right;
+    margin-top: -63px;
+}
+.Partner-LinksText p{
+    font-size: 13px;
+    color: silver;
+    width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp:2;
+    -webkit-box-orient: vertical;
+}
+.Partner-LinksText p:nth-child(1){
+    font-size: 18px;
+    color: #111216;
+}
+.Partner-LinksText p:nth-child(2){
+    margin-top: 5px;
+    width: 95%;
+}
+.btnMORE{
+    width: 380px;
+    height: 60px;
+    margin: 0 auto 0 auto;
+    text-align: center;
+    line-height: 60px;
+    clear: both;
+    color: #2e84fb;
+    position: relative;
+    top: 30px;
+    font-size: 25px;
+}
+.font-cx{
+    font-weight: bold!important;
+}

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>蚂蚁活动</title>
+    <meta name="baidu-site-verification" content="9h2o7ScMIE" />
+    <meta name="keywords" content="蚂蚁节点联盟，社群组织，区块链，区块链社区，区块链社区联盟，区块链服务平台"/>
+    <meta name="description" content="蚂蚁节点联盟-蚂蚁节点联盟是国内知名的区块链线下社群组织，联盟以引领行业新生态、 促进区块链行业稳健发展为宗旨，致力于聚合全球区块链行业专家及区块链爱好者， 整合区块链产业上下游资源，为区块链行业参与者提供第三方综合服务。"/>
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/activitiesDetail.css">
+
+</head>
+<body>
+<div class="box">
+    <!--导航栏-->
+    <!--#include file="header.html"-->
+
+    <!--合作伙伴链接窗-->
+    <div class="Partner-Links">
+        <ul>
+            <!--{foreach name='naviList' item='vo' }-->
+            <li onclick='window.location.href="{$vo.target}"'>
+                <div class="Partner-Links-WinD">
+                    <div class="Partner-T">
+                        <img src="{$vo.icon}" alt="" width="100%">
+                    </div>
+                    <div class="Partner-LinksText">
+                        <p>{$vo.name}</p>
+                        <p>{$vo.descrip}</p>
+                    </div>
+                </div>
+            </li>
+            <!--{/foreach}-->
+        </ul>
+    </div>
+
+    <!--活动详情-->
+    <div class="Ac_Content">
+        <div class="TitAc">活动详情</div>
+        <div class="Ac_Text">
+            <!--图-->
+            <div class="Ac_TextImg">
+                <img src="{$contentInfo.cover_url}" alt="">
+            </div>
+            <!--文-->
+            <div class="Ac_TextNr">
+                <div class="Ac_TextNr_Tit">{$contentInfo.name}</div>
+                <div class="Ac_TextNr_Content"><span>地点 :</span><span> {$contentInfo.position}</span></div>
+                <div class="Ac_TextNr_Content"><span>时间 :</span><span> {$contentInfo.duration}</span></div>
+                <div class="Ac_TextNr_Content LiuL">浏览 {$contentInfo.views}</div>
+            </div>
+        </div>
+    </div>
+    <!--活动内容-->
+    <div class="Ac_Substance">
+        <div class="Ac_Substance_Left">
+            <div class="TitAc">活动内容</div>
+            <div class="Activity_Target">
+                <div class="Activity_Target_box">
+                    <div class="Target_T">
+                        {$contentInfo.content}
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div class="Ac_Substance_Right">
+            <div class="TitAc">活动主办方</div>
+            <div class="Event_Organizer">
+                <ul>
+                    <li onclick='window.location.href="{$contentInfo.master_target_1}"'>
+                        <div class="Organizer-T">
+                                <img src="{$contentInfo.master_icon_1}" alt="" width="100%">
+                        </div>
+                        <div class="Organizer-Text">
+                                <p>{$contentInfo.master_name_1}</p>
+                                <p>{$contentInfo.master_descrip_1}</p>
+                        </div>
+                    </li>
+                    <li onclick='window.location.href="{$contentInfo.master_target_2}"'>
+                        <div class="Organizer-T">
+                            <img src="{$contentInfo.master_icon_2}" alt="" width="100%">
+                        </div>
+                        <div class="Organizer-Text">
+                            <p>{$contentInfo.master_name_2}</p>
+                            <p>{$contentInfo.master_descrip_2}</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="TitAc Sy">报名二维码</div>
+            <div class="TitAcQR">
+                <img src="{$contentInfo.qrcode}" alt="">
+
+            </div>
+        </div>
+    </div>
+
+    <!--底部-->
+    <!--#include file="footer.html"-->
+</div>
+</body>
+</html>
+<script src="js/jquery.js"></script>
+<script src="js/commom.js"></script>
+<script>
+    $(".roundabout-in-focus").click(function () {
+
+    })
+
+</script>

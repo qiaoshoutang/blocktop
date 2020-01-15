@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>新闻动态内容</title>
+    <meta name="baidu-site-verification" content="9h2o7ScMIE" />
+    <meta name="keywords" content="{$contentInfo.keyword}"/>
+    <meta name="description" content="蚂蚁节点联盟-蚂蚁节点联盟是国内知名的区块链线下社群组织，联盟以引领行业新生态、 促进区块链行业稳健发展为宗旨，致力于聚合全球区块链行业专家及区块链爱好者， 整合区块链产业上下游资源，为区块链行业参与者提供第三方综合服务。"/>
+    <link rel="stylesheet" href="css/NewsInformation.css">
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/NewsDynamicContent.css">
+
+</head>
+<body>
+<style>
+    .box{
+        background:#f9f7f6 ;
+    }
+    .DynamicArticle img{
+        max-width: 100%;
+    }
+</style>
+<div class="box">
+    <!--导航栏-->
+    <!--#include file="header.html"-->
+
+    <!--合作伙伴链接窗-->
+    <div class="Partner-Links">
+        <ul>
+            <!--{foreach name='naviList' item='vo' }-->
+            <li onclick='window.open("{$vo.target}")'>
+                <div class="Partner-Links-WinD">
+                    <div class="Partner-T">
+                        <img src="{$vo.icon}" alt="" width="100%">
+
+                    </div>
+                    <div class="Partner-LinksText">
+                        <p>{$vo.name}</p>
+                        <p>{$vo.descrip}</p>
+                    </div>
+                </div>
+            </li>
+            <!--{/foreach}-->
+        </ul>
+    </div>
+    <!--动态文章-->
+    <div class="NewType">
+        <!--文章内容-->
+        <div class="NewType-Dynamic">
+            <div class="News-Dynamic-Content-box">
+                <div class="News-Dynamic-Content">
+                    <!--标题-->
+                    <div class="Dynamic-Content-Title">
+                        {$contentInfo.title}
+                    </div>
+                    <div class="authorAndTime">
+                        <span>{$contentInfo.author}</span><span> {$vo.time|format_time='Y-m-d H:i:s'}</span><span>{$contentInfo.views}</span>
+                    </div>
+                    <div class="DynamicArticle">
+                        {$contentInfo.content}
+                    </div>
+                </div>
+            </div>
+            <div class="statement">*声明：本文为文章作者或转发者的投稿，观点非蚂蚁节点联盟立场，亦不构成任何投资意见或建议。</div>
+
+        </div>
+        <div style="float: right;width: 325px;margin-bottom: 50px">
+            <!--热门快讯-->
+            <div class="Hot-News Hot-v">
+                <div class="Hot-News-content">
+                    <!--标题-->
+                    <div class="HotNewsTitle">
+                        <span>热门快讯</span>
+                        <span class="HotMore" onclick='window.location.href="/message"'>
+                            更多 <img src="images/MoreMoreM.png" alt="" width="5%">
+                        </span>
+                    </div>
+                    <!--内容-->
+                    <div class="HotNewsText">
+                        <!--{foreach name='messageList' item='vo' }-->
+                        <div class="HotNewsText-box">
+                            <div class="TuoY">
+                                <img src="images/TuoY.png" alt="" width="100%">
+                            </div>
+                            <div class="HotNewsText-Article">
+                                <div class="HotNewsTime">
+                                    {$vo.time|format_time='H:i'}
+                                </div>
+                                <div class="HotNewsA-T">
+                                    {$vo.title}
+                                </div>
+                                <div class="HotNewsTTT">
+                                    {$vo.content}
+                                </div>
+                                <div class="Favorable-BadProfit">
+                                    <span ><img src="images/up.png" alt=""> 利好<span class="count-f">{$vo.up}</span></span>
+                                    <span class="Fb-span"><img src="images/down.png" alt=""> 利空<span class="count-f">{$vo.down}</span></span>
+                                </div>
+                            </div>
+                        </div>
+                        <!--{/foreach}-->
+                    </div>
+                </div>
+            </div>
+            <!--热门新闻-->
+            <div class="Hot-News Hot-v DtNew">
+                <div class="Hot-News-content">
+                    <!--标题-->
+                    <div class="HotNewsTitle">
+                        <span>热门新闻</span>
+                        <span class="HotMore" onclick='window.location.href="/news"' width="5%">
+                          更多>
+                        </span>
+                    </div>
+                    <!--内容-->
+                    <div class="hot_New_Img">
+                        <div class="hot_Img_TT">
+                            <div onclick='window.location.href="/newsContent/{$newsFirst.content_id}"'>
+                                <img src="{$newsFirst['image']|default='images/news_default.png'}" alt="" width="100%">
+                                <div class="hot_Hover_A">
+                                    {$newsFirst['title']}
+                                </div>
+                            </div>
+                            <ul class="hot_NewContent_ul">
+                                <!--{foreach name='newsList' item='vo' }-->
+                                <li onclick='window.location.href="/newsContent/{$vo.content_id}"'>
+                                    <div class="hot_NewContentImg_Left">
+                                        <img src="{$vo.image}" alt="" width="100%">
+                                    </div>
+                                    <div class="hot_NewContent_Right">
+                                        <div class="">
+                                            {$vo.title}
+                                        </div>
+                                        <div>
+                                            {$vo.time|format_time='Y-m-d'}
+                                        </div>
+                                    </div>
+                                </li>
+                                <!--{/foreach}-->
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--底部-->
+    <!--#include file="footer.html"-->
+</div>
+</body>
+</html>
+<script src="js/jquery.js"></script>
+<script src="js/commom.js"></script>
+<script>
+    $(".NewType-Content ul li").hover(function () {
+            $(this).addClass("bg-color")
+            $(this).find($(".NewType-Detail")).css({
+                "border-bottom":"none"
+            })
+        }, function () {
+            $(this).removeClass("bg-color");
+            $(this).find($(".NewType-Detail")).css({
+                "border-bottom":"1px #eeeeee solid"
+            })
+        }
+    )
+
+    var ContentHeigint = $(".News-Dynamic-Content-box").height();
+    if(ContentHeigint<=780){
+        $(".DtNew").hide()
+    }
+</script>

@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>蚂蚁搜索</title>
+    <meta name="baidu-site-verification" content="9h2o7ScMIE" />
+    <meta name="keywords" content="蚂蚁节点联盟，社群组织，区块链，区块链社区，区块链社区联盟，区块链服务平台"/>
+    <meta name="description" content="蚂蚁节点联盟-蚂蚁节点联盟是国内知名的区块链线下社群组织，联盟以引领行业新生态、 促进区块链行业稳健发展为宗旨，致力于聚合全球区块链行业专家及区块链爱好者， 整合区块链产业上下游资源，为区块链行业参与者提供第三方综合服务。"/>
+    <link rel="stylesheet" href="css/NewsInformation.css">
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/NewsDynamicContent.css">
+    <link rel="stylesheet" href="css/searchPage.css">
+    <script src="http://www.jq22.com/jquery/jquery-1.10.2.js"></script>
+</head>
+<style>
+    .KxDx ul li{
+        width: 90%;
+        margin: 30px auto;
+        height: 100%;
+    }
+    .DtNew{
+        margin-bottom: 50px;
+    }
+    .NewTypeImgBox{
+        margin-top: 36px;
+        border-radius: 8px;
+        overflow: hidden;
+        width: 100%;
+        height: 145px;
+    }
+   .HaveActivit{
+       width: 90%;
+       margin: 0px auto 0 auto;
+   }
+    .HaveActivit li{
+        width: 100%;
+    }
+    .HaveActivit li:nth-child(1){
+        width: 100%;
+        margin-top: 30px;
+    }
+    .HaveActivit li .Img_Ac{
+        width: 40%;
+        float: left;
+    }
+    .HaveActivit li .Img_Ac img{
+        width:321px;
+        height: 166px;
+    }
+    .Cont_Ac{
+        width: 60%;
+        float: right;
+        margin-top: 20px;
+    }
+    .LocationTime{
+        margin-top: 20px;
+    }
+    .Time_Finish{
+        margin-top:20px ;
+    }
+</style>
+<body>
+<div class="box">
+    <!--导航栏-->
+    <!--#include file="header.html"-->
+
+    <!--合作伙伴链接窗-->
+    <div class="Partner-Links">
+        <ul>
+            <!--{foreach name='naviList' item='vo' }-->
+            <li onclick='window.location.href="{$vo.target}"'>
+                <div class="Partner-Links-WinD">
+                    <div class="Partner-T">
+                        <img src="{$vo.icon}" alt="" width="100%">
+                    </div>
+                    <div class="Partner-LinksText">
+                        <p>{$vo.name}</p>
+                        <p>{$vo.descrip}</p>
+                    </div>
+                </div>
+            </li>
+            <!--{/foreach}-->
+        </ul>
+    </div>
+
+    <!--搜索-->
+    <div class="Search">
+        <div class="input-box">
+            <input type="text" class="SearchKk" value='{$keyword}'>
+            <div class="SearchK_Point">
+                <img src="images/SearchK.png" alt="">
+            </div>
+        </div>
+    </div>
+
+
+    <!--各类文章-->
+    <div class="NewType">
+        <div class="NewType-nav">
+            <ul>
+                <li class='active'>
+                    新闻
+                </li>
+                <li>
+                    快讯
+                </li>
+                <li>
+                    活动
+                </li>
+            </ul>
+        </div>
+        <!--全部-->
+        <div class="NewType-Content tab-content">
+            <!--有结果的的时候-->
+            <!--{if condition="empty($newsList)"}-->
+            <div class="haveN">
+                <img src="images/meiyoudingdan.png" alt="">
+                <div class="haveN-font">
+                    <p>抱歉，没有找到<a href="javascript:;">"{$keyword}"</a>相关结果</p>
+                    <p>请修改或尝试其他关键字</p>
+                </div>
+
+            </div>
+            <!--{else /}-->
+            <div class="haveY" >
+                <ul>
+                    <!--{foreach name='newsList' item='vo' }-->
+                    <li onclick='window.location.href="/newsContent/{$vo.content_id}"'>
+                        <div class="NewType-Detail">
+                            <div class="NewTypeImg">
+                                <div class="NewTypeImgBox">
+                                 <img src="{$vo.image}" alt="">
+                                </div>
+                            </div>
+                            <div class="NewTypeText">
+                                <div class="TextTitle">
+                                    {$vo.title}
+                                </div>
+                                <div class="TextContent">
+                                    {$vo.description}
+                                </div>
+                                <div class="TextSource">
+                                    <span>{$vo.author}</span>
+                                    <span>{$vo.time|format_time='Y-m-d H:i:s'}</span>
+                                    <span>{$vo.view}</span>
+                                </div>
+
+                            </div>
+                        </div>
+                    </li>
+                    <!--{/foreach}-->
+                </ul>
+            </div>
+            <!--{/if}-->
+        </div>
+
+        <div class="NewType-Content tab-content KxDx" style='display: none'>
+            <!--有结果的的时候-->
+            <!--{if condition="empty($messageList)"}-->
+            <div class="haveN">
+                <img src="images/meiyoudingdan.png" alt="">
+                <div class="haveN-font">
+                    <p>抱歉，没有找到<a href="javascript:;">"{$keyword}"</a>相关结果</p>
+                    <p>请修改或尝试其他关键字</p>
+                </div>
+            </div>
+            <!--{else /}-->
+            <div class="haveY" >
+                <ul>
+                    <!--{foreach name='messageList' item='vo' }-->
+                    <li>
+                        <div class="TuoY">
+                            <img src="images/TuoY.png" alt="" width="100%">
+                        </div>
+                        <div class="KxTime">
+                            <span>{$vo.time|format_time='H:i'}</span>
+                        </div>
+                        <!--内容-->
+                        <div class="KxConttt">
+                            <div class="KxConttt_Title">{$vo.title}</div>
+                            <div class="KxConttt_Text">
+                                {$vo.content}
+                            </div>
+                            <div class="Favorable-BadProfit">
+                                <span ><img src="images/up.png" alt=""> 利好<span class="count-f">{$vo.up}</span></span>
+                                <span class="Fb-span">
+                                    <img src="images/down.png" alt=""> 利空<span class="count-f">{$vo.down}</span>
+                                </span>
+                            </div>
+                        </div>
+                    </li>
+                    <!--{/foreach}-->
+                </ul>
+            </div>
+
+            <!--{/if}-->
+        </div>
+
+        <div class="NewType-Content tab-content"  style='display: none'>
+            <!--有结果的的时候-->
+            <!--{if condition="empty($activityList)"}-->
+            <div class="haveN">
+                <img src="images/meiyoudingdan.png" alt="">
+                <div class="haveN-font">
+                    <p>抱歉，没有找到<a href="javascript:;">"{$keyword}"</a>相关结果</p>
+                    <p>请修改或尝试其他关键字</p>
+                </div>
+            </div>
+            <!--{else /}-->
+            <div class="haveY" >
+                <ul class="HaveActivit">
+                    <!--{foreach name='activityList' item='vo' }-->
+                    <li onclick='window.location.href="/activitContent/{$vo.id}"'>
+                        <div class="Img_Ac">
+                            <img src="{$vo.cover_url}" alt="">
+                        </div>
+
+                        <div class="Cont_Ac">
+                            <div class="Title_Ac">
+                                <p class="Title_Ac_P">
+                                    <span>{$vo.name}</span>
+                                    <span>{$vo.views}人浏览</span>
+                                </p>
+                            </div>
+                            <div class="LocationTime">
+                                <div class="Location">
+                                    <p><img src="images/location.png" alt=""><span>{$vo.position}</span></p>
+                                    <p><img src="images/shijian.png" alt=""><span>{$vo.duration}</span></p>
+                                </div>
+
+                                <div class="Time">
+                                    <!--{if condition="$vo.state eq 1"}-->
+                                    <div class="Time_Bm">
+                                        报名中
+                                    </div>
+                                    <!--{/if}-->
+                                    <!--{if condition="$vo.state eq 2"}-->
+                                    <div class="Time_Finish">
+                                        已结束
+                                    </div>
+                                    <!--{/if}-->
+                                </div>
+
+                            </div>
+                        </div>
+
+                    </li>
+                    <!--{/foreach}-->
+                </ul>
+            </div>
+            <!--{/if}-->
+        </div>
+
+        <div style="width: 325px;float: right">
+            <!--热门快讯-->
+            <div class="Hot-News">
+
+                <div class="Hot-News-content">
+                    <!--标题-->
+                    <div class="HotNewsTitle">
+                        <span>热门快讯</span>
+                        <span class="HotMore">
+                            <a href='/message'>更多></a>
+                        </span>
+                    </div>
+
+                    <!--内容-->
+                    <div class="HotNewsText">
+                        <!--{foreach name='messageList2' item='vo' }-->
+                        <div class="HotNewsText-box">
+                            <div class="TuoY">
+                                <img src="images/TuoY.png" alt="" width="100%">
+                            </div>
+                            <div class="HotNewsText-Article">
+                                <div class="HotNewsTime">
+                                    {$vo.time|format_time='H:i'}
+                                </div>
+                                <div class="HotNewsA-T">
+                                    {$vo.title}
+                                </div>
+                                <div class="HotNewsTTT">
+                                    {$vo.content}
+                                </div>
+                                <div class="Favorable-BadProfit">
+                                    <span ><img src="images/up.png" alt=""> 利好<span class="count-f">{$vo.up}</span></span>
+                                    <span class="Fb-span"><img src="images/down.png" alt=""> 利空<span class="count-f">{$vo.down}</span></span>
+                                </div>
+                            </div>
+                        </div>
+                        <!--{/foreach}-->
+                    </div>
+                </div>
+
+
+            </div>
+            <!--热门新闻-->
+            <div class="Hot-News Hot-v DtNew">
+                <div class="Hot-News-content">
+                    <!--标题-->
+                    <div class="HotNewsTitle">
+                        <span>热门新闻</span>
+                        <span class="HotMore">
+                        <a href='/news/all'>更多></a>
+                    </span>
+                    </div>
+                    <!--内容-->
+                    <div class="hot_New_Img">
+                        <div class="hot_Img_TT">
+                            <div onclick='window.location.href="/newsContent/{$newsFirst.content_id}"'>
+                                <img src="{$newsFirst['image']|default='images/news_default.png'}" alt="" width="100%">
+                                <div class="hot_Hover_A">
+                                    {$newsFirst['title']}
+                                </div>
+                            </div>
+                            <ul class="hot_NewContent_ul">
+                                <!--{foreach name='newsList2' item='vo' }-->
+                                <li onclick='window.location.href="/newsContent/{$vo.content_id}"'>
+                                    <div class="hot_NewContentImg_Left">
+                                        <img src="{$vo.image}" alt="" width="100%">
+                                    </div>
+                                    <div class="hot_NewContent_Right">
+                                        <div class="">
+                                            {$vo.title}
+                                        </div>
+                                        <div>
+                                            {$vo.time|format_time='Y-m-d'}
+                                        </div>
+
+                                    </div>
+                                </li>
+                                <!--{/foreach}-->
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--底部-->
+    <!--#include file="footer.html"-->
+</div>
+</body>
+</html>
+<script src="js/jquery.js"></script>
+<script src="js/commom.js"></script>
+<script>
+    $('.NewType-nav ul li').click(function(){
+        var index;
+        index = $(this).index();
+        $(this).siblings().removeClass('active');
+        $(this).addClass('active');
+        $('.tab-content').hide();
+        $('.tab-content').eq(index).show();
+
+
+    });
+
+
+    $('.SearchK_Point').click(function(){
+        var keyword = $('.SearchKk').val();
+        window.location.href="/search/"+keyword;
+    });
+
+    $( '.SearchKk').focus( function(){
+        document.onkeydown = function(e){
+            var ev = document.all ? window.event : e;
+            if(ev.keyCode==13) {
+                var keyword = $('.SearchKk').val();
+                // console.log(keyword)
+                window.location.href="/search/"+keyword;
+            }
+        }
+    } );
+
+
+   $(".NewType-nav ul li").click(function () {
+       var ContentHeigint = $(".NewType-Content").height();
+       console.log(ContentHeigint)
+       return false;
+       if(ContentHeigint.display=="block"){
+       }
+
+   })
+
+
+
+
+
+
+
+
+
+
+
+</script>

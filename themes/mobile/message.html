@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>快讯</title>
+    <meta name="baidu-site-verification" content="9h2o7ScMIE" />
+    <meta name="keywords" content="蚂蚁节点联盟，社群组织，区块链，区块链社区，区块链社区联盟，区块链服务平台"/>
+    <meta name="description" content="蚂蚁节点联盟-蚂蚁节点联盟是国内知名的区块链线下社群组织，联盟以引领行业新生态、 促进区块链行业稳健发展为宗旨，致力于聚合全球区块链行业专家及区块链爱好者， 整合区块链产业上下游资源，为区块链行业参与者提供第三方综合服务。"/>
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <script>
+        (function (doc, win) {
+            var docEl = doc.documentElement,
+                resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+                recalc = function () {
+                    var clientWidth = docEl.clientWidth;
+                    if (!clientWidth) return;
+                    if(clientWidth>=640){
+                        docEl.style.fontSize = '100px';
+                    }else{
+                        docEl.style.fontSize = 100 * (clientWidth / 640) + 'px';
+                    }
+                };
+            if (!doc.addEventListener) return;
+            win.addEventListener(resizeEvt, recalc, false);
+            doc.addEventListener('DOMContentLoaded', recalc, false);
+        })(document, window);
+    </script>
+    <link rel="stylesheet" href="css/common.css">
+    <style>
+        .NewFlash{
+            width: 95%;
+            margin: 0.1rem auto 0 auto;
+        }
+        .FlashTitle{
+            width: 100%;
+            text-align: left;
+            color: #2e84fb;
+            height: 1rem;
+            line-height: 1rem;
+            font-size: .33rem;
+        }
+        .NewFlash_List{
+            width: 95%;
+            margin: 0 auto;
+            height: 100%;
+            border-left: 1px #b2b2b2 solid;
+        }
+        .NewFlash_List li{
+            width: 100%;
+            position: relative;
+            height: 100%;
+            display: inline-block;
+
+        }
+        .tuoyuan{
+            width: .3rem;
+            height: .3rem;
+            border-radius: 50%;
+            position: absolute;
+            top: -.1rem;
+            left: -.155rem;
+            background: url("/themes/mobile/images/tuoyuan.png")no-repeat center top;
+            background-size: 100% 100%;
+        }
+        .mainContent{
+            width: 95%;
+            float: right;
+            height: 100%;
+        }
+        .timeF{
+            font-size: .23rem;
+            color: #b2b2b2;
+            position: absolute;
+            top: -.1rem;
+        }
+        .maintitle{
+
+        }
+        .maintitle h1{
+            margin-top: .3rem;
+            text-align: left;
+            font-size: .28rem;
+            letter-spacing: .5px;
+            font-weight: bold;
+        }
+        .mainText{
+            padding-top: .15rem;
+            font-size: .25rem;
+            color: #333;
+            font-weight: 300;
+            text-align: justify;
+            letter-spacing: 1.5px;
+            word-break: break-all;
+        }
+        .GoodUp_badDown{
+            width: 100%;
+            font-size: .25rem;
+            color: #b2b2b2;
+            text-align: right;
+            margin-top: .2rem;
+            padding-bottom: .2rem;
+            z-index: 999;
+            position: relative;
+        }
+        .GoodUp_badDown img{
+            width:6%;
+        }
+        .num_G,.num_B{
+          margin-left: .1rem;
+        }
+        #message_more{
+            width: 100%;
+            text-align: center;
+            font-size: .3rem;
+            color: #2e84fb;
+            margin: 0 auto 0 auto;
+            padding-bottom: .1rem;
+            display: inline-block;
+            position: relative;
+            bottom: .4rem;
+        }
+        .GoodUp_badDown .badDownGood:nth-child(1){
+            margin-right: .2rem;
+        }
+
+        #alert{
+            display: none;
+            position: fixed;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.5) !important;
+            z-index: 99999999;
+            text-align: center;
+            font-size: .33rem;
+        }
+        .wrapper_p{
+            line-height: 150%;
+            width: 95%;
+            margin: 0 auto;
+            font-size: .41rem;
+            letter-spacing: 1.5px;
+            text-align: justify;
+        }
+        .wrapper_h1{
+            font-size: .5rem;
+            width: 95%;
+            margin: 2% auto;
+            font-weight: bold;
+            text-align: justify;
+        }
+        .nr{
+            width:100%;
+            height:100%;
+            margin: 0 auto 0 auto;
+            text-align: left;
+        }
+        .neirong{
+            background:#045deb;
+        }
+        .data_week{
+            width: 100%;
+            margin:0 auto;
+            border-radius: 8px;
+            min-height: 10rem;
+        }
+        .neirong_img{
+            width: 100%;
+        }
+        .data_week{
+            background: white;
+            width: 90%;
+            margin: 0 auto;
+        }
+        .data_week_p{
+            width: 95%;
+            margin: 0 auto;
+            position: relative;
+        }
+        .data_week_p img{
+            position: absolute;
+            bottom: 0.03rem;
+        }
+        .data_week_span{
+            margin-top: .18rem;
+            margin-left: .5rem;
+
+        }
+        .data_weekContent{
+            padding-top: .4rem;
+            width: 95%;
+            margin-left: 2.5%;
+            overflow: hidden;
+            padding-bottom: .85rem;
+        }
+        .LGoodAK{
+            width: 95%;
+            margin: .4rem auto 0 auto;
+        }
+        .LGood{
+            background:#02a91a ;
+            color: white;
+            font-size: .25rem;
+            border-radius: 6px;
+            text-align: center;
+            padding: 0.05rem .1rem 0.05rem .1rem;
+            letter-spacing: 2px;
+            font-weight: bold;
+        }
+        .Lkong{
+            background:#D40507 ;
+            color: white;
+            font-size: .25rem;
+            border-radius: 6px;
+            text-align: center;
+            padding: 0.05rem .1rem 0.05rem .1rem;
+            letter-spacing: 2px;
+            margin-left: .4rem;
+            font-weight: bold;
+        }
+        .LGoodAK img{
+            margin-right: .05rem;
+        }
+        .dj{
+            width: 25px;
+            height: 25px;
+            background: white;
+            border-radius: 50%;
+            position: absolute;
+            border: 0;
+            right: 1.5%;
+            top: 2.5%;
+        }
+        .img-wjh{
+            margin: 0 auto;
+        }
+        #fenXImg{
+            width: 5%;
+            position: relative;
+            top: .05rem;
+        }
+    </style>
+</head>
+<body>
+<div class="box">
+    <!--弹窗-->
+    <div id="alert">
+        <button class="dj" style="cursor: pointer">×</button>
+        <div class="nr">
+            <div class="center_b" id="view"  style="width:650px; overflow: hidden">
+                <div class="neirong">
+                    <div class="neirong_img">
+                        <img src="/themes/mobile/images/KxTop.jpg" alt="" style="width: 100%"  >
+                    </div>
+                    <div class="data_week">
+                        <div class="data_weekContent">
+                            <p class="data_week_p" >
+                                <img src="/themes/mobile/images/yuan.png" alt="" width="4%">
+                                <span class="data_week_span">星期二 2018-05-31 14:20</span>
+                            </p>
+                            <div id="wrapper">
+                                <p class="wrapper_h1"></p>
+                                <p class="wrapper_p" style="margin-top: 5%">
+                                    昨日，新京报记者从浙江大学获悉，浙大计算机学院和软件学院，将于今年学获悉，浙大计算机学院和软件学院，将于今年学获悉，浙大计算机学院和软件学院，将于今年学获悉，浙大计算机学院和软件学院，将于今年学获悉，浙大计算机学院和软件学院，将于今年秋季面向部分高年级本科生和研究生，设置一门名为《区块链与数字货币》的课程。据悉，这是国内首家开设此类课程的高校。 浙江大学相关课程教师称，在对区块链技术进行讲授时，将无法避免地涉及对于虚拟数字货币的介绍，但课程本身依然以教授区块链通用技术为主，不会鼓励...
+                                </p>
+                            </div>
+                            <div class="LGoodAK">
+                                <span class="LGood" >
+                                    <img src="/themes/mobile/images/LKong.png" alt="" width="4%">
+                                    <span id="LGood"></span>
+                                </span>
+                                <span class="Lkong" >
+                                    <img src="/themes/mobile/images/LGDown.png" alt="" width="4%">
+                                    <span id="Lkong"></span>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <img src="/themes/mobile/images/Kxbottom.jpg"  style="width: 100%" >
+                </div>
+
+            </div>
+
+        </div>
+        <!--<p class="hb_bottom_p" style="display: none">海报正在加载中</p>-->
+        <!--<p  class="tupian">长按图片保存</p >-->
+
+        <!--海报加载中-->
+    </div>
+
+    <!--顶部导航栏-->
+    <!--#include file="header.html"-->
+    <!--快讯-->
+    <div class="NewFlash">
+        <div class="FlashTitle">
+            快讯
+        </div>
+        <!--主要内容-->
+        <ul class="NewFlash_List">
+            <!--{foreach name='messageList' item='vo' }-->
+            <li>
+                <div class="tuoyuan"></div>
+                <div class="mainContent">
+                    <div class="timeF">
+                        {$vo.time|format_time='H:i'}
+                    </div>
+                    <div class="timeH" style="display:none">
+                        {$vo.timeH}
+                    </div>
+                    <div class="maintitle">
+                        <h1>{$vo.title}</h1>
+                    </div>
+                    <div class="mainText">
+                        {$vo.content}
+                    </div>
+                    <div class="GoodUp_badDown">
+                        <span  data-id='{$vo.id}' data-type='up' class="badDownGood">
+                            <img src="images/UpC.png" alt="">
+                            <span id="UPC">
+                                <span>利好</span><span class="num_G numb_count">{$vo.up}</span>
+                            </span>
+                        </span>
+                        <span data-id='{$vo.id}' data-type='down' class="badDownGood"><!--onclick='message_operation(this)' -->
+                            <img src="images/downC.png" alt="">
+                            <span id="UPDown">
+                                <span>利空</span><span class="num_B numb_count">{$vo.down}</span>
+                            </span>
+                        </span>
+                        <span onclick="share(this)" style="margin-left: .2rem"><img src="images/fenxiang.png" alt="" id="fenXImg"> <span style="margin-left: .02rem">分享</span>
+                        </span>
+
+                    </div>
+                </div>
+            </li>
+            <!--{/foreach}-->
+        </ul>
+    </div>
+
+
+    <div>
+        <span id='message_more'>加载更多</span>
+    </div>
+    <!--底部框-->
+    <!--#include file="footer.html"-->
+</div>
+</body>
+<script src="js/jquery.js"></script>
+<script src="js/jquery.cookie.js"></script>
+<script src="js/common.js"></script>
+<script src="js/layui/layui.all.js"></script>
+<script src="js/html2canvas.js"></script>
+<script>
+    var img;
+    //canvas 转换img图片
+    function convertCanvasToImage(canvas) {
+        var image = new Image();
+        image.src = canvas.toDataURL("image/png");
+        return image;
+    }
+
+    //获取像素密度
+    function getPixelRatio(conte) {
+        var backingStore = conte.backingStorePixelRatio ||
+            conte.webkitBackingStorePixelRatio ||
+            conte.mozBackingStorePixelRatio ||
+            conte.msBackingStorePixelRatio ||
+            conte.oBackingStorePixelRatio ||
+            conte.backingStorePixelRatio || 1;
+        return (window.devicePixelRatio || 1) / backingStore;
+    }
+
+    //绘制dom 元素，生成截图canvas
+    function html2Canvas() {
+        var shareContent = $("#view");// 需要绘制的部分的 (原生）dom 对象 ，注意容器的宽度不要使用百分比，使用固定宽度，避免缩放问题
+        var width = shareContent.width();  // 获取(原生）dom 宽度
+        var height = shareContent.height(); // 获取(原生）dom 高
+        console.log(width);
+        console.log(height);
+
+        var canvas = document.createElement('canvas');  //创建canvas 对象
+        var context = canvas.getContext('2d');
+        var scaleBy = getPixelRatio(context);//获取像素密度的方法 (也可以采用自定义缩放比例)
+        console.log(scaleBy);
+        canvas.width = width * scaleBy;   //这里 由于绘制的dom 为固定宽度，居中，所以没有偏移
+        canvas.height = height *scaleBy;  // 注意高度问题，由于顶部有个距离所以要加上顶部的距离，解决图像高度偏移问题
+        context.scale(scaleBy, scaleBy);
+
+        var opts = {
+            allowTaint: true,//允许加载跨域的图片
+            tainttest: true, //检测每张图片都已经加载完成
+            scale: scaleBy, // 添加的scale 参数
+            canvas: canvas, //自定义 canvas
+            logging: false, //日志开关，发布的时候记得改成false
+            width: width, //dom 原始宽度
+            height: height //dom 原始高度
+        };
+
+        html2canvas(shareContent, opts).then(function (canvas) {
+            console.log(shareContent);
+
+            $(".nr").append(canvas);
+            /* document.getElementsByClassName("hb_bottom_p")[0].style.display="none";*/
+            img = convertCanvasToImage(canvas);
+            $("canvas").remove();
+            $(img).addClass('img-wjh');
+            if(IsPC() == false){
+                $(img).css({
+                    "display":"block",
+                    "border":"0",
+                    'max-width': '90%',
+                    "max-height":"90%",
+                    "margin-top":"8%"
+                });
+            }else{
+                $(img).css({
+                    "display":"block",
+                    "border":"0",
+                    'max-width': '90%',
+                    "max-height":"90%",
+                    "margin-top":"8%"
+                });
+            }
+
+            $("#alert").append(img);
+            $(".nr").hide();
+        });
+    }
+    //判断pc还是手机
+    function IsPC() {
+        var userAgentInfo = navigator.userAgent;
+        var Agents = ["Android", "iPhone",
+            "SymbianOS", "Windows Phone",
+            "iPad", "iPod"];
+        var flag = true;
+        for (var v = 0; v < Agents.length; v++) {
+            if (userAgentInfo.indexOf(Agents[v]) > 0) {
+                flag = false;
+                break;
+            }
+        }
+        return flag;
+    }
+
+    function share(obj) {
+
+        var content = $(obj).parents('.mainContent').find(".mainText").html();
+        var time_date = $(obj).parents(".mainContent").find(".timeH").html();
+        var h_title=$(obj).parents(".mainContent").find("h1").html();
+        var content_img=$(obj).parents('.mainContent').prevAll('img').clone();
+        var LGood = $(obj).parents('.mainContent').find("#UPC").html();
+        var LKong = $(obj).parents('.mainContent').find("#UPDown").html();
+
+
+        //
+
+        $(".wrapper_h1").html(h_title);
+        $(".wrapper_p").html(content);
+        $(".wrapper_p span").css('color', '#333');
+        $(".data_week_span").html(time_date);
+        $("#LGood").html(LGood);
+        $("#Lkong").html(LKong)
+
+        $('#wrapper').append(content_img);//快讯图片
+
+        $("#alert").show();
+        $(".dj").hide();
+        $('#alert .div_ewm').attr('src',$(obj).nextAll('.qr_code').attr('src'));
+
+        if (content && time_date) { //海报生成
+            html2Canvas();
+        }
+        $('#wrapper').children('img').remove();//删除图片
+        $(".center_b").css('background', 'none');
+        $(".neirong").hide();
+        $(".dj").show();
+
+    }
+
+    $(".dj").click(function () {
+        $("#alert").hide();
+        $(".neirong").css("display", "block");
+        $(".img-wjh").remove();
+        $(".nr").show();
+    });
+
+</script>
+<script>
+
+    function setCookie(c_name,value,expiredays)
+    {
+        var exdate=new Date();
+        exdate.setDate(exdate.getDate()+expiredays);
+        document.cookie=c_name+ "=" +escape(value)+ ((expiredays==null) ? "" : ";expires="+exdate.toGMTString());
+    }
+
+    //取回cookie
+    function getCookie(c_name)
+    {
+        if (document.cookie.length>0)
+        {
+            c_start=document.cookie.indexOf(c_name + "=");
+            if (c_start!=-1)
+            {
+                c_start=c_start + c_name.length+1;
+                c_end=document.cookie.indexOf(";",c_start);
+                if (c_end==-1) c_end=document.cookie.length;
+                return unescape(document.cookie.substring(c_start,c_end))
+            }
+        }
+        return "";
+    }
+
+
+    layui.use('layer', function(){  //layer弹框
+        var layer = layui.layer;
+    });
+    var page_num = 2;
+    $('#message_more').click(function(){
+        $.ajax({
+          type:"post",
+          url:"/Home/Ajax/get_message",
+          data:{page_num:page_num},
+          dataType:'json',
+          success:function(rdata){
+            if(rdata.code==1){
+                $('.NewFlash_List').append(rdata.data);
+                page_num++;
+            }else{
+                $('#message_more').html(rdata.info);
+            }
+          }
+        });
+    });
+
+    $("body").on("touchstart",".badDownGood",function () {
+        var obj =$(this);
+        var id = obj.attr('data-id');
+        var type = obj.attr('data-type');
+        var aaa=getCookie(type+id);
+        var cida=type+id;
+        if(aaa==cida){
+            return false
+        }
+        $.ajax({
+            type:"post",
+            url:"/Home/Ajax/opera_message",
+            data:{id:id,type:type},
+            dataType:'json',
+            success:function(rdata){
+                if(rdata.code==1){
+                        obj.find('.numb_count').addClass("wyx");
+                        obj.css({"pointer-events":"none"});
+                        obj.find('.numb_count').html(parseInt(obj.find('.numb_count').html())+1);
+                        var cid = obj.find('.numb_count').html()
+                        setCookie(type+id,type+id, 365);
+                }else{
+
+                }
+            }
+        });
+    })
+
+</script>
+</html>

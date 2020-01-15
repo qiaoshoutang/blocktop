@@ -1,0 +1,192 @@
+body{
+    font-family: 'open sans','PingFang SC','Lantinghei SC','Helvetica Neue',Helvetica,Arial,'Microsoft YaHei',"sans-serif"
+}
+*{
+    margin: 0;
+    padding: 0;
+}
+ul li{
+    list-style: none;
+}
+body{
+    background: #3465c1;
+}
+.box {
+    width: 100%;
+    height: 100%;
+    background: url("../images/ApplyIncluded.jpg") no-repeat top center;
+    background-size:100% 100% ;
+}
+.form_box{
+    width: 1200px;
+    margin: 55px auto 0 auto;
+    height: 730px;
+    /*background: pink;*/
+    position: relative;
+}
+.formTitle{
+    width: 100%;
+    font-size:40px ;
+    color: white;
+    text-align: center;
+    letter-spacing: 2px;
+}
+.InpBox{
+    width: 70%;
+    margin: 0 auto;
+}
+.InpBox ul{
+    width: 700px;
+    float: left;
+    /*background: black;*/
+    display: inline-block;
+    height: 500px;
+    color: white;
+}
+.InpList:nth-child(1){
+    margin-top: 65px;
+}
+.InpList:nth-child(4){
+    height: 110px;
+}
+.InpList:nth-child(4) .InpText{
+    height: 110px;
+    background: #254185;
+}
+.InpList{
+    width: 100%;
+    height: 55px;
+    margin-top: 25px;
+    position: relative;
+}
+.InpTitle{
+    width: 150px;
+    float: left;
+    line-height: 55px;
+    color: white;
+    text-align: left;
+    display: inline-block;
+    font-size: 20px;
+    letter-spacing: 1px;
+}
+.InpText{
+    width: 550px;
+    height: 55px;
+    display: inline-block;
+    background: #254185;
+    border-radius:8px ;
+    overflow: hidden;
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+.InpText input{
+    width: 100%;
+    height: 100%;
+    border: none;
+    background: transparent;
+    color: white;
+    text-indent: 1em;
+    font-size: 18px;
+}
+
+input::placeholder{
+    color: #6891e8;
+    letter-spacing: 2px;
+    font-weight: bold;
+}
+textarea::placeholder{
+    color: #6891e8;
+    letter-spacing: .5px;
+    font-weight: bold;
+
+}
+textarea{
+    width: 100%;
+    height: 100%;
+    border: none;
+    background: transparent;
+    color: white;
+    text-indent: 1em;
+    font-size: 20px;
+    padding-top: 10px;
+}
+.styleImg{
+    float: right;
+    width: 550px;
+    color: #aebee3;
+    margin-top: 3px;
+}
+.btn_Submit{
+    width: 540px;
+    height: 80px;
+    background: white;
+    text-align: center;
+    color: #365aae;
+    line-height: 80px;
+    float: right;
+    margin-right: 5px;
+    font-size: 25px;
+    margin-top:55px;
+    border-radius: 4px;
+    display: inline-block;
+    position: relative;
+    z-index: 99;
+}
+.infomationS{
+    width: 540px;
+    text-align: center;
+    float: right;
+    color: white;
+    margin-top: 10px;
+    font-size: 20px;
+}
+.sectionHtml{
+    width: 160px;
+    height: 350px;
+    border: 1px white solid;
+    background: #4171d5;
+    border-radius: 4px;
+    position: absolute;
+    top: 122px;
+    right: 145px;
+    display: none;
+}
+.sectionHtml ul{
+    width: 100%;
+    height: 100%;
+}
+.sectionHtml ul li{
+    width: 100%;
+    height: 50px;
+    line-height: 50px;
+    color: white;
+    font-size: 18px;
+    text-align: center;
+}
+.sectionHtml ul li:hover{
+    color: #254185;
+}
+.styleBtn{
+    width: 50px;
+    height: 100%;
+    position: absolute;
+    right: 0;
+    top: 0;
+    z-index: 99;
+    line-height: 50px;
+    text-align: center;
+    font-size: 30px;
+    color:#6891e8 ;
+    cursor: pointer;
+}
+.file-opacity{
+    position: absolute;
+    right: 0;
+    top: 0;
+    height: 100%;
+}
+/*.InpText:hover{*/
+    /*background:#4171d5 ;*/
+    /*border: 1px solid white;*/
+/*}*/

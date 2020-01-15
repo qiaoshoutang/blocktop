@@ -1,0 +1,57 @@
+.Search{
+    width: 1200px;
+    margin: 0 auto;
+    height: 100px;
+    position: relative;
+    overflow: hidden;
+}
+.input-box{
+    width: 625px;
+    height: 50px;
+    margin: 25px auto 0 auto;
+    position: relative;
+}
+.SearchKk{
+    width: 560px;
+    height: 95%;
+    border: 1px silver solid;
+    font-size: 20px;
+    text-indent: 30px;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+.SearchK_Point{
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 65px;
+    height: 100%;
+    background: #2e84fb;
+    text-align: center;
+}
+.SearchK_Point img{
+    width: 50%;
+    margin-top: 10px;
+}
+.haveY{
+    /*display: none;*/
+}
+.haveN{
+    width: 100%;
+    border: 1px solid silver;
+    height: 730px;
+    display: inline-block;
+    text-align: center;
+}
+.haveN img{
+    margin-top: 110px;
+}
+.haveN-font{
+    margin-top: 40px;
+    font-size: 25px;
+    font-weight: 200;
+}
+.haveN-font a{
+    color: #2e84fb;
+}

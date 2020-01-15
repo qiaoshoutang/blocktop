@@ -1,0 +1,190 @@
+.RecentnavList{
+    width: 1200px;
+    margin: 0 auto;
+    padding-bottom: 80px;
+}
+.RecentnavList_ul{
+    height: 80px;
+    width: 100%;
+}
+.RecentnavList_ul li{
+    float: left;
+    width: 8%;
+    height: 80px;
+    line-height: 80px;
+    text-align: center;
+    font-size: 25px;
+}
+.RecentnavList_ul li a{
+    color:#808080;
+}
+.RecentnavList_ul li.active a{
+    color:#333;
+    font-weight: bold;
+}
+.RecentnavList_ul li:hover{
+    font-weight: bold;
+}
+.Recent-time{
+    width: 1200px;
+    margin: 0 auto;
+}
+.Recent-time ul {
+    width: 1200px;
+    height: 60px;
+    border: 1px #eeeeee solid;
+    line-height: 60px;
+}
+.Recent-time ul li{
+    float: left;
+    width: 85px;
+    text-align: center;
+    height: 100%;
+    font-size: 20px;
+    color: #aaaaaa;
+}
+.Recent-time ul li a{
+    color:#808080;
+}
+.Recent-time ul li.active a{
+    color:#333;
+    font-weight: bold;
+}
+
+.Recent-time ul li:hover{
+    color: #2e84fb;
+    font-weight: bold;
+}
+.Activity-Details{
+    width: 1200px;
+    margin: 0 auto;
+}
+.Activity-Details ul{
+    width: 110%;
+}
+.Activity-Details ul li {
+    width: 380px;
+    height: 320px;
+    border: 1px #eeeeee solid;
+    float: left;
+    margin-right: 28px;
+    margin-top: 20px;
+}
+.Img_Ac{
+    width: 95%;
+    margin: 10px auto;
+}
+.Img_Ac img{
+    width: 100%;
+}
+.Title_Ac{
+    width:95%;
+    margin: 0 auto;
+    text-align: center;
+
+}
+.Title_Ac_P{
+    width: 100%;
+    height: 30px;
+    line-height: 30px;
+}
+.Title_Ac_P span:nth-child(1){
+    float: left;
+    font-size: 19px;
+    width: 70%;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    text-align: left;
+}
+.Title_Ac_P span:nth-child(2){
+    float: right;
+    font-weight: 400;
+    color: #585858;
+    font-size: 14px;
+}
+.LocationTime{
+    width: 95%;
+
+    margin: 0 auto;
+}
+.Location{
+    float: left;
+    font-size: 13px;
+    width: 50%;
+    margin-top: 15px;
+
+}
+.Location img{
+    width: 14px;
+    height: 14px;
+}
+.Location span{
+    margin-left: 8px;
+}
+.Location p{
+    color:#585858 ;
+    width: 100%;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+.Location p:nth-child(1){
+    font-size: 18px;
+}
+.Location p:nth-child(2){
+    font-size: 16px;
+}
+.Time{
+    float: right;
+    width: 50%;
+}
+
+.LOOKMMM{
+    width: 1200px;
+    height: 60px;
+    text-align: center;
+    line-height: 60px;
+    color: #2e84fb;
+    font-size: 18px;
+    clear: both;
+    position: relative;
+    top: 40px;
+    cursor: pointer;
+}
+.Time_Bm{
+    width: 75px;
+    height: 25px;
+    line-height: 25px;
+    text-align: center;
+    color: white;
+    letter-spacing: 1.5px;
+    background: #2e84fb;
+    float: right;
+    margin-top:30px;
+    font-size: 15px;
+    margin-right: 5px;
+    border-radius: 2px;
+}
+.Time_Finish{
+    width: 75px;
+    height: 25px;
+    line-height: 25px;
+    text-align: center;
+    color: white;
+    letter-spacing: 1.5px;
+    background:#aaaaaa ;
+    float: right;
+    margin-top:30px;
+    font-size: 15px;
+    margin-right: 5px;
+    border-radius: 2px;
+}
+.font-cx{
+    font-weight: bold;
+    color: black!important;
+}
+.font-cxb{
+    font-weight: bold!important;
+    color: #2e84fb!important;
+}

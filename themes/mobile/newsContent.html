@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>新闻资讯</title>
+    <meta name="baidu-site-verification" content="9h2o7ScMIE" />
+    <meta name="keywords" content="{$contentInfo.keyword}"/>
+    <meta name="description" content="蚂蚁节点联盟-蚂蚁节点联盟是国内知名的区块链线下社群组织，联盟以引领行业新生态、 促进区块链行业稳健发展为宗旨，致力于聚合全球区块链行业专家及区块链爱好者， 整合区块链产业上下游资源，为区块链行业参与者提供第三方综合服务。"/>
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <script>
+        (function (doc, win) {
+            var docEl = doc.documentElement,
+                resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+                recalc = function () {
+                    var clientWidth = docEl.clientWidth;
+                    if (!clientWidth) return;
+                    if(clientWidth>=640){
+                        docEl.style.fontSize = '100px';
+                    }else{
+                        docEl.style.fontSize = 100 * (clientWidth / 640) + 'px';
+                    }
+                };
+            if (!doc.addEventListener) return;
+            win.addEventListener(resizeEvt, recalc, false);
+            doc.addEventListener('DOMContentLoaded', recalc, false);
+        })(document, window);
+    </script>
+    <link rel="stylesheet" href="css/common.css">
+</head>
+<style>
+    .NewsContent{
+        width: 100%;
+        padding-bottom: .2rem;
+    }
+    .NewsContent_Titile{
+        width: 90%;
+        margin: 0.3rem auto 0 auto;
+        font-size: .35rem;
+        text-align: justify;
+    }
+    .NewsContent_Titile p:nth-child(1){
+        font-weight: bold;
+    }
+    .Time_Num{
+        width: 100%;
+        font-size: .21rem;
+        margin-top: .05rem;
+    }
+
+   .Num{
+       margin-left: .3rem;
+   }
+    .guankan{
+        width: 5%;
+    }
+    .ZxNr{
+        width: 90%;
+        margin: 0.4rem auto 0 auto;
+        text-align: justify;
+        font-size: .25rem;
+        padding-bottom: .5rem;
+        line-height: 190%;
+    }
+    .ZxNr img{
+        max-width:100%;
+    }
+    .ZxNr_Title{
+        width: 100%;
+        font-size: .25rem;
+        margin-top: 0.2rem;
+    }
+    .ZxNr_Content{
+        font-size: .25rem;
+        font-weight: 300;
+        margin-top: .2rem;
+    }
+    .ZxNr_Img{
+        max-width: 100%;
+        margin: 0.2rem auto 0 auto;
+    }
+
+    .ZxNr video{
+        width: 100%;
+    }
+    .ZxNr p{
+        margin-top: .2rem;!important;
+    }
+</style>
+<body>
+<div class="box">
+    <!--顶部导航栏-->
+    <!--#include file="header.html"-->
+    <div class="NewsContent">
+        <div class="NewsContent_Titile">
+            <p>{$contentInfo['title']}</p>
+            <p class="Time_Num">
+                <span>{$contentInfo['author']} · {$contentInfo['time']|format_time="Y-m-d H:i:s"}</span>
+                <span class="Num">
+                    <img src="images/guankan.png" alt="" class="guankan">
+                    <span>{$contentInfo['views']}</span>
+                </span>
+            </p>
+        </div>
+        <!--资讯内容-->
+        <div class="ZxNr">
+            {$contentInfo['content']}
+        </div>
+
+    </div>
+
+    <!--底部框-->
+    <!--#include file="footer.html"-->
+</div>
+</body>
+<script src="js/jquery.js"></script>
+<script src="js/common.js"></script>
+</html>

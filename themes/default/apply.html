@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>申请收录</title>
+    <meta name="baidu-site-verification" content="9h2o7ScMIE" />
+    <meta name="keywords" content="蚂蚁节点联盟，社群组织，区块链，区块链社区，区块链社区联盟，区块链服务平台"/>
+    <meta name="description" content="蚂蚁节点联盟-蚂蚁节点联盟是国内知名的区块链线下社群组织，联盟以引领行业新生态、 促进区块链行业稳健发展为宗旨，致力于聚合全球区块链行业专家及区块链爱好者， 整合区块链产业上下游资源，为区块链行业参与者提供第三方综合服务。"/>
+    <link rel="stylesheet" href="css/includeApply.css">
+    <script src="js/jquery.js"></script>
+
+</head>
+<style>
+    #class_id{
+        width: 100%;
+        height: 100%;
+        background: transparent;
+        color: #6891e8;
+        border: none;
+        font-size: 18px;
+        font-weight: bold;
+        text-indent: 1em;
+    }
+    #class_id:optional{
+         background: #254185;
+    }
+    #class_id option{
+        font-size: 18px;
+        width: 100%;
+        font-weight: bold;
+    }
+    .InpText textarea{
+        font-weight: bold;
+    }
+</style>
+
+<body>
+    <div class="box">
+        <div class="form_box">
+            <div class="formTitle">
+                导航申请表单
+            </div>
+            <!--导航栏-->
+            <div class="InpBox">
+            <form >
+                <ul>
+                    <!--分类-->
+                    <li class="InpList">
+                        <div class="InpTitle">
+                            分类*
+                        </div>
+                        <div class="InpText">
+                            <select name="class_id" id='class_id'>
+                                <option value="0">选择分类</option>
+                                <!--{foreach name='classList' item='vo' }-->
+                                <option value="{$key}" class="option">{$vo}</option>
+                                <!--{/foreach}-->
+                            </select>
+                        </div>
+
+
+                    </li>
+                    <!--名称-->
+                    <li class="InpList">
+                        <div class="InpTitle">
+                            名称*
+                        </div>
+                        <div class="InpText">
+                            <input type="text" placeholder="名称" name="name">
+                        </div>
+                    </li>
+                    <!--官方网站-->
+                    <li class="InpList">
+                        <div class="InpTitle">
+                            官方网站*
+                        </div>
+                        <div class="InpText">
+                            <input type="text" placeholder="官方网站" name="target">
+                        </div>
+                    </li>
+                    <!--简介-->
+                    <li class="InpList">
+                        <div class="InpTitle">
+                            简介*
+                        </div>
+                        <div class="InpText">
+                            <textarea  placeholder="简介(建议20字左右)" name="descrip"></textarea>
+                        </div>
+                    </li>
+                    <!--Logo-->
+                    <li class="InpList">
+                        <div class="InpTitle">
+                            Logo*
+                        </div>
+                        <div class="InpText">
+                            <input type="text" placeholder="点击上传" class="phone-input" name='icon'>
+                            <input type="file" class="file-opacity" style="opacity: 0" name="file-input">
+                        </div>
+                        <div class="styleImg">*支持jpg,png,git,bmp,psd,tiff 等图片格式</div>
+                        <div class="btn_Submit">
+                            提交
+                        </div>
+                        <div class="infomationS">
+                            信息将在提交成功后3日内审核
+                        </div>
+                    </li>
+                </ul>
+            </form>
+
+            </div>
+            <!--分类选项-->
+            <div class="sectionHtml">
+                <ul>
+                    <li>行情</li>
+                    <li>交易所</li>
+                    <li>TOP200</li>
+                    <li>钱包</li>
+                    <li>矿池</li>
+                    <li>媒体</li>
+                    <li>技术服务</li>
+                </ul>
+
+
+            </div>
+
+
+
+        </div>
+    </div>
+</body>
+<script src="js/layui/layui.js"></script>
+</html>
+<script>
+
+    layui.use('layer', function(){  //layer弹框
+        var layer = layui.layer;
+    });
+
+    $('.file-opacity').on("change",function(){
+        var formData = new FormData();
+        formData.append("photo",$(".file-opacity")[0].files[0]);
+        $.ajax({
+            url:'/Home/Ajax/upload', /*接口域名地址*/
+            type:'post',
+            data: formData,
+            contentType: false,
+            processData: false,
+            success:function(res){
+                res =JSON.parse(res);
+                if(res.status==1){
+                    $('.phone-input').val(res.data.url);
+                }else{
+                    console.log(res);
+                }
+            }
+        })
+    });
+
+
+    $(".btn_Submit").click(function () {
+
+        var InpText=$("#class_id").val();
+        var InputName=$("input[name='name']").val();
+        var InputWz=$("input[name='target']").val();
+        var InputTro=$("textarea[name='descrip']").val();
+        var file_input=$("input[name='file-input']").val();
+
+
+        if(InpText==null||InpText=="0"){
+            layer.msg('分类选项不能为空');
+            return false
+        }if(InputName==null||InputName==""){
+            layer.msg('名称不能为空');
+            return false
+        }if(InputWz==null||InputWz==""){
+            layer.msg('网站地址不能为空');
+            return false
+        }if(InputTro==null||InputTro==""){
+            layer.msg('简介不能为空');
+            return false
+        }if(file_input==null||file_input==""){
+            layer.msg('上传照片不能为空');
+            return false
+        }else {
+
+            $.ajax({
+              type:"post",
+              url:"/Home/Ajax/apply_submit",
+              data:$('form').serialize(),
+              dataType:'json',
+              success:function(rdata){
+                if(rdata.code==1){
+                    layer.msg(rdata.info);
+                    setTimeout(function () {
+                        location.reload()
+                    },2000)
+                }else{
+                   layer.msg(rdata.info);
+                }
+              }
+            });
+        }
+
+
+    })
+
+</script>

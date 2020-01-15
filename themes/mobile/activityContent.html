@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>活动介绍</title>
+    <meta name="baidu-site-verification" content="9h2o7ScMIE" />
+    <meta name="keywords" content="蚂蚁节点联盟，社群组织，区块链，区块链社区，区块链社区联盟，区块链服务平台"/>
+    <meta name="description" content="蚂蚁节点联盟-蚂蚁节点联盟是国内知名的区块链线下社群组织，联盟以引领行业新生态、 促进区块链行业稳健发展为宗旨，致力于聚合全球区块链行业专家及区块链爱好者， 整合区块链产业上下游资源，为区块链行业参与者提供第三方综合服务。"/>
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <script>
+        (function (doc, win) {
+            var docEl = doc.documentElement,
+                resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+                recalc = function () {
+                    var clientWidth = docEl.clientWidth;
+                    if (!clientWidth) return;
+                    if(clientWidth>=640){
+                        docEl.style.fontSize = '100px';
+                    }else{
+                        docEl.style.fontSize = 100 * (clientWidth / 640) + 'px';
+                    }
+                };
+            if (!doc.addEventListener) return;
+            win.addEventListener(resizeEvt, recalc, false);
+            doc.addEventListener('DOMContentLoaded', recalc, false);
+        })(document, window);
+    </script>
+    <link rel="stylesheet" href="css/common.css">
+</head>
+<style>
+    .bannerActivit{
+        width: 100%;
+        height: 3.8rem;
+    }
+    .bannerActivit img{
+        width: 100%;
+        height: 100%;
+    }
+    body{
+        background: #f6f6f6;
+    }
+    .AcName{
+        height: 1rem;
+        line-height: 1rem;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        font-size: .3rem;
+        background: white;
+        text-indent: 1em;
+        font-weight: bold;
+    }
+    .AcNameLocTim{
+        margin-top: .2rem;
+        height: 3rem;
+        background: white;
+        font-size: .25rem;
+        color: #585858;
+        overflow: hidden;
+    }
+    .AcNameLocTim p:nth-child(1){
+        margin-top: .3rem;
+    }
+    .AcNameLocTim p{
+        width: 92%;
+        margin: .3rem auto;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        white-space: nowrap;
+    }
+    .leftAc{
+        width: 14%;
+        text-align: left;
+        display: inline-block;
+    }
+    .LookPeople{
+        display: inline-block;
+        margin-top: .2rem;
+        color: #a3a3a3;
+    }
+    .BmzBtn{
+        width: 1.45rem;
+        height: .4rem;
+        background: #2e84fb;
+        color: white;
+        text-align: center;
+        line-height: .41rem;
+        font-size: .25rem;
+        display: inline-block;
+        float: right;
+        border-radius: 4px;
+        letter-spacing: 1px;
+    }
+    .YjsBtn{
+        background: #a3a3a3;
+        color: white;
+        width: 1.35rem;
+        height: .4rem;
+        text-align: center;
+        line-height: .41rem;
+        font-size: .25rem;
+        display: inline-block;
+        float: right;
+        border-radius: 4px;
+        letter-spacing: 1px;
+    }
+    .AcInfor{
+        width: 100%;
+        background: white;
+        margin-top: .2rem;
+    }
+    .AcInfor_box{
+        width: 92%;
+        text-align: justify;
+        margin: 0 auto;
+        font-size: .23rem;
+    }
+    .AcInfor_Title{
+        font-size: .3rem;
+        font-weight: bold;
+    }
+    .AcInfor_Title span{
+        margin-top: .2rem;
+        border-bottom:2px solid #2e84fb ;
+        display: inline-block;
+    }
+    .contentA{
+        padding-bottom: .5rem;
+        line-height: 180%;
+    }
+    .contentA p{
+        padding-top: .2rem;
+    }
+    .Ld{
+      margin-top: .3rem;
+    }
+    .AcInfor_box img{
+        max-width: 100%;
+        margin-top: .15rem;
+    }
+</style>
+<body>
+   <div class="box">
+       <!--顶部导航栏-->
+       <!--#include file="header.html"-->
+       <!--banner-->
+       <div class="bannerActivit">
+           <img src="{$activityInfo.cover_url}" alt="" width="100%">
+       </div>
+       <div class="AcName">
+           {$activityInfo.name}
+       </div>
+       <div class="AcNameLocTim">
+           <p><span class="leftAc">主办方</span>: {$activityInfo.master_name_1}  {$activityInfo.master_name_2}</p>
+           <p><span class="leftAc">地<span style="margin-left: .2rem">点</span></span>: {$activityInfo.position}</p>
+           <p><span class="leftAc">时<span style="margin-left: .2rem">间</span></span>: {$activityInfo.duration}</p>
+           <p>
+               <span class="LookPeople"><span>{$activityInfo.views}</span>人浏览</span>
+
+              <!--{if condition="$activityInfo.state eq 1"}-->
+               <span class="BmzBtn">报名中</span>
+               <!--{/if}-->
+               <!--{if condition="$activityInfo.state eq 2"}-->
+               <span class="YjsBtn">已结束</span>
+               <!--{/if}-->
+           </p>
+       </div>
+       <!--活动介绍-->
+       <div class="AcInfor">
+           <div class="AcInfor_box">
+               <div class="AcInfor_Title">
+                   <span>活动介绍</span>
+               </div>
+               <div class="contentA">
+               {$activityInfo.content}
+               </div>
+           </div>
+       </div>
+
+       <!--底部框-->
+       <!--#include file="footer.html"-->
+   </div>
+
+</body>
+<script src="js/jquery.js"></script>
+<script src="js/common.js"></script>
+</html>
