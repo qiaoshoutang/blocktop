@@ -1,0 +1,52 @@
+<h3>公众号设置</h3>
+<admin:panel >
+  <admin:form url="{:U('')}" method="post" id="form" class="m-form-horizontal" >
+   
+	
+	 <admin:formrow title="公众号" tip="公众号英文如 shanmaome" >
+      <admin:text name="gzhcode"  value="{$info.gzhcode}" len="250" />
+    </admin:formrow>
+    
+	 <admin:formrow title="管理员OPENID" tip="重要通知发送到管理员微信号！" >
+      <admin:text name="adminopenid"  value="{$info.adminopenid}" len="250" />
+    </admin:formrow>
+   
+    <admin:formrow title="自定义token" tip="微信后台token接口，默认为 shanmaowxin 。备注：token网址为：http://{$info.site_url}{:U('Home/Weixin/index')}" >
+      <admin:text name="wxtoken"  value="{$info.wxtoken}" len="250" />
+    </admin:formrow>
+    
+	<admin:formrow title="APPID" tip="主微信APPID，一般有微信支付的服务号" >
+      <admin:text name="APPID"  value="{$info.APPID}" len="250" />
+    </admin:formrow>
+	
+	<admin:formrow title="SCRETID" tip="微信AppSecret" >
+      <admin:text name="SCRETID"  value="{$info.SCRETID}" len="250" />
+    </admin:formrow>
+	
+
+  <!--  <admin:formrow title="APPID_jsapi" tip="当分享接口失效时。应急分享接口appid" >
+      <admin:text name="APPID_jsapi"  value="{$info.APPID_jsapi}" len="250" />
+    </admin:formrow>
+	
+	<admin:formrow title="SCRETID_jsapi" tip="当分享接口失效时。应急分享接口AppSecret" >
+      <admin:text name="SCRETID_jsapi"  value="{$info.SCRETID_jsapi}" len="250" />
+    </admin:formrow>
+    -->
+
+	
+     <admin:formrow title="自定义关注回复" tip="自定义关注回复,不填则不回复。" >
+      <admin:textarea name="diygzhf" rows="5" >{$info.diygzhf}</admin:textarea>
+    </admin:formrow>
+	
+
+	
+
+    
+    <admin:formsubmit/>
+  </admin:form>
+</admin:panel>
+<script>
+Do.ready('base', function() {
+	$('#form').duxForm();
+});
+</script> 

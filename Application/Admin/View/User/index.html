@@ -1,0 +1,105 @@
+<h3>{$name}列表</h3>
+<admin:panel>
+	<admin:tabletool filter="true" url="index.php?s=/Admin/User/index/smappid/{$_GET['smappid']}" keyword="{$pageMaps.keyword}">
+		<admin:select name="status" item="==状态==,正常,未验证,禁止,禁言中" value="0,1,2,3,4" selected="$pageMaps['status']" />		
+	</admin:tabletool>
+
+	<admin:table id="table" show="选择|30,编号|30,OPENID,活动ID,上级ID,子用户数,钱包地址,糖果码,验证,注册余额,推广余额,注册时间,状态|70,操作|350">
+		<foreach name="list" item="vo">
+			<tr>
+				<td>
+					<input type="checkbox" name="id[]" value="{$vo.id}" />
+				</td>
+				<td>{$vo.id}</td>
+				<td>{$vo.openid}</td>
+				<td>{$vo.act_id}</td>
+				<td>{$vo.parent_id}</td>
+				<td>{$vo.son_num}</td>
+				<td>{$vo.imtoken}</td>
+				<td>{$vo.candy}</td>
+				<td>
+					<if condition="$vo['candy_ver'] eq 1">
+						已验证
+
+					<else />
+						未验证
+					</if>
+				</td>
+				<td>{$vo.money_reg}</td>
+				<td>{$vo.money_inv}</td>
+
+				<td>{$vo.create_time|date="Y-m-d H:i:s",###}</td>
+			
+				<td>
+					<if condition="$vo['user_status'] eq 1">
+						<span class="u-badge u-badge-success">正常</span>
+						<elseif condition="$vo['user_status'] eq 2" />
+						<span class="u-badge u-badge-danger">未验证</span>
+						<elseif condition="$vo['user_status'] eq 0" />
+						<span class="u-badge u-badge-danger">禁止登陆</span>
+						<else />
+						<span style="color: red;">禁言{$vo.jinyanDays}天</span>
+					</if>
+				</td>
+                
+				<td>
+					<a class="u-btn u-btn-primary  u-btn-small" href="{:U('edit',array('id'=>$vo['id']))}">管理</a>
+					<!-- <a class="u-btn u-btn  u-btn-small add" href="javascript:;" dataType="2" data="{$vo.id}">+余额</a> -->
+				
+					<a class="u-btn u-btn-danger  u-btn-small del" href="javascript:;" data="{$vo.id}">删除</a>
+				</td>
+			</tr>
+		</foreach>
+	</admin:table>
+	<admin:tablefoot action="true" item="删除" value="1" />
+</admin:panel>
+<script type="text/javascript" charset="utf-8">
+	Do.ready('base', function() {
+		//移动操作
+		$('#selectAction').change(function() {
+			var type = $(this).val();
+			if (type == 3) {
+				$(this).after($('#class_id').clone());
+			} else {
+				$(this).nextAll('select').hide();
+			}
+		});
+		//表格处理
+		$('#table').duxTable({
+			actionUrl: "{:U('batchAction')}",
+			deleteUrl: "{:U('del')}",
+			actionParameter: function() {
+				return {
+					'class_id': $('#selectAction').next('#class_id').val()
+				};
+			}
+		});
+	});
+
+	//余额
+	$(function() {
+		$('.add').click(function() {
+			var mtype = $(this).attr('dataType');
+			var uid = $(this).attr('data');
+			var o = $(this);
+			var type = 2;
+			var desc = '系统处理';
+			var moeny = prompt("请输入数值！");
+			if (moeny) {
+				$.post("{:U('Admin/User/sendaccount')}", {
+					mtype: mtype,
+					type: type,
+					moeny: moeny,
+					desc: desc,
+					uid: uid
+				}, function(data) {					
+					if (data.status == 1) {
+					    o.parents('tr').find('td').eq(6).text(data.money);
+					}else{
+						alert(data.msg);
+					}
+				},'json')
+			}
+		})
+	})
+</script>

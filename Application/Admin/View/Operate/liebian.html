@@ -1,0 +1,120 @@
+<h3>裂变设置</h3>
+
+<admin:panel >
+
+  <admin:form url="{:U('')}" method="post" id="form" class="m-form-horizontal" >
+
+       <admin:formrow title="通知手机号" tip="域名被封短信通知,多个请用','号隔开" >
+
+      <admin:text name="tz_mob"  value="{$info.tz_mob}"  />
+	   
+       </admin:formrow> 
+     
+      <admin:formrow title="苹果手机分享到群" tip="苹果手机 分享到群 变为广告 开关" >
+
+       <admin:radio name="ios_fx"  item="开启,关闭" value="0,1" checked="$info['ios_fx']" />
+	   
+       </admin:formrow> 
+
+	    <admin:formrow title="分享到朋友圈次数" tip="" >
+
+       <admin:text name="timeline_num"  value="{$info.timeline_num}"  />
+
+       </admin:formrow> 
+
+ 
+ 
+	  <admin:formrow title="广告落地url" tip="变量d" >
+
+       <admin:text name="diyfxurl"  value="{$info.diyfxurl}"  />
+
+       </admin:formrow> 
+	   
+	   <admin:formrow title="使用第几套第三方平台" tip="CpApi">
+
+       <admin:text name="SCRETID_jsapi"  value="{$info.SCRETID_jsapi}"  />
+
+       </admin:formrow>
+	   
+	    <admin:formrow title="第三方平台标识" tip="-2">
+
+       <admin:text name="diyfximg"  value="{$info.diyfximg}"  />
+
+       </admin:formrow>
+	   
+        <?php 
+		     $info['to_group'] = htmlspecialchars_decode($info['to_group']);
+			
+		     $info['to_timeline'] = htmlspecialchars_decode($info['to_timeline']);
+			 $info['to_timeline2'] = htmlspecialchars_decode($info['to_timeline2']);
+		
+		     $info['to_group'] = unserialize($info['to_group']);
+			
+            $info['to_timeline'] = unserialize($info['to_timeline']);
+			$info['to_timeline2'] = unserialize($info['to_timeline2']);
+		?>
+         <admin:formrow title="分享群设置" tip=""  >
+        
+         标题：<admin:text name="to_group[title]"  value="{$info.to_group.title}"  /><br/>
+		 描述：<admin:text name="to_group[desc]"  value="{$info.to_group.desc}"  /><br/>
+		 图标：<admin:text name="to_group[img]"  id="to_group_img"  type="text" value="{$info.to_group.img}" len="250" width="medium" />
+          <a class="u-btn u-btn-primary u-img-upload" data="to_group_img" preview="image-preview2" href="javascript:;" id="upload">上传</a> 
+          <a class="u-btn u-btn-primary" href="javascript:;" id="image-preview2">预览</a><br/>
+         链接：<admin:text name="to_group[link]"  value="{$info.to_group.link}"  /><br/>
+       </admin:formrow> 
+
+         <admin:formrow title="分享朋友圈1" tip=""  >
+
+         标题：<admin:text name="to_timeline[title]"  value="{$info.to_timeline.title}"  /><br/>
+		 描述：<admin:text name="to_timeline[desc]"  value="{$info.to_timeline.desc}"  /><br/>
+		 图标：<admin:text name="to_timeline[img]" id="to_timeline_img" type="text" value="{$info.to_timeline.img}" len="250" width="medium" />
+          <a class="u-btn u-btn-primary u-img-upload" data="to_timeline_img" preview="image-preview3" href="javascript:;" id="upload">上传</a> 
+          <a class="u-btn u-btn-primary" href="javascript:;" id="image-preview3">预览</a><br/>
+         链接：<admin:text name="to_timeline[link]"  value="{$info.to_timeline.link}"  /><br/>
+
+       </admin:formrow> 
+
+         <admin:formrow title="分享朋友圈2" tip=""  >
+
+         标题：<admin:text name="to_timeline2[title]"  value="{$info.to_timeline2.title}"  /><br/>
+		 描述：<admin:text name="to_timeline2[desc]"  value="{$info.to_timeline2.desc}"  /><br/>
+		 图标：<admin:text name="to_timeline2[img]" id="to_timeline2_img" type="text" value="{$info.to_timeline2.img}" len="250" width="medium" />
+          <a class="u-btn u-btn-primary u-img-upload" data="to_timeline2_img" preview="image-preview4" href="javascript:;" id="upload">上传</a> 
+          <a class="u-btn u-btn-primary" href="javascript:;" id="image-preview4">预览</a><br/>
+         链接：<admin:text name="to_timeline2[link]"  value="{$info.to_timeline2.link}"  /><br/>
+
+       </admin:formrow> 
+
+      <admin:formrow title="分享到朋友圈" tip="" >
+       <admin:radio name="pyq_option"  item="分享图片,分享文章" value="0,1" checked="$info['pyq_option']" />
+      </admin:formrow> 
+
+      <admin:formrow title="落地页广告" tip="" >
+       <admin:radio name="lb_ad_switch"  item="关闭,开启" value="0,1" checked="$info['lb_ad_switch']" />
+      </admin:formrow> 
+
+      <admin:formrow title="落地页标题" tip="落地页上方显示的标题">
+
+       <admin:text name="lb_title"  value="{$info.lb_title}"  />
+
+       </admin:formrow>
+
+
+
+
+    <admin:formsubmit/>
+
+  </admin:form>
+
+</admin:panel>
+
+<script>
+
+Do.ready('base', function() {
+
+	$('#form').duxFormPage();
+
+});
+
+</script> 
+

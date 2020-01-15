@@ -1,0 +1,218 @@
+<h3>公众号菜单</h3>
+<admin:form url="{:U()}" method="post" id="form">
+  <div class="g-main-body">
+    <div class="g-main-content m-form-horizontal">
+      <admin:panel>
+      <span class="u-btn u-btn-primary">菜单一</span>
+      <admin:table id="table1" show="级别|300,类型|50,名称,值"  class="m-table-border">
+       <foreach name="data['first']"  item="vo">
+       <if condition="$vo['id'] eq 1"> 
+       <tr>
+    	<td>
+        	一级菜单：
+        </td>
+      <td>
+      <admin:select name="first_type[]"  item="click,view" value="click,view" selected="$vo['menu_type']" />
+      </td>
+      <td> <admin:text name="first[]"  value="{$vo.name}" len="50"  /></td>
+      <td><admin:text name="first_value[]"  value="{$vo.value}" len="250"  /></td>
+    </tr>
+    </if>
+     </foreach>
+     <foreach name="data['second1']" key="key" item="vo">
+     <tr>
+    	<td>
+        	二级菜单{$key+1}：
+        </td>
+      <td>
+      <admin:select name="menu_type1[]"  item="click,view" value="click,view" selected="$vo['menu_type']" />
+      </td>
+      <td> <admin:text name="second1[]"  value="{$vo.name}" len="50"  /></td>
+      <td><admin:text name="value1[]"  value="{$vo.value}" len="250"  /></td>
+    </tr>
+     </foreach>
+     
+</admin:table>
+<span class="u-btn u-btn-primary">菜单二</span>
+  <admin:table id="table3" show="级别|300,类型|50,名称,值"  class="m-table-border">
+       <foreach name="data['first']"  item="vo">
+       <if condition="$vo['id'] eq 2"> 
+       <tr>
+    	<td>
+        	一级菜单：
+        </td>
+      <td>
+      <admin:select name="first_type[]"  item="click,view" value="click,view" selected="$vo['menu_type']" />
+      </td>
+      <td> <admin:text name="first[]"  value="{$vo.name}" len="50"  /></td>
+      <td><admin:text name="first_value[]"  value="{$vo.value}" len="250"  /></td>
+    </tr>
+    </if>
+     </foreach>
+     <foreach name="data['second2']" key="key" item="vo">
+     <tr>
+    	<td>
+        	二级菜单{$key+1}：
+        </td>
+       <td>
+      <admin:select name="menu_type2[]"  item="click,view" value="click,view" selected="$vo['menu_type']" />
+      </td>
+      <td> <admin:text name="second2[]"  value="{$vo.name}" len="50"  /></td>
+      <td><admin:text name="value2[]"  value="{$vo.value}" len="250"  /></td>
+    </tr>
+     </foreach>
+</admin:table>
+<span class="u-btn u-btn-primary" >菜单三</span>
+      <admin:table id="table" show="级别|300,类型|50,名称,值"  class="m-table-border">
+       <foreach name="data['first']"  item="vo">
+       <if condition="$vo['id'] eq 3"> 
+       <tr>
+    	<td >
+        	一级菜单：
+        </td>
+       <td>
+      <admin:select name="first_type[]"  item="click,view" value="click,view" selected="$vo['menu_type']" />
+      </td>
+      <td> <admin:text name="first[]"  value="{$vo.name}" len="50"  /></td>
+      <td><admin:text name="first_value[]"  value="{$vo.value}" len="250"  /></td>
+    </tr>
+    </if>
+     </foreach>
+     <foreach name="data['second3']" key="key" item="vo">
+     <tr>
+    	<td>
+        	二级菜单{$key+1}：
+        </td>
+       <td>
+      <admin:select name="menu_type3[]"  item="click,view" value="click,view" selected="$vo['menu_type']" />
+      </td>
+      <td> <admin:text name="second3[]"  value="{$vo.name}" len="50"  /></td>
+      <td><admin:text name="value3[]"  value="{$vo.value}" len="250"  /></td>
+    </tr>
+     </foreach>
+     
+</admin:table>  
+<div class="formitm form-submit">
+        <div class="ipt">
+            <div class="tip" id="tips"></div>
+            <button class="u-btn u-btn-success u-btn-large" type="button" id="btn-submit">保存</button>
+            <a href="{:U('create_menu')}" class="u-btn u-btn-primary" >先点击左边保存，然后再点击此处生成自定义菜单</a>
+        </div>
+        </div>  
+      
+      </admin:panel>
+    </div>
+  </div>
+
+</admin:form>
+<style>
+	.red1{  background:#2d8cd2 !important;}
+</style>
+<script>
+   
+$(function(){
+	$('input[name="first_value[]"]').blur(function(){
+		changselect($(this));
+	})
+	$('input[name="value1[]').blur(function(){
+		changselect($(this),1);
+	})
+	$('input[name="value2[]').blur(function(){
+		changselect($(this),1);
+	})
+	$('input[name="value3[]').blur(function(){
+		changselect($(this),1);
+	})
+
+})
+
+ function  changselect(o,n){
+	var thisival = o.val();
+	if(thisival.indexOf("http")>-1){
+		o.parents('tr').find('td').eq(1).find('select').val('view');			
+	}else{
+		o.parents('tr').find('td').eq(1).find('select').val('click');	
+	}
+   if(n){
+	  o.parents('tbody').find('tr').eq(0).find('td').eq(1).find('select').val('click');  
+   }
+	
+	
+	
+	
+	
+}
+
+
+
+   function checkmenu(){
+   	var sss =1;
+	var menuArr = new Array();
+	var nameArr = new Array();
+	var m = -1;
+	var n = 0;
+   	$("tr").removeClass("red1");
+   	$("tbody tr").each(function(){
+		
+		//var vall = $(this).val();	
+		//var firstname = $(this).find("input").eq(0);
+					
+		var thisid1 = $(this).find("input").eq(0).val();	
+		var thisival2 = $(this).find("input").eq(1).val();
+		//alert($(this).find("input").eq(1).attr('id'));
+		if( $(this).find("input").eq(1).attr('id')!='first_value[]'){
+			if((!thisid1 && thisival2 ) || (thisid1 && !thisival2 ) ){
+				$(this).addClass("red1");
+				alert("蓝色区域有误。二级菜单两个必填！或者都不填。景诺软件手写代码！");
+				sss =0;
+			}
+		}
+		if(thisival2 && thisival2.indexOf("http")>-1){
+			if($(this).find("select").val()!='view'){
+				$(this).addClass("red1");
+				alert("蓝色区域有误。类型必须为view");
+				sss =0;
+			}	
+		}else if(thisival2 && thisival2.indexOf("http")){
+			if($(this).find("select").val()!='click'){
+				$(this).addClass("red1");
+				alert("蓝色区域有误。类型必须为click");
+				sss =0;
+			}	
+			
+		}	
+			
+		
+		if( $(this).find("input").eq(1).attr('id') == 'first_value[]'){
+			m++;
+			menuArr[m] = $(this);
+			n = 0;
+			nameArr[m] = new Array();
+		} 
+		
+		if(thisival2) nameArr[m][n] = 1;
+		else nameArr[m][n] = 0;
+		n++;
+
+	
+	})
+	
+	l1:for(var key in menuArr){
+		for(var k in nameArr[key]){
+			if(k>0 && nameArr[key][k] && nameArr[key][0]){
+				menuArr[key].addClass("red1");alert("蓝色区域有误。有二级菜单，一级菜单的值必须为空");
+				sss =0;
+				break l1;
+			}
+		}
+		
+	}
+	return sss;
+   } 
+   
+   $("#btn-submit").click(function(){
+   //	console.log(checkmenu());
+   		if(checkmenu())
+   		$("#form").submit();
+   	})
+</script>

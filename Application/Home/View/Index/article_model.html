@@ -1,0 +1,30 @@
+
+<foreach name='article_list' item='vo'>
+<div class="content_big">
+    <div class="date">
+        <img src="/themes/default/image/jiemian-fangkuai@2x.png" alt="">
+        <span>{$vo.time|format_time='H:i'}</span>
+        <span class='time_top' style="display: none">{$vo.time_top}</span>
+    </div>
+    <div class="content_small">
+        <h1> {$vo.title} </h1>
+        <p style="margin-top: 3%"> 
+        {$vo.content}
+        </p>
+ 
+        <div class="share">
+            <div class="share_div">
+                <img src="/themes/default/image/share.png" alt="" >
+                <span onclick="share(this)" >分享</span>
+                <input name="time_date" type="hidden" value="{$vo.time|format_time='Y-m-d H:i'}" class="input">
+                <if condition="$vo['qr_code']">
+                <img src="{$vo['qr_code']}" style='display:none' class='qr_code'>
+                <else/>
+                <img src="{$info['gzh_code']}" style='display:none' class='qr_code'>
+                </if>
+            </div>
+        </div>
+    </div>
+</div>
+</foreach>
+

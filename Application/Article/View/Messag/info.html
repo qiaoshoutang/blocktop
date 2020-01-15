@@ -1,0 +1,61 @@
+<h3>{$name}快讯</h3>
+<admin:form url="{:U()}" method="post" id="form">
+  <div class="g-main-body">
+    <div class="g-main-content m-form-horizontal">
+      <admin:panel >
+      
+      <admin:formrow title="新闻标题" tip="请不要填写特殊字符">
+        <admin:text name="title" value="{$info.title}" len="350"  width="full" />
+      </admin:formrow>
+
+      <admin:formrow title="新闻内容" tip=""  >
+        <admin:textarea name="content" rows="10" width="full" class="u-editor">{$info.content}</admin:textarea>
+      </admin:formrow>
+
+      <admin:formrow title="内容图片" tip=""  >
+        <admin:text name="image" type="text" value="{$info.image}" len="250" width="medium" />
+        <a class="u-btn u-btn-primary u-img-upload" data="image" preview="image-preview" href="javascript:;" >上传</a> 
+        <a class="u-btn u-btn-primary" href="javascript:;" id="image-preview">预览</a> 
+      </admin:formrow>
+
+      <div class='short_msg'>
+      <admin:formrow title="二维码" tip="海报下方的二维码，不填默认使用公众号二维码"  >
+        <admin:text name="qr_code" type="text" value="{$info.qr_code}" len="250" width="medium" />
+        <a class="u-btn u-btn-primary u-img-upload" data="qr_code" preview="qr-preview" href="javascript:;" >上传</a> 
+        <a class="u-btn u-btn-primary" href="javascript:;" id="qr-preview">预览</a> 
+      </admin:formrow>
+      </div>
+
+      <admin:formrow title="添加时间" tip="请按照格式填写发布时间">
+        <if condition="empty($info['time'])">
+            <admin:text name="time" value="{$time|date='Y/m/d H:i',###}" len="250" class="u-time" />
+        <else/>
+            <admin:text name="time" value="{$info.time|date='Y/m/d H:i',###}" len="250"  class="u-time" />
+        </if>
+       
+      </admin:formrow>
+        <admin:formrow title="文章状态" tip="">
+          <admin:radio name="state" item="草稿,通过,不通过" value="1,2,3" checked="$info['state']" isset="1" />
+        </admin:formrow>
+        <admin:formsubmit/>
+      </admin:panel>
+    </div>
+  </div>
+  <div class="g-main-sidebar">
+
+  </div>
+  </admin:row>
+  <admin:text name="id" type="hidden" value="{$info.id}" />
+</admin:form>
+<script>
+
+    Do.ready('base', function () {
+        var option={};
+        // option.returnUrl="{:U('Article/AdminContent/index')}";
+        //表单综合处理
+        $('#form').duxFormPage(option);
+
+    });
+    
+
+</script>

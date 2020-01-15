@@ -1,0 +1,64 @@
+<h3>{$name}导航</h3>
+<admin:panel >
+  <admin:form url="{:U()}" method="post" id="form"  class="m-form-horizontal" >
+    
+    <admin:formrow title="类别" tip="导航所属的分类">
+      <select name="class_id" class="form-element" id="class_id">
+        <option value="0">==请选择分类==</option>
+        <foreach name="classArr" item="vo"> 
+          <option value="{$key}" 
+            <if condition="$info['class_id'] == $key">selected="selected"</if>
+          >
+          {$vo}
+          </option>
+        </foreach>
+      </select>
+    </admin:formrow>
+
+    <admin:formrow title="权重" tip="数值越大越靠前"  >
+      <admin:text name="order_id"  value="{$info.order_id}" len="100"   />
+    </admin:formrow>
+    <admin:formrow title="名称" tip="导航的名称"  >
+      <admin:text name="name"  value="{$info.name}" len="100"   />
+    </admin:formrow>
+    <admin:formrow title="简介" tip="导航的简介">
+      <admin:textarea name="descrip" rows="10" width='large'>{$info.descrip}</admin:textarea>
+    </admin:formrow>
+    <admin:formrow title="图标" tip=""  >
+      <admin:text name="icon" type="text" value="{$info.icon}" len="250" width="medium" />
+      <a class="u-btn u-btn-primary u-img-upload" data="icon" preview="image-preview" href="javascript:;" >上传</a> 
+      <a class="u-btn u-btn-primary" href="javascript:;" id="image-preview">预览</a> 
+    </admin:formrow>
+    <admin:formrow title="目标链接" tip="导航的目标链接"  >
+      <admin:text name="target"  value="{$info.target}" len="100"   />
+    </admin:formrow>
+    <admin:formrow title="推荐" tip=""  >
+      <admin:radio name="recom"  item="是,否" value="1,2" checked="$info['recom']" isset="2" />
+    </admin:formrow>   
+
+	  <admin:formrow title="状态" tip=""  >
+      <admin:radio name="state"  item="展示,隐藏,待审核,不通过" value="1,2,3,4" checked="$info['state']" isset="1" />
+    </admin:formrow>     
+
+    <admin:formsubmit/>
+    <admin:text name="id" type="hidden"  value="{$info.id}"  />
+  </admin:form>
+</admin:panel>
+<script>
+Do.ready('base',function(){
+
+  var option={};
+  option.returnUrl="{:U('Admin/Navi/index')}";
+  $('#form').duxFormPage(option);
+
+  $('#upload').duxFileUpload({
+      type: 'jpg,png,gif,bmp',
+      complete: function (data) {
+          $('#content_image').attr('src', data.url);
+      }
+  });
+
+});
+
+</script> 
+

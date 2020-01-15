@@ -1,0 +1,27 @@
+<h3>海报内容</h3>
+<admin:panel >
+  <admin:form url="{:U('')}" method="post" id="form" class="m-form-horizontal" >
+   
+	  <admin:formrow title="文案" tip="海报上显示的文案" >
+      <admin:text name="poster_word"  value="{$info.poster_word}" len="250" />
+    </admin:formrow>
+
+    <admin:formrow title="金额" tip="海报上显示的金额" >
+      <admin:text name="poster_money"  value="{$info.poster_money}" len="250" />
+    </admin:formrow>
+
+    <admin:formrow title="跳转网址" tip="海报上二维码跳转的网址" >
+      <admin:text name="poster_url"  value="{$info.poster_url}" len="250" /><br/>
+      <admin:assigndown  target="#poster_url" name="请选择" data="domainList"  item="domain,domain" />
+    </admin:formrow>
+    
+    <admin:formsubmit/>
+  </admin:form>
+</admin:panel>
+<script>
+Do.ready('base', function() {
+	$('#form').duxForm();
+});
+
+$('#btn-submit').html('保存并生成海报');
+</script> 

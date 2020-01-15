@@ -1,0 +1,104 @@
+<h3>{$name}活动</h3>
+<admin:panel >
+  <admin:form url="{:U()}" method="post" id="form"  class="m-form-horizontal" >
+    
+    
+    <admin:formrow title="名称" tip="活动的名称"  >
+      <admin:text name="name"  value="{$info.name}" len="100"  />
+    </admin:formrow>
+
+    <admin:formrow title="权重" tip="越大越靠前"  >
+      <admin:text name="order_id"  value="{$info.order_id}" len="100"  />
+    </admin:formrow>
+
+    <admin:formrow title="活动封面" tip="活动的封面图">
+      <admin:text  name="cover_url" type="text" value="{$info.cover_url}" len="250" width="medium" />
+      <a class="u-btn u-btn-primary" data="cover_url" href="javascript:;" id="upload_cover">上传</a>
+    </admin:formrow>
+    <admin:formrow title="封面预览" tip="">
+      <img src='{$info.cover_url}'  width='400px' id='img_cover'>
+    </admin:formrow>
+    <admin:formrow title="活动地点" tip="活动举报的地点"  >
+      <admin:text name="position"  value="{$info.position}" len="100"  />
+    </admin:formrow>   
+    <admin:formrow title="活动时间" tip="活动的时间"  >
+      <admin:text name="duration"  value="{$info.duration}" len="100"  />
+    </admin:formrow>
+
+    <admin:formrow title="活动内容" tip=""  >
+      <admin:textarea name="content" rows="10" width="full" class="u-editor">{$info.content}</admin:textarea>
+    </admin:formrow>
+
+    <admin:formrow title="主办方1名称" tip="">
+      <admin:text name="master_name_1"  value="{$info.master_name_1}" len="100"  />
+    </admin:formrow>
+    <admin:formrow title="主办方1简介" tip="">
+      <admin:text name="master_descrip_1"  value="{$info.master_descrip_1}" len="100"  />
+    </admin:formrow>
+    <admin:formrow title="主办方1链接" tip="">
+      <admin:text name="master_target_1"  value="{$info.master_target_1}" len="100"  />
+    </admin:formrow>
+    <admin:formrow title="主办方1图标" tip="">
+      <admin:text  name="master_icon_1" type="text" value="{$info.master_icon_1}" len="250" width="medium" />
+      <a class="u-btn u-btn-primary" data="master_icon_1" href="javascript:;" id="icon_1">上传</a>
+    </admin:formrow>
+
+    <admin:formrow title="主办方2名称" tip="">
+      <admin:text name="master_name_2"  value="{$info.master_name_2}" len="100"  />
+    </admin:formrow>
+    <admin:formrow title="主办方2简介" tip="">
+      <admin:text name="master_descrip_2"  value="{$info.master_descrip_2}" len="100"  />
+    </admin:formrow>
+    <admin:formrow title="主办方2链接" tip="">
+      <admin:text name="master_target_2"  value="{$info.master_target_2}" len="100"  />
+    </admin:formrow>
+    <admin:formrow title="主办方2图标" tip="">
+      <admin:text  name="master_icon_2" type="text" value="{$info.master_icon_2}" len="250" width="medium" />
+      <a class="u-btn u-btn-primary" data="master_icon_2" href="javascript:;" id="icon_2">上传</a>
+    </admin:formrow>
+
+    <admin:formrow title="报名二维码" tip="">
+      <admin:text  name="qrcode" type="text" value="{$info.qrcode}" len="250" width="medium" />
+      <a class="u-btn u-btn-primary" data="qrcode" href="javascript:;" id="qrcode_up">上传</a>
+    </admin:formrow>
+
+    <admin:formrow title="浏览量" tip=""  >
+      <admin:text name="views"  value="{$info.views}" len="100"  />
+    </admin:formrow>
+	  <admin:formrow title="状态" tip=""  >
+      <admin:radio name="state"  item="报名中,已结束" value="1,2" checked="$info['state']" isset="1" />
+    </admin:formrow>     
+
+    <admin:formsubmit/>
+    <admin:text name="id" type="hidden"  value="{$info.id}"  />
+  </admin:form>
+</admin:panel>
+<script>
+Do.ready('base',function(){
+
+  var option={};
+  option.returnUrl="{:U('Admin/Activity/activityList')}";
+  $('#form').duxFormPage(option);
+
+  $('#upload_cover').duxFileUpload({
+      
+      complete: function (data) {
+          $('#img_cover').attr('src', data.url);
+      }
+  });
+  $('#icon_1').duxFileUpload({
+      
+  });
+  $('#icon_2').duxFileUpload({
+      
+  });
+  $('#qrcode_up').duxFileUpload({
+      
+  });
+
+  
+
+});
+
+</script> 
+

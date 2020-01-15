@@ -1,0 +1,44 @@
+<div class="g-grid">
+  <div class="g-col-4-1">
+    <div class="m-panel s-panel-info">
+      <div class="panel-header">
+        <div class="f-cb">
+          <div class="f-fl"><i class="u-icon-th-list u-font-5x"></i></div>
+          <div class="f-fr f-tar">
+            <h3><?php echo D('DuxCms/Content')->countList(); ?></h3>
+            <p>新闻总数</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="g-col-4-1">
+    <div class="m-panel s-panel-danger">
+      <div class="panel-header">
+        <div class="f-cb">
+          <div class="f-fl"> <i class="u-icon-file-text u-font-5x"></i> </div>
+          <div class="f-fr f-tar">
+            <h3><?php echo D('Article/Message')->countList(); ?></h3>
+            <p>快讯总数</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="g-col-4-1">
+    <div class="m-panel s-panel-success">
+      <div class="panel-header">
+        <div class="f-cb">
+          <div class="f-fl"> <i class="u-icon-tags u-font-5x"></i> </div>
+          <div class="f-fr f-tar">
+            <h3><?php echo D('Admin/Navi')->countList(); ?></h3>
+            <p>导航总数</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="g-grid">
+</div>
+

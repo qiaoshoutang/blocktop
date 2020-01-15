@@ -1,0 +1,32 @@
+<h3>活码设置</h3>
+
+<admin:panel >
+
+  <admin:form url="{:U('')}" method="post" id="form" class="m-form-horizontal" >
+
+
+      <admin:formrow title="二维码上限" tip="单个二维码上限，达到上限后，自动切换下一个二维码">
+
+       <admin:text name="code_ceiling"  value="{$info.code_ceiling}"  />
+
+      </admin:formrow>
+
+
+
+
+    <admin:formsubmit/>
+
+  </admin:form>
+
+</admin:panel>
+
+<script>
+
+Do.ready('base', function() {
+
+	$('#form').duxFormPage();
+
+});
+
+</script> 
+

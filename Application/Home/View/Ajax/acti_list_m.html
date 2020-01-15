@@ -1,0 +1,32 @@
+
+<foreach name='actiList' item='vo'>
+  <div class="act_box">
+       <img src="{$vo.cover_url}" alt="" width="100%">
+       <div class="Title_Guan">
+           <span>{$vo.name}</span>
+           <span>{$vo.views}人浏览</span>
+       </div>
+       <div class="locationStyle">
+           <div class="locationAct">
+               <div class="locationActA">
+                   <img src="images/location.png" alt="" width="6.5%">
+                   <span>{$vo.position}</span>
+               </div>
+               <div class="locationActA">
+                   <img src="images/shijian.png" alt="" width="7%">
+                   <span>{$vo.duration}</span>
+               </div>
+           </div>
+           <if condition="$vo.state eq 1">
+           <div class="EnrolmentAc">
+                 报名中
+           </div>
+           </if>
+           <if condition="$vo.state eq 2">
+           <div class="FinishAc">
+               已结束
+           </div>
+           </if>
+       </div>
+  </div>
+</foreach>

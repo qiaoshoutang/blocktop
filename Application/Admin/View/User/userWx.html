@@ -1,0 +1,135 @@
+<h3>{$name}用户</h3>
+<admin:form url="{:U()}" method="post" id="form">
+  <div class="g-main-body">
+  
+ <include file="header" />
+  
+    <div class=" m-form-horizontal">
+      <admin:panel >
+     
+       <admin:formrow title="微信openid" tip="微信openid.有openid才可以发红包"  >
+       <admin:text name="weixin"  value="{$info.weixin}" len="250"   />
+       </admin:formrow>
+	   
+	   
+    <admin:formrow title="发微信红包" tip="发微信现金红包"  >
+      红包标题：<input type="text" placeholder="红包标题"  id="hbtitle" value="<?php echo C('site_title');?>" />
+	 红包内容：<input type="text" placeholder="红包内容"  id="hbbody" value="<?php echo C('hbbody');?>" />
+	  红包金额：<input type="text" placeholder="红包金额"  id="hbfee" value="1" />  （元）
+	
+	<input type="button" id="sendhb" value="点击发送"  onclick="sendhongbao(this)"/> 
+       </admin:formrow>
+	   
+	   
+	    <admin:formrow title="发微信裂变红包" tip="发微信裂变红包"  >
+    红包标题：<input type="text" placeholder="红包标题"  id="hbtitle1" value="<?php echo C('site_title');?>" />
+	 红包内容：<input type="text" placeholder="红包内容"  id="hbbody1" value="<?php echo C('hbbody');?>" />
+	  红包金额：<input type="text" placeholder="红包金额"  id="hbfee1" value="3" />  （3元起）
+	红包人数：<input type="text" placeholder="红包人数"  id="hbnum1" value="3" />  （3人起）
+	<input type="button" id="sendhb" value="点击发送"  onclick="sendhongbao(this,'lb')"/> 
+       </admin:formrow>
+	   
+	   
+	    <admin:formrow title="微信支付转账" tip="微信支付转账"  >
+	 转账内容：<input type="text" placeholder="转账内容"  id="hbbody2" value="<?php echo C('hbbody');?>" />
+	  转账金额：<input type="text" placeholder="转账金额"  id="hbfee2" value="0.01" /> 
+	<input type="button" id="sendhb" value="点击发送"  onclick="sendzz(this)"/> 
+       </admin:formrow>
+       
+           <admin:formrow title="积分余额操作" tip="积分余额操作"  >
+	 金额类型：<select name='mtype' id="hdmtype3"><option value="1">{$config.jifen_name}</option><option value="2">{$config.money_name}</option></select> 金额： <input type="text" placeholder="金额，负数为减去"  id="hbmoeny3" value="" />
+	  变动类型：<select name="type" id="hdtype3" >            
+            <option value="10">后台操作</option>
+              </select>
+            <br/>  描述： <input type="text" placeholder="描述"  id="hbdesc3" value="后台操作" /> <input type="hidden"  id="hbuid3" value="{$info.id}" /> 
+	<input type="button" id="sendhb" value="点击操作"  onclick="sendaccount(this)"/> 
+       </admin:formrow>
+	
+
+      </admin:panel>
+    </div>
+  </div>
+  <admin:text name="id" type="hidden" value="{$info.id}" />
+</admin:form>
+<script>
+    Do.ready('base', function () {
+        //表单综合处理
+        $('#form').duxFormPage();
+        //上传缩略图
+        $('#upload').duxFileUpload({
+            type: 'jpg,png,gif,bmp',
+            complete: function (data) {
+                $('#content_image').attr('src', data.url);
+            }
+        });
+        //提取关键词
+        $('#getKeyword').click(function () {
+            $.post('{:U("DuxCms/ContentTools/getKerword")}', {
+                    title: $('#content').val(),
+                    content: $('#description').val()
+                },
+                function (data) {
+                    if (data.status) {
+                        $('#keywords').val(data.info);
+                    } else {
+                        alert(data.info);
+                    }
+                }, 'json');
+        });
+		//动态获取扩展字段
+		$('#class_id').change(function() {
+			$('#expand').load('{:U("DuxCms/AdminExpand/getField")}',{class_id:$(this).val(),content_id:$('#content_id').val()},function(){
+				$('#expand').duxFormPage({form:false});
+			});
+		});
+		$('#class_id').change();
+    }); 
+	
+    
+    function sendaccount(thiss){
+    	thiss.setAttribute("disabled", true);
+    	var mtype = $("#hdmtype3").val();
+    	var moeny = $('#hbmoeny3').val();
+    	var type = $("#hdtype3").val();	
+    	var desc = $("#hbdesc3").val();
+    	var uid = $("#hbuid3").val();
+    	$.post("{:U('Admin/User/sendaccount')}",{mtype:mtype,type:type,moeny:moeny,desc:desc,uid:uid},function(data){
+    			alert(data);	
+    			thiss.removeAttribute("disabled");		
+    		})
+    }
+    
+    
+	function sendzz(thiss){
+	thiss.setAttribute("disabled", true);
+	var openid = $("#weixin").val();
+	var fee = $("#hbfee2").val();	
+	var desc = $("#hbbody2").val();
+	$.post("{:U('Admin/User/sendzz')}",{openid:openid,fee:fee,desc:desc},function(data){
+			alert(data);	
+			thiss.removeAttribute("disabled");		
+		})
+	
+	}
+	
+	function sendhongbao(thiss,type){
+	thiss.setAttribute("disabled", true);
+	if(type=='lb'){ 	
+	var num=$("#hbnum").val();
+	var openid = $("#weixin").val();
+	var hbtitle = $("#hbtitle1").val();
+	var hbbody = $("#hbbody1").val();
+	var fee = $("#hbfee1").val();	
+	}else{
+	var openid = $("#weixin").val();
+	var hbtitle = $("#hbtitle").val();
+	var hbbody = $("#hbbody").val();
+	var fee = $("#hbfee").val();
+	}
+		$.post("{:U('Admin/User/sendhbs')}",{openid:openid,hbtitle:hbtitle,hbbody:hbbody,fee:fee,type:type,num:num},function(data){
+			alert(data);	
+			thiss.removeAttribute("disabled");		
+		})
+		
+	}
+</script>

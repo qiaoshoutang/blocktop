@@ -1,0 +1,61 @@
+<h3>阿里云oss设置</h3>
+
+<admin:panel >
+
+  <admin:form url="{:U('')}" method="post" id="form" class="m-form-horizontal" >
+
+    <admin:formrow title="是否开启阿里云oss" tip="开后则上传照片到阿里云oss。配置教程 http://bbs.jnooo.cn/thread-286-1-1.html" >
+
+     <admin:radio name="open_oss"  item="是,否" value="1,0" checked="$info['open_oss']" />
+
+    </admin:formrow>
+
+    
+	  <admin:formrow title="OSS_ACCESS_ID" tip="OSS_ACCESS_ID"  >
+
+       <admin:text name="OSS_ACCESS_ID"  value="{$info.OSS_ACCESS_ID}" len="50" datatype="*" />
+
+       </admin:formrow> 
+
+         <admin:formrow title="OSS_ACCESS_KEY" tip="OSS_ACCESS_KEY"  >
+
+       <admin:text name="OSS_ACCESS_KEY"  value="{$info.OSS_ACCESS_KEY}" len="50" datatype="*" />
+
+       </admin:formrow> 
+
+         <admin:formrow title="OSS_ENDPOINT" tip="OSS_ENDPOINT"  >
+
+       <admin:text name="OSS_ENDPOINT"  value="{$info.OSS_ENDPOINT}" len="50"  datatype="*"/>
+
+       </admin:formrow> 
+
+         <admin:formrow title="OSS_TEST_BUCKET" tip="OSS_TEST_BUCKET"  >
+
+       <admin:text name="OSS_TEST_BUCKET"  value="{$info.OSS_TEST_BUCKET}" len="50" datatype="*"/>
+
+       </admin:formrow> 
+
+         <admin:formrow title="OSS_URL" tip="OSS_URL"  >
+
+       <admin:text name="OSS_URL"  value="{$info.OSS_URL}" len="50" datatype="*"/>
+
+       </admin:formrow> 
+
+
+
+    <admin:formsubmit/>
+
+  </admin:form>
+
+</admin:panel>
+
+<script>
+
+Do.ready('base', function() {
+
+	$('#form').duxForm();
+
+});
+
+</script> 
+

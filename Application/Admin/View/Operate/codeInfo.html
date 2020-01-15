@@ -1,0 +1,80 @@
+<h3>{$name}二维码</h3>
+<admin:panel >
+  <admin:form url="{:U()}" method="post" id="form"  class="m-form-horizontal" >
+    
+    <admin:formrow title="排序" tip="二维码名称"  >
+      <admin:text name="order_id"  value="{$info.order_id}" len="200" datatype="*"  />
+    </admin:formrow>
+
+    <admin:formrow title="名称" tip="二维码名称"  >
+      <admin:text name="name"  value="{$info.name}" len="200" datatype="*"  />
+    </admin:formrow>
+
+    <admin:formrow title="地址" tip="二维码地址"  >
+      <admin:text name="qr_code_url"  value="{$info.qr_code_url}" len="200" datatype="*" id='content_image'/>
+      <a class="u-btn u-btn-primary" data="image" href="javascript:;" id="upload">上传</a>
+      
+    </admin:formrow>
+
+    <admin:formrow title="预览" tip="二维码预览" >
+      <img src='{$info.qr_code_url}' class='code_preview' style="width:150px">
+    </admin:formrow>
+
+    <admin:formrow title="打开人数" tip="打开这张二维码的人数,不填默认为0"  >
+      <admin:text name="open_num"  value="{$info.open_num}" len="200"/>
+    </admin:formrow>  
+
+    <admin:formrow title="上传时间" tip="请按照格式填写发布时间">
+
+      <admin:text name="time" value="{$info.time|date='Y/m/d H:i',###}" len="250" datatype="*" class="u-time" />
+
+    </admin:formrow>
+
+    <admin:formrow title="过期时间" tip="请按照格式填写发布时间">
+      <if condition='empty($info["deadtime"])'>
+          <admin:text name="deadtime" value="" len="250" datatype="*" class="u-time" />
+      <else/>
+        <admin:text name="deadtime" value="{$info.deadtime|date='Y/m/d H:i',###}" len="250" datatype="*" class="u-time" />
+      </if>
+    </admin:formrow>
+    <div class="formitm">
+      <label class="lab">活动名称</label>
+      <div class="ipt">
+          <select name="act_id" id="act_id" class="form-element ">
+            <option value="0" >==活动名称==</option>
+            <foreach name='act_list' item='vo'>
+              <option value="{$vo.content_id}" 
+                <if condition="$info['act_id']==$vo['content_id']">
+                selected
+                </if>
+              >{$vo.title}</option>
+            </foreach>
+          </select>
+          <p class="help-block">请选择所属活动</p>
+      </div>
+    </div>
+
+	  <admin:formrow title="状态" tip="二维码状态"  >
+      <admin:radio name="status"  item="未使用,使用中,已使用" value="1,2,3" checked="$info['status']" isset="1" />
+    </admin:formrow>     
+
+    <admin:formsubmit/>
+    <admin:text name="id" type="hidden"  value="{$info.id}"  />
+  </admin:form>
+</admin:panel>
+<script>
+Do.ready('base',function() {
+	$('#form').duxForm();
+  $('#form').duxFormPage();
+
+    $('#upload').duxFileUpload({
+        type: 'jpg,png,gif,bmp',
+        complete: function (data) {
+            $('#content_image').attr('value', data.url);
+            $('.code_preview').attr('src', data.url);
+        }
+    });
+});
+
+</script> 
+

@@ -1,0 +1,17 @@
+
+<foreach name='weibo_list' item='vo'>
+<div class="dongtai_big">
+    <div>
+        <div class="yuan">
+            <img src="{$vo.auth_avatar}" style="width:100%;height:100%">
+        </div>
+        <div  class="name">{$vo.auth_name}</div>
+        <div  class="name1">
+            <span class="D_time">{$vo.time|format_time='m月d日 H:i'}</span>
+        </div>
+    </div>
+    <div class="dongtai_content">
+        {$vo.content}
+    </div>
+</div>
+</foreach>

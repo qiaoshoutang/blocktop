@@ -1,0 +1,86 @@
+<h3>{$name}新闻</h3>
+<admin:form url="{:U()}" method="post" id="form">
+  <div class="g-main-body">
+    <div class="g-main-content m-form-horizontal">
+      <admin:panel >
+      
+        <admin:formrow title="栏目" tip="新闻所属的分类">
+          <select name="class_id" class="form-element" id="class_id">
+            <option value="0">==请选择分类==</option>
+            <foreach name="categoryList" item="vo"> 
+              <option value="{$vo.class_id}" 
+                <if condition="$info['class_id'] == $vo['class_id']">selected="selected"</if>
+              >
+              {$vo.name}
+              </option>
+            </foreach>
+          </select>
+        </admin:formrow>
+
+        <admin:formrow title="新闻标题" tip="请不要填写特殊字符">
+          <admin:text name="title" value="{$info.title}" len="350"  width="full" />
+        </admin:formrow>
+        <admin:formrow title="作者" tip="请不要填写特殊字符">
+          <admin:text name="author" value="{$info.author}" len="50"  width="full" />
+        </admin:formrow>
+        <admin:formrow title="新闻内容" tip=""  >
+          <admin:textarea name="content" rows="10" width="full" class="u-editor">{$info.content}</admin:textarea>
+        </admin:formrow>
+        <admin:formrow title="简介" tip=""  >
+          <admin:textarea name="description" rows="5" width="full" >{$info.description}</admin:textarea>
+        </admin:formrow>
+        <admin:formrow title="关键字" tip="用小写逗号隔开">
+          <admin:text name="keyword" value="{$info.keyword}" len="50"  width="full" />
+        </admin:formrow>
+        <admin:formrow title="权重" tip="越大越靠前">
+          <admin:text name="sequence" value="{$info.sequence}" len="50"  width="full" />
+        </admin:formrow>
+        <admin:formrow title="浏览量" tip="">
+          <admin:text name="views" value="{$info.views}" len="50"  width="full" />
+        </admin:formrow>
+        <admin:formrow title="缩略图" tip=""  >
+          <admin:text name="image" type="text" value="{$info.image}" len="250" width="medium" />
+          <a class="u-btn u-btn-primary u-img-upload" data="image" preview="image-preview" href="javascript:;" >上传</a> 
+          <a class="u-btn u-btn-primary" href="javascript:;" id="image-preview">预览</a> 
+        </admin:formrow>
+
+      <admin:formrow title="添加时间" tip="请按照格式填写发布时间">
+        <if condition="empty($info['time'])">
+            <admin:text name="time" value="{$time|date='Y/m/d H:i',###}" len="250" class="u-time" />
+        <else/>
+            <admin:text name="time" value="{$info.time|date='Y/m/d H:i',###}" len="250"  class="u-time" />
+        </if>
+       
+      </admin:formrow>
+
+        <admin:formrow title="文章状态" tip="">
+          <admin:radio name="status" item="草稿,通过,不通过" value="1,2,3" checked="$info['status']" isset="1" />
+        </admin:formrow>
+        <admin:formsubmit/>
+      </admin:panel>
+    </div>
+  </div>
+  <div class="g-main-sidebar">
+
+  </div>
+  </admin:row>
+  <admin:text name="content_id" type="hidden" value="{$info.content_id}" />
+</admin:form>
+<script>
+
+    Do.ready('base', function () {
+        var option={};
+        // option.returnUrl="{:U('Article/AdminContent/index')}";
+        //表单综合处理
+        $('#form').duxFormPage(option);
+        //上传缩略图
+        $('#upload').duxFileUpload({
+            type: 'jpg,png,gif,bmp',
+            complete: function (data) {
+                $('#content_image').attr('src', data.url);
+            }
+        });
+    });
+    
+
+</script>

@@ -1,0 +1,67 @@
+<h3>活码列表</h3>
+<admin:panel >
+<admin:tabletool filter="true" keyword="{$pageMaps['keyword']}">
+
+
+  <select name="act_id" id="act_id" class="form-element ">
+    <option value="0" >==活动名称==</option>
+    <foreach name='act_list' item='vo'>
+      <option value="{$vo.content_id}" 
+        <if condition="$pageMaps['act_id']==$vo['content_id']">
+        selected
+        </if>
+      >{$vo.title}</option>
+    </foreach>
+  </select>
+
+  <admin:select name="status" item="==状态==,未使用,使用中,已使用" value="0,1,2,3" selected="$pageMaps['status']" />	
+
+</admin:tabletool>
+
+<admin:table id="table" show="选择,排序,编号|80,活动id,名称,图片地址,打开人数,长按人数,状态,添加时间,过期时间,操作|130">
+  <foreach name="list" item="vo">
+    <tr>
+  	  <td>
+  		  <input type="checkbox" name="id[]" value="{$vo.id}" />
+  	  </td>
+      <td>{$vo.order_id}</td>
+      <td>{$vo.id}</td>
+      <td>{$vo.title}</td>
+      <td>{$vo.name}</td>
+      <td>{$vo.qr_code_url}</td>
+      <td>{$vo.open_num}</td>
+      <td>{$vo.long_press}</td>
+      <td>
+        {$status_arr[$vo['status']]}
+      </td>
+      <td>
+        {$vo.time|date="Y-m-d H:i:s", ###}
+      </td>
+      <td>
+        {$vo.deadtime|date="Y-m-d H:i:s", ###}
+      </td>
+         
+      <td>
+        <a class="u-btn u-btn-primary u-btn-small" href="{:U('codeEdit',array('id'=>$vo['id']))}">修改</a> 
+      	<a class="u-btn u-btn-danger u-btn-small del" href="javascript:;" data="{$vo.id}">删除</a>
+      </td>
+    </tr>
+  </foreach>
+</admin:table>
+<admin:tablefoot action="true" item="删除" value="1"/>
+</admin:panel>
+
+
+<script>
+Do.ready('base',function() {
+	$('#table').duxTable({
+		actionUrl: "{:U('codeBatchAction')}",
+			deleteUrl: "{:U('codeDel')}",
+			actionParameter: function() {
+				return {
+					'class_id': $('#selectAction').next('#class_id').val()
+				};
+			}
+	});
+});
+</script>

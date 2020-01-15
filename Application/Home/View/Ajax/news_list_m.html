@@ -1,0 +1,12 @@
+
+<foreach name='newsList' item='vo'>
+    <li onclick='window.location.href="/newsContent_m/{$vo.content_id}"'>
+        <div class="InfoContentText">
+            <p>{$vo.title}</p>
+            <p>{$vo.author} · {$vo.time}</p>
+        </div>
+        <div class="InfoImg">
+            <img src="{$vo.image}" alt="">
+        </div>
+    </li>
+</foreach>

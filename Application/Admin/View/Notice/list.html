@@ -1,0 +1,43 @@
+<h3>公告列表</h3>
+<admin:panel >
+<admin:tabletool filter="true" keyword="{$pageMaps['keyword']}">
+  <admin:select name="state" item="==状态==,显示,不显示" value="0,1,2" selected="$pageMaps['state']" /> 
+</admin:tabletool>
+
+<admin:table id="table" show="选择,编号|50,标题,内容,状态,添加时间,操作|130">
+  <foreach name="list" item="vo">
+    <tr>
+  	  <td>
+  		  <input type="checkbox" name="id[]" value="{$vo.id}" />
+  	  </td>
+      <td>{$vo.id}</td>
+      <td>{$vo.title}</td>
+      <td>{$vo.content}</td>
+      <td>{$stateArr[$vo['state']]}</td>
+      <td>{$vo.time|date="Y-m-d H:i:s", ###}</td>
+      <td>
+        <a class="u-btn u-btn-primary u-btn-small" href="{:U('edit',array('id'=>$vo['id']))}">修改</a> 
+      	<a class="u-btn u-btn-danger u-btn-small del" href="javascript:;" data="{$vo.id}">删除</a>
+      </td>
+    </tr>
+  </foreach>
+</admin:table>
+<admin:tablefoot action="true" item="删除" value="1"/>
+</admin:panel>
+
+
+<script>
+
+Do.ready('base',function(){
+
+	$('#table').duxTable({
+		actionUrl: "{:U('batchAction')}",
+			deleteUrl: "{:U('del')}",
+			actionParameter: function(){
+				return {
+					'class_id': $('#selectAction').next('#class_id').val()
+				};
+			}
+	});
+});
+</script>

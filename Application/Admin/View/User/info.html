@@ -1,0 +1,254 @@
+<h3>{$name}用户</h3>
+<admin:form url="{:U()}" method="post" id="form">
+	<div class="g-main-body">
+		<!--<include file="header" />-->
+
+		<div class=" m-form-horizontal">
+			<admin:panel>
+				<admin:formrow title="头像" tip="用户头像">
+					<img src="{$info.avatar|default='__PUBLIC__/img/mrtx.jpg'}" id="superman" width="100px">
+					<input id="fileupload" type="file" style="display:none;">
+					<input type="hidden" name="avatar" value="{$info.avatar}" />
+					<input type="button" value="上传头像" id="upload" onclick="fileuploadshow()" />
+					<input type="button" value="删除头像" class="love" datanum="{$info.id}" />
+				</admin:formrow>
+
+				<admin:formrow title="用户名/登录名" tip="用户登录帐号">
+					<if condition="$info['user_login']">
+						{$info['user_login']}
+						<admin:text name="user_login" type="hidden" value="{$info.user_login}" len="20" />
+						<else />
+						<admin:text name="user_login" value="{$info.user_login}" len="20" datatype="*" />
+					</if>
+
+				</admin:formrow>
+				<admin:formrow title="密码" tip="用户密码">
+					<admin:text name="user_pass" type="password" value="" len="250" />
+				</admin:formrow>
+				<admin:formrow title="重复密码" tip="重复密码">
+					<admin:text name="user_pass2" type="password" value="" len="250" />
+				</admin:formrow>
+				<admin:formrow title="昵称" tip="昵称">
+					<admin:text name="user_nicename" value="{$info.user_nicename}" len="20" />
+				</admin:formrow>
+				<admin:formrow title="性别" tip="性别">
+					<admin:radio name="sex" item="未知,男,女" value="0,1,2" checked="$info['sex']" isset="1" />
+				</admin:formrow>
+				<admin:formrow title="推荐人" tip="推荐人ID">
+					<admin:text name="parent_id" value="{$info.parent_id}" len="250" />
+				</admin:formrow>
+				
+				<admin:formrow title="关注公众号状态" tip="">
+					<admin:radio name="subscribe" item="是,否" value="1,0" checked="$info['subscribe']" isset="1" />
+				</admin:formrow>
+				
+			
+
+				<admin:formrow title="余额统计" tip="积分余额统计">
+					
+					<?php echo C('money_name')?>：{$info.money}
+				</admin:formrow>
+<!--
+				<admin:formrow title="所在地区" tip="所在地区">
+
+					<select name="provinceid" id="provinceid">
+          <option value="0">请选择</option>
+         <volist name="province" id="vo">
+         
+            <option <if condition="$vo['areaid'] eq $info['provinceid']">selected</if>  value="{$vo.areaid}">{$vo.areaname}</option>
+         </volist>
+        </select>
+
+					<select name="cityid" id="cityid">
+         <option value="0">请选择</option>
+         <volist name="city" id="vo">
+            <option <if condition="$vo['areaid'] eq $info['cityid']">selected</if>  value="{$vo.areaid}">{$vo.areaname}</option>
+         </volist>
+        </select>
+
+				</admin:formrow>
+-->
+				<admin:formrow title="用户状态" tip="如果用户处于被禁言中，选择正常则会取消禁言；而选择禁用后，该用户将无法登录。">
+					<admin:radio name="user_status" item="正常,禁用,未验证" value="1,0,2" checked="$info['user_status']" isset="1" />
+				</admin:formrow>
+<!--
+	<admin:formrow title="是否马甲" tip="">
+					<admin:radio name="ismj" item="是,不是" value="1,0" checked="$info['ismj']" isset="1" />
+				</admin:formrow>
+-->				
+				<admin:formsubmit/>
+			</admin:panel>
+		</div>
+	</div>
+	<admin:text name="id" type="hidden" value="{$info.id}" />
+	<input name="last_login_time" type="hidden" value='<?php echo time();?>' />
+</admin:form>
+
+<script>
+	Do.ready('base', function() {
+		//表单综合处理
+		$('#form').duxFormPage();
+
+		//提取关键词
+		$('#getKeyword').click(function() {
+			$.post('{:U("DuxCms/ContentTools/getKerword")}', {
+					title: $('#content').val(),
+					content: $('#description').val()
+				},
+				function(data) {
+					if (data.status) {
+						$('#keywords').val(data.info);
+					} else {
+						alert(data.info);
+					}
+				}, 'json');
+		});
+		//动态获取扩展字段
+		$('#class_id').change(function() {
+			$('#expand').load('{:U("DuxCms/AdminExpand/getField")}', {
+				class_id: $(this).val(),
+				content_id: $('#content_id').val()
+			}, function() {
+				$('#expand').duxFormPage({
+					form: false
+				});
+			});
+		});
+		$('#class_id').change();
+	});
+
+	function sendaccount(thiss) {
+		thiss.setAttribute("disabled", true);
+		var mtype = $("#hdmtype3").val();
+		var moeny = $('#hbmoeny3').val();
+		var type = $("#hdtype3").val();
+		var desc = $("#hbdesc3").val();
+		var uid = $("#hbuid3").val();
+		$.post("{:U('Admin/User/sendaccount')}", {
+			mtype: mtype,
+			type: type,
+			moeny: moeny,
+			desc: desc,
+			uid: uid
+		}, function(data) {
+			alert(data);
+			thiss.removeAttribute("disabled");
+		})
+	}
+
+	function sendzz(thiss) {
+		thiss.setAttribute("disabled", true);
+		var openid = $("#weixin").val();
+		var fee = $("#hbfee2").val();
+		var desc = $("#hbbody2").val();
+		$.post("{:U('Admin/User/sendzz')}", {
+			openid: openid,
+			fee: fee,
+			desc: desc
+		}, function(data) {
+			alert(data);
+			thiss.removeAttribute("disabled");
+		})
+
+	}
+
+	function sendhongbao(thiss, type) {
+		thiss.setAttribute("disabled", true);
+		if (type == 'lb') {
+			var num = $("#hbnum").val();
+			var openid = $("#weixin").val();
+			var hbtitle = $("#hbtitle1").val();
+			var hbbody = $("#hbbody1").val();
+			var fee = $("#hbfee1").val();
+		} else {
+			var openid = $("#weixin").val();
+			var hbtitle = $("#hbtitle").val();
+			var hbbody = $("#hbbody").val();
+			var fee = $("#hbfee").val();
+		}
+		$.post("{:U('Admin/User/sendhbs')}", {
+			openid: openid,
+			hbtitle: hbtitle,
+			hbbody: hbbody,
+			fee: fee,
+			type: type,
+			num: num
+		}, function(data) {
+			alert(data);
+			thiss.removeAttribute("disabled");
+		})
+
+	}
+
+	$(function() {
+		$('#provinceid').change(function() {
+			var url = "{:U('Home/Ajax/ajax_get_city')}";
+			var provinceid = $(this).val();
+			if (!provinceid) return false;
+			$.post(url, {
+				provinceid: provinceid
+			}, function(json) {
+				html = '<option value="0">请选择</option>';
+				if (json) {
+					$.each(json, function(idx, item) {
+						html += '<option value="' + item.areaid + '">' + item.areaname + '</option>';
+					});
+					$("#cityid").html(html);
+				}
+			}, 'json');
+		})
+	})
+</script>
+
+<script src="__ROOT__/upimg/js/vendor/jquery.ui.widget.js"></script>
+<script src="__ROOT__/upimg/js/jquery.iframe-transport.js"></script>
+<script src="__ROOT__/upimg/js/jquery.fileupload.js"></script>
+<script>
+	$(function(){
+		'use strict';
+		var  url = "{:U('Home/Form/upload',array('slt'=>1))}";
+		$('#fileupload').fileupload({
+    	url: url,
+    	dataType: 'json',
+    	done: function (e, data){
+    		if(data.result.status==1){
+    			$("#superman").attr('src',data.result.data.url);
+    			$("input[name='avatar']").val(data.result.data.url);
+      	}else{
+       		alert(data.result.info);
+      	}
+    	},
+    	progressall: function(e, data){
+      	var progress = parseInt(data.loaded / data.total * 100, 10);
+      	$('#progress .progress-bar').css('width',progress + '%');
+    	}
+		}).prop('disabled', !$.support.fileInput).parent().addClass($.support.fileInput ? undefined : 'disabled');
+	});
+
+	function fileuploadshow(){
+		$("#fileupload").click();
+	}
+</script>
+
+
+<script>
+	$(function(){
+		$('.love').click(function(){
+			var obj = $(this);
+			var imgobj = obj.parent().find('img');
+			var id = obj.attr('datanum');		
+			
+			$.ajax({
+				type:"post",
+				url:"{:U('delavatar')}",
+				data:{id:id},
+				success:function(data){
+					if(data == 2){
+						imgobj.attr('src','__PUBLIC__/img/mrtx.jpg');
+						$('input[name="avatar"]').val('');
+					}
+				}
+			});			
+		});
+	})
+</script>

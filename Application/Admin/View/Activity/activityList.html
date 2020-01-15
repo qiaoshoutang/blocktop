@@ -1,0 +1,48 @@
+<h3>活动列表</h3>
+<admin:panel >
+<admin:tabletool filter="true" keyword="{$pageMaps['keyword']}">
+
+  <select name="status"  class="form-element ">
+    <option value="0" >==状态==</option>
+    <foreach name='statusArr' item='vo'>
+      <option value="{$key}" 
+        <if condition="$pageMaps['status']==$key">
+        selected
+        </if>
+      >{$vo}</option>
+    </foreach>
+  </select>
+</admin:tabletool>
+
+<admin:table id="table" show="编号|80,排序,名称,封面图,地点,活动时间,状态,添加时间,操作|130">
+  <foreach name="list" item="vo">
+    <tr>
+      <td>{$vo.id}</td>
+      <td>{$vo.order_id}</td>
+      <td>{$vo.name}</td>
+      <td><img src="{$vo.cover_url}" width='300'></td>
+      <td>{$vo.position}</td>
+      <td>{$vo.duration}</td>
+      <td>{$stateArr[$vo['state']]}</td> 
+      <td>{$vo.time|date="Y-m-d H:i:s", ###}</td>
+      <td>
+        <a class="u-btn u-btn-primary u-btn-small" href="{:U('activityEdit',array('id'=>$vo['id']))}">修改</a> 
+      	<a class="u-btn u-btn-danger u-btn-small del" href="javascript:;" data="{$vo.id}">删除</a>
+      </td>
+    </tr>
+  </foreach>
+</admin:table>
+</admin:panel>
+
+
+<script>
+
+Do.ready('base',function(){
+
+	$('#table').duxTable({
+			deleteUrl: "{:U('activityDel')}",
+			actionParameter: function(){
+			}
+	});
+});
+</script>

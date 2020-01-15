@@ -1,0 +1,34 @@
+
+<foreach name='actiList' item='vo'>
+    <li>
+        <div class="Img_Ac">
+            <img src="{$vo.cover_url}" alt="">
+        </div>
+        <div class="Title_Ac">
+            <p class="Title_Ac_P">
+                <span>{$vo.name}</span>
+                <span>{$vo.views}人浏览</span>
+            </p>
+        </div>
+        <div class="LocationTime">
+            <div class="Location">
+                <p><img src="images/location.png" alt=""><span>{$vo.position}</span></p>
+                <p><img src="images/shijian.png" alt=""><span>{$vo.duration}</span></p>
+            </div>
+
+            <div class="Time">
+                <if condition="$vo.state eq 1">
+                <div class="Time_Bm">
+                    报名中
+                </div>
+                </if>
+                <if condition="$vo.state eq 2">
+                <div class="Time_Finish">
+                    已结束
+                </div>
+                </if>
+            </div>
+
+        </div>
+    </li>
+</foreach>

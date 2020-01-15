@@ -1,0 +1,24 @@
+
+<foreach name='messageList' item='vo'>
+    <li>
+        <div class="TuoY">
+            <img src="/themes/default/images/TuoY.png" alt="" width="100%">
+        </div>
+        <div class="KxTime">
+            <span>{$vo.time|format_time='H:i'}</span>
+        </div>
+        <!--内容-->
+        <div class="KxConttt">
+            <div class="KxConttt_Title">{$vo.title}</div>
+            <div class="KxConttt_Text">
+                {$vo.content}
+            </div>
+            <div class="Favorable-BadProfit">
+                <span ><img src="/themes/default/images/up.png" alt=""> 利好<span class="count-f">{$vo.up}</span></span>
+                <span class="Fb-span">
+                    <img src="/themes/default/images/down.png" alt=""> 利空<span class="count-f">{$vo.down}</span>
+                </span>
+            </div>
+        </div>
+    </li>
+</foreach>

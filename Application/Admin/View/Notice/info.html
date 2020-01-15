@@ -1,0 +1,31 @@
+<h3>{$name}公告</h3>
+<admin:panel >
+  <admin:form url="{:U()}" method="post" id="form"  class="m-form-horizontal" >
+    
+    <admin:formrow title="标题" tip="公告的标题"  >
+      <admin:text name="title"  value="{$info.title}" len="100"   />
+    </admin:formrow>
+    <admin:formrow title="内容" tip="公告的内容" >
+      <admin:textarea name="content" cols='20' rows='8' width='xlarge'  >{$info.content}</admin:textarea>
+    </admin:formrow>
+	  <admin:formrow title="状态" tip="" >
+      <admin:radio name="state"  item="显示,不显示" value="1,2" checked="$info['state']" isset="1" />
+    </admin:formrow>
+    <admin:formrow title="添加时间" tip="公告的添加时间"  >
+      <admin:text name="time"  value="{$info.time}" len="100"  class="u-time" />
+    </admin:formrow>
+    <admin:formsubmit/>
+    <admin:text name="id" type="hidden"  value="{$info.id}"  />
+  </admin:form>
+</admin:panel>
+<script>
+Do.ready('base',function(){
+
+  var option={};
+  option.returnUrl="{:U('Admin/Notice/index')}";
+  $('#form').duxFormPage(option);
+
+});
+
+</script> 
+
