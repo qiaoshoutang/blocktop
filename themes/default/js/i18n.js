@@ -38,7 +38,8 @@
             header051:"Introduction",
             header052:"Team",
             header053:"Contact Us",
-            AntZhiContent:"As a well-known offline blockchain community organization in China, Ant Node Alliance aims to build a new industry ecosystem and promote the steady development of the blockchain industry, and connect the blockchain experts and enthusiasts on a global scale. By integrating the upstream and downstream resources of the blockchain industry, we provide comprehensive third-party services for industry participants. Our corporate vision is “To be the best blockchain community alliance in the world. Our corporate values are “openness, equality, innovation and win-win cooperation”.",
+            AntZhiContentA:"Founded in November 2017, Blockchain Headlines is a We-Media platform under Ant Node Alliance. It is one of the most influential We-Media brands in blockchain industry.",
+            AntZhiContent:"Blockchain Headlines includes news flash, in-depth reports, market analysis, blockchain class, etc. It keeps reporting news on a 24/7 basis, adheres to the notion of “being objective, accurate, and in-depth”, and provides service to the global blockchain ecosystem. Blockchain Headlines includes 4 major sections: news, community, blockchain class, and market analysis . Meanwhile, Blockchain Headlines occasionally holds “Blockchain Headlines Off-line Party”, inviting elites from blockchain industry to create a professional learning platform for our followers.",
             TimeFzMaCao:"Sept.21st-22nd,2019",
             FzMaCao01:"The 6th session of FINWISE summit",
             FzMaCao02:"Global summit·Macao",
@@ -157,7 +158,9 @@
             header051:"简介",
             header052:"团队",
             header053:"联系我们",
-            AntZhiContent:"蚂蚁节点联盟是国内知名的区块链线下社群组织，联盟以引领行业新生态、 促进区块链行业为宗旨，致力于聚合全球区块链行业专家及区块链爱好者， 整合区块链产业上下游资源，为区块链行业参与者提供第三方综合服务。 企业愿景：成为全球最强区块链社区联盟。企业价值观：开放、平等、创新、共赢。",
+            AntZhiContentA:"区块链头条是蚂蚁节点联盟旗下自媒体平台，成立于2017年11 月，是区块链行业最具影响力自媒体品牌之一。",
+            AntZhiContent:"区块链头条集快讯、时讯、深研、行情、课堂等为一体。7*24 小时行业资讯追踪报道，秉承“客观、真实、深度”的理念，服务全球区块链领域生态。区块链头条包含【头条新闻】、【头条社群】、【头条课堂】、【头条行情】4大板块。同时，区块链头条不定期举办“头条线下读书会”，邀请行业嘉宾现身说教，为粉丝们提供专业的学习园地。目前，区块链头条覆盖粉丝数10W+。传统媒体平台： 微博、搜狐、简书、知乎、今日头条、凤凰网、财经网等。",
+
             TimeFzMaCao:"2019年9月21日-22日",
             FzMaCao01:"2019FINWISE纷智第六届",
             FzMaCao02:"全球峰会·澳门站",
@@ -445,7 +448,7 @@ function Zh(){
     $(".header-list").css("width","600px");
     $(".sub-page-nav").css("width","70%");
     $(".header-list li").css("width","20%");
-    $(".AntVideo").css("height","900px");
+    $(".AntVideo").css("height","1100px");
     $(".AntZhi").removeClass("AntZhiContent");
     $(".HisDetail").css("font-size","27.15px");
     $(".search-i").attr("placeholder","搜索");
@@ -474,7 +477,7 @@ function En() {
     $(".sub-page-nav").css("width","85%");
     $(".header-list li").css("width","18%");
     $(".header-list li").eq(2).css("width","28%");
-    $(".AntVideo").css("height","1150px");
+    $(".AntVideo").css("height","1250px");
     $(".AntZhi").addClass("AntZhiContent");
     $(".HisDetail").css("font-size","20px");
     $(".search-i").attr("placeholder","search");
