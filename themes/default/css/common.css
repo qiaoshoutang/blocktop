@@ -24,7 +24,7 @@ a{
 .nav-header{
     height: 95px;
     width: 100%;
-    background: black;
+    background: #E71F19;
     position: relative;
     z-index: 999;
 }
@@ -35,7 +35,7 @@ a{
     top: 25px;
 }
 .My-logo img{
-    width: 85%;
+    width: 20%;
 }
 .header-list{
     min-width:600px  ;
@@ -61,7 +61,7 @@ a{
     width: 90%;
     margin: 0 auto;
     min-height:55px ;
-    background: black;
+    background: #E71F19;
     margin-top: 20px;
     border-radius: 8px;
 }

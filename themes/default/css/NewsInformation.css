@@ -180,12 +180,12 @@ body{
     line-height: 55px;
     text-align: center;
     margin-top: 20px;
-    color: #2e84fb;
+    color: #E71F19;
     font-size: 20px;
     cursor: pointer;
 }
 .LookMore a{
-    color: #2e84fb;
+    color: #E71F19;
     text-decoration: none;
 }
 /*热门快讯*/
@@ -299,14 +299,14 @@ body{
     margin-left: 20px;
 }
 .HotNewsText-Article:hover .HotNewsA-T{
-    color: #2e84fb;
+    color: #E71F19;
 
 }
 .HotNewsText-Article:hover{
     cursor: pointer;
 }
 .NewType-Content ul li:hover .TextTitle{
-    color: #2e84fb;
+    color: #E71F19;
     cursor: pointer;
 }
 

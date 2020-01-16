@@ -52,7 +52,7 @@
 }
 
 .Recent-time ul li:hover{
-    color: #2e84fb;
+    color: #E71F19;
     font-weight: bold;
 }
 .Activity-Details{
@@ -145,7 +145,7 @@
     height: 60px;
     text-align: center;
     line-height: 60px;
-    color: #2e84fb;
+    color: #E71F19;
     font-size: 18px;
     clear: both;
     position: relative;
@@ -159,7 +159,7 @@
     text-align: center;
     color: white;
     letter-spacing: 1.5px;
-    background: #2e84fb;
+    background: #E71F19;
     float: right;
     margin-top:30px;
     font-size: 15px;
@@ -186,5 +186,5 @@
 }
 .font-cxb{
     font-weight: bold!important;
-    color: #2e84fb!important;
+    color: #E71F19!important;
 }
