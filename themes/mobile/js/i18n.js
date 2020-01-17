@@ -108,7 +108,7 @@
             header02:'新闻资讯',
             header021:"新闻动态",
             header022:"快讯",
-            header03:"蚂蚁导航",
+            header03:"头条导航",
             header031:"行情",
             header032:"资产管理",
             header033:"应用",
@@ -358,11 +358,11 @@ function zh() {
         "width":"17%",
     });
     $(" .Ant_Video_Title img").css({
-        "width":"25%",
+        "width":"35%",
     });
 
 
-    $("#banner").css("background-image","url(/themes/mobile/images/briefbanner.png)");
+    $("#banner").css("background-image","url(/themes/mobile/images/briefbanner.jpg)");
 
 
 
@@ -414,7 +414,7 @@ function En() {
     $(" .Ant_Video_Title img").css({
         "width":"35%",
     });
-    $("#banner").css("background-image","url(/themes/mobile/images/briefbannerEn.png)");
+    $("#banner").css("background-image","url(/themes/mobile/images/briefbanner.jpg)");
     $(".search-i").css({
         "font-size":"12px"
     })

@@ -19,8 +19,9 @@ ul li{
 .header-nav{
     width: 100%;
     height: 1rem;
-    background: #090723;
+    background: white;
     position: relative;
+    border-bottom: 1px #c6575a solid;
 }
 
 .Mylogo{
@@ -47,14 +48,14 @@ ul li{
     font-size: .18rem;
     position: relative;
     top: 1rem;
-    background: #090723;
+    background: white;
     display: none;
 }
 .header_list a{
     width: 100%;
     height: 100%;
     display: inline-block;
-    color: white;
+    color: black;
     text-decoration: none;
 }
 .header_list a{
@@ -71,7 +72,8 @@ ul li{
 .food_nav{
     width: 100%;
     height: 2.5rem;
-    background: #090723;
+    background: white;
+    border-top: 1px #c6575a solid;
 }
 .food_nav_box{
     width: 90%;
@@ -81,9 +83,12 @@ ul li{
     width: 60%;
     float: left;
     font-size: .18rem;
-    color: white;
+    color: black;
     margin-top: .15rem;
     font-weight: 200;
+}
+.contactUs_food div:nth-child(1){
+    color:#E71F19 ;
 }
 .contactUs_food div{
     margin-top: .2rem;
@@ -104,7 +109,7 @@ ul li{
     float: right;
     width: 30%;
     font-size: .18rem;
-    color: white;
+    color: black;
     text-align: right;
     margin-top: .7rem;
 }
