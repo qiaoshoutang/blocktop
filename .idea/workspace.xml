@@ -1,30 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="61e532fc-5bde-49c0-8b0f-0778b7705177" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/themes/default/aboutus.html" beforeDir="false" afterPath="$PROJECT_DIR$/themes/default/aboutus.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/themes/default/activity.html" beforeDir="false" afterPath="$PROJECT_DIR$/themes/default/activity.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/themes/default/activityContent.html" beforeDir="false" afterPath="$PROJECT_DIR$/themes/default/activityContent.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/themes/default/contactus.html" beforeDir="false" afterPath="$PROJECT_DIR$/themes/default/contactus.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/themes/default/css/NewsInformation.css" beforeDir="false" afterPath="$PROJECT_DIR$/themes/default/css/NewsInformation.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/themes/default/css/common.css" beforeDir="false" afterPath="$PROJECT_DIR$/themes/default/css/common.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/themes/default/description.html" beforeDir="false" afterPath="$PROJECT_DIR$/themes/default/description.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/themes/default/footer.html" beforeDir="false" afterPath="$PROJECT_DIR$/themes/default/footer.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/themes/default/header.html" beforeDir="false" afterPath="$PROJECT_DIR$/themes/default/header.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/themes/default/images/MyQR.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/themes/default/images/MyQR.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/themes/default/images/MyQR.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/themes/default/images/QrT.png" beforeDir="false" afterPath="$PROJECT_DIR$/themes/default/images/QrT.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/themes/default/images/QrTEn.png" beforeDir="false" afterPath="$PROJECT_DIR$/themes/default/images/QrTEn.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/themes/default/images/SearchK.png" beforeDir="false" afterPath="$PROJECT_DIR$/themes/default/images/SearchK.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/themes/default/images/briefbanner.png" beforeDir="false" afterPath="$PROJECT_DIR$/themes/default/images/briefbanner.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/themes/default/images/dianhua.png" beforeDir="false" afterPath="$PROJECT_DIR$/themes/default/images/dianhua.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/themes/default/images/dizhi.png" beforeDir="false" afterPath="$PROJECT_DIR$/themes/default/images/dizhi.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/themes/default/images/introdutionTitle.png" beforeDir="false" afterPath="$PROJECT_DIR$/themes/default/images/introdutionTitle.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/themes/default/images/logo.png" beforeDir="false" afterPath="$PROJECT_DIR$/themes/default/images/logo.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/themes/default/images/youxiang.png" beforeDir="false" afterPath="$PROJECT_DIR$/themes/default/images/youxiang.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/themes/default/js/i18n.js" beforeDir="false" afterPath="$PROJECT_DIR$/themes/default/js/i18n.js" afterDir="false" />
-    </list>
+    <list default="true" id="61e532fc-5bde-49c0-8b0f-0778b7705177" name="Default Changelist" comment="" />
     <ignored path="$PROJECT_DIR$/bin/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -45,28 +22,28 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="css" value="39" />
-          <entry key="html" value="18" />
+          <entry key="css" value="44" />
+          <entry key="html" value="19" />
           <entry key="js" value="7" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="CSS" value="39" />
-          <entry key="HTML" value="18" />
+          <entry key="CSS" value="44" />
+          <entry key="HTML" value="19" />
           <entry key="JavaScript" value="7" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="css" value="115" />
+          <entry key="css" value="120" />
           <entry key="html" value="172" />
           <entry key="js" value="36" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="CSS" value="115" />
+          <entry key="CSS" value="120" />
           <entry key="HTML" value="172" />
           <entry key="JavaScript" value="36" />
         </counts>
@@ -75,11 +52,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/themes/default/description.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
-              <caret line="7" column="38" selection-start-line="7" selection-start-column="38" selection-end-line="7" selection-end-column="38" />
+            <state relative-caret-position="600">
+              <caret line="20" column="5" lean-forward="true" selection-start-line="20" selection-start-column="5" selection-end-line="20" selection-end-column="5" />
               <folding>
                 <element signature="n#style#0;n#div#0;n#div#2;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
               </folding>
@@ -87,11 +64,25 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/themes/default/header.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="180">
-              <caret line="6" column="22" lean-forward="true" selection-start-line="6" selection-start-column="22" selection-end-line="6" selection-end-column="22" />
+            <state relative-caret-position="37">
+              <caret line="3" column="20" selection-start-line="3" selection-start-column="20" selection-end-line="3" selection-end-column="20" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/themes/default/news.html">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/themes/default/css/NewsInformation.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="592">
+              <caret line="104" column="30" lean-forward="true" selection-start-line="104" selection-start-column="30" selection-end-line="104" selection-end-column="30" />
             </state>
           </provider>
         </entry>
@@ -122,6 +113,7 @@
       <find>sub-page-nav</find>
       <find>lang-switch</find>
       <find>.NewType-nav ul li</find>
+      <find>.NewType-nav ul li.active a</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -143,7 +135,6 @@
         <option value="$PROJECT_DIR$/themes/mobile/js/i18n.js" />
         <option value="$PROJECT_DIR$/themes/mobile/aboutus.html" />
         <option value="$PROJECT_DIR$/themes/default/footer.html" />
-        <option value="$PROJECT_DIR$/themes/default/css/NewsInformation.css" />
         <option value="$PROJECT_DIR$/themes/default/description.html" />
         <option value="$PROJECT_DIR$/themes/default/contactus.html" />
         <option value="$PROJECT_DIR$/themes/default/aboutus.html" />
@@ -152,6 +143,7 @@
         <option value="$PROJECT_DIR$/themes/default/js/i18n.js" />
         <option value="$PROJECT_DIR$/themes/default/css/common.css" />
         <option value="$PROJECT_DIR$/themes/default/header.html" />
+        <option value="$PROJECT_DIR$/themes/default/css/NewsInformation.css" />
       </list>
     </option>
   </component>
@@ -168,8 +160,8 @@
     </treeState>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="1636" />
-    <option name="y" value="172" />
+    <option name="x" value="1912" />
+    <option name="y" value="-8" />
     <option name="width" value="1936" />
     <option name="height" value="1096" />
   </component>
@@ -252,12 +244,12 @@
       <workItem from="1579144863296" duration="5019000" />
       <workItem from="1579163793063" duration="679000" />
       <workItem from="1579166326932" duration="3447000" />
-      <workItem from="1579224688594" duration="2088000" />
+      <workItem from="1579224688594" duration="6705000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="11233000" />
+    <option name="totallyTimeSpent" value="15850000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1912" y="-8" width="1936" height="1096" extended-state="6" />
@@ -344,11 +336,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/themes/default/css/includeApply.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-53" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/themes/default/css/index.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-53" />
       </provider>
@@ -470,23 +457,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/themes/default/css/NewsInformation.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="86" column="26" lean-forward="true" selection-start-line="86" selection-start-column="26" selection-end-line="86" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/themes/default/description.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="7" column="38" selection-start-line="7" selection-start-column="38" selection-end-line="7" selection-end-column="38" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#div#2;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/themes/default/contactus.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="210">
@@ -536,11 +506,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/themes/default/css/NewsFlash.css">
+    <entry file="file://$PROJECT_DIR$/themes/default/css/index.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="700">
-          <caret line="95" column="18" selection-start-line="95" selection-start-column="18" selection-end-line="95" selection-end-column="18" />
-        </state>
+        <state relative-caret-position="-53" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/themes/default/css/NewsDynamicContent.css">
@@ -550,10 +518,37 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/themes/default/css/NewsFlash.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="790">
+          <caret line="95" column="18" selection-start-line="95" selection-start-column="18" selection-end-line="95" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/themes/default/css/NewsInformation.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="592">
+          <caret line="104" column="30" lean-forward="true" selection-start-line="104" selection-start-column="30" selection-end-line="104" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/themes/default/news.html">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
     <entry file="file://$PROJECT_DIR$/themes/default/header.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="6" column="22" lean-forward="true" selection-start-line="6" selection-start-column="22" selection-end-line="6" selection-end-column="22" />
+        <state relative-caret-position="37">
+          <caret line="3" column="20" selection-start-line="3" selection-start-column="20" selection-end-line="3" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/themes/default/description.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="600">
+          <caret line="20" column="5" lean-forward="true" selection-start-line="20" selection-start-column="5" selection-end-line="20" selection-end-column="5" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#div#2;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
