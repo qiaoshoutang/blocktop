@@ -34,7 +34,7 @@ class IndexController extends SiteController {
 
     //首页
     public function index(){
-        
+        $this->redirect('/news/all');
         $this -> siteDisplay('index');
     }
     
