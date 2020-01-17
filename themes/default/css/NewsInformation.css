@@ -81,17 +81,17 @@ body{
     font-size: 26px;
     height: 75px;
     line-height: 75px;
-    color: #808080;
+    color: #ad0e12;
     font-weight: 400
 }
 .NewType-nav ul li.active{
     color:#333;
 }
 .NewType-nav ul li a{
-    color:#808080;
+    color:#666666;
 }
 .NewType-nav ul li.active a{ 
-    color: #111216;
+    color: #000000;
     font-weight: bold;
 }
 

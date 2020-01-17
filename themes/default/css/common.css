@@ -24,9 +24,10 @@ a{
 .nav-header{
     height: 95px;
     width: 100%;
-    background: #E71F19;
+    background:white;
     position: relative;
     z-index: 999;
+    border-bottom:1px silver solid ;
 }
 .My-logo{
 
@@ -45,33 +46,37 @@ a{
     color: white;
 }
 .header-list li{
-    width: 20%;
+    width: 25%;
     text-align: center;
     height: 100%;
     line-height: 100px;
     float: left;
     font-size:18px ;
     cursor: pointer;
+    color: black;
 }
 .sub-page-first{
     height: 55px;
     line-height: 55px;
 }
+.sub-page-first:hover{
+    color:#810d10 ;
+}
 .sub-page{
     width: 90%;
     margin: 0 auto;
     min-height:55px ;
-    background: #E71F19;
+    background: white;
     margin-top: 20px;
     border-radius: 8px;
+    color: black;
 }
 .sub-page-nav{
     min-height: 30px;
     width: 70%;
     margin: 0 auto;
     font-size: 15px;
-    font-weight: 200;
-    color: white;
+    color: black;
     line-height: 30px;
     border-bottom: 1px silver dashed;
     text-align: center;
@@ -80,7 +85,7 @@ a{
     border-bottom: none!important;
 }
 .sub-page-nav:hover{
-    color: #aaaaaa;
+    color: #810d10;
 }
 .sub-page-navH{
     display: none;
@@ -88,6 +93,8 @@ a{
     position: relative;
     bottom: 10px;
     z-index: 999;
+    color: black;
+    background: #f0f0f0;
 }
 .sub-page-navH div:last-child{
     border-bottom: none!important;
@@ -99,7 +106,7 @@ a{
     width: 130px;
     height: 35px;
     border-radius: 20px;
-    background:#3a384c ;
+    background:#dfdfdf ;
     position: absolute;
     right: 9%;
     top: 30px;
@@ -112,12 +119,12 @@ a{
     outline: none;
     border: none;
     text-indent: 20px;
-    color: white;
+    color: black;
     font-size: 15px;
     letter-spacing: 2px;
 }
 .search-i::placeholder{
-    color: whitesmoke;
+    color: black;
 }
 
 .food-nav{
@@ -125,13 +132,15 @@ a{
     width: 100%;
     min-width: 1200px;
     height: 380px;
-    background: #242730;
+    background: white;
+    border-top: 1px silver solid;
 }
 .food-content{
     width: 1200px;
     margin: 0 auto;
     height: 330px;
     position: relative;
+    color: black;
 }
 .text-bottom{
     width: 80%;
@@ -144,7 +153,7 @@ a{
     cursor: pointer;
 }
 .text-bottom ul li p:hover{
-    color: white;
+    color: #810d10;
 }
 .text-bottom ul li:last-child{
     cursor: auto;
@@ -153,9 +162,9 @@ a{
     width: 100%;
     min-width: 1200px;
     height: 50px;
-    background:#111216 ;
+    background:#810d10 ;
     text-align: center;
-    color: #a5a6a8;
+    color: white;
     line-height: 50px;
 }
 .text-bottom ul li{
@@ -163,15 +172,15 @@ a{
     width: 18%;
     text-align: center;
     font-size: 15px;
-    color:#a5a6a8 ;
-    margin-top:60px ;
+    color:black ;
+    margin-top:35px ;
 }
 .text-bottom ul li p{
     line-height: 200%;
 }
 .text-bottom ul li p:nth-child(1){
     font-size: 19px;
-    color: white;
+    color: black;
 }
 .text-bottom ul li:nth-child(5){
     text-align: left;
@@ -187,6 +196,9 @@ a{
     top: 60px;
     color: white;
     font-size: 18px;
+}
+.bottom-QR img{
+    width: 90%;
 }
 .search-s{
     width: 25%;

@@ -22,7 +22,7 @@
             header02:"News",
             header021:"Industry News",
             header022:"News Flash",
-            header03:"Featured Content",
+            header03:"Featured",
             header031:"Market",
             header032:"Asset Management",
             header033:"Applications",
@@ -142,7 +142,7 @@
             header02:'新闻资讯',
             header021:"新闻动态",
             header022:"快讯",
-            header03:"蚂蚁导航",
+            header03:"头条导航",
             header031:"行情",
             header032:"资产管理",
             header033:"应用",
@@ -447,7 +447,7 @@ function FoundingTeamEn(){
 function Zh(){
     $(".header-list").css("width","600px");
     $(".sub-page-nav").css("width","70%");
-    $(".header-list li").css("width","20%");
+    $(".header-list li").css("width","25%");
     $(".AntVideo").css("height","1100px");
     $(".AntZhi").removeClass("AntZhiContent");
     $(".HisDetail").css("font-size","27.15px");
@@ -488,7 +488,7 @@ function En() {
     $(".enshow").show();
     $(".font-Mana").css("font-size","23px");
     $(".management-Title").addClass("topServe")
-    $('.briefbanner').css("background-image","url(/themes/default/images/briefbannerEn.png)")
+    $('.briefbanner').css("background-image","url(/themes/default/images/briefbanner.png)")
     $(".taday").css("font-size","23px");
     $(".search-i").css({
         "font-size":"12px"
