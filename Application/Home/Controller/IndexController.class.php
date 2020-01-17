@@ -34,7 +34,7 @@ class IndexController extends SiteController {
 
     //首页
     public function index(){
-        
+        $this->redirect('/news/all');
         $this -> siteDisplay('index');
     }
     
@@ -276,7 +276,7 @@ class IndexController extends SiteController {
 
     //搜索
     public function searchPage(){
-        $keyword =  I('request.keyword',0);
+        $keyword =  I('request.keyword','');
 
         $contentMod = M('content');
         $messageMod = M('message');
