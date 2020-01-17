@@ -18,7 +18,7 @@ return array(
 	    'antmap/:class_id' =>'Home/Index/antMap',
 	    'activit/:state/:time' =>'Home/Index/activity',
 	    'activitContent/:content_id' =>'Home/Index/activityContent',
-	    'search/:keyword' =>'Home/Index/searchPage',
+	    'search/[:keyword]' =>'Home/Index/searchPage',
 	    'Apply' =>'Home/Index/apply',
 	    
 	    
