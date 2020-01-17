@@ -17,6 +17,7 @@ class MobileController extends SiteController {
     //首页
     public function index(){
         
+        $this->redirect('/news_m/all');
         $this -> siteDisplay('index');
     }
     
