@@ -36,12 +36,45 @@
     .Guankan img{
         margin-right: 5px;
     }
+    .lunbo{
+        width: 100%;
+        height: 300px;
+        background: #2e84fb;
+    }
+    .lunboBanner{
+        width: 70%;
+        height: 100%;
+        background: pink;
+        float: left;
+    }
+    .rightContentVideo{
+        width: 30%;
+        float: right;
+        height: 100%;
+        background: #00FF00;
+        position: relative;
+    }
+    .VideoNews{
+        width: 100%;
+        height: 50%;
+        position: absolute;
+        top: 0;
+        right: 0;
+        background: black;
+    }
+    .ArticleNews{
+        width: 100%;
+        height: 50%;
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        background: #cccccc;
+    }
 </style>
 <body>
 <div class="box">
     <!--导航栏-->
     <!--#include file="header.html"-->
-
     <!--合作伙伴链接窗-->
     <div class="Partner-Links">
         <ul>
@@ -82,6 +115,28 @@
         <!--全部-->
         <!--{if condition="$class_id lt 6"}-->
         <div class="NewType-Content">
+            <!--轮播-->
+            <div class="lunbo">
+                <!--轮播banner-->
+                <div class="lunboBanner">
+
+
+                </div>
+                <!--视频+banner-->
+                <div class="rightContentVideo">
+                    <!--视频-->
+                    <div class="VideoNews">
+
+                    </div>
+                    <!--banner-->
+                    <div class="ArticleNews">
+
+                    </div>
+
+                </div>
+
+
+            </div>
             <ul>
             <!--{foreach name='newsList' item='vo' }-->
                 <li onclick='window.location.href="/newsContent/{$vo.content_id}"'>

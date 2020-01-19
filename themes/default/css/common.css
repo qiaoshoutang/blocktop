@@ -27,7 +27,7 @@ a{
     background:white;
     position: relative;
     z-index: 999;
-    border-bottom:1px silver solid ;
+    border-bottom:1px #f0f0f0 solid ;
 }
 .My-logo{
 
