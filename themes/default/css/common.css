@@ -27,7 +27,7 @@ a{
     background:white;
     position: relative;
     z-index: 999;
-    border-bottom:1px silver solid ;
+    border-bottom:1px #f0f0f0 solid ;
 }
 .My-logo{
 
@@ -60,7 +60,7 @@ a{
     line-height: 55px;
 }
 .sub-page-first:hover{
-    color:#810d10 ;
+    color:#e71f19 ;
 }
 .sub-page{
     width: 90%;
@@ -85,7 +85,7 @@ a{
     border-bottom: none!important;
 }
 .sub-page-nav:hover{
-    color: #810d10;
+    color: #e71f19;
 }
 .sub-page-navH{
     display: none;
