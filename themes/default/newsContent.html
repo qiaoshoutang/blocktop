@@ -5,11 +5,10 @@
     <title>新闻动态内容</title>
     <meta name="baidu-site-verification" content="9h2o7ScMIE" />
     <meta name="keywords" content=""/>
-    <meta name="description" content=""/>
+    <meta name="description" content="{$contentInfo.keyword}"/>
     <link rel="stylesheet" href="css/NewsInformation.css">
     <link rel="stylesheet" href="css/common.css">
     <link rel="stylesheet" href="css/NewsDynamicContent.css">
-
 </head>
 <body>
 <style>
@@ -54,7 +53,7 @@
                         {$contentInfo.title}
                     </div>
                     <div class="authorAndTime">
-                        <span>{$contentInfo.author}</span><span> {$vo.time|format_time='Y-m-d H:i:s'}</span><span>{$contentInfo.views}</span>
+                        <span>{$contentInfo.author}</span><span> {$contentInfo.time|format_time='Y-m-d H:i:s'}</span><span>{$contentInfo.views}</span>
                     </div>
                     <div class="DynamicArticle">
                         {$contentInfo.content}
