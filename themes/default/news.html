@@ -2,12 +2,15 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>新闻动态</title>
-    <meta name="baidu-site-verification" content="9h2o7ScMIE" />
-    <meta name="keywords" content=""/>
+    <title>区块链头条_区块链行业资讯最先知</title>
+    <meta name="baidu-site-verification" content="" />
+    <meta name="keywords" content="区块链,区块链新闻,区块链服务,区块链技术,区块链商业应用,区块链市场发展,区块链法律法规,比特币,区块链媒体"/>
     <meta name="description" content=""/>
     <link rel="stylesheet" href="css/NewsInformation.css">
     <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/ft-carousel.css">
+
+
 
 </head>
 <style>
@@ -39,19 +42,17 @@
     .lunbo{
         width: 100%;
         height: 300px;
-        background: #2e84fb;
     }
     .lunboBanner{
         width: 70%;
-        height: 100%;
-        background: pink;
+        height: 300px;
         float: left;
+        overflow: hidden;
     }
     .rightContentVideo{
         width: 30%;
         float: right;
         height: 100%;
-        background: #00FF00;
         position: relative;
     }
     .VideoNews{
@@ -69,6 +70,10 @@
         right: 0;
         bottom: 0;
         background: #cccccc;
+    }
+    .ArticleNews img{
+        width: 100%;
+        height: 100%;
     }
 </style>
 <body>
@@ -112,25 +117,38 @@
 
             </ul>
         </div>
+
+
+
         <!--全部-->
         <!--{if condition="$class_id lt 6"}-->
         <div class="NewType-Content">
             <!--轮播-->
             <div class="lunbo">
                 <!--轮播banner-->
-                <div class="lunboBanner">
+                    <div class="example lunboBanner">
+                        <div class="ft-carousel" id="carousel_1">
+                            <ol class="carousel-inner">
+                                <li class="carousel-item"><a href="http://blocktop.cn/newsContent/108"><img src="img/a1.png" /></a></li>
+                                <li class="carousel-item"><a href="http://blocktop.cn/newsContent/126"><img src="img/a2.jpg" /></a></li>
+                                <li class="carousel-item"><a href="http://blocktop.cn/newsContent/125"><img src="img/a3.png" /></a></li>
+                            </ol>
+                        </div>
+                    </div>
 
-
-                </div>
                 <!--视频+banner-->
                 <div class="rightContentVideo">
                     <!--视频-->
                     <div class="VideoNews">
-
+                        <video src="/themes/default/video/fzVideo.mp4" controls="controls" width="100%" height="100%">
+                            您的浏览器不支持 video 标签。
+                        </video>
                     </div>
                     <!--banner-->
                     <div class="ArticleNews">
-
+                        <video src="/themes/default/video/fzVideo02.mp4" controls="controls" width="100%" height="100%">
+                            您的浏览器不支持 video 标签。
+                        </video>
                     </div>
 
                 </div>
@@ -226,12 +244,16 @@
 </html>
 <script src="js/jquery.js"></script>
 <script src="js/commom.js"></script>
+<script src="js/ft-carousel.min.js"></script>
+
 <script>
+    $("#carousel_1").FtCarousel();
+
 var page_num = 2;
-var class_id = '{$class_id}'
+var class_id = '{$class_id}';
 
     $(".NewType-Content ul li").hover(function () {
-        $(this).addClass("bg-color")
+        $(this).addClass("bg-color");
         $(this).find($(".NewType-Detail")).css({
             "border-bottom":"none"
         })
