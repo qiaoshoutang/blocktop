@@ -1,18 +1,19 @@
-<h3>公告列表</h3>
+<h3>轮播列表</h3>
 <admin:panel >
 <admin:tabletool filter="true" keyword="{$pageMaps['keyword']}">
   <admin:select name="state" item="==状态==,显示,不显示" value="0,1,2" selected="$pageMaps['state']" /> 
 </admin:tabletool>
 
-<admin:table id="table" show="选择,编号|50,标题,内容,状态,添加时间,操作|130">
+<admin:table id="table" show="选择,权重|50,标题,跳转地址,图片,状态,时间,操作|130">
   <foreach name="list" item="vo">
     <tr>
   	  <td>
   		  <input type="checkbox" name="id[]" value="{$vo.id}" />
   	  </td>
-      <td>{$vo.id}</td>
+      <td>{$vo.sequence}</td>
       <td>{$vo.title}</td>
-      <td>{$vo.content}</td>
+      <td>{$vo.target}</td>
+      <td><img src='{$vo.path}' style='max-height:100px'></td>
       <td>{$stateArr[$vo['state']]}</td>
       <td>{$vo.time|date="Y-m-d H:i:s", ###}</td>
       <td>

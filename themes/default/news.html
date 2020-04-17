@@ -129,13 +129,12 @@
                     <div class="example lunboBanner">
                         <div class="ft-carousel" id="carousel_1">
                             <ol class="carousel-inner">
-                                <li class="carousel-item"><a href="http://blocktop.cn/newsContent/108"><img src="img/a1.png" /></a></li>
-                                <li class="carousel-item"><a href="http://blocktop.cn/newsContent/126"><img src="img/a2.jpg" /></a></li>
-                                <li class="carousel-item"><a href="http://blocktop.cn/newsContent/125"><img src="img/a3.png" /></a></li>
+                            <!--{foreach name='bannerList' item='vo' }-->
+                                <li class="carousel-item"><a href=" {$vo.target}"><img src=" {$vo.path}" /></a></li>
+                            <!--{/foreach}-->
                             </ol>
                         </div>
                     </div>
-
                 <!--视频+banner-->
                 <div class="rightContentVideo">
                     <!--视频-->

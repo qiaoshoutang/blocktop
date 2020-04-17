@@ -99,7 +99,9 @@ class IndexController extends SiteController {
         foreach($newsList as $key=>$val){
             $newsList[$key]['description'] = html_out($val['description']);
         }
-//         dd($newsList);
+        //轮播列表
+        $bannerList = M('banner')->where(['state'=>1])->order('sequence desc')->select();
+        
         //快讯
         $map['state'] = 2;
         $messageMod = D('Article/Message');
@@ -110,12 +112,10 @@ class IndexController extends SiteController {
         //推荐导航
         $naviList = D('Admin/Navi')->loadList(['recom'=>1],'0,5');
         
-        
-//         dd($newsCate);
-        
         $this->assign('class_id',$class_id);
         $this->assign('newsCate',M('category')->where(['show'=>1])->order('sequence asc')->select());
         $this->assign('newsList',$newsList);
+        $this->assign('bannerList',$bannerList);
         $this->assign('messageList',$messageList);
         $this->assign('naviList',$naviList);
         $this -> siteDisplay('news');

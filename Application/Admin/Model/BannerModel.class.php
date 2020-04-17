@@ -4,13 +4,13 @@ use Think\Model;
 /**
  * 公告模型
  */
-class NoticeModel extends Model {
+class BannerModel extends Model {
 
     /**
      * 获取列表
      * @return array 列表
      */
-    public function loadList($where = array(), $limit = 50, $order = 'id desc'){
+    public function loadList($where = array(), $limit = 50, $order = 'sequence desc'){
         
         $list = $this->where($where)
                     ->limit($limit)

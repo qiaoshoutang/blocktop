@@ -19,6 +19,7 @@ class MenuService{
                         'url' => U('Admin/Index/index'),
                         'order' => 0
                     )
+
                 )
             ),
 
@@ -65,22 +66,6 @@ class MenuService{
 		        )
 		    ),
 
-// 		    'Notice' => array(
-// 		        'name' => '公告',
-// 		        'order' => 8,
-// 		        'menu' => array(
-// 		            array(
-// 		                'name' => '公告列表',
-// 		                'url' => U('Admin/Notice/index'),
-// 		                'order' => 1
-// 		            ),
-// 		            array(
-// 		                'name' => '公告添加',
-// 		                'url' => U('Admin/Notice/add'),
-// 		                'order' => 2
-// 		            ),
-// 		        )
-// 		    ),
 		    'Council' => array(
 		        'name' => '蚂蚁导航',
 		        'order' => 10,
@@ -97,7 +82,24 @@ class MenuService{
 		            ),
 		        )
 		     ),
-
+		    
+		    'Banner' => array(
+		        'name' => '轮播管理',
+		        'order' => 12,
+		        'menu' => array(
+		            array(
+		                'name' => '轮播列表',
+		                'url' => U('Admin/Banner/index'),
+		                'order' => 1
+		            ),
+		            array(
+		                'name' => '轮播添加',
+		                'url' => U('Admin/Banner/add'),
+		                'order' => 2
+		            ),
+		        )
+		    ),
+		    
             'system' => array(
                 'name' => '系统',
                 'icon' => 'bars',

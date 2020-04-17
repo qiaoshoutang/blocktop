@@ -2,9 +2,9 @@
 namespace Admin\Controller;
 use Admin\Controller\AdminController;
 /**
- * 公告控制器
+ * 轮播控制器
  */
-class NoticeController extends AdminController
+class BannerController extends AdminController
 {
 	
 	
@@ -15,18 +15,18 @@ class NoticeController extends AdminController
     {
         $data = array(
         	'info' => array(
-        		'name' => '公告列表',
-                'description' => '厦门区块链协会公告',
+        		'name' => '轮播列表',
+                'description' => '首页轮播图管理',
             ),
             'menu' => array(
                 array(
-                    'name' => '公告列表',
-                    'url' => U('Admin/Notice/index'),
-                    'icon' => 'plus',
+                    'name' => '轮播列表',
+                    'url' => U('Admin/Banner/index'),
+                    'icon' => 'list',
                 ),
                 array(
-                    'name' => '公告添加',
-                    'url' => U('Admin/Notice/add'),
+                    'name' => '轮播添加',
+                    'url' => U('Admin/Banner/add'),
                     'icon' => 'plus',
                 ),
             )
@@ -35,7 +35,7 @@ class NoticeController extends AdminController
     }
 	
     /**
-     * 公告列表
+     * 轮播图列表
      */
     public function index(){
 
@@ -56,11 +56,11 @@ class NoticeController extends AdminController
         }
         
 
-        $noticeMod=D('Admin/Notice');
+        $bannerMod=D('Admin/Banner');
         
-        $count = $noticeMod->countList($where);
+        $count = $bannerMod->countList($where);
         $limit = $this->getPageLimit($count,20);
-        $list = $noticeMod->loadList($where,$limit);
+        $list = $bannerMod->loadList($where,$limit);
         
 
         $this->assign('stateArr',array(1=>'显示',2=>'不显示'));
@@ -72,7 +72,7 @@ class NoticeController extends AdminController
     }
     
     /**
-     * 编辑
+     * 新增
      */
     public function add(){ 
         
@@ -83,10 +83,9 @@ class NoticeController extends AdminController
 
             $this->adminDisplay('info');
         }else{
-
-            $_POST['time'] = strtotime($_POST['time']);
-            $noticeMod=D('Admin/Notice');
-            $re=$noticeMod->saveData('add');
+            $_POST['time'] = time();
+            $bannerMod=D('Admin/Banner');
+            $re = $bannerMod->saveData('add');
             if($re){
                 $this->success('添加成功',true);
             }else{
@@ -95,11 +94,11 @@ class NoticeController extends AdminController
         }
     }
     /**
-     * 二维码编辑
+     * 编辑
      */
     public function edit(){
         
-        $noticeMod=D('Admin/Notice');
+        $bannerMod=D('Admin/Banner');
         
         if(!IS_POST){
             $id=I('request.id','','intval');
@@ -107,8 +106,7 @@ class NoticeController extends AdminController
                 return '参数不能未空';
             }
             
-            $info=$noticeMod->getInfo($id);
-            $info['time'] = date('Y/m/d H:i',$info['time']);
+            $info=$bannerMod->getInfo($id);
             $this->assign('name','编辑');
             $this->assign('info',$info);
 
@@ -118,8 +116,8 @@ class NoticeController extends AdminController
             if(!$id){
                 return '参数不能未空';
             }
-            $_POST['time'] = strtotime($_POST['time']);
-            $re=$noticeMod->saveData('edit');
+            $_POST['time'] = time();
+            $re=$bannerMod->saveData('edit');
             if($re){
                 $this->success('修改成功',true);
             }else{
@@ -129,7 +127,7 @@ class NoticeController extends AdminController
     }
     
     /**
-     * 二维码删除
+     * 删除
      */
     public function del(){
         
@@ -138,8 +136,8 @@ class NoticeController extends AdminController
         if(!$id){
             return '参数不能未空';
         }
-        $noticeMod = D('Admin/Notice');
-        $res=$noticeMod->delData($id);
+        $bannerMod = D('Admin/Banner');
+        $res=$bannerMod->delData($id);
         
         if($res){
 
@@ -163,7 +161,7 @@ class NoticeController extends AdminController
         
         //删除
         if($type == 1){
-            $res = M("Notice") -> where("id in(".$ids.")") -> delete();
+            $res = M("Banner") -> where("id in(".$ids.")") -> delete();
             if($res){
                 
                 $this->success('批量删除成功！');
