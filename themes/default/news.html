@@ -2,9 +2,9 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>区块链头条_区块链行业资讯最先知</title>
+    <title>区块链头条_区块链头条官网</title>
     <meta name="baidu-site-verification" content="" />
-    <meta name="keywords" content="区块链,区块链新闻,区块链服务,区块链技术,区块链商业应用,区块链市场发展,区块链法律法规,比特币,区块链媒体"/>
+    <meta name="keywords" content="区块链头条,区块链头条官网,区块链,区块链技术,比特币,区块链媒体"/>
     <meta name="description" content=""/>
     <link rel="stylesheet" href="css/NewsInformation.css">
     <link rel="stylesheet" href="css/common.css">
@@ -65,19 +65,36 @@
     .VideoNews{
         width: 100%;
         height: 48%;
-        position: absolute;
-        top: 0;
-        right: 0;
-
+        position: relative;
         border-radius: 8px;
         overflow: hidden;
+    }
+    .VideoNewsBt{
+        position: absolute;
+        bottom: 0;
+        height: 30px;
+        right: 0;
+        z-index: 9;
+        width: 100%;
+        text-align: center;
+        font-size: 14px;
+        line-height: 30px;
+        opacity: .8;
+        background: white;
+        color: black;
+        display: none;
+    }
+    .VideoNews:hover .VideoNewsBt{
+        display: block;
+    }
+    .ArticleNews:hover .VideoNewsBt{
+        display: block;
     }
     .ArticleNews{
         width: 100%;
         height: 48%;
-        position: absolute;
-        right: 0;
-        bottom: 0;
+        position: relative;
+        margin-top: 15px;
         border-radius: 8px;
         overflow: hidden;
     }
@@ -134,12 +151,18 @@
                          <video src="/themes/default/video/videoIntro.mp4" controls="controls" width="100%" height="100%" poster="/themes/default/img/posterFm.jpg">
                              您的浏览器不支持 video 标签。
                          </video>
+                         <div class="VideoNewsBt">
+                             视频 | 北京大学徐远教授：央行数字货币将会是人类最伟大的发明
+                         </div>
                      </div>
                      <!--banner-->
                      <div class="ArticleNews">
                          <video src="/themes/default/video/YsVideo.mp4" controls="controls" width="100%" height="100%" poster="/themes/default/img/posterFm01.jpg">
                              您的浏览器不支持 video 标签。
                          </video>
+                         <div class="VideoNewsBt">
+                             视频 | 央视：从交子到数字货币，中国将再次引领货币金融创新变革
+                         </div>
                      </div>
 
                  </div>

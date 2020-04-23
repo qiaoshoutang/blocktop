@@ -4,9 +4,9 @@ body{
 .Partner-Links{
     width: 1200px;
     height:115px ;
-    border: 1px solid #eeeeee;
-    margin: 50px auto 0 auto;
-    background: white;
+    /*border: 1px solid #eeeeee;*/
+    margin: 30px auto 0 auto;
+    background: #fafafa;
 }
 .Partner-Links ul{
     width: 1200px;
@@ -237,11 +237,11 @@ body{
 
 }
 .TuoY{
-    width: 30px;
-    height: 30px;
+    width: 15px;
+    height: 15px;
     position: absolute;
-    left: -15px;
-    top: 5px;
+    left: -8.5px;
+    top: 10px;
 }
 .HotNewsText-box{
     height: 240px;

@@ -23,7 +23,8 @@ a{
 }
 .nav-header{
     height: 95px;
-    width: 100%;
+    width: 1200px;
+    margin: 0 auto;
     background:white;
     position: relative;
     z-index: 999;
@@ -32,7 +33,7 @@ a{
 .My-logo{
 
     position: absolute;
-    left: 60px;
+    left: 0%;
     top: 25px;
 }
 .My-logo img{
@@ -41,7 +42,7 @@ a{
 .header-list{
     min-width:600px  ;
     position: absolute;
-    right:20%;
+    right:33%;
     height: 100%;
     color: white;
 }
@@ -108,7 +109,7 @@ a{
     border-radius: 20px;
     background:#dfdfdf ;
     position: absolute;
-    right: 9%;
+    right: 0;
     top: 30px;
 }
 .search-i{
