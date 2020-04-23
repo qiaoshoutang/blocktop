@@ -1,11 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="61e532fc-5bde-49c0-8b0f-0778b7705177" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/themes/default/css/NewsInformation.css" beforeDir="false" afterPath="$PROJECT_DIR$/themes/default/css/NewsInformation.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/themes/default/news.html" beforeDir="false" afterPath="$PROJECT_DIR$/themes/default/news.html" afterDir="false" />
-    </list>
+    <list default="true" id="61e532fc-5bde-49c0-8b0f-0778b7705177" name="Default Changelist" comment="" />
     <ignored path="$PROJECT_DIR$/bin/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -42,14 +38,14 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="css" value="226" />
+          <entry key="css" value="229" />
           <entry key="html" value="677" />
           <entry key="js" value="45" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="CSS" value="226" />
+          <entry key="CSS" value="229" />
           <entry key="HTML" value="677" />
           <entry key="JavaScript" value="45" />
         </counts>
@@ -58,7 +54,7 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/themes/default/news.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="285">
@@ -71,11 +67,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/themes/default/css/NewsInformation.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="315">
-              <caret line="114" column="13" selection-start-line="114" selection-start-column="13" selection-end-line="114" selection-end-column="13" />
+            <state relative-caret-position="285">
+              <caret line="113" column="23" lean-forward="true" selection-start-line="113" selection-start-column="23" selection-end-line="113" selection-end-column="23" />
             </state>
           </provider>
         </entry>
@@ -121,8 +117,8 @@
       <find>.Partner-Links</find>
       <find>.Guankan</find>
       <find>NewType-nav</find>
-      <find>Guankan</find>
       <find>.NewType-Content ul li</find>
+      <find>Guankan</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -167,8 +163,8 @@
         <option value="$PROJECT_DIR$/themes/default/css/NewsFlash.css" />
         <option value="$PROJECT_DIR$/themes/default/newsContent.html" />
         <option value="$PROJECT_DIR$/themes/default/css/NewsDynamicContent.css" />
-        <option value="$PROJECT_DIR$/themes/default/css/NewsInformation.css" />
         <option value="$PROJECT_DIR$/themes/default/news.html" />
+        <option value="$PROJECT_DIR$/themes/default/css/NewsInformation.css" />
       </list>
     </option>
   </component>
@@ -232,7 +228,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1587622620811" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1587624783675" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -267,12 +263,12 @@
       <workItem from="1587117231009" duration="523000" />
       <workItem from="1587351488588" duration="2434000" />
       <workItem from="1587430641511" duration="2396000" />
-      <workItem from="1587603348640" duration="10186000" />
+      <workItem from="1587603348640" duration="10799000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="40721000" />
+    <option name="totallyTimeSpent" value="41334000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1912" y="-8" width="1936" height="1096" extended-state="6" />
@@ -662,13 +658,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/themes/default/css/NewsInformation.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="114" column="13" selection-start-line="114" selection-start-column="13" selection-end-line="114" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/themes/default/news.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="285">
@@ -677,6 +666,13 @@
             <element signature="n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" />
             <element signature="n#style#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/themes/default/css/NewsInformation.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="113" column="23" lean-forward="true" selection-start-line="113" selection-start-column="23" selection-end-line="113" selection-end-column="23" />
         </state>
       </provider>
     </entry>
