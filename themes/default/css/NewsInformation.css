@@ -197,7 +197,7 @@ body{
 .Hot-News{
     width: 325px;
     height: 780px;
-    border: 1px #eeeeee solid;
+    /*border: 1px #eeeeee solid;*/
     float: right;
     background: white;
 

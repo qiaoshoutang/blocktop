@@ -92,10 +92,12 @@ a{
     display: none;
     /*overflow: hidden;*/
     position: relative;
-    bottom: 10px;
+    /*bottom: 10px;*/
     z-index: 999;
     color: black;
     background: #f0f0f0;
+    border-bottom-right-radius: 8px;
+    border-bottom-left-radius: 8px;
 }
 .sub-page-navH div:last-child{
     border-bottom: none!important;
