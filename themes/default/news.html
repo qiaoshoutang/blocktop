@@ -40,14 +40,21 @@
         margin-right: 5px;
     }
     .lunbo{
-        width: 100%;
+        width: 855px;
+        float: left;
         height: 300px;
+        margin-top: 20px;
+    }
+    .Hot-News{
+        position: relative;
+        bottom: 375px;
     }
     .lunboBanner{
-        width: 70%;
+        width: 68%;
         height: 300px;
         float: left;
         overflow: hidden;
+        border-radius: 8px;
     }
     .rightContentVideo{
         width: 30%;
@@ -57,23 +64,32 @@
     }
     .VideoNews{
         width: 100%;
-        height: 50%;
+        height: 48%;
         position: absolute;
         top: 0;
         right: 0;
-        background: black;
+
+        border-radius: 8px;
+        overflow: hidden;
     }
     .ArticleNews{
         width: 100%;
-        height: 50%;
+        height: 48%;
         position: absolute;
         right: 0;
         bottom: 0;
-        background: #cccccc;
+        border-radius: 8px;
+        overflow: hidden;
     }
     .ArticleNews img{
         width: 100%;
         height: 100%;
+    }
+    .NewType-Content ul{
+        margin-top: 10px;
+    }
+    .NewType{
+        clear: both;
     }
 </style>
 <body>
@@ -98,8 +114,42 @@
             <!--{/foreach}-->
         </ul>
     </div>
+     <div style="margin: 0 auto;width: 1200px">
+         <!--轮播-->
+         <div class="lunbo">
+                 <!--轮播banner-->
+                 <div class="example lunboBanner">
+                     <div class="ft-carousel" id="carousel_1">
+                         <ol class="carousel-inner">
+                             <!--{foreach name='bannerList' item='vo' }-->
+                             <li class="carousel-item"><a href=" {$vo.target}"><img src=" {$vo.path}" /></a></li>
+                             <!--{/foreach}-->
+                         </ol>
+                     </div>
+                 </div>
+                 <!--视频+banner-->
+                 <div class="rightContentVideo">
+                     <!--视频-->
+                     <div class="VideoNews">
+                         <video src="/themes/default/video/videoIntro.mp4" controls="controls" width="100%" height="100%" poster="/themes/default/img/posterFm.jpg">
+                             您的浏览器不支持 video 标签。
+                         </video>
+                     </div>
+                     <!--banner-->
+                     <div class="ArticleNews">
+                         <video src="/themes/default/video/YsVideo.mp4" controls="controls" width="100%" height="100%" poster="/themes/default/img/posterFm01.jpg">
+                             您的浏览器不支持 video 标签。
+                         </video>
+                     </div>
+
+                 </div>
+
+
+             </div>
+     </div>
+
     <!--各类文章-->
-    <div class="NewType">
+    <div class="NewType" >
         <div class="NewType-nav">
             <ul>
                 <li class='<!--{if condition="$class_id eq all"}--> active <!--{/if}-->'>
@@ -123,37 +173,7 @@
         <!--全部-->
         <!--{if condition="$class_id lt 6"}-->
         <div class="NewType-Content">
-            <!--轮播-->
-            <div class="lunbo">
-                <!--轮播banner-->
-                    <div class="example lunboBanner">
-                        <div class="ft-carousel" id="carousel_1">
-                            <ol class="carousel-inner">
-                            <!--{foreach name='bannerList' item='vo' }-->
-                                <li class="carousel-item"><a href=" {$vo.target}"><img src=" {$vo.path}" /></a></li>
-                            <!--{/foreach}-->
-                            </ol>
-                        </div>
-                    </div>
-                <!--视频+banner-->
-                <div class="rightContentVideo">
-                    <!--视频-->
-                    <div class="VideoNews">
-                        <video src="/themes/default/video/fzVideo.mp4" controls="controls" width="100%" height="100%">
-                            您的浏览器不支持 video 标签。
-                        </video>
-                    </div>
-                    <!--banner-->
-                    <div class="ArticleNews">
-                        <video src="/themes/default/video/fzVideo02.mp4" controls="controls" width="100%" height="100%">
-                            您的浏览器不支持 video 标签。
-                        </video>
-                    </div>
 
-                </div>
-
-
-            </div>
             <ul>
             <!--{foreach name='newsList' item='vo' }-->
                 <li onclick='window.location.href="/newsContent/{$vo.content_id}"'>
