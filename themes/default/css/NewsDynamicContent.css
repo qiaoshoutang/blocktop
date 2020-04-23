@@ -19,17 +19,18 @@
 .Dynamic-Content-Title{
    font-size: 28px;
     margin-top: 40px;
+    font-weight: bold;
 }
 .authorAndTime{
     margin-top: 45px;
 }
 .authorAndTime span{
-    font-size: 18px;
+    font-size: 15px;
     color: #999999;
     font-weight: 400;
 }
 .authorAndTime span:nth-child(1){
-    font-size: 21px;
+    font-size: 18px;
     font-weight: normal;
     color: black;
 }
