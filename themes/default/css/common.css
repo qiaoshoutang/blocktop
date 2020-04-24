@@ -1,6 +1,6 @@
 body{
     /*background:#111216 ;*/
-    font-family: 'open sans','PingFang SC','Lantinghei SC','Helvetica Neue',Helvetica,Arial,'Microsoft YaHei',"sans-serif"
+    font-family:'PingFang SC','Lantinghei SC','Helvetica Neue',Helvetica,Arial,'Microsoft YaHei',"sans-serif"
 }
 *{
     padding: 0;
@@ -165,10 +165,12 @@ a{
     width: 100%;
     min-width: 1200px;
     height: 50px;
-    background:#810d10 ;
+    /*background:#810d10 ;*/
     text-align: center;
-    color: white;
+    color: rgba(215,215,215,1);
     line-height: 50px;
+    font-weight: 200;
+    font-size: 16px!important;
 }
 .text-bottom ul li{
     float: left;

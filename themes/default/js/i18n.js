@@ -384,6 +384,19 @@ if(tyLang == 'zh'){
     En()
     FoundingTeamEn()
 }
+(()=>{
+    // 兼容IE
+    if(document.all) {
+        document.getElementById("zh-lang").click();
+    }
+    // 兼容其它浏览器
+    else {
+        var e = document.createEvent("MouseEvents");
+        e.initEvent("click", true, true);
+        document.getElementById("zh-lang").dispatchEvent(e);
+    }
+})();
+
 
 $(".zh-lang").click(function () {
     Zh()
