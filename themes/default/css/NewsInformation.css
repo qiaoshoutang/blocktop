@@ -4,9 +4,9 @@ body{
 .Partner-Links{
     width: 1200px;
     height:115px ;
-    border: 1px solid #eeeeee;
-    margin: 50px auto 0 auto;
-    background: white;
+    /*border: 1px solid #eeeeee;*/
+    margin: 30px auto 0 auto;
+    background: #fafafa;
 }
 .Partner-Links ul{
     width: 1200px;
@@ -70,9 +70,14 @@ body{
     height: 100%;
 }
 .NewType-nav{
+    position: relative;
+    top: 10px;
     width: 100%;
     height: 75px;
 
+}
+.NewType-nav ul{
+    margin-left: -25px;
 }
 .NewType-nav ul li{
     width: 112.5px;
@@ -82,7 +87,7 @@ body{
     height: 75px;
     line-height: 75px;
     color: #ad0e12;
-    font-weight: 400
+    font-weight: 400;
 }
 .NewType-nav ul li.active{
     color:#333;
@@ -102,7 +107,7 @@ body{
 }
 .NewType-Content ul{
     width: 100%;
-    border: 1px solid #eeeeee;
+    /*border: 1px solid #eeeeee;*/
     height: 100%;
     display: inline-block;
 }
@@ -112,11 +117,11 @@ body{
 
 }
 .NewType-Detail{
-    width: 90%;
+    width: 100%;
     height: 100%;
-    margin: 0 auto;
+    /*margin: 0 auto;*/
     position: relative;
-    border-bottom: 1px #eeeeee solid;
+    /*border-bottom: 1px #eeeeee solid;*/
 }
 .NewTypeImg{
     width: 30%;
@@ -192,7 +197,7 @@ body{
 .Hot-News{
     width: 325px;
     height: 780px;
-    border: 1px #eeeeee solid;
+    /*border: 1px #eeeeee solid;*/
     float: right;
     background: white;
 
@@ -232,11 +237,11 @@ body{
 
 }
 .TuoY{
-    width: 30px;
-    height: 30px;
+    width: 15px;
+    height: 15px;
     position: absolute;
-    left: -15px;
-    top: 5px;
+    left: -8.5px;
+    top: 10px;
 }
 .HotNewsText-box{
     height: 240px;
