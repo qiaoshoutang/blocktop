@@ -107,7 +107,6 @@ class IndexController extends SiteController {
         $messageMod = D('Article/Message');
         
         $messageList = $messageMod->loadList($map,'0,3');
-        
 
         //推荐导航
         $naviList = D('Admin/Navi')->loadList(['recom'=>1],'0,5');
