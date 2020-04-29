@@ -458,13 +458,13 @@ function FoundingTeamEn(){
 }
 
 function Zh(){
-    $(".header-list").css("width","600px");
-    $(".sub-page-nav").css("width","70%");
-    $(".header-list li").css("width","25%");
+    // $(".header-list").css("width","600px");
+    // $(".sub-page-nav").css("width","70%");
+    // $(".header-list li").css("width","25%");
     $(".AntVideo").css("height","1100px");
     $(".AntZhi").removeClass("AntZhiContent");
     $(".HisDetail").css("font-size","27.15px");
-    $(".search-i").attr("placeholder","搜索");
+    // $(".search-i").attr("placeholder","搜索");
     $(".ourBrands-ul li:nth-child(1)").css("background-image","url(/themes/default/images/outBrandsList.png)")
     $(".zhshow").show();
     $(".enshow").hide()
@@ -472,9 +472,9 @@ function Zh(){
     $(".management-Title").removeClass("topServe")
     $('.briefbanner').css("background-image","url(/themes/default/images/briefbanner.png)");
     $(".taday").css("font-size","30px");
-    $(".search-i").css({
-        "font-size":"15px"
-    })
+    // $(".search-i").css({
+    //     "font-size":"16px"
+    // })
     $(".Recent-time ul li").css({
         "width": "85px",
         "font-size":"20px"
@@ -486,10 +486,10 @@ function Zh(){
 }
 
 function En() {
-    $(".header-list").css("width","800px");
-    $(".sub-page-nav").css("width","85%");
-    $(".header-list li").css("width","18%");
-    $(".header-list li").eq(2).css("width","28%");
+    // $(".header-list").css("width","800px");
+    // $(".sub-page-nav").css("width","85%");
+    // $(".header-list li").css("width","18%");
+    // $(".header-list li").eq(2).css("width","28%");
     $(".AntVideo").css("height","1250px");
     $(".AntZhi").addClass("AntZhiContent");
     $(".HisDetail").css("font-size","20px");
@@ -503,9 +503,9 @@ function En() {
     $(".management-Title").addClass("topServe")
     $('.briefbanner').css("background-image","url(/themes/default/images/briefbanner.png)")
     $(".taday").css("font-size","23px");
-    $(".search-i").css({
-        "font-size":"12px"
-    })
+    // $(".search-i").css({
+    //     "font-size":"12px"
+    // })
     $(".Recent-time ul li").css({
         "width": "120px",
         "font-size":"16px"

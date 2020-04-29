@@ -15,6 +15,9 @@ ul li{
 a{
     text-decoration: none;
 }
+.nav-My-logo{
+    width: 100%;
+}
 .box{
     width: 100%;
     min-width: 1200px;
@@ -22,32 +25,50 @@ a{
 
 }
 .nav-header{
-    height: 95px;
+    height: 180px;
     width: 1200px;
     margin: 0 auto;
-    background:white;
+    /*background:rosybrown;*/
     position: relative;
     z-index: 999;
     border-bottom:1px #f0f0f0 solid ;
+
+}
+.nav-My-logo{
+    width: 100%;
+    height: 123px;
 }
 .My-logo{
-
+    width:90%;
     position: absolute;
     left: 0%;
-    top: 25px;
+    top: 37px;
 }
-.My-logo img{
-    width: 20%;
+.nav-header-list{
+    width: 100%;
+    height: 57px;
+    color: white;
+    background: #e7141a;
+    position: relative;
+}
+.My-logo a img{
+    width: 19%;
+    margin-left: 20px;
+}
+.future-logo{
+   position: relative;
+    top: -10px;
+    left: 18px;
 }
 .header-list{
-    min-width:600px  ;
-    position: absolute;
-    right:33%;
+    width:645px  ;
+    /*position: absolute;*/
+    /*right:33%;*/
     height: 100%;
     color: white;
 }
 .header-list li{
-    width: 25%;
+    width: 20%;
     text-align: center;
     height: 100%;
     line-height: 100px;
@@ -55,26 +76,46 @@ a{
     font-size:18px ;
     cursor: pointer;
     color: black;
+    position: relative;
 }
 .sub-page-first{
-    height: 55px;
-    line-height: 55px;
+    /*height: 55px;*/
+    /*line-height: 55px;*/
+    width: 82%;
+    height: 30px;
+    padding: 5px 5px 5px 5px;
+    border-radius: 4px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    margin: auto;
+    line-height: 30px;
+
 }
 .sub-page-first:hover{
-    color:#e71f19 ;
+    /*color:#e71f19 ;*/
+    background: #f0f0f0;
+    color:black ;
+}
+.sub-page-firstAddclass{
+    background: #f0f0f0;
+    color:black ;
 }
 .sub-page{
     width: 90%;
     margin: 0 auto;
     min-height:55px ;
-    background: white;
-    margin-top: 20px;
+    /*background: white;*/
+    /*margin-top: 20px;*/
     border-radius: 8px;
-    color: black;
+    /*color: black;*/
+    color: white;
 }
 .sub-page-nav{
     min-height: 30px;
-    width: 70%;
+    width: 80%;
     margin: 0 auto;
     font-size: 15px;
     color: black;
@@ -86,7 +127,7 @@ a{
     border-bottom: none!important;
 }
 .sub-page-nav:hover{
-    color: #e71f19;
+    color: black;
 }
 .sub-page-navH{
     display: none;
@@ -98,37 +139,57 @@ a{
     background: #f0f0f0;
     border-bottom-right-radius: 8px;
     border-bottom-left-radius: 8px;
+    top: 45px;
+    padding-top:10px ;
 }
 .sub-page-navH div:last-child{
     border-bottom: none!important;
 }
-.header-list li:hover .sub-page{
-    border: 1.5px solid white;
+.header-list li:hover .sub-page-first{
+    /*border: 1.5px solid white;*/
+    background: #f0f0f0;
+    color:black ;
 }
 .search{
-    width: 130px;
+    width: 240px;
     height: 35px;
-    border-radius: 20px;
-    background:#dfdfdf ;
+    border-radius: 2px;
+    background:#6c6c6c ;
     position: absolute;
     right: 0;
-    top: 30px;
+    top: 44px;
+    color: #d2d2d2;
 }
 .search-i{
-    width: 75%;
-    float: left;
+    width: 90%;
+    float: right;
     height: 95%;
     background: transparent;
     outline: none;
     border: none;
     text-indent: 20px;
-    color: black;
-    font-size: 15px;
-    letter-spacing: 2px;
+    color: #d2d2d2;
+    font-size: 16px;
+    letter-spacing: 1px;
 }
 .search-i::placeholder{
+    color: #d2d2d2;
+}
+
+#lang-switch{
+    position: absolute;
+    right: 13%;
+    top: 35px;
+    color: black;
+    display: none;
+    font-size: 15px;
+}
+#lang-switch a{
     color: black;
 }
+/*.My-logo img{*/
+    /*width: 20%;*/
+/*}*/
 
 .food-nav{
     clear: both;
@@ -206,21 +267,59 @@ a{
     width: 90%;
 }
 .search-s{
-    width: 25%;
-    float: right;
+    width: 10%;
+    float: left;
     height: 100%;
     line-height: 100%;
 }
 .search-s img{
-    width: 50%;
+    width: 75%;
     margin-top: 8px;
-    margin-left: 3px;
+    margin-left: 17px;
 }
 .foodImg_A{
     position: relative;
     top: 1.5px;
 }
-
+.userbtn{
+    width:175px ;
+    height: 100%;
+   position: absolute;
+    right: 0;
+    top: 0;
+    text-align: center;
+}
+.register{
+    width: 69px;
+    height: 27px;
+    border: 1px solid white;
+    text-align: center;
+    line-height: 27px;
+    font-size: 14px;
+    background: #e7141a;
+    float: left;
+    margin-top: 14px;
+    margin-left: 10px;
+    cursor: pointer;
+}
+.Sign-in{
+    width: 69px;
+    height: 27px;
+    border: 1px solid white;
+    text-align: center;
+    line-height: 27px;
+    font-size: 14px;
+    background: white;
+    color:#313131;
+    float: left;
+    margin-top: 14px;
+    margin-left: 10px;
+    cursor: pointer;
+}
+/*.Sign-in:hover,.register:hover{*/
+    /*background: white;*/
+    /*color:#313131*/
+/*}*/
 
 
 
