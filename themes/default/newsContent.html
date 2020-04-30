@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="css/NewsInformation.css">
     <link rel="stylesheet" href="css/common.css">
     <link rel="stylesheet" href="css/NewsDynamicContent.css">
+    <meta name="referrer" content="never">
 </head>
 <body>
 <style>
@@ -17,6 +18,15 @@
     }
     .DynamicArticle img{
         max-width: 100%;
+    }
+    /*.nav-header,.sub-page{*/
+        /*background:#f9f7f6 ;*/
+    /*}*/
+    .Partner-Links{
+        background: white;
+    }
+    .HotMore{
+        cursor: pointer;
     }
 </style>
 <div class="box">
@@ -52,7 +62,8 @@
                         {$contentInfo.title}
                     </div>
                     <div class="authorAndTime">
-                        <span>{$contentInfo.author}</span><span> {$contentInfo.time|format_time='Y-m-d H:i:s'}</span><span>{$contentInfo.views}</span>
+                        <span>{$contentInfo.author}</span><span style="margin-left: 10px"> {$contentInfo.time|format_time='Y/m/d H:i'}</span><span style="margin-left: 10px"><img
+                            src="/themes/default/images/guankan01.png" alt="" width="2%">{$contentInfo.views}</span>
                     </div>
                     <div class="DynamicArticle">
                         {$contentInfo.content}
@@ -60,7 +71,7 @@
                 </div>
             </div>
             <div class="statement">
-                <p>声明：本文由入驻区块链头条的作者撰写，观点仅代表作者本人，绝不代表区块链头条官方赞同其观点或证实其描述。</p>
+                <p>声明：本文观点仅代表作者本人，绝不代表区块链头条官方赞同其观点或证实其描述。</p>
                 <p>提示：投资有风险，入市须谨慎。本资讯不作为投资理财建议。</p>
             </div>
 
@@ -165,8 +176,10 @@
                 "border-bottom":"1px #eeeeee solid"
             })
         }
-    )
-
+    );
+$(".HotNewsText-box").click(function () {
+   window.location="/message"
+});
     var ContentHeigint = $(".News-Dynamic-Content-box").height();
     if(ContentHeigint<=780){
         $(".DtNew").hide()

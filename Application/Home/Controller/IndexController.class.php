@@ -320,6 +320,11 @@ class IndexController extends SiteController {
         $this->assign('classList',$classList);
         $this ->siteDisplay('apply');
     }
+
+//    //专栏
+//    public function specialColumn(){
+//        $this -> siteDisplay('specialColumn');
+//    }
     /**********************************************************************/
     
     //采集

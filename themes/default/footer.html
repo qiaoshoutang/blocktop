@@ -1,67 +1,353 @@
+
+<!--<div class="food-nav">-->
+    <!--<div class="food-content">-->
+        <!--<div class="text-bottom">-->
+            <!--<ul>-->
+                <!--<li>-->
+                    <!--<p onclick='window.location.href="/news/all"' dom-i18n='header01'>首页</p>-->
+                    <!--<p onclick='window.location.href="/message"' dom-i18n='header021'>新闻动态</p>-->
+                    <!--<p onclick='window.location.href="/news/all"' dom-i18n='header022'>快讯</p>-->
+                <!--</li>-->
+                <!--<li>-->
+                    <!--<p onclick='window.location.href="/antmap/recom"' dom-i18n='header03'>区块链导航</p>-->
+                    <!--<p onclick='window.location.href="/antmap/1"' dom-i18n='header031'>行情</p>-->
+                    <!--<p onclick='window.location.href="/antmap/2"' dom-i18n='header032'>资产管理</p>-->
+                    <!--<p onclick='window.location.href="/antmap/3"' dom-i18n='header033'>应用</p>-->
+                    <!--<p onclick='window.location.href="/antmap/4"' dom-i18n='header034'>钱包</p>-->
+                    <!--<p onclick='window.location.href="/antmap/5"' dom-i18n='header035'>矿池</p>-->
+                    <!--<p onclick='window.location.href="/antmap/6"' dom-i18n='header036'>媒体</p>-->
+                    <!--<p onclick='window.location.href="/antmap/7"' dom-i18n='header037'>技术服务</p>-->
+                <!--</li>-->
+                <!--<li>-->
+                    <!--<p onclick='window.location.href="/activit/all/all"' dom-i18n='header04'>活动</p>-->
+                    <!--<p onclick='window.location.href="/activit/1/all"' dom-i18n='header041'>报名中</p>-->
+                    <!--<p onclick='window.location.href="/activit/2/all"' dom-i18n='header042'>已结束</p>-->
+                <!--</li>-->
+                <!--<li>-->
+                    <!--<p onclick='window.location.href="/description"' dom-i18n='header05'>关于我们</p>-->
+                    <!--&lt;!&ndash;<p onclick='window.location.href="/description"' dom-i18n='header051'>简介</p>&ndash;&gt;-->
+                    <!--&lt;!&ndash;<p onclick='window.location.href="/aboutus"' dom-i18n='header052'>团队</p>&ndash;&gt;-->
+                    <!--&lt;!&ndash;<p onclick='window.location.href="/contactus"' dom-i18n='header053'>联系我们</p>&ndash;&gt;-->
+                <!--</li>-->
+                <!--<li>-->
+                    <!--<p dom-i18n='header053'>联系我们</p>-->
+                    <!--<p>-->
+                        <!--<img src="images/dianhua.png" alt="" class="foodImg_A">-->
+                        <!--<span>0592-6600592</span>-->
+                    <!--</p>-->
+                    <!--<p>-->
+                        <!--<img src="images/youxiang.png" alt="" class="foodImg_A">-->
+                        <!--<span>info@mayi.org</span>-->
+                    <!--</p>-->
+                    <!--<p>-->
+                        <!--<img src="images/dizhi.png" alt="" class="foodImg_A">-->
+                        <!--<span dom-i18n='Didian'>厦门市湖里区</span>-->
+                    <!--</p>-->
+                <!--</li>-->
+            <!--</ul>-->
+
+        <!--</div>-->
+        <!--<div class="bottom-QR">-->
+            <!--<img src="images/MyQR.jpg" alt="">-->
+            <!--<div style="margin-top: 5px" dom-i18n='FollowUs'>-->
+                <!--关注蚂蚁节点联盟-->
+            <!--</div>-->
+        <!--</div>-->
+
+    <!--</div>-->
+    <!--<div class="Right-belonging">-->
+        <!--<div style="margin-right: 25px">-->
+            <!--Copyright ©2019 blocktop.cn <span style="margin-left: 50px">区块链头条版权所有</span>-->
+        <!--</div>-->
+
+    <!--</div>-->
+
+<!--</div>-->
+<style>
+
+    .food-nav{
+        width: 100%;
+        height: 507px;
+        background-color:#242730 ;
+    }
+    .mainContent{
+        width: 1200px;
+        margin: 0 auto;
+    }
+    .mainContentL{
+        width: 80%;
+        float: left;
+        /*background: #2e84fb;*/
+        height: 457px;
+        font-size: 18px;
+
+        color: white;
+
+    }
+    .mainContentL ul li p{
+        font-size: 16px!important;
+        color: rgba(215,215,215,1)!important;
+        font-weight: 300;
+        margin-top: 19px;
+    }
+    .mainContentL ul li p a{
+        font-size: 16px!important;
+        color: rgba(215,215,215,1)!important;
+        font-weight: 300;
+    }
+    .mainContentL ul{
+        margin-top: 57px;
+        display: inline-block;
+    }
+    .mainContentL ul li{
+        float: left;
+    }
+    .mainContentL ul li:nth-child(2){
+        margin-left: 147px;
+    }
+    .mainContentL ul li:nth-child(3){
+        margin-left: 107px;
+    }
+    .mainContentR{
+        width: 20%;
+        float: left;
+        height: 457px;
+        text-align: center;
+    }
+    .Right-belonging{
+        clear: both;
+    }
+    .Link_icon{
+        margin-top: 63px;
+        width: 100%;
+        display: inline-block;
+    }
+    .iconList{
+        width: 40px;
+        height: 40px;
+        float: left;
+        margin-right: 29px;
+    }
+    .Friendship_Links{
+        margin-top:30px;
+        width: 100%;
+        display: inline-block;
+    }
+    .Friendship_Links span{
+        margin-right: 34px;
+
+
+    }
+    .Friendship_Links span a{
+        font-size: 16px;
+        color: rgba(215,215,215,1);
+    }
+    .Friendship_Links span:nth-child(1){
+        font-size: 18px;
+        float: left;
+        color: #FFFFFF;
+        position: relative;
+    }
+    .FocusImg{
+        width: 120px;
+        height: 120px;
+        margin: 55px auto 0 auto;
+    }
+    .FocusImg img{
+        width: 100%;
+    }
+    .FocusFont{
+        width: 99px;
+        height: 27px;
+        font-size: 13px;
+        line-height: 27px;
+        border-radius: 4px;
+        color: #ffffff;
+        background: rgba(232,31,24,1);
+        margin: 13px auto 0 auto;
+        text-align: center;
+    }
+    .Business_Cooperation{
+        position: fixed;
+        left: 0;
+        top: 0;
+        background: rgba(0,0,0,.8);
+        display: none;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        justify-content: center;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+        height: 100%;
+        width: 100%;
+        z-index: 9999;
+    }
+    .content-wrapper{
+        position: absolute;
+        background: #fff;
+        border-radius: 8px;
+        width: 360px;
+        right: 0;
+        left: 0;
+        bottom: 0;
+        top: 0;
+        margin: auto;
+        height: 320px;
+    }
+    .content-wrapper-H{
+        margin-top: 40px;
+        text-align: center;
+    }
+    .footer-close{
+        margin: 36px auto;
+        display: block;
+        background: #0c7ff2;
+        border-radius: 5px;
+        height: 48px;
+        width: 160px;
+        color: #fff;
+        line-height: 48px;
+        text-align: center;
+    }
+    .SwBtn{
+        cursor: pointer;
+    }
+</style>
 <!--底部-->
 <div class="food-nav">
-    <div class="food-content">
-        <div class="text-bottom">
+    <div class="Business_Cooperation">
+        <div class="content-wrapper">
+            <div class="content-wrapper-H">
+                <p style="font-size: 18px">商务合作</p>
+                <p>手机:13255904767</p>
+                <p>微信:telunsudetian</p>
+            </div>
+            <div class="content-wrapper-H">
+                <p style="font-size: 18px">商务邮箱</p>
+                <p>邮箱：Lacy@mayi.org</p>
+            </div>
+            <div class="footer-close">
+                我知道了
+            </div>
+
+        </div>
+
+
+    </div>
+    <div class="mainContent">
+        <div class="mainContentL">
             <ul>
+                <!--企业生态-->
                 <li>
-                    <p onclick='window.location.href="/news/all"' dom-i18n='header01'>首页</p>
-                    <p onclick='window.location.href="/message"' dom-i18n='header021'>新闻动态</p>
-                    <p onclick='window.location.href="/news/all"' dom-i18n='header022'>快讯</p>
+                    <div>企业生态</div>
+                    <p><a href="http://blocktop.cn/news/all">区块链头条</a></p>
+                    <p><a href="https://mp.weixin.qq.com/mp/homepage?__biz=MzU3MDY0NjY4OQ==&hid=1&sn=b9c39dfa41ff94322c39c783df2873e6&scene=1&devicetype=iOS13.3.1&version=17000c2c&lang=zh_CN&nettype=3G+&ascene=7&session_us=gh_ca2ad4f56951&fontScale=100&wx_header=1">纷智共识机</a></p>
+                    <p><a href="http://mayi.org/">蚂蚁节点联盟</a></p>
+                    <p><a href="https://www.finwisesummit.com/">FINWISE纷智峰会</a></p>
                 </li>
+                <!--关于我们-->
                 <li>
-                    <p onclick='window.location.href="/antmap/recom"' dom-i18n='header03'>区块链导航</p>
-                    <p onclick='window.location.href="/antmap/1"' dom-i18n='header031'>行情</p>
-                    <p onclick='window.location.href="/antmap/2"' dom-i18n='header032'>资产管理</p>
-                    <p onclick='window.location.href="/antmap/3"' dom-i18n='header033'>应用</p>
-                    <p onclick='window.location.href="/antmap/4"' dom-i18n='header034'>钱包</p>
-                    <p onclick='window.location.href="/antmap/5"' dom-i18n='header035'>矿池</p>
-                    <p onclick='window.location.href="/antmap/6"' dom-i18n='header036'>媒体</p>
-                    <p onclick='window.location.href="/antmap/7"' dom-i18n='header037'>技术服务</p>
+                    <div>关于我们</div>
+                    <p><a href="http://blocktop.cn/description">头条介绍</a></p>
+                    <p class="SwBtn">商务合作</p>
+                    <p>版权声明</p>
                 </li>
+                <!--联系我们-->
                 <li>
-                    <p onclick='window.location.href="/activit/all/all"' dom-i18n='header04'>活动</p>
-                    <p onclick='window.location.href="/activit/1/all"' dom-i18n='header041'>报名中</p>
-                    <p onclick='window.location.href="/activit/2/all"' dom-i18n='header042'>已结束</p>
-                </li>
-                <li>
-                    <p onclick='window.location.href="/description"' dom-i18n='header05'>关于我们</p>
-                    <!--<p onclick='window.location.href="/description"' dom-i18n='header051'>简介</p>-->
-                    <!--<p onclick='window.location.href="/aboutus"' dom-i18n='header052'>团队</p>-->
-                    <!--<p onclick='window.location.href="/contactus"' dom-i18n='header053'>联系我们</p>-->
-                </li>
-                <li>
-                    <p dom-i18n='header053'>联系我们</p>
+                    <div>联系我们</div>
                     <p>
-                        <img src="images/dianhua.png" alt="" class="foodImg_A">
-                        <span>0592-6600592</span>
+                    <img src="images/dianhua.png" alt="" class="foodImg_A">
+                    <span>0592-6600592</span>
                     </p>
                     <p>
-                        <img src="images/youxiang.png" alt="" class="foodImg_A">
-                        <span>info@mayi.org</span>
+                    <img src="images/youxiang.png" alt="" class="foodImg_A">
+                    <span>info@ababtc.com</span>
                     </p>
                     <p>
-                        <img src="images/dizhi.png" alt="" class="foodImg_A">
-                        <span dom-i18n='Didian'>厦门市湖里区</span>
+                    <img src="images/dizhi.png" alt="" class="foodImg_A">
+                    <span>厦门市湖里区</span>
                     </p>
                 </li>
             </ul>
+            <!--链接图标-->
+            <div class="Link_icon">
+                <div class="iconList">
+                    <a href="https://weibo.com/p/1006066655136153/home?from=page_100606&mod=TAB&is_all=1#place" title="微博">
+                        <img src="images/iconList01.png" alt="">
+                    </a>
+                </div>
+                <div class="iconList">
+                    <a href="https://www.zhihu.com/people/qkl-37-42" title="知乎">
+                        <img src="images/iconList02.png" alt="">
+                    </a>
+                </div>
+                <div class="iconList">
+                    <a href="https://www.jinse.com/member/109916" title="金色财经">
+                        <img src="images/iconList03.png" alt="">
+                    </a>
+                </div>
+                <div class="iconList">
+                    <a href="https://www.huoxing24.com/userCenter/16f6e48cda8b42ad9ef7f6da19055ec3" title="火星财经">
+                        <img src="images/iconList04.png" alt="">
+                    </a>
+                </div>
+                <div class="iconList">
+                    <a href="https://www.chaindd.com/user/3108451" title="链得得">
+                        <img src="images/iconList05.png" alt="">
+                    </a>
+                </div>
+                <div class="iconList">
+                    <a href="https://www.chainnode.com/user/417462" title="链节点">
+                        <img src="images/iconList06.png" alt="">
+                    </a>
+                </div>
+                <div class="iconList">
+                    <a href="https://bihu.com/people/1114806" title="币乎">
+                        <img src="images/iconList07.png" alt="">
+                    </a>
+                </div>
+            </div>
+            <!--友情链接（字链）-->
+            <div class="Friendship_Links">
+                <span>友情链接</span>
+                <span><a href="https://www.jinse.com/">金色财经</a></span>
+                <span><a href="https://www.huoxing24.com/">火星财经</a></span>
+                <span><a href="https://www.8btc.com/">巴比特</a></span>
+                <span><a href="https://www.chaindd.com/">链得得</a></span>
+                <span><a href="https://mvs.org/">元界</a></span>
+            </div>
 
         </div>
-        <div class="bottom-QR">
-            <img src="images/MyQR.jpg" alt="">
-            <div style="margin-top: 5px" dom-i18n='FollowUs'>
-                关注蚂蚁节点联盟
+
+        <div class="mainContentR">
+            <div class="FocusImg">
+                <img src="images/MyQR.jpg" alt="">
             </div>
+            <div class="FocusFont">
+               关注公众号
+            </div>
+
         </div>
 
     </div>
     <div class="Right-belonging">
         <div style="margin-right: 25px">
-            Copyright ©2019 blocktop.com <span style="margin-left: 50px">区块链头条版权所有</span>
+        Copyright ©2019 blocktop.cn <span style="margin-left: 50px">区块链头条版权所有</span>
         </div>
 
     </div>
 
 </div>
+
+
 <script src="js/jquery.js"></script>
 <script src="js/i18n.js"></script>
+<script>
+    $(".footer-close").click(function () {
+        $(".Business_Cooperation").hide()
+    })
+    $(".SwBtn").click(function () {
+        $(".Business_Cooperation").show()
+    })
+</script>
