@@ -22,6 +22,25 @@
         position: relative;
         bottom: 375px;
     }
+    .roof-placement{
+        width:35px;
+        height:20px;
+        line-height: 20px;
+        text-align: center;
+        font-size: 10px;
+        border: 1px solid #D40507;
+        color: #D40507;
+        display: none;
+    }
+    .NewType-Content ul li:nth-child(1) .roof-placement{
+        display: inline-block;
+    }
+    .NewType-Content ul li:nth-child(2) .roof-placement{
+        display: inline-block;
+    }
+    .NewType-Content ul li:nth-child(3) .roof-placement{
+        display: inline-block;
+    }
 </style>
 <body>
 <div class="box">
@@ -140,6 +159,7 @@
                                 {$vo.description}
                             </div>
                             <div class="TextSource">
+                                <span class="roof-placement">置顶</span>
                                 <span>{$vo.author}</span>
                                 <span>{$vo.time|format_time='Y/m/d H:i'}</span>
                                 <span class="Guankan"><img src="images/guankan.png" alt="" width="15px">{$vo.views}</span>
