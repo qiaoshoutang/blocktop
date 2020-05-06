@@ -83,7 +83,9 @@ class SocketService
                 $headers[$matches[1]] = $matches[2];
             }
         }
-        $secKey = $headers['Sec-WebSocket-Key'];
+//         var_dump($headers);
+//         exit;
+        $secKey = $headers['sec-websocket-key'];
         $secAccept = base64_encode(pack('H*', sha1($secKey . '258EAFA5-E914-47DA-95CA-C5AB0DC85B11')));
         $upgrade  = "HTTP/1.1 101 Web Socket Protocol Handshake\r\n" .
             "Upgrade: websocket\r\n" .
@@ -149,5 +151,5 @@ class SocketService
     }
 }
  
-$sock = new SocketService('127.0.0.83','9002');
+$sock = new SocketService('127.0.0.84','9002');
 $sock->run();

@@ -18,7 +18,8 @@
       *3：连接已关闭或无法打开
       */
     //创建一个webSocket 实例
-    var webSocket  = new  WebSocket("ws://127.0.0.83:9002");
+    var webSocket  = new  WebSocket("{$url}");
+    // var webSocket  = new  WebSocket("ws://127.0.0.83:9002");
  
  
     webSocket.onerror = function (event){
