@@ -2,11 +2,9 @@
 namespace Home\Controller;
 use Home\Controller\SiteController;
 use Think\AipSpeech;
-use Org\Workerman\Worker;
-use Org\WebSocket\Client;
 
 
-require_once '/ThinkPHP/Library/Org/Workerman/Autoloader.class.php';
+
 /**
  * 爬虫采集
  */
@@ -34,10 +32,10 @@ class WordToVoiceController extends SiteController {
     }
     public function xfyun(){
 
-        dd($_SERVER['HTTP_HOST']);
+
         //科大讯飞  文字转语音接口  未调试成功
         
-        header('content-type:text/html;charset=utf-8');
+//         header('content-type:text/html;charset=utf-8');
         //         header('request-line:GET /v2/tts HTTP/1.1;');
         
         $APPID = '5ea14fa7';
@@ -45,11 +43,12 @@ class WordToVoiceController extends SiteController {
         $APISecret = 'd63291623fb38236728f89783c65ede8';
         
         
-        $url = 'wss://tts-api.xfyun.cn/v2/tts';
-        $date = gmstrftime("%a, %d %b %Y %H:%M:%S",time()).' GMT';
-        //         dd($date);
-        $date = 'Wed, 06 May 2020 06:10:32 GMT';
-        $host = 'ws-api.xfyun.cn';
+        $url = 'ws://tts-api.xfyun.cn/v2/tts';
+//         $date = gmstrftime("%a, %d %b %Y %H:%M:%S",time()).' GMT';
+        $date = gmdate('D, d M Y H:i:s T');
+//                 dd($date);
+//         $date = 'Wed, 06 May 2020 06:10:32 GMT';
+        $host = 'tts-api.xfyun.cn';
         
         $temp = 'GET /v2/tts HTTP/1.1';
         $signature_origin = "host: $host\ndate: $date\n$temp";
@@ -57,18 +56,25 @@ class WordToVoiceController extends SiteController {
         //         dump($signature_origin);
         //         exit;
         
-        $signature_sha =  hash_hmac('sha256',$signature_origin,$APISecret,false);
+        $signature_sha =  hash_hmac('sha256',$signature_origin,$APISecret);
         
         //         $signature_sha = '5d99a940edb2a2eaf716ae95752acab59ea5d92bf97696872c96b22c0d9c02d4';
         //         var_dump($signature_sha);
         $signature = base64_encode($signature_sha);
         
         //         dd($signature);
-        $authorization_origin = 'api_key="'.$APIKey.'",algorithm="hmac-sha256",headers="host date request-line",signature="'.$signature.'"';
+        $authorization_origin = 'api_key="'.$APIKey.'", algorithm="hmac-sha256", headers="host date request-line", signature="'.$signature.'"';
         //         dd($authorization_origin);
         $authorization = base64_encode($authorization_origin);
         
         $url_all = $url."?authorization=$authorization&date=$date&host=$host";
+        
+//         dump($url_all);
+//         $param =['authorization'=>$authorization,'date'=>$date,'host'=>$host];
+//         $url_all = $url."?".http_build_query($param);
+//         dump($url_all);
+//         exit;
+        
         //         $date = urlencode($date);
         
         //         $worker  = new Worker($url_all);

@@ -19,7 +19,6 @@ class MenuService{
                         'url' => U('Admin/Index/index'),
                         'order' => 0
                     )
-
                 )
             ),
 
@@ -99,11 +98,27 @@ class MenuService{
 		            ),
 		        )
 		    ),
+		    'Column' => array(
+		        'name' => '专栏管理',
+		        'order' => 12,
+		        'menu' => array(
+		            array(
+		                'name' => '专栏列表',
+		                'url' => U('Admin/Column/index'),
+		                'order' => 1
+		            ),
+		            array(
+		                'name' => '轮播添加',
+		                'url' => U('Admin/Column/add'),
+		                'order' => 2
+		            ),
+		        )
+		    ),
 		    
             'system' => array(
                 'name' => '系统',
                 'icon' => 'bars',
-                'order' => 14,
+                'order' => 16,
                 'menu' => array(
                     array(
                         'name' => '系统设置',

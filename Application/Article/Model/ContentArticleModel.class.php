@@ -17,13 +17,14 @@ class ContentArticleModel extends Model {
     public function loadList($where = array(), $limit = 0, $order = 'A.content_id desc'){
 
         $pageList = $this->table("__CONTENT__ as A")
-                    ->join('__CONTENT_ARTICLE__ as B ON A.content_id = B.content_id')
-                    ->join('__CATEGORY__ as C ON A.class_id = C.class_id')
-                    ->field('A.*,B.*,C.name as class_name')
-                    ->where($where)
-                    ->order($order)
-                    ->limit($limit)
-                    ->select();
+//                         ->join('__CONTENT_ARTICLE__ as B ON A.content_id = B.content_id')
+                        ->join('__COLUMN__ as D ON A.column_id = D.id','left')
+                        ->join('__CATEGORY__ as C ON A.class_id = C.class_id')
+                        ->field('A.*,D.name as column_name,C.name as class_name')
+                        ->where($where)
+                        ->order($order)
+                        ->limit($limit)
+                        ->select();
 
         return $pageList;
 
@@ -36,7 +37,8 @@ class ContentArticleModel extends Model {
     public function countList($where = array()){
 
         return $this->table("__CONTENT__ as A")
-                    ->join('__CONTENT_ARTICLE__ as B ON A.content_id = B.content_id')
+//                     ->join('__CONTENT_ARTICLE__ as B ON A.content_id = B.content_id')
+                    ->join('__COLUMN__ as D ON A.column_id = D.id','left')
                     ->join('__CATEGORY__ as C ON A.class_id = C.class_id')
                     ->where($where)
                     ->order($order)

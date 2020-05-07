@@ -140,6 +140,7 @@ class AdminContentController extends AdminController {
             $this->assign('name','修改');
             $this->assign('info',$info);
             $this->assign('categoryList',M('category')->where(['show'=>1])->order('sequence asc')->select());
+            $this->assign('columnList',M('column')->order('order_id desc')->select());
             $this->adminDisplay('info');
         }else{
             

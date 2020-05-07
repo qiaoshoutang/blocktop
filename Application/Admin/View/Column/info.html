@@ -1,0 +1,51 @@
+<h3>{$name}专栏</h3>
+<admin:panel >
+  <admin:form url="{:U()}" method="post" id="form"  class="m-form-horizontal" >
+    
+
+    <admin:formrow title="权重" tip="数值越大越靠前"  >
+      <admin:text name="order_id"  value="{$info.order_id}" len="100"   />
+    </admin:formrow>
+    <admin:formrow title="名称" tip="导航的名称"  >
+      <admin:text name="name"  value="{$info.name}" len="100"   />
+    </admin:formrow>
+    <admin:formrow title="图标" tip=""  >
+      <admin:text name="icon" type="text" value="{$info.icon}" len="250" width="medium" />
+      <a class="u-btn u-btn-primary u-img-upload" data="icon" preview="image-preview" href="javascript:;" >上传</a> 
+      <a class="u-btn u-btn-primary" href="javascript:;" id="image-preview">预览</a> 
+    </admin:formrow>
+    <admin:formrow title="Banner" tip="专栏的banner图"  >
+      <admin:text name="banner" type="text" value="{$info.banner}" len="250" width="medium" />
+      <a class="u-btn u-btn-primary u-img-upload" data="banner" preview="image-preview2" href="javascript:;" >上传</a> 
+      <a class="u-btn u-btn-primary" href="javascript:;" id="image-preview2">预览</a> 
+    </admin:formrow>
+    <admin:formrow title="简介" tip="导航的简介">
+      <admin:textarea name="desc" rows="10" width='large'>{$info.desc}</admin:textarea>
+    </admin:formrow>
+
+	  <admin:formrow title="状态" tip=""  >
+      <admin:radio name="state"  item="展示,隐藏" value="1,2" checked="$info['state']" isset="1" />
+    </admin:formrow>     
+
+    <admin:formsubmit/>
+    <admin:text name="id" type="hidden"  value="{$info.id}"  />
+  </admin:form>
+</admin:panel>
+<script>
+Do.ready('base',function(){
+
+  var option={};
+  option.returnUrl="{:U('Admin/Column/index')}";
+  $('#form').duxFormPage(option);
+
+  $('#upload').duxFileUpload({
+      type: 'jpg,png,gif,bmp',
+      complete: function (data) {
+          $('#content_image').attr('src', data.url);
+      }
+  });
+
+});
+
+</script> 
+
