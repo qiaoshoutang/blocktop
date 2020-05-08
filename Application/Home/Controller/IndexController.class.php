@@ -138,8 +138,7 @@ class IndexController extends SiteController {
         if($newsList){
             $newsFirst = array_shift($newsList);
             $this->assign('newsFirst',$newsFirst);
-        }
-                    
+        }     
         
         //快讯
         $map['state'] = 2;
@@ -321,10 +320,34 @@ class IndexController extends SiteController {
         $this ->siteDisplay('apply');
     }
 
-//    //专栏
-//    public function specialColumn(){
-//        $this -> siteDisplay('specialColumn');
-//    }
+   //专栏
+   public function column(){
+       $id = I('request.id','');
+       $columnMod = D('Admin/Column');
+       
+       if($id){
+           $info = $columnMod->getInfo($id);
+       }else{
+
+           $info = $columnMod->where(['state'=>1])->order('order_id desc')->find();
+       }
+       
+       //新闻列表
+       $newsList = M('content')->where(['column_id'=>$info['id']])->field('content_id,title,description,image,time,views,author')->limit(10)
+                                ->order('time desc,sequence desc')->select();
+       
+       foreach($newsList as $key=>$val){
+           $newsList[$key]['description'] = html_out($val['description']);
+           $newsList[$key]['time'] = format_time($val['time'],2);
+       }
+       // 专栏列表
+       $columnList  = $columnMod->where(['state'=>1])->order('order_id desc')->limit(10)->select();
+
+       $this->assign('info',$info);
+       $this->assign('newsList',$newsList);
+       $this->assign('columnList',$columnList);
+       $this -> siteDisplay('specialColumn');
+   }
     /**********************************************************************/
     
     //采集

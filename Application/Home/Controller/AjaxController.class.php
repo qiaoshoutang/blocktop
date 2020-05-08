@@ -14,11 +14,15 @@ class AjaxController extends SiteController {
 
         $page_num = I('post.page_num',0,'intval');
         $class_id = I('post.class_id','all','intval');
+        $column_id = I('post.column_id','0','intval');
 
         
         $where['status'] = 2;
         if($class_id != 'all'){
             $where['class_id'] = $class_id;
+        }
+        if($column_id){
+            $where['column_id'] = $column_id;
         }
         //热门新闻
         $newsList = M('content')->where($where)->field('content_id,title,description,image,time,views,author')->page($page_num,10)
@@ -50,10 +54,6 @@ class AjaxController extends SiteController {
             
             $data = $this->fetch('news_list');
         }
-        
-        
-
-
         
         $rdata['code'] = 1;
         $rdata['info'] = '获取信息成功';
