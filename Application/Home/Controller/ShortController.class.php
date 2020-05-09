@@ -197,7 +197,7 @@ class ShortController extends SiteController {
 	    $allInfo=json_decode($allInfo,true);
 
 	    $allList=array_reverse($allInfo['list']);
-	    
+// 	    dd($allList);
 	    $messageMod=D('Article/Message');
 	    
 	    
@@ -218,7 +218,7 @@ class ShortController extends SiteController {
 	            $title_temp =explode('|',$this->getNeedBetween($valb['content'],'【','】'));
 	            $_POST['unique_num']=$valb['id'];
 	            $_POST['class_id']=5;
-	            $_POST['title']=$title_temp[1];
+	            $_POST['title']=$title_temp[1]?$title_temp[1]:$title_temp[0];
 	            $_POST['time']=date('Y/m/d H:i:s',$valb['created_at']);
 	            $_POST['up']=rand(30,50);
 	            $_POST['down']=rand(1,10);
@@ -271,5 +271,6 @@ class ShortController extends SiteController {
 	    $kw_re=substr($kw_r,'3');
 	    return $kw_re;
 	}
+	
     
 }

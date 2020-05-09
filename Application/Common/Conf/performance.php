@@ -20,6 +20,7 @@ return array(
 	    'activitContent/:content_id' =>'Home/Index/activityContent',
 	    'search/[:keyword]' =>'Home/Index/searchPage',
 	    'Apply' =>'Home/Index/apply',
+	    'Columns/[:id]' =>'Home/Index/column',
 	    
 	    
 	    
@@ -36,6 +37,9 @@ return array(
 	    'team_m'          =>  'Home/Mobile/team',
 	    
 	    'gocontent/:gzh_num'=>'Home/Short/message',
+	    
+	    'xfyun' =>'Home/WordToVoice/xfyun', //科大讯飞 文字转语音接口
+	    'test' =>'Home/WordToVoice/test',
 
 	),
     'URL_HTML_SUFFIX'=>'html', // 伪静态后缀

@@ -322,10 +322,10 @@ class IndexController extends SiteController {
         $this ->siteDisplay('apply');
     }
 
-//    //专栏
-//    public function specialColumn(){
-//        $this -> siteDisplay('specialColumn');
-//    }
+    //专栏
+    public function specialColumn(){
+        $this -> siteDisplay('specialColumn');
+    }
     /**********************************************************************/
     
     //采集
