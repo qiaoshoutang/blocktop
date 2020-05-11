@@ -113,6 +113,7 @@ class IndexController extends SiteController {
         $naviList = D('Admin/Navi')->loadList(['recom'=>1],'0,5');
         
         // 专栏列表
+        $columnMod = D('Admin/Column');
         $columnList  = $columnMod->where(['state'=>1])->order('order_id desc')->limit(10)->select();
 
         

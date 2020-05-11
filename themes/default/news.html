@@ -124,7 +124,6 @@
 
                  </div>
 
-
              </div>
      </div>
 
@@ -197,106 +196,18 @@
                     <img src="images/columbTitle.png" alt="">
                 </div>
                 <ul class="Column-ranking-ul">
-                    <li>
-                        <div class="numRank">1</div>
+                    <!--{foreach name='columnList' item='vo' }-->
+                    <li onclick='window.location.href="/Columns/{$vo.id}"'>
+                        <div class="numRank">{$key+1}</div>
                         <div class="rankImg">
-                            <img src="images/columnbanner.png" alt="">
+                            <img src="{$vo.icon}" alt="">
                         </div>
                         <div class="rankContent">
-                            <p class="rankContentA">辛普森1号</p>
-                            <p class="rankContentB">辛普森一家d新欧森</p>
+                            <p class="rankContentA">{$vo.name}</p>
+                            <p class="rankContentB">{$vo.desc}</p>
                         </div>
                     </li>
-                    <li>
-                        <div class="numRank">1</div>
-                        <div class="rankImg">
-                            <img src="images/columnbanner.png" alt="">
-                        </div>
-                        <div class="rankContent">
-                            <p class="rankContentA">辛普森1号</p>
-                            <p class="rankContentB">辛普森一家d新欧森</p>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="numRank">1</div>
-                        <div class="rankImg">
-                            <img src="images/columnbanner.png" alt="">
-                        </div>
-                        <div class="rankContent">
-                            <p class="rankContentA">辛普森1号</p>
-                            <p class="rankContentB">辛普森一家d新欧森</p>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="numRank">1</div>
-                        <div class="rankImg">
-                            <img src="images/columnbanner.png" alt="">
-                        </div>
-                        <div class="rankContent">
-                            <p class="rankContentA">辛普森1号</p>
-                            <p class="rankContentB">辛普森一家d新欧森</p>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="numRank">1</div>
-                        <div class="rankImg">
-                            <img src="images/columnbanner.png" alt="">
-                        </div>
-                        <div class="rankContent">
-                            <p class="rankContentA">辛普森1号</p>
-                            <p class="rankContentB">辛普森一家d新欧森</p>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="numRank">1</div>
-                        <div class="rankImg">
-                            <img src="images/columnbanner.png" alt="">
-                        </div>
-                        <div class="rankContent">
-                            <p class="rankContentA">辛普森1号</p>
-                            <p class="rankContentB">辛普森一家d新欧森</p>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="numRank">1</div>
-                        <div class="rankImg">
-                            <img src="images/columnbanner.png" alt="">
-                        </div>
-                        <div class="rankContent">
-                            <p class="rankContentA">辛普森1号</p>
-                            <p class="rankContentB">辛普森一家d新欧森</p>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="numRank">1</div>
-                        <div class="rankImg">
-                            <img src="images/columnbanner.png" alt="">
-                        </div>
-                        <div class="rankContent">
-                            <p class="rankContentA">辛普森1号</p>
-                            <p class="rankContentB">辛普森一家d新欧森</p>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="numRank">1</div>
-                        <div class="rankImg">
-                            <img src="images/columnbanner.png" alt="">
-                        </div>
-                        <div class="rankContent">
-                            <p class="rankContentA">辛普森1号</p>
-                            <p class="rankContentB">辛普森一家d新欧森</p>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="numRank">1</div>
-                        <div class="rankImg">
-                            <img src="images/columnbanner.png" alt="">
-                        </div>
-                        <div class="rankContent">
-                            <p class="rankContentA">辛普森1号</p>
-                            <p class="rankContentB">辛普森一家d新欧森</p>
-                        </div>
-                    </li>
+                    <!--{/foreach}-->
 
                 </ul>
         </div>
