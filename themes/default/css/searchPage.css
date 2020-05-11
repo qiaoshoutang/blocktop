@@ -4,6 +4,8 @@
     height: 100px;
     position: relative;
     overflow: hidden;
+    background: #7777;
+
 }
 .input-box{
     width: 625px;

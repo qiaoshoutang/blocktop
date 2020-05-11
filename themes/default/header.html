@@ -8,7 +8,7 @@
         position: fixed;
         z-index: 9999;
         font-family: "PingFang SC";!important;
-        /*display: none;*/
+        display: none;
     }
     .slide-verification{
         display: none;
@@ -740,7 +740,10 @@ $( '.search-i').focus( function(){
             window.location.href="/search/"+keyword;
         }
     }
+    $(this).attr("placeholder","")
 } )
-
+    $('.search-i').blur(function(){
+        $(this).attr("placeholder","Type here to search")
+    });
 </script>
         

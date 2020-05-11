@@ -3,7 +3,7 @@ body{
 }
 .Partner-Links{
     width: 1200px;
-    height:115px ;
+    height:80px ;
     /*border: 1px solid #eeeeee;*/
     margin: 30px auto 0 auto;
     background: #fafafa;
@@ -13,13 +13,13 @@ body{
     height: 100%;
 }
 .Partner-Links ul li{
-    width: 19.5%;
+    width: 16.6%;
     height: 100%;
     float: left;
     position: relative;
 }
 .Partner-Links-WinD{
-    width: 210px;
+    width: 190px;
     height: 80px;
     position: absolute;
     margin: auto;
@@ -30,8 +30,8 @@ body{
     cursor: pointer;
 }
 .Partner-T{
-    width: 46px;
-    height: 46px;
+    width: 41px;
+    height: 41px;
     /*border: 1px solid silver;*/
     margin-top: 18px;
     margin-left: 10px;
@@ -83,7 +83,7 @@ body{
     width: 112.5px;
     float: left;
     text-align: center;
-    font-size: 26px;
+    font-size: 25px;
     height: 75px;
     line-height: 75px;
     color: #ad0e12;
@@ -151,7 +151,7 @@ body{
     top: 0;
 }
 .TextTitle{
-    font-size: 22px;
+    font-size: 20px;
     margin-top: 35px;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -213,7 +213,7 @@ body{
     right: 0;
     color: #999999;
     font-weight: normal;
-    font-size: 18px;
+    font-size: 16px;
     text-align: right;
 }
 .HotMore a{
@@ -222,7 +222,7 @@ body{
 .HotNewsTitle span:nth-child(1){
     position: absolute;
     left: 0;
-    font-size: 23px;
+    font-size: 21px;
 }
 .Hot-News-content{
     width: 90%;
@@ -260,7 +260,7 @@ body{
     margin-top:6px;
 }
 .HotNewsA-T{
-    font-size: 18px;
+    font-size: 16px;
     color: black;
     letter-spacing: 1px;
     font-weight: bold;
@@ -277,7 +277,7 @@ body{
     margin-top: 10px;
 }
 .HotNewsTTT{
-    font-size: 14px;
+    font-size: 13px;
     margin-top: 8px;
     line-height: 160%;
     letter-spacing: .5px;
@@ -285,10 +285,10 @@ body{
     overflow: hidden;
     text-overflow: ellipsis;
     display: -webkit-box;
-    -webkit-line-clamp:4;
-    line-clamp: 4;
+    -webkit-line-clamp:5;
+    line-clamp: 5;
     -webkit-box-orient: vertical;
-    height: 88px;
+    height: 98px;
 }
 .Favorable-BadProfit{
     margin-top: 10px;
@@ -319,6 +319,7 @@ body{
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
+    font-size: 15px!important;
 }
 .hot_Img_TT_Im{
     width: 100%;
