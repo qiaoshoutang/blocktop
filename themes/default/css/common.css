@@ -285,10 +285,68 @@ a{
 .userbtn{
     width:175px ;
     height: 100%;
-   position: absolute;
+    position: absolute;
     right: 0;
     top: 0;
     text-align: center;
+
+}
+.when-landing{
+    width:175px ;
+    height: 100%;
+    position: absolute;
+    right: 0;
+    top: 0;
+    text-align: center;
+    z-index: 99;
+    display: none;
+}
+.usernamenumber{
+    height: 57px;
+    line-height: 57px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    color: #FFFFFF;
+    cursor: pointer;
+    font-weight: 300;
+
+}
+.when-landing-Img{
+    width: 30px;
+    height: 30px;
+}
+.user-window{
+     width: 80px;
+     height: 100px;
+     border: 1px solid #f0f0f0;
+     margin-left: 55px;
+     margin-top: 25px;
+     background:#FFFFFF ;
+     opacity: 0;
+    cursor: pointer;
+}
+.when-landing:hover .user-window{
+    opacity: 1;
+}
+.user-window ul{
+    width: 90%;
+    margin: 0 auto;
+}
+.user-window ul li{
+    border-bottom: 1px #f0f0f0 solid;
+    color:#666666;
+    font-size: 13px;
+    height: 33px;
+    line-height: 33px;
+}
+.user-window ul li:nth-child(3){
+    border-bottom: none;
+}
+.when-landing-Img img{
+    width: 100%;
+    margin-top: 14px;
 }
 .register{
     width: 69px;
