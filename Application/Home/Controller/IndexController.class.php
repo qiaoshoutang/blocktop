@@ -112,11 +112,17 @@ class IndexController extends SiteController {
         //推荐导航
         $naviList = D('Admin/Navi')->loadList(['recom'=>1],'0,5');
         
+        // 专栏列表
+        $columnList  = $columnMod->where(['state'=>1])->order('order_id desc')->limit(10)->select();
+
+        
+        
         $this->assign('class_id',$class_id);
         $this->assign('newsCate',M('category')->where(['show'=>1])->order('sequence asc')->select());
         $this->assign('newsList',$newsList);
         $this->assign('bannerList',$bannerList);
         $this->assign('messageList',$messageList);
+        $this->assign('columnList',$columnList);
         $this->assign('naviList',$naviList);
         $this -> siteDisplay('news');
     }
@@ -323,9 +329,34 @@ class IndexController extends SiteController {
     }
 
     //专栏
-    public function specialColumn(){
+    public function column(){
+        $id = I('request.id','');
+        $columnMod = D('Admin/Column');
+        
+        if($id){
+            $info = $columnMod->getInfo($id);
+        }else{
+            
+            $info = $columnMod->where(['state'=>1])->order('order_id desc')->find();
+        }
+        
+        //新闻列表
+        $newsList = M('content')->where(['column_id'=>$info['id']])->field('content_id,title,description,image,time,views,author')->limit(10)
+        ->order('time desc,sequence desc')->select();
+        
+        foreach($newsList as $key=>$val){
+            $newsList[$key]['description'] = html_out($val['description']);
+            $newsList[$key]['time'] = format_time($val['time'],2);
+        }
+        // 专栏列表
+        $columnList  = $columnMod->where(['state'=>1])->order('order_id desc')->limit(10)->select();
+        
+        $this->assign('info',$info);
+        $this->assign('newsList',$newsList);
+        $this->assign('columnList',$columnList);
         $this -> siteDisplay('specialColumn');
     }
+    
     /**********************************************************************/
     
     //采集
