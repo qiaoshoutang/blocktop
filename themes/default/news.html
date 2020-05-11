@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="css/NewsInformation.css">
     <link rel="stylesheet" href="css/common.css?1254">
     <link rel="stylesheet" href="css/ft-carousel.css">
-
+    <link rel="stylesheet" href="css/specialColumn.css">
 
 
 </head>
@@ -20,7 +20,7 @@
     }
     .Hot-News{
         position: relative;
-        bottom: 375px;
+        bottom: 325px;
     }
     .roof-placement{
         width:35px;
@@ -40,6 +40,19 @@
     }
     .NewType-Content ul li:nth-child(3) .roof-placement{
         display: inline-block;
+    }
+    .NewType-nav ul li:nth-child(2){
+        margin-left: 25px;
+    }
+    .column-special{
+        width: 325px;
+        float: right;
+        background: white;
+        position: relative;
+        bottom: 375px;
+        height: 1042px;
+        border: 1px #e0e3e7 solid;
+        border-radius: 4px;
     }
 </style>
 <body>
@@ -121,7 +134,7 @@
             <ul>
                 <li class='<!--{if condition="$class_id eq all"}--> active <!--{/if}-->'>
                     <a href = '/news/all'>
-                        全部
+                        今日头条
                     </a>
                 </li>
                 <!--{foreach name='newsCate' item='vo' }-->
@@ -178,9 +191,117 @@
             <span>没有找到相关内容</span>
         </div>
         <!--{/if}-->
+        <!--专栏-->
+        <div class="column-special">
+                <div class="Column-ranking-picture">
+                    <img src="images/columbTitle.png" alt="">
+                </div>
+                <ul class="Column-ranking-ul">
+                    <li>
+                        <div class="numRank">1</div>
+                        <div class="rankImg">
+                            <img src="images/columnbanner.png" alt="">
+                        </div>
+                        <div class="rankContent">
+                            <p class="rankContentA">辛普森1号</p>
+                            <p class="rankContentB">辛普森一家d新欧森</p>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="numRank">1</div>
+                        <div class="rankImg">
+                            <img src="images/columnbanner.png" alt="">
+                        </div>
+                        <div class="rankContent">
+                            <p class="rankContentA">辛普森1号</p>
+                            <p class="rankContentB">辛普森一家d新欧森</p>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="numRank">1</div>
+                        <div class="rankImg">
+                            <img src="images/columnbanner.png" alt="">
+                        </div>
+                        <div class="rankContent">
+                            <p class="rankContentA">辛普森1号</p>
+                            <p class="rankContentB">辛普森一家d新欧森</p>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="numRank">1</div>
+                        <div class="rankImg">
+                            <img src="images/columnbanner.png" alt="">
+                        </div>
+                        <div class="rankContent">
+                            <p class="rankContentA">辛普森1号</p>
+                            <p class="rankContentB">辛普森一家d新欧森</p>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="numRank">1</div>
+                        <div class="rankImg">
+                            <img src="images/columnbanner.png" alt="">
+                        </div>
+                        <div class="rankContent">
+                            <p class="rankContentA">辛普森1号</p>
+                            <p class="rankContentB">辛普森一家d新欧森</p>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="numRank">1</div>
+                        <div class="rankImg">
+                            <img src="images/columnbanner.png" alt="">
+                        </div>
+                        <div class="rankContent">
+                            <p class="rankContentA">辛普森1号</p>
+                            <p class="rankContentB">辛普森一家d新欧森</p>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="numRank">1</div>
+                        <div class="rankImg">
+                            <img src="images/columnbanner.png" alt="">
+                        </div>
+                        <div class="rankContent">
+                            <p class="rankContentA">辛普森1号</p>
+                            <p class="rankContentB">辛普森一家d新欧森</p>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="numRank">1</div>
+                        <div class="rankImg">
+                            <img src="images/columnbanner.png" alt="">
+                        </div>
+                        <div class="rankContent">
+                            <p class="rankContentA">辛普森1号</p>
+                            <p class="rankContentB">辛普森一家d新欧森</p>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="numRank">1</div>
+                        <div class="rankImg">
+                            <img src="images/columnbanner.png" alt="">
+                        </div>
+                        <div class="rankContent">
+                            <p class="rankContentA">辛普森1号</p>
+                            <p class="rankContentB">辛普森一家d新欧森</p>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="numRank">1</div>
+                        <div class="rankImg">
+                            <img src="images/columnbanner.png" alt="">
+                        </div>
+                        <div class="rankContent">
+                            <p class="rankContentA">辛普森1号</p>
+                            <p class="rankContentB">辛普森一家d新欧森</p>
+                        </div>
+                    </li>
+
+                </ul>
+        </div>
         <!--热门快讯-->
         <div class="Hot-News">
-
             <div class="Hot-News-content">
                 <!--标题-->
                 <div class="HotNewsTitle">
@@ -219,8 +340,6 @@
 
                 </div>
             </div>
-
-
         </div>
     </div>
 

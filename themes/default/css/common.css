@@ -61,7 +61,7 @@ a{
     left: 18px;
 }
 .header-list{
-    width:645px  ;
+    width:700px  ;
     /*position: absolute;*/
     /*right:33%;*/
     height: 100%;
@@ -81,7 +81,7 @@ a{
 .sub-page-first{
     /*height: 55px;*/
     /*line-height: 55px;*/
-    width: 82%;
+    width: 80%;
     height: 30px;
     padding: 5px 5px 5px 5px;
     border-radius: 4px;
@@ -154,7 +154,7 @@ a{
     width: 240px;
     height: 35px;
     border-radius: 2px;
-    background:#6c6c6c ;
+    background:#999999 ;
     position: absolute;
     right: 0;
     top: 44px;
@@ -271,6 +271,7 @@ a{
     float: left;
     height: 100%;
     line-height: 100%;
+    cursor: pointer;
 }
 .search-s img{
     width: 75%;

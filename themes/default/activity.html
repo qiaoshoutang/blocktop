@@ -18,7 +18,24 @@
         height: 187px;
         overflow: hidden;
     }
+    .RecentnavList_ul{
+        position: relative;
+    }
     .Activity-Details ul li{
+        cursor: pointer;
+    }
+    .submit-activity{
+        width: 120px;
+        height: 35px;
+        border-radius: 20px;
+        background: #D40507;
+        color: white;
+        line-height: 35px;
+        text-align: center;
+        float: right;
+        margin-top: 25px;
+        font-size: 15px;
+        font-weight: 300!important;
         cursor: pointer;
     }
 </style>
@@ -52,6 +69,9 @@
             <li class='<!--{if condition="$state eq 2"}--> active <!--{/if}-->'>
                 <a href='/activit/2/all' dom-i18n='Completed'>已结束</a>
             </li>
+            <div class="submit-activity">
+                提交活动
+            </div>
         </ul>
         <!--近期-->
         <div class="Recent-time">
@@ -126,6 +146,15 @@
 <script src="js/jquery.roundabout.min.js"></script>
 <script src="js/commom.js"></script>
 <script>
+
+    layui.use('layer', function(){  //layer弹框
+        var layer = layui.layer;
+    });
+
+    $(".submit-activity").click(function () {
+        layer.msg('该功能暂未开放，可咨询客服申请活动上架');
+    });
+
     $(document).ready(function(){
         $('.roundabout_box ul').roundabout({
             duration: 1000,

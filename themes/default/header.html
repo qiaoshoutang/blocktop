@@ -1,6 +1,387 @@
-
-<!--旧导航-->
+<link rel="stylesheet" href="css/jigsaw.css">
 <script src="js/layui/layui.all.js"></script>
+<style>
+    .Headline-register,.slide-verification{
+        width: 100%;
+        height: 100%;
+        background: rgba(0,0,0,.5);
+        position: fixed;
+        z-index: 9999;
+        font-family: "PingFang SC";!important;
+        display: none;
+    }
+    .slide-verification{
+        display: none;
+    }
+    .reg-FraDiv-frame{
+        position: absolute;
+        right: 0;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        margin: auto;
+        width:440px ;
+        height: 543px;
+        background: white;
+        border-radius: 8px;
+        /*display: none;*/
+    }
+    .retrieve-password-frame{
+        position: absolute;
+        right: 0;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        margin: auto;
+        width:440px ;
+        height: 615px;
+        background: white;
+        border-radius: 8px;
+        display: none;
+    }
+    .SMSLogin-frame{
+        position: absolute;
+        right: 0;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        margin: auto;
+        width:440px ;
+        height: 470px;
+        background: white;
+        border-radius: 8px;
+        display: none;
+    }
+    .SignFrame{
+        position: absolute;
+        right: 0;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        margin: auto;
+        width:440px ;
+        height: 405px;
+        background: white;
+        border-radius: 8px;
+        display: none;
+
+    }
+    .registerTitle{
+        padding-top: 45px;
+        font-size: 23px;
+        color: #000000;
+    }
+    .reg-FraDiv{
+        width: 85%;
+        margin: 0 auto;
+        height: 100%;
+    }
+    .cell-phone-number{
+        margin-top: 29px;
+    }
+    .cell-phone-number-input,.password input{
+        width: 100%;
+        height: 52px;
+        border: 1px #e7e7e7 solid;
+        background:#f3f8fe;
+        border-radius: 4px;
+        text-indent: 8px;
+        font-weight: 300;
+        font-size: 16px;
+
+    }
+    .VerificationImg{
+        position: absolute;
+        left: 93px;
+        top: 12.5px;
+        width:7%;
+    }
+    .VerificationImgBtn{
+        margin-top: 20px;
+        width: 100%;
+        height: 52px;
+        border: 1px #e7e7e7 solid;
+        background:#f3f8fe;
+        border-radius: 4px;
+        font-size:16px ;
+        text-align: center;
+        color: #AAAAAA;
+        font-weight: 300;
+        letter-spacing: 1px;
+        position: relative;
+        line-height: 52px;
+    }
+    .Verification-Code{
+        margin-top: 20px;
+        position: relative;
+    }
+    .Verification-Code-input{
+        width: 219px;
+        height: 52px;
+        text-indent: 8px;
+        color: #AAAAAA;
+        font-weight: 300;
+        font-size: 16px;
+        border: 1px #e7e7e7 solid;
+        background:#f3f8fe;
+        border-radius: 8px;
+    }
+    .Verification-Code-btn,.VerificationFindpassword,.VerificationCodeLogin{
+        width: 131px;
+        height: 52px;
+        color: white;
+        text-align: center;
+        font-size: 16px;
+        line-height: 52px;
+        border-radius: 8px;
+        background: #0c7ff2;
+        border: none;
+        position: absolute;
+        right: 0;
+        top: 2px;
+        outline: none;
+    }
+    .password{
+        margin-top: 20px;
+    }
+    .submitBtn{
+        width: 100%;
+        height: 52px;
+        border: 1px #e7e7e7 solid;
+        background:#0c7ff2;
+        border-radius: 5px;
+        text-indent: 8px;
+        font-size: 20px;
+        text-align: center;
+        line-height: 52px;
+        color: white;
+        margin-top: 47px;
+        letter-spacing: 2px;
+    }
+    .Sign-in-frame{
+        text-align: center;
+        width: 100%;
+        font-size: 15px;
+        margin-top: 10px;
+        font-weight: 300;
+        color: #AAAAAA;
+        cursor: pointer;
+    }
+    .SMS-login,.account-login{
+        text-align: center;
+        width: 100%;
+        font-size: 17px;
+        margin-top: 10px;
+        font-weight: 300;
+        color: #AAAAAA;
+        cursor: pointer;
+    }
+    .guanbi{
+        position: absolute;
+        right: 35px;
+        top: 45px;
+        width: 16px;
+        height: 16px;
+        cursor: pointer;
+    }
+    .guanbi img{
+        width: 100%;
+    }
+    .reg-newAccount{
+        font-size: 14px;
+        color: #aaaaaa;
+        font-weight: 300;
+        margin-left: 30px;
+        cursor: pointer;
+        letter-spacing: 1.5px;
+    }
+    .findPassword{
+        font-size: 13px;
+        color: #aaaaaa;
+        font-weight: 300;
+        position: absolute;
+        right:33px;
+        padding-top: 3px;
+        letter-spacing: 1px;
+        cursor: pointer;
+    }
+    .container {
+        width: 440px;
+        margin: 100px auto;
+    }
+    .pointer-events{
+        pointer-events:none;
+        background: #aaaaaa!important;
+    }
+</style>
+<!--用户注册-->
+<div class="Headline-register">
+    <!--滑动验证-->
+    <div class="slide-verification">
+        <div class="container">
+            <div id="captcha" style="position: relative"></div>
+        </div>
+    </div>
+    <!--注册账户-->
+    <form action="" onsubmit="return false">
+        <div class="reg-FraDiv-frame" id="reg-FraDiv-frame">
+            <div class="reg-FraDiv" id="reg-FraDiv">
+
+                <div class="registerTitle">
+                    注册账户
+                    <div class="guanbi" id="guanbi">
+                        <img src="images/guanbi.png" alt="">
+                    </div>
+
+                </div>
+                <!--输入手机号-->
+                <div class="cell-phone-number">
+                    <input type="text" placeholder="请输入手机号码" class="cell-phone-number-input">
+                </div>
+                <!--点击按钮开始验证-->
+                <button class="VerificationImgBtn">
+                    <img src="images/VerificationImgBtn.png" alt="" class="VerificationImg">
+                    <span>点击按钮开始验证</span>
+                </button>
+                <!--验证码-->
+                <div class="Verification-Code" >
+                    <input type="text" placeholder="验证码" class="Verification-Code-input">
+                    <button class="Verification-Code-btn" id="Verification-Code-btn" onclick='send_yzm(this)'>发送验证码</button>
+                </div>
+                <!--密码-->
+                <div class="password">
+                    <input type="password" placeholder="密码">
+                </div>
+                <!--提交按钮-->
+                <button class="submitBtn">
+                    注册
+                </button>
+                <!--已有账户,直接登录>-->
+                <div class="Sign-in-frame">
+                    已有账户,直接登录>
+                </div>
+            </div>
+        </div>
+    </form>
+    <!--登录-->
+    <form action="" onsubmit="return false">
+        <div class="SignFrame" id="SignFrame">
+            <div class="reg-FraDiv">
+                <div class="registerTitle">
+                    账号密码登录
+                    <span class="reg-newAccount">注册新账号></span>
+                    <div class="guanbi">
+                        <img src="images/guanbi.png" alt="">
+                    </div>
+
+                </div>
+                <!--输入手机号-->
+                <div class="cell-phone-number">
+                    <input type="text" placeholder="请输入手机号码" class="cell-phone-number-input">
+                </div>
+                <!--密码-->
+                <div class="password">
+                    <input type="password" placeholder="密码">
+                </div>
+                <!--忘记密码-->
+                <div class="findPassword">
+                    忘记密码
+                </div>
+                <!--提交按钮-->
+                <button class="submitBtn">
+                    确定
+                </button>
+                <!--短信登录-->
+                <div class="SMS-login">
+                    短信登录
+                </div>
+            </div>
+        </div>
+    </form>
+    <!--找回密码-->
+    <form action="" onsubmit="return false">
+        <div class="retrieve-password-frame" id="retrieve-password-frame">
+            <div class="reg-FraDiv">
+
+                <div class="registerTitle">
+                    找回密码
+                    <div class="guanbi">
+                        <img src="images/guanbi.png" alt="">
+                    </div>
+
+                </div>
+                <!--输入手机号-->
+                <div class="cell-phone-number">
+                    <input type="text" placeholder="请输入手机号码" class="cell-phone-number-input">
+                </div>
+                <!--点击按钮开始验证-->
+                <button class="VerificationImgBtn">
+                    <img src="images/VerificationImgBtn.png" alt="" class="VerificationImg">
+                    <span>点击按钮开始验证</span>
+                </button>
+                <!--验证码-->
+                <div class="Verification-Code">
+                    <input type="text" placeholder="验证码" class="Verification-Code-input">
+                    <button class="VerificationFindpassword" id="VerificationFindpassword" onclick='send_yzm(this)'>发送验证码</button>
+                </div>
+                <!--密码-->
+                <div class="password">
+                    <input type="password" placeholder="输入新密码" class="newPassword">
+                </div>
+                <div class="password">
+                    <input type="password" placeholder="再次输入密码" class="againNewPassword">
+                </div>
+                <!--提交按钮-->
+                <button class="submitBtn">
+                    确定
+                </button>
+                <!--已有账户,直接登录>-->
+                <div class="Sign-in-frame">
+                    已有账户,直接登录>
+                </div>
+            </div>
+        </div>
+    </form>
+
+    <!--短信登录-->
+    <form action="" onsubmit="return false">
+        <div class="SMSLogin-frame" id="SMSLogin-frame">
+            <div class="reg-FraDiv">
+                <div class="registerTitle">
+                    短信登录
+                    <div class="guanbi">
+                        <img src="images/guanbi.png" alt="">
+                    </div>
+
+                </div>
+                <!--输入手机号-->
+                <div class="cell-phone-number">
+                    <input type="text" placeholder="请输入手机号码" class="cell-phone-number-input">
+                </div>
+                <!--点击按钮开始验证-->
+                <button class="VerificationImgBtn">
+                    <img src="images/VerificationImgBtn.png" alt="" class="VerificationImg">
+                    <span>点击按钮开始验证</span>
+                </button>
+                <!--验证码-->
+                <div class="Verification-Code">
+                    <input type="text" placeholder="验证码" class="Verification-Code-input">
+                    <button class="VerificationCodeLogin" onclick='send_yzm(this)'>发送验证码</button>
+                </div>
+                <!--提交按钮-->
+                <button class="submitBtn">
+                    确定
+                </button>
+                <!--账号登录-->
+                <div class="account-login">
+                    账号登录
+                </div>
+            </div>
+        </div>
+    </form>
+
+</div>
+<!--旧导航-->
 <div class="nav-header">
     <!--蚂蚁logo-->
     <div class="nav-My-logo">
@@ -95,14 +476,255 @@
 </div>
 <script src="js/jquery.js"></script>
 <script src="js/i18n.js"></script>
+<script src="js/jigsaw.js"></script>
 <script>
+
     layui.use('layer', function(){  //layer弹框
         var layer = layui.layer;
     });
 
-    $(".userbtn").click(function () {
-        layer.msg('暂未开放');
+    //倒计时
+    var countdown =5;
+    function send_yzm(val){
+        settime(val)
+    }
+    /*倒计时*/
+        function settime(val){
+            var valClass=val.className;
+            if (countdown == 0) {
+                // console.log($('.'+valClass+''));
+                $('.'+valClass+'').css({
+                    "pointer-events":"",
+                    "background":"#0c7ff2"
+                });
+                val.innerHTML = "发送验证码";
+                console.log(countdown);
+                countdown = 5;
+                return false;
+            } else {
+                // console.log(val)
+                $('.'+valClass+'').css({
+                    "pointer-events":"none",
+                    "background":"#aaaaaa"
+                });
+                val.innerHTML = "重新发送(" + countdown + ")";
+                countdown--;
+            }
+            setTimeout(function () {
+                settime(val);
+            }, 1000);
+        }
+
+    /*四个表单提交*/
+    /*注册登录*/
+    $("#reg-FraDiv-frame .submitBtn").click(function () {
+        var number = /^1([358][0-9]|4[579]|66|7[0135678]|9[89])[0-9]{8}$/;
+        var phone_number=$("#reg-FraDiv-frame .cell-phone-number-input").val();
+        var password=$("#reg-FraDiv-frame .password input").val();
+        var Verification_Code=$("#reg-FraDiv-frame .Verification-Code-input").val()
+        if(phone_number==''||phone_number=='null'){
+            layer.msg('您的电话不能为空');
+            return false
+        }
+        if(!number.test(phone_number)){
+            layer.msg('手机号码不正确，请重新输入');
+            return false
+        }
+        if($("#reg-FraDiv-frame .VerificationImgBtn").hasClass("wyx")==false){
+            layer.msg('请点击按钮进行图形验证');
+            return false
+        }
+        if(Verification_Code==''||Verification_Code=='null'){
+            layer.msg('您的验证码不能为空');
+            return false
+        }
+        if(password==''||password=='null'){
+            layer.msg('您的密码不能为空');
+            return false
+        }
+        else {
+            // $(".VerificationImgBtn").removeClass("wyx")
+            layer.msg('注册成功');
+        }
+    });
+     /*账号密码登录*/
+    $("#SignFrame .submitBtn").click(function () {
+        var number = /^1([358][0-9]|4[579]|66|7[0135678]|9[89])[0-9]{8}$/;
+        var phone_number=$("#SignFrame .cell-phone-number-input").val();
+        var password=$("#SignFrame .password input").val();
+
+        if(phone_number==''||phone_number=='null'){
+            layer.msg('您的电话不能为空');
+            return false
+        }
+        if(!number.test(phone_number)){
+            layer.msg('手机号码不正确，请重新输入');
+            return false
+        }
+        if(password==''||password=='null'){
+            layer.msg('您的密码不能为空');
+            return false
+        }
+        else {
+            // $(".VerificationImgBtn").removeClass("wyx")
+            layer.msg('登录成功');
+        }
+    });
+    /*找回密码*/
+    $("#retrieve-password-frame .submitBtn").click(function () {
+        var number = /^1([358][0-9]|4[579]|66|7[0135678]|9[89])[0-9]{8}$/;
+        var phone_number=$("#retrieve-password-frame .cell-phone-number-input").val();
+        var againNewPassword=$("#retrieve-password-frame .againNewPassword").val();
+        var newPassword=$("#retrieve-password-frame .newPassword").val();
+        var Verification_Code=$("#retrieve-password-frame .Verification-Code-input").val()
+        if(phone_number==''||phone_number=='null'){
+            layer.msg('您的电话不能为空');
+            return false
+        }
+        if(!number.test(phone_number)){
+            layer.msg('手机号码不正确，请重新输入');
+            return false
+        }
+        if($("#retrieve-password-frame .VerificationImgBtn").hasClass("wyx")==false){
+            layer.msg('请点击按钮进行图形验证');
+            return false
+        }
+        if(Verification_Code==''||Verification_Code=='null'){
+            layer.msg('您的验证码不能为空');
+            return false
+        }
+        if(newPassword==''||newPassword=='null'){
+            layer.msg('新密码不能为空');
+            return false
+        }
+        if(againNewPassword==''||againNewPassword=='null'){
+            layer.msg('请核对新密码');
+            return false
+        }
+        if(newPassword!=againNewPassword){
+            layer.msg('输入的两次密码不吻合');
+            return false
+        }
+
+        else {
+            // $(".VerificationImgBtn").removeClass("wyx")
+            layer.msg('密码修改成功');
+        }
+    });
+    /*短信登录*/
+    $("#SMSLogin-frame .submitBtn").click(function () {
+        var number = /^1([358][0-9]|4[579]|66|7[0135678]|9[89])[0-9]{8}$/;
+        var phone_number=$("#SMSLogin-frame .cell-phone-number-input").val();
+        var Verification_Code=$("#SMSLogin-frame .Verification-Code-input").val()
+        if(phone_number==''||phone_number=='null'){
+            layer.msg('您的电话不能为空');
+            return false
+        }
+        if(!number.test(phone_number)){
+            layer.msg('手机号码不正确，请重新输入');
+            return false
+        }
+        if($("#SMSLogin-frame .VerificationImgBtn").hasClass("wyx")==false){
+            layer.msg('请点击按钮进行图形验证');
+            return false
+        }
+        if(Verification_Code==''||Verification_Code=='null'){
+            layer.msg('您的验证码不能为空');
+            return false
+        }
+        else {
+            // $(".VerificationImgBtn").removeClass("wyx")
+            layer.msg('登录成功');
+        }
+    });
+
+
+
+    /*滑动验证*/
+    $(".VerificationImgBtn").click(function () {
+        var $this=$(this);
+        $(".slide-verification").show();
+        $(this).css({
+            "pointer-events":"none"
+        });
+        jigsaw.init(document.getElementById('captcha'), function () {
+            $(".slide-verification").hide();
+            $this.css({
+                "border":"1px #26c267 solid",
+                "color":"#26c267",
+                "background":"#eefff5"
+            });
+            $this.find('span').html("验证成功");
+            $this.find('img').css({
+                "width":"5%",
+                "top":"15.5px",
+                "left":"128px"
+            });
+            $this.find('img').attr("src","/themes/default/images/successA.png");
+            $this.addClass("wyx");
+            $("#captcha").load(location.href + " #captcha")
+        })
+
+    });
+    /*关闭弹窗*/
+    $(".guanbi").click(function () {
+         $(".Headline-register").hide()
+    });
+
+
+
+
+    /*注册*/
+    $(".register").click(function () {
+        $("#reg-FraDiv-frame").show();
+        $(".Headline-register").show()
+        $("#retrieve-password-frame").hide();
+        $("#SignFrame").hide();
+        $("#SMSLogin-frame").hide()
+    });
+    /*登录*/
+    $(".Sign-in").click(function () {
+        $("#SignFrame").show();
+        $("#reg-FraDiv-frame").hide();
+        $(".Headline-register").show();
+        $("#retrieve-password-frame").hide();
+        $("#SMSLogin-frame").hide()
+    });
+    /*注册新账号*/
+    $(".reg-newAccount").click(function () {
+        $("#reg-FraDiv-frame").show();
+        $("#SignFrame").hide();
+        $("#retrieve-password-frame").hide()
+    });
+    /*找回密码*/
+    $(".findPassword").click(function () {
+        $("#reg-FraDiv-frame").hide()
+        $("#SignFrame").hide()
+        $("#retrieve-password-frame").show()
+    });
+    /*直接登录*/
+    $(".Sign-in-frame").click(function () {
+        $("#reg-FraDiv-frame").hide();
+        $("#SignFrame").show();
+        $("#retrieve-password-frame").hide();
+    });
+    /*账号登录*/
+    $(".account-login").click(function () {
+        $("#SignFrame").show();
+        $(".SMSLogin-frame").hide()
+    });
+    /*短信登录*/
+    $(".SMS-login").click(function () {
+        $("#SignFrame").hide();
+        $(".SMSLogin-frame").show()
     })
+
+
+
+
+    // $(".userbtn").click(function () {
+    //     layer.msg('暂未开放');
+    // })
 $('.search-s').click(function(){
     var keyword = $('.search-i').val();
     // console.log(keyword)
@@ -118,7 +740,10 @@ $( '.search-i').focus( function(){
             window.location.href="/search/"+keyword;
         }
     }
+    $(this).attr("placeholder","")
 } )
-
+    $('.search-i').blur(function(){
+        $(this).attr("placeholder","Type here to search")
+    });
 </script>
         
