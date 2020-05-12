@@ -46,18 +46,44 @@ class UserController extends SiteController {
             $rdata['info'] = '接口调用错误，请联系技术人员';
         }
         $this->ajaxReturn($rdata);
-        
     }
     
 
     //注册ajax提交
     public function register(){
+
         $phone = I('post.phone',0,'intval');
         $code = I('post.code',0,'intval');
         $password = I('post.password','','trim');
+        $repassword = I('post.repassword','','trim');
         
-        $this->redirect('/news/all');
-        $this -> siteDisplay('index');
+        if(empty($phone)||empty($password)||empty($repassword)||empty($code)){
+            $this->ajaxReturn(['code'=>2,'info'=>'参数不能为空']);
+        }
+        if($password != $repassword){
+            $this->ajaxReturn(['code'=>2,'info'=>'两次输入的密码不一致']);
+        }
+        $userMod = D('Users');
+        
+        $exist = $userMod->where(['phone'=>$phone])->find('id');
+        if($exist){
+            $this->ajaxReturn(['code'=>2,'info'=>'该手机号已注册！']);
+        }
+        $userInfo['phone'] = $phone;
+        $userInfo['password'] = md5('blocktop'.$password);
+        $userInfo['regip'] = $_SERVER['REMOTE_ADDR'];
+        $userInfo['create_time'] = time();
+        $userInfo['states'] = 1;
+        $res = $userMod->add($userInfo);
+        if($res){
+            $rdata['code'] = 1;
+            $rdata['info'] = '注册成功！';
+        }else{
+            $rdata['code'] = 1;
+            $rdata['info'] = '注册失败！';
+        }
+        
+        $this->ajaxReturn($rdata);
     }
     
     //关于我们  简介
