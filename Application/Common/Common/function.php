@@ -1,5 +1,35 @@
 <?php
 
+/* 发送验证码*/
+function send_sms_code($alibabaCloud,$phone,$code){
+    
+    if(empty($phone)||empty($code)){
+        return false;
+    }
+    $alibabaCloud->accessKeyClient('LTAI4G4n7o6KPzkz4GNGCzD4', 't37bpaEbkRDtCTjXIdADWw7Sx8prLc')
+                ->regionId('cn-hangzhou')
+                ->asDefaultClient();
+
+    $result = $alibabaCloud->rpc()
+                            ->product('Dysmsapi')
+                            // ->scheme('https') // https | http
+                            ->version('2017-05-25')
+                            ->action('SendSms')
+                            ->method('POST')
+                            ->host('dysmsapi.aliyuncs.com')
+                            ->options([
+                                'query' => [
+                                    'RegionId' => "cn-hangzhou",
+                                    'PhoneNumbers' => $phone,
+                                    'SignName' => "区块链头条官网",
+                                    'TemplateCode' => "SMS_189555849",
+                                    'TemplateParam' => json_encode(['code'=>$code]),
+                                ],
+                            ])
+                            ->request();
+    return $result;
+
+}
 function dd($param1,$param2 =null){
     var_dump($param1);
     if($param2)
