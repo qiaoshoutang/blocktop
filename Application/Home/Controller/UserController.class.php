@@ -73,7 +73,7 @@ class UserController extends SiteController {
         $userInfo['password'] = md5('blocktop'.$password);
         $userInfo['regip'] = $_SERVER['REMOTE_ADDR'];
         $userInfo['create_time'] = time();
-        $userInfo['states'] = 1;
+        $userInfo['status'] = 1;
         $res = $userMod->add($userInfo);
         if($res){
             $rdata['code'] = 1;
