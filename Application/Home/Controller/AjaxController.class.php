@@ -1,12 +1,16 @@
 <?php
 namespace Home\Controller;
 use Home\Controller\SiteController;
+use AlibabaCloud\Client\AlibabaCloud;
+use AlibabaCloud\Client\Exception\ClientException;
+use AlibabaCloud\Client\Exception\ServerException;
 /**
  * 站点首页
  */
 
 class AjaxController extends SiteController {
     
+
     /*
      * 更多新闻
      */
