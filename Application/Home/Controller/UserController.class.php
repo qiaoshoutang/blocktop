@@ -13,6 +13,144 @@ use AlibabaCloud\Client\Exception\ServerException;
 
 class UserController extends SiteController {
     
+    public function test(){
+        session('home_user',['user_id'=>1]);
+    }
+    
+    //作者主页
+    public function authorPage(){
+//         $this -> siteDisplay('authorPage');
+//         exit;
+        $author_id = I('request.author_id',0,'intval');
+        if(empty($author_id)){
+            $this->error('抱歉！参数不能为空！');
+        }
+        $userMod  = D('Users');
+        $authorInfo = $userMod->where(['id'=>$author_id])->find();
+        if(empty($authorInfo)){
+            $this->error('抱歉！找不到该作者！');
+        }
+        $fans_num = M('subscribe')->where(['author_id'=>$author_id])->count();
+        $authorInfo['fans_num'] = $fans_num;
+        
+        $articleMod =  M('content');
+        $articleList = $articleMod->where(['author_id'=>$author_id])->select();
+        $authorInfo['article_num'] = count($articleList);
+        // 专栏列表
+        $columnMod = D('Admin/Column');
+        $columnList  = $columnMod->where(['state'=>1])->order('order_id desc')->limit(10)->select();
+        
+        
+        $this->assign('authorInfo',$authorInfo);
+        $this->assign('articleList',$articleList);
+        $this->assign('columnList',$columnList);
+        $this -> siteDisplay('authorPage');
+    }
+    
+    //订阅作者ajax接口
+    public function subscribeAuthor(){
+        $user_info = session('home_user');
+        if(empty($user_info)){
+            $rdata['code'] = 2;
+            $rdata['info'] = '您还未登陆，请先登录！';
+            $this->ajaxReturn($rdata);
+        }
+        $author_id = I('post.author_id',0,'intval');
+        $type = I('post.type',0,'intval');   //1订阅   2取消订阅
+        if(empty($author_id)){
+            $rdata['code'] = 2;
+            $rdata['info'] = '必填参数不能为空';
+            $this->ajaxReturn($rdata);
+        }
+        $subscribeMod = M('subscribe');
+        if($type == 1){  //订阅
+            $sdata['user_id'] = $user_info['user_id'];
+            $sdata['author_id'] = $author_id;
+            
+            $record = $subscribeMod->where($sdata)->find();
+            if($record){
+                $res = $subscribeMod->where(['id'=>$record['id']])->save(['time'=>time()]);
+                
+            }else{
+                $sdata['time'] = time();
+                $res = $subscribeMod->add($sdata);
+            }
+            
+            if($res){
+                $rdata['code'] = 1;
+                $rdata['info'] = '订阅成功';
+            }else{
+                $rdata['code'] = 2;
+                $rdata['info'] = '订阅失败';
+            }
+            $this->ajaxReturn($rdata);
+        }
+        if($type == 2){  //取消订阅
+            $sdata['user_id'] = $user_info['user_id'];
+            $sdata['author_id'] = $author_id;
+            
+            $record = $subscribeMod->where($sdata)->find();
+            if($record){
+                $res = $subscribeMod->where(['id'=>$record['id']])->delete();
+            }else{
+                $res = 1;
+            }
+            if($res){
+                $rdata['code'] = 1;
+                $rdata['info'] = '取消订阅成功';
+            }else{
+                $rdata['code'] = 2;
+                $rdata['info'] = '取消订阅失败';
+            }
+            $this->ajaxReturn($rdata);
+        }
+        
+    }
+    
+    //我的主页
+    public function myPage(){
+        $user_info = session('home_user');
+        if(empty($user_info)){
+            $this->error('您还未登陆，请先登录！');
+        }
+
+        $userMod  = D('Users');
+        $userInfo = $userMod->where(['id'=>$user_info['user_id']])->find();
+        if(empty($userInfo)){
+            $this->error('抱歉！找不到您的登录信息！');
+        }
+        $subscribe_list = M('subscribe')->where(['user_id'=>$userInfo['id']])->order('time desc')->field('author_id')->select();
+
+        $subscribeList = array();
+        foreach($subscribe_list as $val){
+            $authorInfo = $userMod->where(['id'=>$val['author_id']])->find();
+            if($authorInfo){
+                $subscribeList[] = $authorInfo;
+            }
+        }
+        $userInfo['subscribe'] = count($subscribe_list);
+        
+        $history_list = M('history')->where(['user_id'=>$userInfo['id']])->order('time desc')->field('article_id')->select();
+
+        $articleMod =  M('content');
+        $historyList = array();
+        foreach($history_list as $val){
+            $articleInfo = $articleMod->where(['content_id'=>$val['article_id']])->find();
+            if($articleInfo){
+                $historyList[] = $articleInfo;
+            }
+        }
+        // 专栏列表
+        $columnMod = D('Admin/Column');
+        $columnList  = $columnMod->where(['state'=>1])->order('order_id desc')->limit(10)->select();
+        
+        
+        $this->assign('userInfo',$userInfo);
+        $this->assign('subscribeList',$subscribeList);
+        $this->assign('historyList',$historyList);
+        $this->assign('columnList',$columnList);
+        $this -> siteDisplay('myPage');
+    }
     
     /*
      * 发送验证码
@@ -151,15 +289,12 @@ class UserController extends SiteController {
         $this->ajaxReturn($rdata);
     }
     
-    public function test(){
-        dump(C('sss'));
-    }
     //找回密码ajax提交
     public function getPassword(){
-        $phone = I('post.phone',0,'trim');
+        $phone  = I('post.phone',0,'trim');
         $password = I('post.password','','trim');
         $repassword = I('post.repassword','','trim');
-        $code = I('post.code','','intval');
+        $code   = I('post.code','','intval');
         
         if(empty($phone)||empty($password)||empty($repassword)||empty($code)){
             $this->ajaxReturn(['code'=>2,'info'=>'必填项不能为空']);

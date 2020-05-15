@@ -161,7 +161,7 @@
         float: right;
         background: white;
         position: relative;
-        bottom: 375px;
+        bottom: 0;
         min-height: 0px;
         border: 1px #e0e3e7 solid;
         border-radius: 4px;
@@ -175,18 +175,18 @@
            <div class="userContent">
                <!--用户头像-->
                <div class="usertopImg">
-                   <img src="images/userTxsa.png" alt="" width="100%">
+                   <img src="{$userInfo.portrait|default='images/userTxsa.png'}" alt="" width="100%">
                </div>
                <!--修改区-->
                <div class="modifyinformation">
                    <p>
-                       <input type="text" placeholder="王宇翔" class="InpUserName">
+                       <input type="text" placeholder="{$userInfo.nickname}" class="InpUserName">
                        <span class="modifyUserName"><img src="images/xiugaiUser.png" alt="修改"></span>
                    </p>
                    <p class="modifysonp">
-                       <span>注册时间 : 2020年4月24日</span>
-                       <span>UID : top10000001</span>
-                       <span>订阅作者 :  <span style="color: #D40507;font-size: 18px">25</span></span>
+                       <span>注册时间 : {$userInfo.create_time|format_time='Y年m月d日'}</span>
+                       <span>UID : {$userInfo.top_num}</span>
+                       <span>订阅作者 :  <span style="color: #D40507;font-size: 18px">{$userInfo.subscribe}</span></span>
                    </p>
                </div>
                <!--升级头条作者-->
@@ -207,39 +207,39 @@
            </div>
            <!--subscription-->
            <div class="subscription">
-               <ul>
+              <!--{if condition="subscribeList"}-->
+              <ul>
+                  <!--{foreach name='subscribeList' item='vo' }-->
                    <li>
                        <img src="images/xiugaiUsered.png" alt="" class="subscription-Tx">
                        <div class="subscriptionContent">
-                           <p class="subscriptionTitle">货币财经</p>
-                           <p class="subscriptionText">尖峰对话区块链</p>
+                           <p class="subscriptionTitle">{$vo.nickname}</p>
+                           <p class="subscriptionText">{$vo.desc}</p>
                        </div>
                        <div class="bscriptionBtn">
                             取消订阅
                        </div>
                    </li>
-                   <li>
-                       <img src="images/xiugaiUsered.png" alt="" class="subscription-Tx">
-                       <div class="subscriptionContent">
-                           <p class="subscriptionTitle">货币财经</p>
-                           <p class="subscriptionText">尖峰对话区块链</p>
-                       </div>
-                       <div class="bscriptionBtn">
-                           取消订阅
-                       </div>
-                   </li>
-               </ul>
+                   <!--{/foreach}-->
+              </ul>
+              <!--{else /}-->
+              <ul>
+                <div class="NewType-Content">
+                     <span>还未有订阅作者</span>
+                </div>
+              </ul>
+               <!--{/if}-->
            </div>
 
 
 
            <!--history-->
            <div class="historyrecord">
-               <!--{if condition="$class_id lt 6"}-->
+               <!--{if condition="$historyList"}-->
                <div class="NewType-Content">
 
                    <ul>
-                       <!--{foreach name='newsList' item='vo' }-->
+                       <!--{foreach name='historyList' item='vo' }-->
                        <li onclick='window.location.href="/newsContent/{$vo.content_id}"'>
                            <div class="NewType-Detail">
                                <div class="NewTypeImg">
@@ -293,12 +293,9 @@
                            </div>
                        </li>
                        <!--{/foreach}-->
-
                    </ul>
                </div>
-
            </div>
-
        </div>
 
 

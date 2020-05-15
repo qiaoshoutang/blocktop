@@ -127,7 +127,6 @@
         float: right;
         background: white;
         position: relative;
-        bottom: 375px;
         min-height: 0px;
         border: 1px #e0e3e7 solid;
         border-radius: 4px;
@@ -154,12 +153,12 @@
             <!--修改区-->
             <div class="modifyinformation">
                 <p>
-                    <input type="text" placeholder="王宇翔" class="InpUserName">
+                    <input type="text" placeholder="{$authorInfo.nickname}" class="InpUserName">
                     <!--<span class="modifyUserName"><img src="images/xiugaiUser.png" alt="修改"></span>-->
                 </p>
                 <p class="modifysonp">
-                    <span class="AboutAuthor">作者简介 : 王宇翔是个资深作者王宇翔是个资深作者</span>
-                    <span style="position: relative;top: -3px">粉丝 : <span style="color: #D40507;font-size: 18px">25</span></span>
+                    <span class="AboutAuthor">作者简介 : {$authorInfo.desc}</span>
+                    <span style="position: relative;top: -3px">粉丝 : <span style="color: #D40507;font-size: 18px">{$authorInfo.fans_num}</span></span>
                 </p>
             </div>
             <!--订阅-->
@@ -171,19 +170,19 @@
     </div>
     <!--主要内容-->
     <div class="subscription-history">
-        <!--我的订阅和游览历史-->
+
         <div class="subhis">
             <ul>
-                <li>他的文章<span>(15)</span></li>
+                <li>他的文章<span>({$authorInfo['article_num']})</span></li>
             </ul>
         </div>
         <!--history-->
         <div class="historyrecord">
-            <!--{if condition="$class_id lt 6"}-->
+            <!--{if condition="$articleList"}-->
             <div class="NewType-Content">
 
                 <ul>
-                    <!--{foreach name='newsList' item='vo' }-->
+                    <!--{foreach name='articleList' item='vo' }-->
                     <li onclick='window.location.href="/newsContent/{$vo.content_id}"'>
                         <div class="NewType-Detail">
                             <div class="NewTypeImg">
@@ -201,7 +200,7 @@
                                 </div>
                                 <div class="TextSource">
                                     <span class="roof-placement">置顶</span>
-                                    <span>{$vo.author}</span>
+                                    <span>{$authorInfo.nickname}</span>
                                     <span>{$vo.time|format_time='Y/m/d H:i'}</span>
                                     <span class="Guankan"><img src="images/guankan.png" alt="" width="15px">{$vo.views}</span>
                                 </div>
