@@ -64,7 +64,7 @@ class UserController extends SiteController {
         $repassword = I('post.repassword','','trim');
         
         if(empty($phone)||empty($password)||empty($repassword)||empty($code)){
-            $this->ajaxReturn(['code'=>2,'info'=>'参数不能为空']);
+            $this->ajaxReturn(['code'=>2,'info'=>'必填项不能为空']);
         }
 
         if($password != $repassword){
@@ -91,18 +91,19 @@ class UserController extends SiteController {
         $userInfo['status'] = 1;
         $res = $userMod->add($userInfo);
         if($res){
+            S('yzm_1_'.$phone,null);
+            $userMod->setLogin($userInfo['id']);
             $rdata['code'] = 1;
             $rdata['info'] = '注册成功！';
+            $rdata['data'] = $userInfo;
         }else{
-            $rdata['code'] = 1;
+            $rdata['code'] = 2;
             $rdata['info'] = '注册失败！';
         }
         
         $this->ajaxReturn($rdata);
     }
-    public function test(){
-        dump(C('sss'));
-    }
+
 
     //登录ajax提交
     public function accountLogin(){
@@ -112,11 +113,9 @@ class UserController extends SiteController {
         $code = I('post.code','','trim');
         $type = I('post.type','','intval');  //1密码登陆   2验证码登录
 
-        
         if(empty($phone)){
             $this->ajaxReturn(['code'=>2,'info'=>'参数不能为空']);
         }
-
         
         $userMod = D('Users');
         
@@ -124,11 +123,11 @@ class UserController extends SiteController {
         if(empty($userInfo)){
             $this->ajaxReturn(['code'=>2,'info'=>'该账号不存在']);
         }
-        if($type == 1){
+        if($type == 1){  //密码登陆
             if(md5('blocktop_'.$password) != $userInfo['password']){
                 $this->ajaxReturn(['code'=>2,'info'=>'密码错误']);
             }
-        }elseif($type == 2){
+        }elseif($type == 2){  //验证码登录
             if(empty(S('yzm_2_'.$phone))){
                 $this->ajaxReturn(['code'=>2,'info'=>'验证码已过期']);
             }
@@ -140,11 +139,61 @@ class UserController extends SiteController {
 
         $res = $userMod->setLogin($userInfo['id']);
         if($res){
+            S('yzm_2_'.$phone,null);
             $rdata['code'] = 1;
             $rdata['info'] = '登录成功';
+            $rdata['data'] = $userInfo;
         }else{
-            $rdata['code'] = 1;
+            $rdata['code'] = 2;
             $rdata['info'] = '登录失败';
+        }
+        
+        $this->ajaxReturn($rdata);
+    }
+    
+    public function test(){
+        dump(C('sss'));
+    }
+    //找回密码ajax提交
+    public function getPassword(){
+        $phone = I('post.phone',0,'trim');
+        $password = I('post.password','','trim');
+        $repassword = I('post.repassword','','trim');
+        $code = I('post.code','','intval');
+        
+        if(empty($phone)||empty($password)||empty($repassword)||empty($code)){
+            $this->ajaxReturn(['code'=>2,'info'=>'必填项不能为空']);
+        }
+        
+        if($password != $repassword){
+            $this->ajaxReturn(['code'=>2,'info'=>'两次输入的密码不一致']);
+        }
+        if(empty(S('yzm_3_'.$phone))){
+            $this->ajaxReturn(['code'=>2,'info'=>'验证码已失效']);
+        }
+        if($code != S('yzm_3_'.$phone)){
+            $this->ajaxReturn(['code'=>2,'info'=>'验证码错误']);
+        }
+        
+        $userMod = D('Users');
+        
+        $userInfo = $userMod->where(['phone'=>$phone])->find('id');
+        if(empty($userInfo)){
+            $this->ajaxReturn(['code'=>2,'info'=>'该手机号还未注册！']);
+        }
+        $sdata['id']       = $userInfo['id'];
+        $sdata['password'] = md5('blocktop_'.$password);
+
+        $res = $userMod->add($sdata);
+        if($res){
+            S('yzm_3_'.$phone,null);
+            $userMod->setLogin($userInfo['id']);
+            $rdata['code'] = 1;
+            $rdata['info'] = '密码重置成功！';
+            $rdata['data'] = $userInfo;
+        }else{
+            $rdata['code'] = 2;
+            $rdata['info'] = '密码重置失败！';
         }
         
         $this->ajaxReturn($rdata);
