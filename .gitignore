@@ -52,3 +52,5 @@ themes/default/video/fzVideo.mp4
 themes/default/video/fzVideo02.mp4
 Application/Common/Conf/config.php
 Application/Common/Conf/config.php
+
+.idea/workspace.xml

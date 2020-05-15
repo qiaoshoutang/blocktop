@@ -6,7 +6,7 @@
 }
 .AntVideo{
     width: 1000px;
-    height: 900px;
+    height: 920px!important;
     margin: 0 auto;
     background: #ffffff;
     position: relative;
@@ -20,7 +20,7 @@
 .AntZhi{
     width: 80%;
     margin: 20px auto 0 auto;
-    font-size: 26px;
+    font-size: 22px;
     text-align: justify;
     text-indent: 2em;
     letter-spacing: 1px;
