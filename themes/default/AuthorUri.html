@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>区块链头条_区块链头条官网</title>
+    <meta name="baidu-site-verification" content="" />
+    <meta name="keywords" content="区块链头条,区块链头条官网,区块链,区块链技术,比特币,区块链媒体"/>
+    <meta name="description" content=""/>
+    <meta name="referrer" content="never">
+    <link rel="stylesheet" href="css/common.css?1254">
+    <link rel="stylesheet" href="css/NewsInformation.css">
+    <link rel="stylesheet" href="css/specialColumn.css">
+</head>
+<style>
+    body{
+        background: white!important;
+    }
+    .userBackground{
+        width: 1200px;
+        margin: 0 auto;
+        height: 170px;
+        background: url("images/UserBackground.png")no-repeat top;
+        background-size: 100% 100%;
+        overflow: hidden;
+    }
+    .userContent{
+        width: 90%;
+        margin: 30px auto 0 auto;
+        height: 100px;
+        position: relative;
+    }
+    .usertopImg{
+        width: 10%;
+        height: 100%;
+        float: left;
+        position: relative;
+    }
+    .addV{
+        position: absolute;
+        width: 20% !important;
+        right:25px;
+        bottom: 10px;
+    }
+    .userTxsaImg{
+        width: 84px;
+        height: 84px;
+        margin-top: 8px;
+    }
+    .modifyinformation{
+        width: 90%;
+        height: 100%;
+        float: left;
+        padding-top: 20px;
+        font-size: 18px;
+    }
+    .modifysonp span{
+        margin-right: 60px;
+        font-size: 15px;
+    }
+    .modifysonp{
+        margin-top: 12px;
+    }
+    .modifyUserName{
+        cursor: pointer;
+    }
+    .modifyUserName img{
+        position: relative;
+        top: 2px;
+    }
+    .InpUserName{
+        border: none;
+        background: transparent;
+        outline: none;
+        pointer-events: none;
+        font-size: 18px;
+        color: black;
+    }
+    .InpUserName::placeholder{
+        color: black;
+    }
+    .subhis{
+        width: 1200px;
+        margin: 30px auto 0 auto;
+    }
+    .subhis ul{
+        width: 100%;
+
+    }
+    .subhis ul li{
+        width: 13%;
+        text-align: center;
+        float: left;
+        font-size: 25px;
+        font-weight: 300;
+        cursor: pointer;
+    }
+    .subhis ul li:nth-child(1){
+        font-weight: bold;
+    }
+    .subscription ul li{
+        height: 150px;
+        width: 95%;
+        margin: 0 auto;
+        position: relative;
+        border-bottom: 1px solid #f0f0f0;
+    }
+    .bscriptionBtn{
+        width:120px ;
+        height: 35px;
+        background: #D40507;
+        color: white;
+        line-height: 35px;
+        text-align: center;
+        position: absolute;
+        right: 0;
+        top: 52px;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+    .historyrecord{
+        width: 1200px;
+        margin: 0 auto;
+        clear: both;
+    }
+    .column-special{
+        width: 325px;
+        float: right;
+        background: white;
+        position: relative;
+        bottom: 375px;
+        min-height: 0px;
+        border: 1px #e0e3e7 solid;
+        border-radius: 4px;
+    }
+    .AboutAuthor{
+        width: 348px;
+        overflow: hidden;
+        text-overflow:ellipsis;
+        white-space: nowrap;
+        display: inline-block;
+    }
+</style>
+<body>
+<div class="box">
+    <!--导航栏-->
+    <!--#include file="header.html"-->
+    <div class="userBackground">
+        <div class="userContent">
+            <!--用户头像-->
+            <div class="usertopImg">
+                <img src="images/userTxsa.png" alt="" width="100%" class="userTxsaImg">
+                <img src="images/AddV.png" alt="" class="addV">
+            </div>
+            <!--修改区-->
+            <div class="modifyinformation">
+                <p>
+                    <input type="text" placeholder="王宇翔" class="InpUserName">
+                    <!--<span class="modifyUserName"><img src="images/xiugaiUser.png" alt="修改"></span>-->
+                </p>
+                <p class="modifysonp">
+                    <span class="AboutAuthor">作者简介 : 王宇翔是个资深作者王宇翔是个资深作者</span>
+                    <span style="position: relative;top: -3px">粉丝 : <span style="color: #D40507;font-size: 18px">25</span></span>
+                </p>
+            </div>
+            <!--订阅-->
+            <div class="bscriptionBtn">
+                +订阅
+            </div>
+
+        </div>
+    </div>
+    <!--主要内容-->
+    <div class="subscription-history">
+        <!--我的订阅和游览历史-->
+        <div class="subhis">
+            <ul>
+                <li>他的文章<span>(15)</span></li>
+            </ul>
+        </div>
+        <!--history-->
+        <div class="historyrecord">
+            <!--{if condition="$class_id lt 6"}-->
+            <div class="NewType-Content">
+
+                <ul>
+                    <!--{foreach name='newsList' item='vo' }-->
+                    <li onclick='window.location.href="/newsContent/{$vo.content_id}"'>
+                        <div class="NewType-Detail">
+                            <div class="NewTypeImg">
+                                <div class="NewTypeImgBox">
+                                    <img src="{$vo.image}" alt="">
+                                </div>
+
+                            </div>
+                            <div class="NewTypeText">
+                                <div class="TextTitle">
+                                    {$vo.title}
+                                </div>
+                                <div class="TextContent">
+                                    {$vo.description}
+                                </div>
+                                <div class="TextSource">
+                                    <span class="roof-placement">置顶</span>
+                                    <span>{$vo.author}</span>
+                                    <span>{$vo.time|format_time='Y/m/d H:i'}</span>
+                                    <span class="Guankan"><img src="images/guankan.png" alt="" width="15px">{$vo.views}</span>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <!--{/foreach}-->
+                </ul>
+                <div class="LookMore">
+                    <span id='news_more'>查看更多</span>
+                </div>
+            </div>
+            <!--{else /}-->
+            <div class="NewType-Content">
+                <span>没有找到相关内容</span>
+            </div>
+            <!--{/if}-->
+            <!--专栏-->
+            <div class="column-special">
+                <div class="Column-ranking-picture">
+                    <img src="images/columbTitle.png" alt="">
+                </div>
+                <ul class="Column-ranking-ul">
+                    <!--{foreach name='columnList' item='vo' }-->
+                    <li onclick='window.location.href="/Columns/{$vo.id}"'>
+                        <div class="numRank">{$key+1}</div>
+                        <div class="rankImg">
+                            <img src="{$vo.icon}" alt="">
+                        </div>
+                        <div class="rankContent">
+                            <p class="rankContentA">{$vo.name}</p>
+                            <p class="rankContentB">{$vo.desc}</p>
+                        </div>
+                    </li>
+                    <!--{/foreach}-->
+
+                </ul>
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!--底部-->
+    <!--#include file="footer.html"-->
+</div>
+
+</body>
+</html>
+<script src="js/jquery-3.2.1.min.js"></script>
+<script src="js/layui/layui.all.js"></script>
+<script>
+
+
+    $(function(){
+        //propertychange监听input里面的字符变化,属性改变事件
+        $('.zy-price').bind('input propertychange', function() {
+            var $this = $(this);
+            console.log($this);
+            var text_length = $this.val().length;//获取当前文本框的长度
+            var current_width = parseInt(text_length) *16;//该16是改变前的宽度除以当前字符串的长度,算出每个字符的长度
+            console.log(current_width)
+            $this.css("width",current_width+"px");
+        });
+    })
+
+
+
+    $(".bscriptionBtn").attr("wyx","1");
+    layui.use('layer', function(){  //layer弹框
+        var layer = layui.layer;
+    });
+    /*修改名字*/
+    $(".modifyUserName img").click(function () {
+        $(".InpUserName").css({
+            ".pointer-events":"all",
+        });
+        $(".InpUserName").focus();
+    });
+
+    /*订阅与取消订阅按钮*/
+    $(".bscriptionBtn").click(function () {
+        var $this=$(this);
+        if($this.attr("wyx")==1){
+            $(this).css({
+                "background":"#999999",
+            });
+            $(this).html("取消订阅");
+            $this.attr("wyx","0")
+        }else {
+            $(this).css({
+                "background":"#D40507",
+            });
+            $(this).html("+订阅");
+            $this.attr("wyx","1")
+        }
+    });
+</script>
