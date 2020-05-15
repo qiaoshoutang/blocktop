@@ -21,7 +21,7 @@
         bottom: 0;
         margin: auto;
         width:440px ;
-        height: 543px;
+        height: 610px;
         background: white;
         border-radius: 8px;
         /*display: none;*/
@@ -252,6 +252,9 @@
                 <div class="password">
                     <input type="password" placeholder="密码">
                 </div>
+                <div class="password">
+                    <input type="password" placeholder="再次输入密码" class="againNewPassword">
+                </div>
                 <!--提交按钮-->
                 <button class="submitBtn">
                     注册
@@ -455,9 +458,27 @@
                 </div>
             </li>
         </ul>
+        <!--未登陆时状态-->
         <div class="userbtn">
             <div class="register">注册</div>
             <div class="Sign-in">登录</div>
+        </div>
+        <!--登陆时状态-->
+        <div class="when-landing">
+            <div class="when-landing-Img">
+                <img src="images/userTxsa.png" alt="">
+            </div>
+            <div class="usernamenumber">
+                 18050793767
+            </div>
+            <div class="user-window">
+                <ul>
+                    <li>我的主页</li>
+                    <li>切换账户</li>
+                    <li>退出登陆</li>
+                </ul>
+
+            </div>
         </div>
     </div>
 
@@ -478,15 +499,36 @@
 <script src="js/jigsaw.js"></script>
 <script>
 
+
+
+
     layui.use('layer', function(){  //layer弹框
         var layer = layui.layer;
     });
-
     //倒计时
-    var countdown =5;
+    var countdown =60;
     function send_yzm(val){
-        settime(val)
+        var valClass=val.className;
+        var phone = $('.'+valClass+'').parent().siblings(".cell-phone-number").find("input").val();
+        console.log(phone);
+        $.ajax({
+            type:"post",
+            url:"/Home/User/send_code",
+            data:{phone:phone},
+            dataType:'json',
+            success:function(data){
+                console.log(data);
+                if(data.code==1){ // 显示用户数据 隐藏输入框
+                    settime(val);
+                }else{
+                    console.log(data);
+                }
+            }
+        });
+
     }
+
+
     /*倒计时*/
         function settime(val){
             var valClass=val.className;
@@ -498,7 +540,7 @@
                 });
                 val.innerHTML = "发送验证码";
                 console.log(countdown);
-                countdown = 5;
+                countdown = 60;
                 return false;
             } else {
                 // console.log(val)
@@ -520,7 +562,8 @@
         var number = /^1([358][0-9]|4[579]|66|7[0135678]|9[89])[0-9]{8}$/;
         var phone_number=$("#reg-FraDiv-frame .cell-phone-number-input").val();
         var password=$("#reg-FraDiv-frame .password input").val();
-        var Verification_Code=$("#reg-FraDiv-frame .Verification-Code-input").val()
+        var Verification_Code=$("#reg-FraDiv-frame .Verification-Code-input").val();
+        var repassword=$("#reg-FraDiv-frame .againNewPassword").val();
         if(phone_number==''||phone_number=='null'){
             layer.msg('您的电话不能为空');
             return false
@@ -541,9 +584,25 @@
             layer.msg('您的密码不能为空');
             return false
         }
+        if(password!=repassword){
+            layer.msg('两次输入的密码不一致');
+            return false
+        }
         else {
-            // $(".VerificationImgBtn").removeClass("wyx")
-            layer.msg('注册成功');
+            $.ajax({
+                type:"post",
+                url:"/Home/User/register",
+                data:{phone:phone_number,code:Verification_Code,repassword:repassword,password:password},
+                dataType:'json',
+                success:function(data){
+                    console.log(data);
+                    if(data.code==1){ // 显示用户数据 隐藏输入框
+                        layer.msg('注册成功');
+                    }else{
+                        console.log(data);
+                    }
+                }
+            });
         }
     });
      /*账号密码登录*/
@@ -639,6 +698,8 @@
 
 
 
+
+
     /*滑动验证*/
     $(".VerificationImgBtn").click(function () {
         var $this=$(this);
@@ -726,7 +787,7 @@ $('.search-s').click(function(){
     var keyword = $('.search-i').val();
     // console.log(keyword)
     window.location.href="/search/"+keyword;
-})
+});
 
 $( '.search-i').focus( function(){
     document.onkeydown = function(e){
@@ -736,9 +797,9 @@ $( '.search-i').focus( function(){
             // console.log(keyword)
             window.location.href="/search/"+keyword;
         }
-    }
+    };
     $(this).attr("placeholder","")
-} )
+} );
     $('.search-i').blur(function(){
         $(this).attr("placeholder","Type here to search")
     });
