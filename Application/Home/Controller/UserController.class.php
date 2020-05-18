@@ -156,7 +156,7 @@ class UserController extends SiteController {
      * 发送验证码
      */
     public function send_code(){
-        $phone = I('post.phone',0,'intval');
+        $phone = I('post.phone',0,'trim');
         $type  = I('post.type',0,'intval');  //1注册验证码   2登录验证码   3忘记密码验证码
         if(empty($phone)){
             $rdata['code'] = 2;
@@ -196,8 +196,8 @@ class UserController extends SiteController {
     //注册ajax提交
     public function register(){
 
-        $phone = I('post.phone',0,'intval');
-        $code = I('post.code',0,'intval');
+        $phone = I('post.phone',0,'trim');
+        $code = I('post.code',0,'trim');
         $password = I('post.password','','trim');
         $repassword = I('post.repassword','','trim');
         
@@ -294,7 +294,7 @@ class UserController extends SiteController {
         $phone  = I('post.phone',0,'trim');
         $password = I('post.password','','trim');
         $repassword = I('post.repassword','','trim');
-        $code   = I('post.code','','intval');
+        $code   = I('post.code','','trim');
         
         if(empty($phone)||empty($password)||empty($repassword)||empty($code)){
             $this->ajaxReturn(['code'=>2,'info'=>'必填项不能为空']);
