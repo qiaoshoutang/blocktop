@@ -312,7 +312,7 @@ class UserController extends SiteController {
         
         $userMod = D('Users');
         
-        $userInfo = $userMod->where(['phone'=>$phone])->find('id');
+        $userInfo = $userMod->where(['phone'=>$phone])->field('id')->find();
         if(empty($userInfo)){
             $this->ajaxReturn(['code'=>2,'info'=>'该手机号还未注册！']);
         }
