@@ -168,9 +168,11 @@ class UserController extends SiteController {
             $rdata['info'] = '验证码类型不能为空';
             $this->ajaxReturn($rdata);
         }
-        if(S('yzm_ban_'.$type.'_'.$phone)){  //验证码间隔60之内 不重复发送
-            $rdata['code'] = 2;
+        $time_space = time()-S('yzm_time_'.$type.'_'.$phone);
+        if($time_space<60){  //验证码间隔60之内 不重复发送
+            $rdata['code'] = 3;
             $rdata['info'] = '验证码发送太过频繁';
+            $rdata['data'] = $time_space;
             $this->ajaxReturn($rdata);
         }
         $code = rand(1,9).rand(1,9).rand(1,9).rand(1,9);
@@ -180,7 +182,7 @@ class UserController extends SiteController {
 //         $resultArr = json_decode($result,true);
         $resultArr['Message'] = 'OK';
         if($resultArr['Message'] == 'OK'){
-            S('yzm_ban_'.$type.'_'.$phone,1,60);
+            S('yzm_time_'.$type.'_'.$phone,time(),60);
             S('yzm_'.$type.'_'.$phone,$code,300);
             $rdata['code'] = 1;
             $rdata['info'] = '验证码发送成功！';
