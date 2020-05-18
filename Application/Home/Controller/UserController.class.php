@@ -319,7 +319,7 @@ class UserController extends SiteController {
         $sdata['id']       = $userInfo['id'];
         $sdata['password'] = md5('blocktop_'.$password);
 
-        $res = $userMod->add($sdata);
+        $res = $userMod->save($sdata);
         if($res){
             S('yzm_3_'.$phone,null);
             $userMod->setLogin($userInfo['id']);
