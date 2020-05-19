@@ -683,25 +683,6 @@
         });
     })
 
-    $(".bscriptionBtn").click(function () {
-        var type=$(".bscriptionBtn").attr("type");
-        console.log(type);
-        console.log(author_id);
-        // return false;
-        $.ajax({
-            type:"post",
-            url:"/Home/User/subscribeAuthor",
-            data:{author_id:author_id,type:type},
-            dataType:'json',
-            success:function(data){
-                // console.log(data);
-                if(data.code==1){
-                    layer.msg(data.info);
-                }else{
-                    layer.msg(data.info);
-                }
-            }
-        });
-    })
+
 
 </script>
