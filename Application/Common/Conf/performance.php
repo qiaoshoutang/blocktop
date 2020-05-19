@@ -21,6 +21,7 @@ return array(
 	    'search/[:keyword]' =>'Home/Index/searchPage',
 	    'Apply' =>'Home/Index/apply',
 	    'Columns/[:id]' =>'Home/Index/column',
+	    'Author/[:author_id]' =>'Home/User/authorPage',
 	    
 	    
 	    

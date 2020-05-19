@@ -458,27 +458,31 @@
                 </div>
             </li>
         </ul>
-        <!--未登陆时状态-->
-        <div class="userbtn">
-            <div class="register">注册</div>
-            <div class="Sign-in">登录</div>
-        </div>
+        <!--{if condition="$loginInfo"}-->
         <!--登陆时状态-->
         <div class="when-landing">
             <div class="when-landing-Img">
-                <img src="images/userTxsa.png" alt="">
+                <img src="{$loginInfo['portrait']}" alt="">
             </div>
             <div class="usernamenumber">
+                <span>{$loginInfo['nickname']}</span>
             </div>
             <div class="user-window">
                 <ul>
-                    <li>我的主页</li>
+                    <li onclick='window.location.href="/Home/User/myPage"' >我的主页</li>
                     <li>切换账户</li>
                     <li>退出登陆</li>
                 </ul>
 
             </div>
         </div>
+        <!--{else /}-->
+        <!--未登陆时状态-->
+        <div class="userbtn">
+            <div class="register">注册</div>
+            <div class="Sign-in">登录</div>
+        </div>
+        <!--{/if}-->
     </div>
 
     <div class="search">

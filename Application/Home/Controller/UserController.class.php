@@ -16,6 +16,18 @@ class UserController extends SiteController {
     public function test(){
         session('home_user',['user_id'=>1]);
     }
+    //退出登录AJAX 接口
+    public function logout(){
+        session('home_user',null);
+        if(session('home_user')){
+            $rdata['code'] = 2;
+            $rdata['info'] = '退出登录失败！';
+            $this->ajaxReturn($rdata);
+        }
+        $rdata['code'] = 1;
+        $rdata['info'] = '退出登录成功！';
+        $this->ajaxReturn($rdata);
+    }
     
     //作者主页
     public function authorPage(){
@@ -69,7 +81,6 @@ class UserController extends SiteController {
             $record = $subscribeMod->where($sdata)->find();
             if($record){
                 $res = $subscribeMod->where(['id'=>$record['id']])->save(['time'=>time()]);
-                
             }else{
                 $sdata['time'] = time();
                 $res = $subscribeMod->add($sdata);
