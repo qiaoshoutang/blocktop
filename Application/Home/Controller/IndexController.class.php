@@ -117,7 +117,7 @@ class IndexController extends SiteController {
         $columnList  = $columnMod->where(['state'=>1])->order('order_id desc')->limit(10)->select();
 
         
-        
+//         dd($loginInfo);
         $this->assign('class_id',$class_id);
         $this->assign('newsCate',M('category')->where(['show'=>1])->order('sequence asc')->select());
         $this->assign('newsList',$newsList);

@@ -24,11 +24,10 @@ class SiteController extends BaseController {
             C('TPL_NAME' , C('MOBILE_TPL'));
         }
         
-        define('USER_ID',$this->isLogin());
-       
-        if(USER_ID){
-        	$map['id'] = USER_ID;
-        	$this->loginUserInfo = D('Home/Users')->getUserInfo($map);
+        $isLogin = $this->isLogin();
+        if($isLogin){
+            $loginInfo = M('users')->where(['id'=>$isLogin['user_id']])->find();
+            $this->assign('loginInfo',$loginInfo);
         }
    
     }
@@ -109,7 +108,7 @@ class SiteController extends BaseController {
     	if (empty($user)) {
     		return 0;
     	} else {
-    		return session('home_user_sign') == data_auth_sign($user) ? $user['user_id'] : 0;
+    	    return $user;
     	}
     }
 

@@ -299,7 +299,6 @@ a{
     top: 0;
     text-align: center;
     z-index: 99;
-    display: none;
 }
 .usernamenumber{
     height: 57px;
