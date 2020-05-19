@@ -69,7 +69,6 @@ class UserController extends SiteController {
             $record = $subscribeMod->where($sdata)->find();
             if($record){
                 $res = $subscribeMod->where(['id'=>$record['id']])->save(['time'=>time()]);
-                
             }else{
                 $sdata['time'] = time();
                 $res = $subscribeMod->add($sdata);
