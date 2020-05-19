@@ -55,7 +55,6 @@ class UserController extends SiteController {
             }
         }
         
-        
         $fans_num = M('subscribe')->where(['author_id'=>$author_id])->count();
         $authorInfo['fans_num'] = $fans_num;
         
@@ -65,8 +64,6 @@ class UserController extends SiteController {
         // 专栏列表
         $columnMod = D('Admin/Column');
         $columnList  = $columnMod->where(['state'=>1])->order('order_id desc')->limit(10)->select();
-        
-
         
         $this->assign('subscribe',$subscribe);
         $this->assign('authorInfo',$authorInfo);
