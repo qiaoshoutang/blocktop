@@ -36,11 +36,26 @@ class UserController extends SiteController {
         if(empty($author_id)){
             $this->error('抱歉！参数不能为空！');
         }
+
         $userMod  = D('Users');
         $authorInfo = $userMod->where(['id'=>$author_id])->find();
         if(empty($authorInfo)){
             $this->error('抱歉！找不到该作者！');
         }
+        
+        $userInfo = session('home_user');
+        $subscribe = 0;  //默认未订阅
+        if($userInfo){
+            if($userInfo['user_id'] == $author_id){ //跳转到自己的主页
+                $this->redirect('/Home/User/myPage');
+            }
+            $record = M('subscribe')->where(['user_id'=>$userInfo['user_id'],'author_id'=>$author_id])->find();
+            if($record){
+                $subscribe = 1; //已订阅
+            }
+        }
+        
+        
         $fans_num = M('subscribe')->where(['author_id'=>$author_id])->count();
         $authorInfo['fans_num'] = $fans_num;
         
@@ -51,7 +66,9 @@ class UserController extends SiteController {
         $columnMod = D('Admin/Column');
         $columnList  = $columnMod->where(['state'=>1])->order('order_id desc')->limit(10)->select();
         
+
         
+        $this->assign('subscribe',$subscribe);
         $this->assign('authorInfo',$authorInfo);
         $this->assign('articleList',$articleList);
         $this->assign('columnList',$columnList);
@@ -100,6 +117,7 @@ class UserController extends SiteController {
             $sdata['author_id'] = $author_id;
             
             $record = $subscribeMod->where($sdata)->find();
+
             if($record){
                 $res = $subscribeMod->where(['id'=>$record['id']])->delete();
             }else{

@@ -346,13 +346,13 @@
               <!--{if condition="$subscribeList"}-->
               <ul>
                   <!--{foreach name='subscribeList' item='vo' }-->
-                   <li>
+                   <li data='{$vo.id}' onclick='window.location.href="/Author/{$vo.id}"'>
                        <img src="images/xiugaiUsered.png" alt="" class="subscription-Tx">
                        <div class="subscriptionContent">
                            <p class="subscriptionTitle">{$vo.nickname}</p>
                            <p class="subscriptionText">{$vo.desc}</p>
                        </div>
-                       <div class="bscriptionBtn">
+                       <div class="bscriptionBtn" onclick='subscribe(this)' type='2'>
                             取消订阅
                        </div>
                    </li>
@@ -571,7 +571,7 @@
             }
         });
     });
-    
+
     $(".confirmbtn").click(function () {
         var ImgUrl = $(".txxg-Img").attr("src");
         console.log(ImgUrl);
@@ -603,8 +603,6 @@
 
 <script>
     var page_num = 2;
-    var author_id = 1;
-    $(".bscriptionBtn").attr("type","1");
 
     $(".closebtn").click(function () {
         $(".headImageNameTc").hide()
@@ -628,23 +626,7 @@
     /*修改名字*/
 
 
-    /*订阅与取消订阅按钮*/
-    $(".bscriptionBtn").click(function () {
-        var $this=$(this);
-        if($this.attr("type")==2){
-            $(this).css({
-                "background":"#999999",
-            });
-            $(this).html("取消订阅");
-            $this.attr("type","1")
-        }else {
-            $(this).css({
-                "background":"#D40507",
-            });
-            $(this).html("+订阅");
-            $this.attr("type","2")
-        }
-    });
+
     /*我的订阅与浏览历史切换*/
     $(".subhis ul li").click(function () {
        var $this=$(this);
@@ -662,7 +644,7 @@
            $(".subscription").hide();
            $(".historyrecord").show()
        }
-    });
+    })
 
 
     $('#news_more').click(function(){
@@ -683,6 +665,42 @@
         });
     })
 
+    function subscribe(para){
+        var o  = $(para);
+        var type = o.attr("type");
+        var author_id=o.parent('li').attr("data");
 
+
+        $.ajax({
+            type:"post",
+            url:"/Home/User/subscribeAuthor",
+            data:{author_id:author_id,type:type},
+            dataType:'json',
+            success:function(data){
+                // console.log(data);
+                if(data.code==1){
+                    layer.msg(data.info);
+                        /*订阅与取消订阅按钮*/
+
+                    if(type==1){
+                        o.css({
+                            "background":"#999999",
+                        });
+                        o.html("取消订阅");
+                        o.attr("type","2")
+                    }else {
+                        o.css({
+                            "background":"#D40507",
+                        });
+                        o.html("+订阅");
+                        o.attr("type","1")
+                    }
+
+                }else{
+                    layer.msg(data.info);
+                }
+            }
+        });
+    }
 
 </script>
