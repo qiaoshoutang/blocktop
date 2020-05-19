@@ -22,7 +22,7 @@ class AjaxController extends SiteController {
         
         $page_num = I('post.page_num',1,'intval');
         
-        $newsList = M('content')->where(['user_id'=>$user_info['user_id']])->field('content_id,title,description,image,time,views,author')->page($page_num,10)
+        $newsList = M('content')->where(['author_id'=>$user_info['user_id']])->field('content_id,title,description,image,time,views,author')->page($page_num,10)
                                 ->order('content_id desc')->select();
         if(empty($newsList)){
             $rdata['code'] = 2;
