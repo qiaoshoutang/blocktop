@@ -214,12 +214,91 @@
         line-height: 48px;
         text-align: center;
     }
-    .SwBtn{
+    .SwBtn,#CopyrightNotice{
+        cursor: pointer;
+    }
+    .Copyright-notice{
+        width: 100%;
+        height: 100%;
+        position: fixed;
+        z-index: 999;
+        top: 0;
+        background: rgba(0,0,0,.5);
+        display: none;
+    }
+    .Copyright-notice-div{
+        width: 500px;
+        height: 550px;
+        background: whitesmoke;
+        position: absolute;
+        top: 0;
+        right: 0;
+        left: 0;
+        bottom: 0;
+        margin: auto;
+        border-radius: 8px;
+    }
+    .Copyright-notice-div h3{
+        width: 100%;
+        text-align: center;
+        margin-top: 25px;
+    }
+    .Copyright-notice-content{
+        width: 85%;
+        margin: 30px auto 0 auto;
+        font-size: 14px;
+        letter-spacing: 1.2px;
+        line-height: 175%;
+        color: #3d3c3d;
+        text-align: justify;
+    }
+    .Copyright-notice-content p{
+        margin-top: 10px;
+    }
+    #noticeClose{
+        position: absolute;
+        right: 20px;
+        top: 20px;
         cursor: pointer;
     }
 </style>
 <!--底部-->
 <div class="food-nav">
+    <!--版权声明-->
+    <div class="Copyright-notice">
+        <div class="Copyright-notice-div">
+            <div id="noticeClose">
+                <img src="/themes/default/images/guanbi.png" alt="">
+            </div>
+
+            <h3>版权声明</h3>
+            <div class="Copyright-notice-content">
+                <p>
+                    1、本网站刊载的所有内容，包括但不限于文字报道、图片、视频、图表、标志\标识、商标、
+                    版面设计、专栏目录与名称、内容分类标准等，均受我国相关法律及适用之国际公约中有关
+                    著作权、商标权、专利权以及或其它财产所有权法律的保护，相应的版权或许可使用权均属
+                    本网站所有。
+                </p>
+                <p>
+                    2、未经书面授权或许可，任何媒体、网站及个人不得转载、复制、重制、改动、展示或使用界面网站的局部或全部的内容或服务。如果已转载，请自行删除。同时，我们保留进一步追究相关行为主体的法律责任的权利。
+                </p>
+                <p>
+                    3、希望我们与之合作的各媒体，敬请签订有偿使用许可合同。
+                </p>
+                <p>
+                    4、已经本网站授权使用的，应按照授权所约定条款使用。
+                </p>
+                <p>
+                    5、本网站摘录或转载的属于第三方的信息，目的在于传递更多信息，并不对其真实性负责，转载信息版权属于原媒体及作者。如擅自转载使用的，法律责任自行负担。
+                </p>
+                <p>
+                    6、凡违反上述声明者，我们必将依法追究其法律责任。
+                </p>
+            </div>
+
+        </div>
+
+    </div>
     <div class="Business_Cooperation">
         <div class="content-wrapper">
             <div class="content-wrapper-H">
@@ -255,7 +334,7 @@
                     <div>关于我们</div>
                     <p><a href="http://blocktop.cn/description">头条介绍</a></p>
                     <p class="SwBtn">商务合作</p>
-                    <p>版权声明</p>
+                    <p id="CopyrightNotice">版权声明</p>
                 </li>
                 <!--联系我们-->
                 <li>
@@ -346,7 +425,7 @@
     </div>
     <div class="Right-belonging">
         <div style="margin-right: 25px">
-        Copyright ©2019 blocktop.cn <span style="margin-left: 50px">区块链头条版权所有</span>
+        闽CP备18014082号-12 Copyright ©2019 blocktop.cn <span style="margin-left: 50px">区块链头条版权所有</span>
         </div>
 
     </div>
@@ -359,8 +438,14 @@
 <script>
     $(".footer-close").click(function () {
         $(".Business_Cooperation").hide()
-    })
+    });
     $(".SwBtn").click(function () {
         $(".Business_Cooperation").show()
+    });
+    $("#CopyrightNotice").click(function () {
+        $(".Copyright-notice").show()
+    });
+    $("#noticeClose").click(function () {
+        $(".Copyright-notice").hide()
     })
 </script>

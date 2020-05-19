@@ -10,8 +10,20 @@
     <link rel="stylesheet" href="css/common.css?1254">
     <link rel="stylesheet" href="css/NewsInformation.css">
     <link rel="stylesheet" href="css/specialColumn.css">
+
 </head>
 <style>
+    * {
+        -webkit-box-sizing: unset!important;
+        -moz-box-sizing: unset!important;
+         box-sizing: unset!important;
+    }
+    *:before,
+    *:after {
+        -webkit-box-sizing: unset!important;
+        -moz-box-sizing: unset!important;
+        box-sizing: unset!important;
+    }
     body{
         background: white!important;
     }
@@ -48,10 +60,15 @@
         height: 100%;
         float: left;
     }
-    .usertopImg img{
+    .usertopImg-Tx img{
+       width: 100%;
+        margin-top: 8px;
+    }
+    .usertopImg-Tx{
         width: 84px;
         height: 84px;
-        margin-top: 8px;
+        border-radius: 50%;
+        overflow: hidden;
     }
     .modifyinformation{
         width: 90%;
@@ -72,7 +89,7 @@
     }
     .modifyUserName img{
         position: relative;
-        top: 2px;
+        top: -2px;
     }
     .InpUserName{
         border: none;
@@ -263,15 +280,19 @@
                <div class="RevisedInformation">
                    <div class="title-RevisedInfor">修改资料</div>
                    <!--上传头像-->
-                   <div class="txxg">
-                       <div class="txxgbtn">
-                            上传头像
+                   <div class="txxg" >
+                       <img src="" alt="" class="txxg-Img" width="100%">
+                       <div class="txxgbtn" data-toggle="modal" data-target="#avatar-modal">
+                           <!--<button type="button" class="btn"  data-toggle="modal" data-target="#avatar-modal">-->
+                               <!--修改头像-->
+                           <!--</button>-->
+                           修改头像
                        </div>
                    </div>
                    <!--昵称-->
                    <div class="nickname">
                        <span>昵称 : </span>
-                       <input type="text" placeholder="王宇翔王宇翔王宇翔" class="nicknameXg">
+                       <input type="text" placeholder="输入新昵称" class="nicknameXg">
                    </div>
 
                    <div class="confirmbtn">
@@ -288,7 +309,9 @@
            <div class="userContent">
                <!--用户头像-->
                <div class="usertopImg">
-                   <img src="{$userInfo.portrait|default='images/userTxsa.png'}" alt="" width="100%">
+                   <div class="usertopImg-Tx">
+                       <img src="{$userInfo.portrait|default='images/userTxsa.png'}" alt="" width="100%">
+                   </div>
                </div>
                <!--修改区-->
                <div class="modifyinformation">
@@ -410,6 +433,85 @@
                </div>
            </div>
        </div>
+       <link rel="stylesheet" href="/themes/default/TxXg/css/bootstrap-3.3.4.css">
+       <link rel="stylesheet" href="/themes/default/TxXg/css/cropper.min.css">
+       <link rel="stylesheet" href="/themes/default/TxXg/css/font-awesome.4.6.0.css">
+       <link rel="stylesheet" href="/themes/default/TxXg/css/qunit.css">
+       <link rel="stylesheet" href="/themes/default/TxXg/css/sitelogo.css">
+
+
+       <div class="user_pic">
+           <img src=""/>
+       </div>
+
+       <div class="modal fade" id="avatar-modal" aria-hidden="true" aria-labelledby="avatar-modal-label" role="dialog" tabindex="-1">
+           <div class="modal-dialog modal-lg">
+               <div class="modal-content">
+                   <!--<form class="avatar-form" action="upload-logo.php" enctype="multipart/form-data" method="post">-->
+                   <form class="avatar-form">
+                       <div class="modal-header">
+                           <button class="close" data-dismiss="modal" type="button">&times;</button>
+                           <h4 class="modal-title" id="avatar-modal-label">上传图片</h4>
+                       </div>
+                       <div class="modal-body">
+                           <div class="avatar-body">
+                               <div class="avatar-upload">
+                                   <input class="avatar-src" name="avatar_src" type="hidden">
+                                   <input class="avatar-data" name="avatar_data" type="hidden">
+                                   <label for="avatarInput" style="line-height: 35px;">图片上传</label>
+                                   <button class="btn btn-danger"  type="button" style="height: 35px;" onclick="$('input[id=avatarInput]').click();">请选择图片</button>
+                                   <span id="avatar-name"></span>
+                                   <input class="avatar-input hide" id="avatarInput" name="avatar_file" type="file"></div>
+                               <div class="row">
+                                   <div class="col-md-9">
+                                       <div class="avatar-wrapper"></div>
+                                   </div>
+                                   <div class="col-md-3">
+                                       <div class="avatar-preview preview-lg" id="imageHead"></div>
+                                       <!--<div class="avatar-preview preview-md"></div>
+                               <div class="avatar-preview preview-sm"></div>-->
+                                   </div>
+                               </div>
+                               <div class="row avatar-btns">
+                                   <div class="col-md-4">
+                                       <div class="btn-group">
+                                           <button class="btn btn-danger fa fa-undo" data-method="rotate" data-option="-90" type="button" title="Rotate -90 degrees"> 向左旋转</button>
+                                       </div>
+                                       <div class="btn-group">
+                                           <button class="btn  btn-danger fa fa-repeat" data-method="rotate" data-option="90" type="button" title="Rotate 90 degrees"> 向右旋转</button>
+                                       </div>
+                                   </div>
+                                   <div class="col-md-5" style="text-align: right;opacity: 0;pointer-events: none">
+                                       <button class="btn btn-danger fa fa-arrows" data-method="setDragMode" data-option="move" type="button" title="移动">
+							            <span class="docs-tooltip" data-toggle="tooltip" title="" data-original-title="$().cropper(&quot;setDragMode&quot;, &quot;move&quot;)">
+							            </span>
+                                       </button>
+                                       <button type="button" class="btn btn-danger fa fa-search-plus" data-method="zoom" data-option="0.1" title="放大图片">
+							            <span class="docs-tooltip" data-toggle="tooltip" title="" data-original-title="$().cropper(&quot;zoom&quot;, 0.1)">
+							              <!--<span class="fa fa-search-plus"></span>-->
+							            </span>
+                                       </button>
+                                       <button type="button" class="btn btn-danger fa fa-search-minus" data-method="zoom" data-option="-0.1" title="缩小图片">
+							            <span class="docs-tooltip" data-toggle="tooltip" title="" data-original-title="$().cropper(&quot;zoom&quot;, -0.1)">
+							              <!--<span class="fa fa-search-minus"></span>-->
+							            </span>
+                                       </button>
+                                       <button type="button" class="btn btn-danger fa fa-refresh" data-method="reset" title="重置图片">
+								            <span class="docs-tooltip" data-toggle="tooltip" title="" data-original-title="$().cropper(&quot;reset&quot;)" aria-describedby="tooltip866214">
+                                       </button>
+                                   </div>
+                                   <div class="col-md-3">
+                                       <button class="btn btn-danger btn-block avatar-save fa fa-save" type="button" data-dismiss="modal"> 保存修改</button>
+                                   </div>
+                               </div>
+                           </div>
+                       </div>
+                   </form>
+               </div>
+           </div>
+       </div>
+
+       <div class="loading" aria-label="Loading" role="img" tabindex="-1"></div>
 
 
        <!--底部-->
@@ -418,8 +520,87 @@
 
 </body>
 </html>
+
+<script src="/themes/default/TxXg/js/jquery-1.10.2.js"></script>
+<script src="/themes/default/TxXg/js/bootstrap-3.3.4.js"></script>
+<script src="/themes/default/TxXg/js/sitelogo.js"></script>
+<script src="/themes/default/TxXg/js/qunit.js"></script>
+<script src="/themes/default/TxXg/js/cropper.min.js"></script>
+<script src="/themes/default/TxXg/js/cropper.js"></script>
 <script src="js/jquery-3.2.1.min.js"></script>
 <script src="js/layui/layui.all.js"></script>
+<script src="/themes/default/TxXg/js/html2canvas.min.js" type="text/javascript" charset="utf-8"></script>
+
+<script type="text/javascript">
+    //做个下简易的验证  大小 格式
+    $('#avatarInput').on('change', function(e) {
+        var filemaxsize = 1024 * 5;//5M
+        var target = $(e.target);
+        var Size = target[0].files[0].size / 1024;
+        if(Size > filemaxsize) {
+            alert('图片过大，请重新选择!');
+            $(".avatar-wrapper").childre().remove;
+            return false;
+        }
+        if(!this.files[0].type.match(/image.*/)) {
+            alert('请选择正确的图片!')
+        } else {
+            var filename = document.querySelector("#avatar-name");
+            var texts = document.querySelector("#avatarInput").value;
+            var teststr = texts; //你这里的路径写错了
+            testend = teststr.match(/[^\\]+\.[^\(]+/i); //直接完整文件名的
+            filename.innerHTML = testend;
+        }
+
+    });
+
+    $(".avatar-save").on("click", function() {
+        var img_lg = document.getElementById('imageHead');
+        // 截图小的显示框内的内容
+        html2canvas(img_lg, {
+            allowTaint: true,
+            taintTest: false,
+            onrendered: function(canvas) {
+                canvas.id = "mycanvas";
+                //生成base64图片数据
+                var dataUrl = canvas.toDataURL("image/jpeg");
+                var newImg = document.createElement("img");
+                newImg.src = dataUrl;
+                console.log(dataUrl);
+                $('.txxg-Img').attr('src',dataUrl );
+            }
+        });
+    });
+
+    $(".confirmbtn").click(function () {
+        var ImgUrl = $(".txxg-Img").attr("src");
+        console.log(ImgUrl);
+         $(".usertopImg-Tx img").attr("src",ImgUrl);
+         var nameUrl = $(".nicknameXg").val();
+         console.log(nameUrl);
+         $(".InpUserName").attr("value",nameUrl);
+         $(".headImageNameTc").hide()
+    })
+
+    // function imagesAjax(src) {
+    //     var data = {};
+    //     data.img = src;
+    //     data.jid = $('#jid').val();
+    //     $.ajax({
+    //         url: "upload-logo.php",
+    //         data: data,
+    //         type: "POST",
+    //         dataType: 'json',
+    //         success: function(re) {
+    //             if(re.status == '1') {
+    //                 $('.tx_test img').attr('src',src );
+    //             }
+    //         }
+    //     });
+    // }
+</script>
+
+
 <script>
     var page_num = 2;
 
