@@ -139,6 +139,22 @@ class IndexController extends SiteController {
         
         $contentInfo = $contentMod->getInfo($content_id);
         $contentInfo['content'] = html_out($contentInfo['content']);
+        
+        //如果用户登录  添加浏览历史
+        $home_user = session('home_user');
+
+        if($home_user){
+            $historMod = M('history');
+            $hdata['user_id'] = $home_user['user_id'];
+            $hdata['article_id'] = $content_id;
+            $exist = $historMod->where($hdata)->field('id')->find();
+            if($exist){ //浏览记录已存在   更新浏览时间
+                $historMod->save(['id'=>$exist['id'],'time'=>time()]);
+            }else{      //无浏览记录 则新增记录
+                $hdata['time'] = time();
+                $historMod->add($hdata);
+            }
+        }
 
         //热门新闻
         $newsList = M('content')->where(['status'=>2])->field('content_id,title,description,image,time,views')->limit(6)
@@ -146,24 +162,19 @@ class IndexController extends SiteController {
         if($newsList){
             $newsFirst = array_shift($newsList);
             $this->assign('newsFirst',$newsFirst);
-        }
-                    
+        }        
         
         //快讯
         $map['state'] = 2;
         $messageMod = D('Article/Message');
-        
         $messageList = $messageMod->loadList($map,3);
-        
         
         //推荐导航
         $naviList = D('Admin/Navi')->loadList(['recom'=>1],'0,5');
         
-
         $this->assign('newsList',$newsList);
         $this->assign('messageList',$messageList);
         $this->assign('naviList',$naviList);
-        
         $this->assign('contentInfo',$contentInfo);
         $this -> siteDisplay('newsContent');
     }

@@ -12,6 +12,74 @@ class AjaxController extends SiteController {
     
 
     /*
+     * 作者主页 ajax更多文章
+     */
+    public function get_author_article(){
+        
+        $page_num = I('post.page_num',1,'intval');
+        
+        $newsList = M('content')->where($where)->field('content_id,title,description,image,time,views,author')->page($page_num,10)
+                                ->order('content_id desc')->select();
+        if(empty($newsList)){
+            $rdata['code'] = 2;
+            $rdata['info'] = '已经没有更多了';
+            $this->ajaxReturn($rdata);
+        }
+        
+        foreach($newsList as $key=>$val){
+            $newsList[$key]['description'] = html_out($val['description']);
+        }
+        $this->assign('newsList',$newsList);
+        
+        $data = $this->fetch('news_list');
+
+        
+        $rdata['code'] = 1;
+        $rdata['info'] = '获取信息成功';
+        $rdata['data'] = $data;
+        $this->ajaxReturn($rdata);
+    }
+    
+
+    /*
+     * 更多浏览历史
+     */
+    public function get_history(){
+        
+        $user_info = session('home_user');
+        if(empty($user_info)){
+            $this->error('您还未登陆，请先登录！');
+        }
+
+        $page_num = I('post.page_num',0,'intval');
+
+        $history_list = M('history')->where(['user_id'=>$user_info['user_id']])->order('time desc')->field('article_id')->page($page_num,10)->select();
+
+        $articleMod =  M('content');
+        $historyList = array();
+        foreach($history_list as $val){
+            $articleInfo = $articleMod->where(['content_id'=>$val['article_id']])->find();
+            if($articleInfo){
+                $historyList[] = $articleInfo;
+            }
+        }
+        if(empty($historyList)){
+            $rdata['code'] = 2;
+            $rdata['info'] = '已经没有更多了';
+            $this->ajaxReturn($rdata);
+        }
+        
+        $this->assign('historyList',$historyList);
+        $data = $this->fetch('history_list');
+        
+        $rdata['code'] = 1;
+        $rdata['info'] = '获取信息成功';
+        $rdata['data'] = $data;
+        $this->ajaxReturn($rdata);
+    }
+    
+    
+    /*
      * 更多新闻
      */
     public function get_news(){

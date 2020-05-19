@@ -19,8 +19,7 @@ class UserController extends SiteController {
     
     //作者主页
     public function authorPage(){
-//         $this -> siteDisplay('authorPage');
-//         exit;
+
         $author_id = I('request.author_id',0,'intval');
         if(empty($author_id)){
             $this->error('抱歉！参数不能为空！');
@@ -130,7 +129,7 @@ class UserController extends SiteController {
         }
         $userInfo['subscribe'] = count($subscribe_list);
         
-        $history_list = M('history')->where(['user_id'=>$userInfo['id']])->order('time desc')->field('article_id')->select();
+        $history_list = M('history')->where(['user_id'=>$userInfo['id']])->order('time desc')->field('article_id')->page(1,10)->select();
 
         $articleMod =  M('content');
         $historyList = array();

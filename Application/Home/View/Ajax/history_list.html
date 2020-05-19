@@ -1,0 +1,26 @@
+
+<foreach name='historyList' item='vo'>
+    <li onclick='window.location.href="/newsContent/{$vo.content_id}"'>
+        <div class="NewType-Detail">
+            <div class="NewTypeImg">
+                <div class="NewTypeImgBox">
+                <img src="{$vo.image}" alt="">
+                </div>
+            </div>
+            <div class="NewTypeText">
+                <div class="TextTitle">
+                    {$vo.title}
+                </div>
+                <div class="TextContent">
+                    {$vo.description}
+                </div>
+                <div class="TextSource">
+                    <span>{$vo.author}</span>
+                    <span>{$vo.time|format_time='Y-m-d H:i:s'}</span>
+                    <span class="Guankan"><img src="/themes/default/images/guankan.png" alt="" width="15px">{$vo.views}</span>
+                </div>
+
+            </div>
+        </div>
+    </li>
+</foreach>
