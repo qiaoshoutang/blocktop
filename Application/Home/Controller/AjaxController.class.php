@@ -15,10 +15,14 @@ class AjaxController extends SiteController {
      * 作者主页 ajax更多文章
      */
     public function get_author_article(){
+        $user_info = session('home_user');
+        if(empty($user_info)){
+            $this->error('您还未登陆，请先登录！');
+        }
         
         $page_num = I('post.page_num',1,'intval');
         
-        $newsList = M('content')->where($where)->field('content_id,title,description,image,time,views,author')->page($page_num,10)
+        $newsList = M('content')->where(['user_id'=>$user_info['user_id']])->field('content_id,title,description,image,time,views,author')->page($page_num,10)
                                 ->order('content_id desc')->select();
         if(empty($newsList)){
             $rdata['code'] = 2;
