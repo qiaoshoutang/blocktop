@@ -114,6 +114,7 @@ body{
 .NewType-Content ul li{
     width: 100%;
     height: 215px;
+    position: relative;
 
 }
 .NewType-Detail{
@@ -122,6 +123,7 @@ body{
     /*margin: 0 auto;*/
     position: relative;
     /*border-bottom: 1px #eeeeee solid;*/
+
 }
 .NewTypeImg{
     width: 30%;
@@ -137,6 +139,21 @@ body{
     overflow: hidden;
     width: 100%;
     height: 145px;
+    position: relative;
+}
+.NewTypeTop{
+    width: 56px;
+    height: 19px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    background: #e7141a;
+    border-radius: 2px;
+    color: white;
+    line-height: 19px;
+    display: none;
+    text-align: center;
+    font-size: 12px;
 }
 .NewTypeImgBox img{
    width: 100%;
@@ -345,10 +362,15 @@ body{
 .TextSource{
     position: relative;
 }
-.Guankan{
+.thumbs-up,.thumbs-Down{
     position: absolute;
     right: 25px;
-    top: 3px;
+    bottom: 30px;
+    z-index: 999;
+    cursor: pointer;
+}
+.Guankan{
+    margin-left: 10px;
 }
 .Guankan img{
     margin-right: 5px;

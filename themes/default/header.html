@@ -37,7 +37,7 @@
         height: 615px;
         background: white;
         border-radius: 8px;
-        display: none;
+        /*display: none;*/
     }
     .SMSLogin-frame{
         position: absolute;
@@ -50,7 +50,7 @@
         height: 470px;
         background: white;
         border-radius: 8px;
-        display: none;
+        /*display: none;*/
     }
     .SignFrame{
         position: absolute;
@@ -63,7 +63,7 @@
         height: 405px;
         background: white;
         border-radius: 8px;
-        display: none;
+        /*display: none;*/
 
     }
     .registerTitle{
@@ -224,7 +224,7 @@
     </div>
     <!--注册账户-->
     <form action="" onsubmit="return false">
-        <div class="reg-FraDiv-frame" id="reg-FraDiv-frame">
+        <div class="reg-FraDiv-frame" id="reg-FraDiv-frame" type="1">
             <div class="reg-FraDiv" id="reg-FraDiv">
 
                 <div class="registerTitle">
@@ -246,7 +246,7 @@
                 <!--验证码-->
                 <div class="Verification-Code" >
                     <input type="text" placeholder="验证码" class="Verification-Code-input">
-                    <button class="Verification-Code-btn" id="Verification-Code-btn" onclick='send_yzm(this)'>发送验证码</button>
+                    <button class="Verification-Code-btn" id="Verification-Code-btn" onclick='send_yzm(this)' type="1">发送验证码</button>
                 </div>
                 <!--密码-->
                 <div class="password">
@@ -268,7 +268,7 @@
     </form>
     <!--登录-->
     <form action="" onsubmit="return false">
-        <div class="SignFrame" id="SignFrame">
+        <div class="SignFrame" id="SignFrame" type="1">
             <div class="reg-FraDiv">
                 <div class="registerTitle">
                     账号密码登录
@@ -324,7 +324,7 @@
                 <!--验证码-->
                 <div class="Verification-Code">
                     <input type="text" placeholder="验证码" class="Verification-Code-input">
-                    <button class="VerificationFindpassword" id="VerificationFindpassword" onclick='send_yzm(this)'>发送验证码</button>
+                    <button class="VerificationFindpassword" id="VerificationFindpassword" onclick='send_yzm(this)' type="3">发送验证码</button>
                 </div>
                 <!--密码-->
                 <div class="password">
@@ -347,7 +347,7 @@
 
     <!--短信登录-->
     <form action="" onsubmit="return false">
-        <div class="SMSLogin-frame" id="SMSLogin-frame">
+        <div class="SMSLogin-frame" id="SMSLogin-frame" type="2">
             <div class="reg-FraDiv">
                 <div class="registerTitle">
                     短信登录
@@ -368,7 +368,7 @@
                 <!--验证码-->
                 <div class="Verification-Code">
                     <input type="text" placeholder="验证码" class="Verification-Code-input">
-                    <button class="VerificationCodeLogin" onclick='send_yzm(this)'>发送验证码</button>
+                    <button class="VerificationCodeLogin" onclick='send_yzm(this)' type="2">发送验证码</button>
                 </div>
                 <!--提交按钮-->
                 <button class="submitBtn">
@@ -469,7 +469,6 @@
                 <img src="images/userTxsa.png" alt="">
             </div>
             <div class="usernamenumber">
-                 18050793767
             </div>
             <div class="user-window">
                 <ul>
@@ -497,64 +496,69 @@
 <script src="js/jquery.js"></script>
 <script src="js/i18n.js"></script>
 <script src="js/jigsaw.js"></script>
+<script src="js/commom.js"></script>
 <script>
-
-
-
-
     layui.use('layer', function(){  //layer弹框
         var layer = layui.layer;
     });
-    //倒计时
     var countdown =60;
+    var Timeid;
+    //倒计时
+
     function send_yzm(val){
         var valClass=val.className;
+        // var valClass=val.className;
         var phone = $('.'+valClass+'').parent().siblings(".cell-phone-number").find("input").val();
-        console.log(phone);
+        // console.log($('.'+valClass+'').attr("type"))
+        var type=$('.'+valClass+'').attr("type");
+
         $.ajax({
             type:"post",
             url:"/Home/User/send_code",
-            data:{phone:phone},
+            data:{phone:phone,type:type},
             dataType:'json',
             success:function(data){
                 console.log(data);
-                if(data.code==1){ // 显示用户数据 隐藏输入框
-                    settime(val);
-                }else{
-                    console.log(data);
+                if(data.code==1){
+                    settime(val)
+                }
+                if(data.code==3){
+                    layer.msg(data.info+"，距离下次发送还有"+(60-(data.data))+"秒");
+                }
+                else{
+                    layer.msg(data.info);
+                    return false
                 }
             }
         });
-
     }
-
-
     /*倒计时*/
         function settime(val){
             var valClass=val.className;
-            if (countdown == 0) {
-                // console.log($('.'+valClass+''));
+            if (countdown == 0){
                 $('.'+valClass+'').css({
                     "pointer-events":"",
                     "background":"#0c7ff2"
                 });
                 val.innerHTML = "发送验证码";
-                console.log(countdown);
                 countdown = 60;
-                return false;
-            } else {
-                // console.log(val)
+                return false
+            }
+            else {
                 $('.'+valClass+'').css({
                     "pointer-events":"none",
                     "background":"#aaaaaa"
                 });
                 val.innerHTML = "重新发送(" + countdown + ")";
                 countdown--;
+                console.log(countdown)
             }
-            setTimeout(function () {
-                settime(val);
-            }, 1000);
+            Timeid=setTimeout(function() {
+                    settime(val);
+                }, 1000);
         }
+
+
 
     /*四个表单提交*/
     /*注册登录*/
@@ -596,10 +600,11 @@
                 dataType:'json',
                 success:function(data){
                     console.log(data);
-                    if(data.code==1){ // 显示用户数据 隐藏输入框
+                    if(data.code==1){
                         layer.msg('注册成功');
+                        location.reload()
                     }else{
-                        console.log(data);
+                        console.log(data.info);
                     }
                 }
             });
@@ -610,7 +615,8 @@
         var number = /^1([358][0-9]|4[579]|66|7[0135678]|9[89])[0-9]{8}$/;
         var phone_number=$("#SignFrame .cell-phone-number-input").val();
         var password=$("#SignFrame .password input").val();
-
+        var type=$("#SignFrame").attr("type");
+        console.log(type);
         if(phone_number==''||phone_number=='null'){
             layer.msg('您的电话不能为空');
             return false
@@ -624,8 +630,25 @@
             return false
         }
         else {
-            // $(".VerificationImgBtn").removeClass("wyx")
-            layer.msg('登录成功');
+            $.ajax({
+                type:"post",
+                url:"/Home/User/accountLogin",
+                data:{phone:phone_number,password:password,type:type},
+                dataType:'json',
+                success:function(data){
+                    console.log(data);
+                    if(data.code==1){
+                        // console.log(data.data.nickname)
+                        layer.msg('登录成功');
+                        // location.reload();
+                        // $(".userbtn").hide();
+                        // $(".when-landing").show();
+                        // $(".usernamenumber").html(data.data.nickname);
+                    }else{
+                        console.log(data.info);
+                    }
+                }
+            });
         }
     });
     /*找回密码*/
@@ -634,7 +657,8 @@
         var phone_number=$("#retrieve-password-frame .cell-phone-number-input").val();
         var againNewPassword=$("#retrieve-password-frame .againNewPassword").val();
         var newPassword=$("#retrieve-password-frame .newPassword").val();
-        var Verification_Code=$("#retrieve-password-frame .Verification-Code-input").val()
+        var Verification_Code=$("#retrieve-password-frame .Verification-Code-input").val();
+
         if(phone_number==''||phone_number=='null'){
             layer.msg('您的电话不能为空');
             return false
@@ -665,15 +689,29 @@
         }
 
         else {
-            // $(".VerificationImgBtn").removeClass("wyx")
-            layer.msg('密码修改成功');
+            $.ajax({
+                type:"post",
+                url:"/Home/User/getPassword",
+                data:{phone:phone_number,password:newPassword,repassword:againNewPassword,code:Verification_Code},
+                dataType:'json',
+                success:function(data){
+                    console.log(data);
+                    if(data.code==1){ // 显示用户数据 隐藏输入框
+                        layer.msg('修改成功');
+                        location.reload()
+                    }else{
+                        console.log(data);
+                    }
+                }
+            });
         }
     });
     /*短信登录*/
     $("#SMSLogin-frame .submitBtn").click(function () {
         var number = /^1([358][0-9]|4[579]|66|7[0135678]|9[89])[0-9]{8}$/;
         var phone_number=$("#SMSLogin-frame .cell-phone-number-input").val();
-        var Verification_Code=$("#SMSLogin-frame .Verification-Code-input").val()
+        var Verification_Code=$("#SMSLogin-frame .Verification-Code-input").val();
+        var type=$("#SMSLogin-frame").attr("type");
         if(phone_number==''||phone_number=='null'){
             layer.msg('您的电话不能为空');
             return false
@@ -691,8 +729,21 @@
             return false
         }
         else {
-            // $(".VerificationImgBtn").removeClass("wyx")
-            layer.msg('登录成功');
+            $.ajax({
+                type:"post",
+                url:"/Home/User/accountLogin",
+                data:{phone:phone_number,code:Verification_Code,type:type},
+                dataType:'json',
+                success:function(data){
+                    console.log(data);
+                    if(data.code==1){
+                        layer.msg('登录成功');
+                        location.reload()
+                    }else{
+                        console.log(data);
+                    }
+                }
+            });
         }
     });
 
@@ -701,7 +752,8 @@
 
 
     /*滑动验证*/
-    $(".VerificationImgBtn").click(function () {
+
+     $(document).on('click','.VerificationImgBtn',function() {
         var $this=$(this);
         $(".slide-verification").show();
         $(this).css({
@@ -731,11 +783,8 @@
          $(".Headline-register").hide()
     });
 
-
-
-
     /*注册*/
-    $(".register").click(function () {
+    $(document).on('click','.register',function() {
         $("#reg-FraDiv-frame").show();
         $(".Headline-register").show()
         $("#retrieve-password-frame").hide();
@@ -743,7 +792,7 @@
         $("#SMSLogin-frame").hide()
     });
     /*登录*/
-    $(".Sign-in").click(function () {
+    $(document).on('click','.Sign-in',function() {
         $("#SignFrame").show();
         $("#reg-FraDiv-frame").hide();
         $(".Headline-register").show();
@@ -751,33 +800,45 @@
         $("#SMSLogin-frame").hide()
     });
     /*注册新账号*/
-    $(".reg-newAccount").click(function () {
+    $(document).on('click','.reg-newAccount',function() {
         $("#reg-FraDiv-frame").show();
         $("#SignFrame").hide();
-        $("#retrieve-password-frame").hide()
-    });
+        $("#retrieve-password-frame").hide();
+        clearTimeout(Timeid);
+        countdown =60;
+        $("#reg-FraDiv-frame").load(location.href + " #reg-FraDiv-frame")
+    })
     /*找回密码*/
-    $(".findPassword").click(function () {
-        $("#reg-FraDiv-frame").hide()
-        $("#SignFrame").hide()
-        $("#retrieve-password-frame").show()
+    $(document).on('click','.findPassword',function() {
+        $("#reg-FraDiv-frame").hide();
+        $("#SignFrame").hide();
+        $("#retrieve-password-frame").show();
+        clearTimeout(Timeid);
+        countdown =60;
+        $("#retrieve-password-frame").load(location.href + " #retrieve-password-frame")
     });
     /*直接登录*/
-    $(".Sign-in-frame").click(function () {
+    $(document).on('click','.Sign-in-frame',function() {
         $("#reg-FraDiv-frame").hide();
         $("#SignFrame").show();
         $("#retrieve-password-frame").hide();
+        clearTimeout(Timeid);
+        countdown =60;
+
     });
     /*账号登录*/
-    $(".account-login").click(function () {
+    $(document).on('click','.account-login',function() {
         $("#SignFrame").show();
         $(".SMSLogin-frame").hide()
     });
     /*短信登录*/
-    $(".SMS-login").click(function () {
+    $(document).on('click','.SMS-login',function() {
         $("#SignFrame").hide();
-        $(".SMSLogin-frame").show()
-    })
+        $(".SMSLogin-frame").show();
+        clearTimeout(Timeid);
+        countdown =60;
+        $("#SMSLogin-frame").load(location.href + " #SMSLogin-frame")
+    });
 
 
     // $(".userbtn").click(function () {

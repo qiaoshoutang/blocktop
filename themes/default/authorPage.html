@@ -152,20 +152,19 @@
             </div>
             <!--修改区-->
             <div class="modifyinformation">
-                <p>
-                    <input type="text" placeholder="{$authorInfo.nickname}" class="InpUserName">
+                <p class="InpUserName">{$authorInfo.nickname}</p>
+                    <!--<input type="text" placeholder="{$authorInfo.nickname}" class="InpUserName">-->
                     <!--<span class="modifyUserName"><img src="images/xiugaiUser.png" alt="修改"></span>-->
-                </p>
+
                 <p class="modifysonp">
                     <span class="AboutAuthor">作者简介 : {$authorInfo.desc}</span>
                     <span style="position: relative;top: -3px">粉丝 : <span style="color: #D40507;font-size: 18px">{$authorInfo.fans_num}</span></span>
                 </p>
             </div>
             <!--订阅-->
-            <div class="bscriptionBtn">
+            <div class="bscriptionBtn" type="2">
                 +订阅
             </div>
-
         </div>
     </div>
     <!--主要内容-->
@@ -255,7 +254,8 @@
 <script src="js/layui/layui.all.js"></script>
 <script>
 
-
+    var page_num=2;
+    var author_id = 1;
     $(function(){
         //propertychange监听input里面的字符变化,属性改变事件
         $('.zy-price').bind('input propertychange', function() {
@@ -263,14 +263,14 @@
             console.log($this);
             var text_length = $this.val().length;//获取当前文本框的长度
             var current_width = parseInt(text_length) *16;//该16是改变前的宽度除以当前字符串的长度,算出每个字符的长度
-            console.log(current_width)
+            console.log(current_width);
             $this.css("width",current_width+"px");
         });
     })
 
 
 
-    $(".bscriptionBtn").attr("wyx","1");
+    $(".bscriptionBtn").attr("type","2");
     layui.use('layer', function(){  //layer弹框
         var layer = layui.layer;
     });
@@ -283,20 +283,61 @@
     });
 
     /*订阅与取消订阅按钮*/
+    /*
+    * type=1(订阅)；type=2（取消订阅）*/
     $(".bscriptionBtn").click(function () {
         var $this=$(this);
-        if($this.attr("wyx")==1){
+        if($this.attr("type")==2){
             $(this).css({
                 "background":"#999999",
             });
             $(this).html("取消订阅");
-            $this.attr("wyx","0")
+            $this.attr("type","1")
         }else {
             $(this).css({
                 "background":"#D40507",
             });
             $(this).html("+订阅");
-            $this.attr("wyx","1")
+            $this.attr("type","2")
         }
     });
+
+    $('#news_more').click(function(){
+        $.ajax({
+            type:"post",
+            url:"/Home/Ajax/get_author_article",
+            data:{page_num:page_num},
+            dataType:'json',
+            success:function(data){
+                console.log(data)
+                if(data.code==1){
+                    $('.NewType-Content ul').append(data.data);
+                    page_num++;
+                }else{
+                    $('#news_more').html(data.info);
+                }
+            }
+        });
+    });
+
+    $(".bscriptionBtn").click(function () {
+        var type=$(".bscriptionBtn").attr("type");
+        console.log(type);
+        console.log(author_id);
+        // return false;
+        $.ajax({
+            type:"post",
+            url:"/Home/User/subscribeAuthor",
+            data:{author_id:author_id,type:type},
+            dataType:'json',
+            success:function(data){
+                console.log(data);
+                if(data.code==1){
+                    layer.msg(data.info);
+                }else{
+                    layer.msg(data.info);
+                }
+            }
+        });
+    })
 </script>

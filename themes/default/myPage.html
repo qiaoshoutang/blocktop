@@ -140,7 +140,7 @@
     .bscriptionBtn{
         width:120px ;
         height: 35px;
-        background: #D40507;
+        background: #999999;
         color: white;
         line-height: 35px;
         text-align: center;
@@ -165,11 +165,124 @@
         min-height: 0px;
         border: 1px #e0e3e7 solid;
         border-radius: 4px;
+        margin-bottom: 30px;
+    }
+    .headImageNameTc{
+        position:fixed ;
+        background: rgba(0,0,0,.5);
+        width: 100%;
+        height: 100%;
+        z-index: 1000;
+        display: none;
+    }
+    .headImageNameTcDo{
+        background: white;
+        position: absolute;
+        margin: auto;
+        right: 0;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        height: 412px;
+        width: 440px;
+        border-radius: 8px;
+    }
+    .txxg{
+        width: 141px;
+        height: 141px;
+        margin: 30px auto 0 auto;
+        border-radius: 50%;
+        background: #00aff2;
+        background: url("images/xiugaiUsered.png")top center;
+        background-size: 100% 100%;
+        position: relative;
+        overflow: hidden;
+
+    }
+    .txxgbtn{
+        width:100% ;
+        height: 40px;
+        position: absolute;
+        background: rgba(0,0,0,.4)no-repeat top;
+        bottom: 0;
+        line-height: 30px;
+        text-align: center;
+        color: white;
+        letter-spacing: 1px;
+        cursor: pointer;
+    }
+    .title-RevisedInfor{
+        margin: 0 auto;
+        width: 80%;
+        text-align: left;
+        font-size: 22px;
+        padding-top: 40px;
+    }
+    .nickname{
+        width: 100%;
+        text-align: center;
+        margin-top: 30px;
+    }
+    .nicknameXg{
+        width: 270px;
+        height: 30px;
+        border: 1px #e0e3e7 solid;
+        border-radius: 4px;
+    }
+    .confirmbtn{
+        width:151px ;
+        height: 36px;
+        background: #0c7ff2;
+        border-radius: 6px;
+        margin: 0 auto;
+        color: white;
+        text-align: center;
+        line-height: 36px;
+        font-size: 18px;
+        margin-top: 30px;
+        cursor: pointer;
+    }
+    .closebtn{
+        position: absolute;
+        right: 35px;
+        top: 45px;
+        cursor: pointer;
     }
 </style>
 <body>
    <div class="box">
        <!--导航栏-->
+       <!--弹窗（修改头像名字）-->
+       <div class="headImageNameTc">
+           <div class="headImageNameTcDo">
+               <!--关闭按钮-->
+               <div class="closebtn">
+                   <img src="images/guanbi.png" alt="">
+               </div>
+               <!--修改资料-->
+               <div class="RevisedInformation">
+                   <div class="title-RevisedInfor">修改资料</div>
+                   <!--上传头像-->
+                   <div class="txxg">
+                       <div class="txxgbtn">
+                            上传头像
+                       </div>
+                   </div>
+                   <!--昵称-->
+                   <div class="nickname">
+                       <span>昵称 : </span>
+                       <input type="text" placeholder="王宇翔王宇翔王宇翔" class="nicknameXg">
+                   </div>
+
+                   <div class="confirmbtn">
+                       确认
+                   </div>
+
+               </div>
+
+           </div>
+
+       </div>
        <!--#include file="header.html"-->
        <div class="userBackground">
            <div class="userContent">
@@ -308,8 +421,20 @@
 <script src="js/jquery-3.2.1.min.js"></script>
 <script src="js/layui/layui.all.js"></script>
 <script>
-
+    var page_num = 2;
+    var author_id = 1;
     $(".bscriptionBtn").attr("wyx","1");
+
+    $(".closebtn").click(function () {
+        $(".headImageNameTc").hide()
+    });
+    $(".modifyUserName img").click(function () {
+        $(".headImageNameTc").show()
+        // $(".InpUserName").css({
+        //     ".pointer-events":"all",
+        // });
+        // $(".InpUserName").focus();
+    });
 
 
     layui.use('layer', function(){  //layer弹框
@@ -320,28 +445,23 @@
         layer.msg('该功能暂未开放，可咨询客服申请头条作者');
     });
     /*修改名字*/
-    $(".modifyUserName img").click(function () {
-        $(".InpUserName").css({
-            ".pointer-events":"all",
-        });
-        $(".InpUserName").focus();
-    });
+
 
     /*订阅与取消订阅按钮*/
     $(".bscriptionBtn").click(function () {
-       var $this=$(this);
-        if($this.attr("wyx")==1){
+        var $this=$(this);
+        if($this.attr("type")==2){
             $(this).css({
                 "background":"#999999",
             });
-            $(this).html("+订阅");
-            $this.attr("wyx","0")
+            $(this).html("取消订阅");
+            $this.attr("type","1")
         }else {
             $(this).css({
                 "background":"#D40507",
             });
-            $(this).html("取消订阅");
-            $this.attr("wyx","1")
+            $(this).html("+订阅");
+            $this.attr("type","2")
         }
     });
     /*我的订阅与浏览历史切换*/
@@ -361,6 +481,46 @@
            $(".subscription").hide();
            $(".historyrecord").show()
        }
+    })
+
+
+    $('#news_more').click(function(){
+        $.ajax({
+            type:"post",
+            url:"/Home/Ajax/get_history",
+            data:{page_num:page_num},
+            dataType:'json',
+            success:function(rdata){
+                // console.log(rdata)
+                if(rdata.code==1){
+                    $('.NewType-Content ul').append(rdata.data);
+                    page_num++;
+                }else{
+                    $('#news_more').html(rdata.info);
+                }
+            }
+        });
+    })
+
+    $(".bscriptionBtn").click(function () {
+        var type=$(".bscriptionBtn").attr("type");
+        console.log(type);
+        console.log(author_id);
+        // return false;
+        $.ajax({
+            type:"post",
+            url:"/Home/User/subscribeAuthor",
+            data:{author_id:author_id,type:type},
+            dataType:'json',
+            success:function(data){
+                // console.log(data);
+                if(data.code==1){
+                    layer.msg(data.info);
+                }else{
+                    layer.msg(data.info);
+                }
+            }
+        });
     })
 
 </script>
