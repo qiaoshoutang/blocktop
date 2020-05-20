@@ -462,7 +462,7 @@
         <!--登陆时状态-->
         <div class="when-landing">
             <div class="when-landing-Img">
-                <img src="{$loginInfo['portrait']}" alt="">
+                <img src="{$loginInfo['portrait']}" alt="" style="border-radius: 50%">
             </div>
             <div class="usernamenumber">
                 <span class="usernamenumber">{$loginInfo['nickname']}</span>
@@ -911,10 +911,12 @@ $('.search-s').click(function(){
             data:{},
             dataType:'json',
             success:function(data){
-                console.log(data.code);
+                console.log(data);
                 if(data.code==1){
-                    location.reload();
                     layer.msg(data.info);
+                    setTimeout(function () {
+                        location.reload();
+                    },1000)
                 }else{
 
                     // console.log(data.info);
@@ -933,8 +935,10 @@ $('.search-s').click(function(){
             success:function(data){
                 console.log(data.code);
                 if(data.code==1){
-                    location.reload();
-                    layer.msg(data.info);
+                    layer.msg("切换成功");
+                    setTimeout(function () {
+                        location.reload();
+                    },1000)
                 }else{
                     // console.log(data.info);
                     layer.msg(data.info);

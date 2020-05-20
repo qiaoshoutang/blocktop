@@ -3,7 +3,10 @@
   <component name="ChangeListManager">
     <list default="true" id="61e532fc-5bde-49c0-8b0f-0778b7705177" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/default/css/common.css" beforeDir="false" afterPath="$PROJECT_DIR$/themes/default/css/common.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/themes/default/header.html" beforeDir="false" afterPath="$PROJECT_DIR$/themes/default/header.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/default/js/i18n.js" beforeDir="false" afterPath="$PROJECT_DIR$/themes/default/js/i18n.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/default/myPage.html" beforeDir="false" afterPath="$PROJECT_DIR$/themes/default/myPage.html" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/bin/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -36,33 +39,33 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="css" value="87" />
-          <entry key="html" value="126" />
-          <entry key="js" value="15" />
+          <entry key="css" value="89" />
+          <entry key="html" value="127" />
+          <entry key="js" value="16" />
           <entry key="php" value="12" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="CSS" value="87" />
-          <entry key="HTML" value="126" />
-          <entry key="JavaScript" value="15" />
+          <entry key="CSS" value="89" />
+          <entry key="HTML" value="127" />
+          <entry key="JavaScript" value="16" />
           <entry key="PHP" value="12" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="css" value="1148" />
-          <entry key="html" value="10847" />
-          <entry key="js" value="137" />
+          <entry key="css" value="1169" />
+          <entry key="html" value="10890" />
+          <entry key="js" value="139" />
           <entry key="php" value="84" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="CSS" value="1148" />
-          <entry key="HTML" value="10847" />
-          <entry key="JavaScript" value="137" />
+          <entry key="CSS" value="1169" />
+          <entry key="HTML" value="10890" />
+          <entry key="JavaScript" value="139" />
           <entry key="PHP" value="84" />
         </counts>
       </usages-collector>
@@ -73,12 +76,21 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/themes/default/header.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="198">
-              <caret line="651" column="42" lean-forward="true" selection-start-line="651" selection-start-column="24" selection-end-line="651" selection-end-column="42" />
+            <state relative-caret-position="453">
+              <caret line="937" column="38" lean-forward="true" selection-start-line="937" selection-start-column="38" selection-end-line="937" selection-end-column="38" />
               <folding>
-                <element signature="n#style#0;n#!!top" />
                 <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#img#0;n#div#0;n#div#0;n#div#1;n#div#1;n#!!top" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/themes/default/css/common.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="345">
+              <caret line="329" column="19" selection-start-line="329" selection-start-column="19" selection-end-line="329" selection-end-column="19" />
             </state>
           </provider>
         </entry>
@@ -86,15 +98,25 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/themes/default/myPage.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="289">
-              <caret line="565" column="38" selection-start-line="565" selection-start-column="38" selection-end-line="565" selection-end-column="38" />
+            <state relative-caret-position="258">
+              <caret line="619" column="38" selection-start-line="619" selection-start-column="22" selection-end-line="619" selection-end-column="38" />
               <folding>
                 <element signature="n#style#0;n#span#0;n#span#2;n#p#1;n#div#1;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="e#13821#13828#1" expanded="true" />
+                <element signature="n#div#4;n#div#0;n#body#0;n#html#0;n#!!top" />
+                <element signature="e#14099#14106#1" expanded="true" />
                 <element signature="n#style#0;n#label#0;n#div#0;n#div#0;n#div#1;n#form#0;n#div#0;n#div#0;n#div#4;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#button#0;n#div#0;n#div#0;n#div#1;n#form#0;n#div#0;n#div#0;n#div#4;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#1;n#div#2;n#div#0;n#div#1;n#form#0;n#div#0;n#div#0;n#div#4;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/themes/default/js/i18n.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="544">
+              <caret line="384" column="20" selection-start-line="384" selection-start-column="20" selection-end-line="384" selection-end-column="20" />
             </state>
           </provider>
         </entry>
@@ -141,11 +163,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>SMS-login</find>
-      <find>send_yzm</find>
-      <find>reg-newAccount</find>
-      <find>Sign-in-frame</find>
-      <find>reg-FraDiv</find>
       <find>findPassword</find>
       <find>.headImageNameTc</find>
       <find>headImageNameTc</find>
@@ -171,6 +188,11 @@
       <find>submitBtn</find>
       <find>usernamenumber</find>
       <find>when-landing</find>
+      <find>.usertopImg-Tx img</find>
+      <find>.when-landing-Img img</find>
+      <find>when-landing-Img img</find>
+      <find>when-landing-Img</find>
+      <find>user-window</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -206,7 +228,6 @@
         <option value="$PROJECT_DIR$/themes/default/antmap.html" />
         <option value="$PROJECT_DIR$/themes/default/newHeader.html" />
         <option value="$PROJECT_DIR$/themes/default/js/commom.js" />
-        <option value="$PROJECT_DIR$/themes/default/js/i18n.js" />
         <option value="$PROJECT_DIR$/themes/default/description.html" />
         <option value="$PROJECT_DIR$/themes/default/newsContent.html" />
         <option value="$PROJECT_DIR$/Application/Home/Controller/IndexController.class.php" />
@@ -217,7 +238,6 @@
         <option value="$PROJECT_DIR$/themes/default/aboutus.html" />
         <option value="$PROJECT_DIR$/themes/default/css/NewsDynamicContent.css" />
         <option value="$PROJECT_DIR$/themes/default/css/specialColumn.css" />
-        <option value="$PROJECT_DIR$/themes/default/css/common.css" />
         <option value="$PROJECT_DIR$/themes/default/video/individualUsers.html" />
         <option value="$PROJECT_DIR$/themes/default/css/briefIntroduction.css" />
         <option value="$PROJECT_DIR$/themes/default/AuthorUri.html" />
@@ -227,7 +247,10 @@
         <option value="$PROJECT_DIR$/themes/default/news.html" />
         <option value="$PROJECT_DIR$/themes/default/authorPage.html" />
         <option value="$PROJECT_DIR$/themes/default/footer.html" />
+        <option value="$PROJECT_DIR$/themes/default/wangyu.html" />
+        <option value="$PROJECT_DIR$/themes/default/js/i18n.js" />
         <option value="$PROJECT_DIR$/themes/default/myPage.html" />
+        <option value="$PROJECT_DIR$/themes/default/css/common.css" />
         <option value="$PROJECT_DIR$/themes/default/header.html" />
       </list>
     </option>
@@ -374,7 +397,7 @@
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1589795776884" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1589963007706" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
@@ -425,18 +448,18 @@
       <workItem from="1589512935339" duration="2176000" />
       <workItem from="1589764417221" duration="2987000" />
       <workItem from="1589851529637" duration="20280000" />
-      <workItem from="1589939503165" duration="2399000" />
+      <workItem from="1589939503165" duration="8056000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="235658000" />
+    <option name="totallyTimeSpent" value="241315000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1912" y="-8" width="1936" height="1096" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.18550107" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.18550107" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -453,7 +476,7 @@
       <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Terminal" order="8" />
       <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.5010661" side_tool="true" weight="0.31464174" />
-      <window_info active="true" anchor="bottom" id="Version Control" order="10" sideWeight="0.4989339" visible="true" weight="0.08515057" />
+      <window_info anchor="bottom" id="Version Control" order="10" sideWeight="0.4989339" weight="0.08515057" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -516,9 +539,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/themes/default/css/index.css">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/themes/default/css/kuaixun_new.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-14490">
@@ -558,13 +578,6 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/themes/default/js/vendors.js">
       <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/themes/default/js/i18n.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="566">
-          <caret line="466" column="47" selection-start-line="466" selection-start-column="7" selection-end-line="466" selection-end-column="47" />
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/themes/default/searchPage.html">
       <provider selected="true" editor-type-id="text-editor">
@@ -713,13 +726,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/themes/default/css/common.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="797">
-          <caret line="300" column="16" selection-start-line="300" selection-start-column="16" selection-end-line="300" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/themes/default/AuthorUri.html" />
     <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
@@ -819,13 +825,28 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/themes/default/aaa.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="9" column="7" lean-forward="true" selection-start-line="9" selection-start-column="7" selection-end-line="9" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/themes/default/js/i18n.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="544">
+          <caret line="384" column="20" selection-start-line="384" selection-start-column="20" selection-end-line="384" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/themes/default/myPage.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="565" column="38" selection-start-line="565" selection-start-column="38" selection-end-line="565" selection-end-column="38" />
+        <state relative-caret-position="258">
+          <caret line="619" column="38" selection-start-line="619" selection-start-column="22" selection-end-line="619" selection-end-column="38" />
           <folding>
             <element signature="n#style#0;n#span#0;n#span#2;n#p#1;n#div#1;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="e#13821#13828#1" expanded="true" />
+            <element signature="n#div#4;n#div#0;n#body#0;n#html#0;n#!!top" />
+            <element signature="e#14099#14106#1" expanded="true" />
             <element signature="n#style#0;n#label#0;n#div#0;n#div#0;n#div#1;n#form#0;n#div#0;n#div#0;n#div#4;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#button#0;n#div#0;n#div#0;n#div#1;n#form#0;n#div#0;n#div#0;n#div#4;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#1;n#div#2;n#div#0;n#div#1;n#form#0;n#div#0;n#div#0;n#div#4;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -833,13 +854,20 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/themes/default/css/common.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="345">
+          <caret line="329" column="19" selection-start-line="329" selection-start-column="19" selection-end-line="329" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/themes/default/header.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="651" column="42" lean-forward="true" selection-start-line="651" selection-start-column="24" selection-end-line="651" selection-end-column="42" />
+        <state relative-caret-position="453">
+          <caret line="937" column="38" lean-forward="true" selection-start-line="937" selection-start-column="38" selection-end-line="937" selection-end-column="38" />
           <folding>
-            <element signature="n#style#0;n#!!top" />
             <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#img#0;n#div#0;n#div#0;n#div#1;n#div#1;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>
