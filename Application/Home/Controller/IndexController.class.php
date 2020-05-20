@@ -86,6 +86,7 @@ class IndexController extends SiteController {
     //新闻动态
     public function news(){
         
+
         $class_id = I('request.class_id','all');
 
         $where['status'] = 2;

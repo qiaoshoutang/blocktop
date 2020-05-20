@@ -277,11 +277,13 @@
                    <img src="images/guanbi.png" alt="">
                </div>
                <!--修改资料-->
+               <form id='user-form' enctype="multipart/form-data">
                <div class="RevisedInformation">
                    <div class="title-RevisedInfor">修改资料</div>
                    <!--上传头像-->
                    <div class="txxg" >
-                       <img src="" alt="" class="txxg-Img" width="100%">
+                       <img src="{$userInfo.portrait|default='/Public/img/portrait.png'}" alt="" class="txxg-Img" width="100%">
+                       <input name='portrait' value='' type="hidden" id="portrait">
                        <div class="txxgbtn" data-toggle="modal" data-target="#avatar-modal">
                            <!--<button type="button" class="btn"  data-toggle="modal" data-target="#avatar-modal">-->
                                <!--修改头像-->
@@ -292,14 +294,14 @@
                    <!--昵称-->
                    <div class="nickname">
                        <span>昵称 : </span>
-                       <input type="text" placeholder="输入新昵称" class="nicknameXg">
+                       <input name='nickname' value='{$userInfo.nickname}' type="text" placeholder="输入新昵称" class="nicknameXg">
                    </div>
 
                    <div class="confirmbtn">
                        确认
                    </div>
-
                </div>
+               </form>
 
            </div>
 
@@ -310,7 +312,7 @@
                <!--用户头像-->
                <div class="usertopImg">
                    <div class="usertopImg-Tx">
-                       <img src="{$userInfo.portrait|default='images/userTxsa.png'}" alt="" width="100%">
+                       <img src="{$userInfo.portrait|default='/Public/img/portrait.png'}" alt="" width="100%">
                    </div>
                </div>
                <!--修改区-->
@@ -568,40 +570,14 @@
                 newImg.src = dataUrl;
                 console.log(dataUrl);
                 $('.txxg-Img').attr('src',dataUrl );
+                $('#portrait').val(dataUrl);
             }
         });
     });
 
-    $(".confirmbtn").click(function () {
-        var ImgUrl = $(".txxg-Img").attr("src");
-        console.log(ImgUrl);
-         $(".usertopImg-Tx img").attr("src",ImgUrl);
-         var nameUrl = $(".nicknameXg").val();
-         console.log(nameUrl);
-         $(".InpUserName").attr("value",nameUrl);
-         $(".headImageNameTc").hide()
-    })
-
-    // function imagesAjax(src) {
-    //     var data = {};
-    //     data.img = src;
-    //     data.jid = $('#jid').val();
-    //     $.ajax({
-    //         url: "upload-logo.php",
-    //         data: data,
-    //         type: "POST",
-    //         dataType: 'json',
-    //         success: function(re) {
-    //             if(re.status == '1') {
-    //                 $('.tx_test img').attr('src',src );
-    //             }
-    //         }
-    //     });
-    // }
-</script>
 
 
-<script>
+
     var page_num = 2;
 
     $(".closebtn").click(function () {
@@ -623,9 +599,33 @@
     $(".upgrade").click(function () {
         layer.msg('该功能暂未开放，可咨询客服申请头条作者');
     });
-    /*修改名字*/
+    /*修改资料提交*/
 
+    $('.confirmbtn').click(function(){
 
+        $.ajax({
+            type:"post",
+            url:"/Home/User/changeInfo",
+            data:$("#user-form").serialize(),
+            dataType:'json',
+            success:function(rdata){
+
+                if(rdata.code==1){
+                  //更新导航栏
+                  $(".usertopImg-Tx img").attr("src",rdata.data.portrait);
+                  $(".usernamenumber span").html(rdata.data.nickname);
+
+                  //更新个人主页
+                  $(".when-landing-Img img").attr("src",rdata.data.portrait);
+                  $(".InpUserName").attr("value",$(".usernamenumber span").text());
+                  $(".headImageNameTc").hide()
+                  layer.msg(rdata.info);
+                }else{
+                    layer.msg(rdata.info);
+                }
+            }
+        });
+    })
 
     /*我的订阅与浏览历史切换*/
     $(".subhis ul li").click(function () {

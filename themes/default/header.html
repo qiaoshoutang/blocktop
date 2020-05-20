@@ -854,7 +854,7 @@ $('.search-s').click(function(){
     window.location.href="/search/"+keyword;
 });
 
-$( '.search-i').focus( function(){
+$('.search-i').focus( function(){
     document.onkeydown = function(e){
         var ev = document.all ? window.event : e;
         if(ev.keyCode==13) {
@@ -864,7 +864,7 @@ $( '.search-i').focus( function(){
         }
     };
     $(this).attr("placeholder","")
-} );
+});
     $('.search-i').blur(function(){
         $(this).attr("placeholder","Type here to search")
     });

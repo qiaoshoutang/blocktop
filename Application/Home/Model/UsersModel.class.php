@@ -17,11 +17,14 @@ class UsersModel extends Model {
 	 * @param array $where 条件
 	 * @return array 信息
 	 */
-	public function getUserInfo($where)
+	public function getUserInfo($where,$field='')
 	{
-		return $this
-		->where($where)
-		->find();
+		
+	    $data = $this->where($where)->field($field)->find();
+		if($data['portrait']){
+		    $data['portrait'] = htmlspecialchars_decode($data['portrait']);
+		}
+		return $data;
 	}
 	
 	public function getWhereInfo($where)

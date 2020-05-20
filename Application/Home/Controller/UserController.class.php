@@ -16,6 +16,43 @@ class UserController extends SiteController {
     public function test(){
         session('home_user',['user_id'=>1]);
     }
+    
+    //用户资料修改
+    public function changeInfo(){
+        $user_info = session('home_user');
+        if(empty($user_info)){
+            $rdata['code'] = 2;
+            $rdata['info'] = '您还未登陆，请先登录！';
+            $this->ajaxReturn($rdata);
+        }
+        $sdata['id'] = $user_info['user_id'];
+        
+       $data= $_POST;
+
+       $userMod = D('Users');
+       if($data['portrait']){
+           $sdata['portrait'] = base64_image_content($data['portrait'],'./Uploads');
+           if(empty( $sdata['portrait'])){
+               $sdata['portrait'] = '/Public/img/portrait.png';
+           }
+       }
+
+       $sdata['nickname'] = htmlspecialchars($data['nickname']);
+       $res = $userMod->save($sdata);
+       if($res === false){
+           $rdata['code'] = 2;
+           $rdata['info'] = '修改失败！';
+           $this->ajaxReturn($rdata);
+       }
+       
+       $userInfo = $userMod->getUserInfo(['id'=>$user_info['user_id']],'nickname,portrait');
+
+       $rdata['code'] = 1;
+       $rdata['info'] = '修改成功！';
+       $rdata['data'] = $userInfo;
+       $this->ajaxReturn($rdata);
+
+    }
     //退出登录AJAX 接口
     public function logout(){
         session('home_user',null);
@@ -38,7 +75,7 @@ class UserController extends SiteController {
         }
 
         $userMod  = D('Users');
-        $authorInfo = $userMod->where(['id'=>$author_id])->find();
+        $authorInfo = $userMod->getUserInfo(['id'=>$author_id]);
         if(empty($authorInfo)){
             $this->error('抱歉！找不到该作者！');
         }
@@ -249,6 +286,7 @@ class UserController extends SiteController {
             $this->ajaxReturn(['code'=>2,'info'=>'该手机号已注册！']);
         }
         $userInfo['phone'] = $userInfo['nickname'] = $phone;
+        $userInfo['portrait'] = '/Public/img/portrait.png';
         $userInfo['top_num'] = $this->getTopnum();
         $userInfo['password'] = md5('blocktop_'.$password);
         $userInfo['regip'] = $_SERVER['REMOTE_ADDR'];
@@ -257,7 +295,7 @@ class UserController extends SiteController {
         $res = $userMod->add($userInfo);
         if($res){
             S('yzm_1_'.$phone,null);
-            $userMod->setLogin($userInfo['id']);
+            $userMod->setLogin($res);
             $rdata['code'] = 1;
             $rdata['info'] = '注册成功！';
             $rdata['data'] = $userInfo;
