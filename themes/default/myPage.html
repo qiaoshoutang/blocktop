@@ -644,7 +644,7 @@
            $(".subscription").hide();
            $(".historyrecord").show()
        }
-    })
+    });
 
 
     $('#news_more').click(function(){
@@ -663,7 +663,7 @@
                 }
             }
         });
-    })
+    });
 
     function subscribe(para){
         var o  = $(para);
@@ -684,13 +684,13 @@
 
                     if(type==1){
                         o.css({
-                            "background":"#999999",
+                            "background":"#999999"
                         });
                         o.html("取消订阅");
                         o.attr("type","2")
                     }else {
                         o.css({
-                            "background":"#D40507",
+                            "background":"#D40507"
                         });
                         o.html("+订阅");
                         o.attr("type","1")
