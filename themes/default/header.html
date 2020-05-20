@@ -465,12 +465,12 @@
                 <img src="{$loginInfo['portrait']}" alt="">
             </div>
             <div class="usernamenumber">
-                <span>{$loginInfo['nickname']}</span>
+                <span class="usernamenumber">{$loginInfo['nickname']}</span>
             </div>
             <div class="user-window">
                 <ul>
                     <li onclick='window.location.href="/Home/User/myPage"' >我的主页</li>
-                    <li>切换账户</li>
+                    <li id="Switch-users">切换账户</li>
                     <li id="Log-out">退出登陆</li>
                 </ul>
 
@@ -511,11 +511,16 @@
 
     function send_yzm(val){
         var valClass=val.className;
+        // console.log($('.'+valClass+'').parent().siblings(".VerificationImgBtn"));
+         var yzm=$('.'+valClass+'').parent().siblings(".VerificationImgBtn")
         // var valClass=val.className;
         var phone = $('.'+valClass+'').parent().siblings(".cell-phone-number").find("input").val();
         // console.log($('.'+valClass+'').attr("type"))
         var type=$('.'+valClass+'').attr("type");
-
+        if(yzm.hasClass("wyx")==false){
+            layer.msg('请点击按钮进行图形验证');
+            return false
+        }
         $.ajax({
             type:"post",
             url:"/Home/User/send_code",
@@ -531,7 +536,6 @@
                 }
                 else{
                     layer.msg(data.info);
-                    return false
                 }
             }
         });
@@ -555,7 +559,7 @@
                 });
                 val.innerHTML = "重新发送(" + countdown + ")";
                 countdown--;
-                console.log(countdown)
+                // console.log(countdown)
             }
             Timeid=setTimeout(function() {
                     settime(val);
@@ -566,7 +570,7 @@
 
     /*四个表单提交*/
     /*注册登录*/
-    $("#reg-FraDiv-frame .submitBtn").click(function () {
+    $(document).on('click','#reg-FraDiv-frame .submitBtn',function() {
         var number = /^1([358][0-9]|4[579]|66|7[0135678]|9[89])[0-9]{8}$/;
         var phone_number=$("#reg-FraDiv-frame .cell-phone-number-input").val();
         var password=$("#reg-FraDiv-frame .password input").val();
@@ -603,19 +607,20 @@
                 data:{phone:phone_number,code:Verification_Code,repassword:repassword,password:password},
                 dataType:'json',
                 success:function(data){
-                    console.log(data);
+                    // console.log(data);
                     if(data.code==1){
                         layer.msg('注册成功');
                         location.reload()
                     }else{
-                        console.log(data.info);
+                        // console.log(data.info);
+                        layer.msg(data.info);
                     }
                 }
             });
         }
     });
      /*账号密码登录*/
-    $("#SignFrame .submitBtn").click(function () {
+    $(document).on('click','#SignFrame .submitBtn',function() {
         var number = /^1([358][0-9]|4[579]|66|7[0135678]|9[89])[0-9]{8}$/;
         var phone_number=$("#SignFrame .cell-phone-number-input").val();
         var password=$("#SignFrame .password input").val();
@@ -644,19 +649,20 @@
                     if(data.code==1){
                         // console.log(data.data.nickname)
                         layer.msg('登录成功');
-                        // location.reload();
-                        // $(".userbtn").hide();
-                        // $(".when-landing").show();
-                        // $(".usernamenumber").html(data.data.nickname);
+                        location.reload();
+                        $(".userbtn").hide();
+                        $(".when-landing").show();
+                        $(".usernamenumber").html(data.data.nickname);
                     }else{
-                        console.log(data.info);
+                        // console.log(data.info);
+                        layer.msg(data.info);
                     }
                 }
             });
         }
     });
     /*找回密码*/
-    $("#retrieve-password-frame .submitBtn").click(function () {
+    $(document).on('click','#retrieve-password-frame .submitBtn',function() {
         var number = /^1([358][0-9]|4[579]|66|7[0135678]|9[89])[0-9]{8}$/;
         var phone_number=$("#retrieve-password-frame .cell-phone-number-input").val();
         var againNewPassword=$("#retrieve-password-frame .againNewPassword").val();
@@ -704,14 +710,15 @@
                         layer.msg('修改成功');
                         location.reload()
                     }else{
-                        console.log(data);
+                        layer.msg(data.info);
+                        // console.log(data.info);
                     }
                 }
             });
         }
     });
     /*短信登录*/
-    $("#SMSLogin-frame .submitBtn").click(function () {
+    $(document).on('click','#SMSLogin-frame .submitBtn',function() {
         var number = /^1([358][0-9]|4[579]|66|7[0135678]|9[89])[0-9]{8}$/;
         var phone_number=$("#SMSLogin-frame .cell-phone-number-input").val();
         var Verification_Code=$("#SMSLogin-frame .Verification-Code-input").val();
@@ -744,7 +751,8 @@
                         layer.msg('登录成功');
                         location.reload()
                     }else{
-                        console.log(data);
+                        // console.log(data.info);
+                        layer.msg(data.info);
                     }
                 }
             });
@@ -783,7 +791,7 @@
 
     });
     /*关闭弹窗*/
-    $(".guanbi").click(function () {
+    $(document).on('click','.guanbi',function() {
          $(".Headline-register").hide()
     });
 
@@ -848,31 +856,36 @@
     // $(".userbtn").click(function () {
     //     layer.msg('暂未开放');
     // })
+
+    /*搜索功能*/
 $('.search-s').click(function(){
     var keyword = $('.search-i').val();
     // console.log(keyword)
     window.location.href="/search/"+keyword;
 });
 
-$( '.search-i').focus( function(){
-    document.onkeydown = function(e){
-        var ev = document.all ? window.event : e;
-        if(ev.keyCode==13) {
-            var keyword = $('.search-i').val();
-            // console.log(keyword)
-            window.location.href="/search/"+keyword;
-        }
-    };
-    $(this).attr("placeholder","")
-} );
-    $('.search-i').blur(function(){
-        $(this).attr("placeholder","Type here to search")
+    $( '.search-i').focus( function(){
+        document.onkeydown = function(e){
+            var ev = document.all ? window.event : e;
+            if(ev.keyCode==13) {
+                var keyword = $('.search-i').val();
+                // console.log(keyword)
+                window.location.href="/search/"+keyword;
+            }
+        };
+        $(this).attr("placeholder","")
+    } );
+        $('.search-i').blur(function(){
+            $(this).attr("placeholder","Type here to search")
     });
+
+
+
 
     $(".bscriptionBtn").click(function () {
         var type=$(".bscriptionBtn").attr("type");
-        console.log(type);
-        console.log(author_id);
+        // console.log(type);
+        // console.log(author_id);
         // return false;
         $.ajax({
             type:"post",
@@ -888,8 +901,8 @@ $( '.search-i').focus( function(){
                 }
             }
         });
-    })
-
+    });
+  /*退出登陆*/
     $("#Log-out").click(function () {
         $.ajax({
             type:"post",
@@ -899,13 +912,35 @@ $( '.search-i').focus( function(){
             success:function(data){
                 console.log(data.code);
                 if(data.code==1){
+                    location.reload();
                     layer.msg(data.info);
                 }else{
-                    console.log(data.info);
+
+                    // console.log(data.info);
+                    layer.msg(data.info);
+                }
+            }
+        });
+    });
+    /*切换用户*/
+    $("#Switch-users").click(function () {
+        $.ajax({
+            type:"post",
+            url:"/Home/User/logout",
+            data:{},
+            dataType:'json',
+            success:function(data){
+                console.log(data.code);
+                if(data.code==1){
+                    location.reload();
+                    layer.msg(data.info);
+                }else{
+                    // console.log(data.info);
                     layer.msg(data.info);
                 }
             }
         });
     })
+
 </script>
         
