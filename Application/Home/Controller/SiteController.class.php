@@ -26,7 +26,7 @@ class SiteController extends BaseController {
         
         $isLogin = $this->isLogin();
         if($isLogin){
-            $loginInfo = M('users')->where(['id'=>$isLogin['user_id']])->find();
+            $loginInfo = D('Users')->getUserInfo(['id'=>$isLogin['user_id']]);
             $this->assign('loginInfo',$loginInfo);
         }
    

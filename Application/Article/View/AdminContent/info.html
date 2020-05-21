@@ -32,7 +32,19 @@
         <admin:formrow title="新闻标题" tip="请不要填写特殊字符">
           <admin:text name="title" value="{$info.title}" len="350"  width="full" />
         </admin:formrow>
-        <admin:formrow title="作者" tip="请不要填写特殊字符">
+        <admin:formrow title="头条作者" tip="">
+          <select name="author_id" class="form-element" id="author_id">
+            <option value="0">==无==</option>
+            <foreach name="authorList" item="vo"> 
+              <option value="{$vo.id}" 
+                <if condition="$info['author_id'] == $vo['id']">selected="selected"</if>
+              >
+              {$vo.nickname}
+              </option>
+            </foreach>
+          </select>
+        </admin:formrow>
+        <admin:formrow title="文章作者" tip="若已选择头条作者，则此项不填；若未填写头条作者，请填写此项">
           <admin:text name="author" value="{$info.author}" len="50"  width="full" />
         </admin:formrow>
         <admin:formrow title="新闻内容" tip=""  >

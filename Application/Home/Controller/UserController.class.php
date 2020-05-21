@@ -287,7 +287,7 @@ class UserController extends SiteController {
         }
         $userInfo['phone'] = $userInfo['nickname'] = $phone;
         $userInfo['portrait'] = '/Public/img/portrait.png';
-        $userInfo['top_num'] = $this->getTopnum();
+        $userInfo['top_num'] = getTopnum();
         $userInfo['password'] = md5('blocktop_'.$password);
         $userInfo['regip'] = $_SERVER['REMOTE_ADDR'];
         $userInfo['create_time'] = time();
@@ -400,20 +400,6 @@ class UserController extends SiteController {
     }
     
 
-    //获取头条编号
-    private function getTopnum(){
-        $arr = ['0','1','2','3','4','5','6','7','8','9','a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','x','t','u','v','w','x','y','z'];
-        shuffle($arr);
-        $code = 'top'.implode(array_slice($arr,0,7));
-        $userMod = D('Users');
-        $res = $userMod->where(['top_num',$code])->find();
-        while($res){
-            shuffle($arr);
-            $code = 'top'.implode(array_slice($arr,0,7));
-            $res = $userMod->where(['top_num',$code])->find();
-        }
-        
-        return $code;
-    }
+
     
 }

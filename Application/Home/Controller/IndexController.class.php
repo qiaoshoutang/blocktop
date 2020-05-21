@@ -86,16 +86,15 @@ class IndexController extends SiteController {
     //新闻动态
     public function news(){
         
-
         $class_id = I('request.class_id','all');
 
-        $where['status'] = 2;
+        $where['A.status'] = 2;
         if($class_id != 'all'){
-            $where['class_id'] = $class_id;
+            $where['A.class_id'] = $class_id;
         }
         //热门新闻
-        $newsList = M('content')->where($where)->field('content_id,title,description,image,time,views,author')->limit(10)
-                                ->order('time desc,sequence desc')->select();
+        $newsList =D('Article/ContentArticle')
+                   ->loadList($where,'content_id,title,description,image,time,views,author,author_id,U.nickname as author_name',10,'time desc,sequence desc');
 
         foreach($newsList as $key=>$val){
             $newsList[$key]['description'] = html_out($val['description']);
@@ -111,7 +110,7 @@ class IndexController extends SiteController {
         
 
         //推荐导航
-        $naviList = D('Admin/Navi')->loadList(['recom'=>1],'0,5');
+        $naviList = D('Admin/Navi')->loadList(['recom'=>1],'0,6');
         
         // 专栏列表
         $columnMod = D('Admin/Column');
@@ -139,6 +138,8 @@ class IndexController extends SiteController {
         M('content')->where(['content_id'=>$content_id])->setInc('views'); //浏览自增1
         
         $contentInfo = $contentMod->getInfo($content_id);
+//         dump($contentInfo);
+//         exit;
         $contentInfo['content'] = html_out($contentInfo['content']);
         
         //如果用户登录  添加浏览历史
@@ -354,8 +355,9 @@ class IndexController extends SiteController {
         }
         
         //新闻列表
-        $newsList = M('content')->where(['column_id'=>$info['id']])->field('content_id,title,description,image,time,views,author')->limit(10)
-        ->order('time desc,sequence desc')->select();
+
+        $newsList =D('Article/ContentArticle')
+                    ->loadList(['A.column_id'=>$info['id']],'content_id,title,description,image,time,views,author,author_id,U.nickname as author_name',10,'time desc,sequence desc');
         
         foreach($newsList as $key=>$val){
             $newsList[$key]['description'] = html_out($val['description']);

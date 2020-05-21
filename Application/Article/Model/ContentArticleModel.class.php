@@ -14,13 +14,11 @@ class ContentArticleModel extends Model {
      * 获取列表
      * @return array 列表
      */
-    public function loadList($where = array(), $limit = 0, $order = 'A.content_id desc'){
+    public function loadList($where = array(), $field='',$limit = 0, $order = 'A.content_id desc'){
 
         $pageList = $this->table("__CONTENT__ as A")
-//                         ->join('__CONTENT_ARTICLE__ as B ON A.content_id = B.content_id')
-                        ->join('__COLUMN__ as D ON A.column_id = D.id','left')
-                        ->join('__CATEGORY__ as C ON A.class_id = C.class_id')
-                        ->field('A.*,D.name as column_name,C.name as class_name')
+                        ->join('__USERS__ as U ON A.author_id = U.id','left')
+                        ->field($field)
                         ->where($where)
                         ->order($order)
                         ->limit($limit)
@@ -37,9 +35,7 @@ class ContentArticleModel extends Model {
     public function countList($where = array()){
 
         return $this->table("__CONTENT__ as A")
-//                     ->join('__CONTENT_ARTICLE__ as B ON A.content_id = B.content_id')
-                    ->join('__COLUMN__ as D ON A.column_id = D.id','left')
-                    ->join('__CATEGORY__ as C ON A.class_id = C.class_id')
+                    ->join('__USERS__ as U ON A.author_id = U.id','left')
                     ->where($where)
                     ->order($order)
                     ->count();
@@ -70,8 +66,8 @@ class ContentArticleModel extends Model {
     {
         return $this->table("__CONTENT__ as A")
                     ->join('__CONTENT_ARTICLE__ as B ON A.content_id = B.content_id')
-                    ->join('__CATEGORY__ as C ON A.class_id = C.class_id')
-                    ->field('A.*,B.content,C.name as class_name')
+                    ->join('__USERS__ as U ON A.author_id = U.id','left')
+                    ->field('A.*,B.content,U.nickname as author_name')
                     ->where($where)
                     ->order($order)
                     ->find();

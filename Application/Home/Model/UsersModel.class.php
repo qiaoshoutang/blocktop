@@ -21,8 +21,8 @@ class UsersModel extends Model {
 	{
 		
 	    $data = $this->where($where)->field($field)->find();
-		if($data['portrait']){
-		    $data['portrait'] = htmlspecialchars_decode($data['portrait']);
+		if($data['nickname']){
+		    $data['nickname'] = htmlspecialchars_decode($data['nickname']);
 		}
 		return $data;
 	}

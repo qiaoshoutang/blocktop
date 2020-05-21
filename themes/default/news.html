@@ -20,16 +20,6 @@
         position: relative;
         bottom: 325px;
     }
-    /*.roof-placement{*/
-        /*width:35px;*/
-        /*height:20px;*/
-        /*line-height: 20px;*/
-        /*text-align: center;*/
-        /*font-size: 10px;*/
-        /*border: 1px solid #D40507;*/
-        /*color: #D40507;*/
-
-    /*}*/
     .NewType-Content ul li:nth-child(1) .NewTypeTop{
         display: inline-block;
     }
@@ -157,16 +147,15 @@
             <ul>
             <!--{foreach name='newsList' item='vo' }-->
                 <li >
-                    <div class="NewType-Detail" onclick='window.location.href="/newsContent/{$vo.content_id}"'>
+                    <div class="NewType-Detail" >
                         <div class="NewTypeImg">
                             <div class="NewTypeImgBox">
                                 <span class="NewTypeTop"></span>
                                 <img src="{$vo.image}" alt="">
                             </div>
-
                         </div>
                         <div class="NewTypeText">
-                            <div class="TextTitle">
+                            <div class="TextTitle" onclick='window.location.href="/newsContent/{$vo.content_id}"'>
                                 <img src="images/remen.png" alt="" width="24px" height="33px" class="remen">
                                 {$vo.title}
                             </div>
@@ -174,13 +163,13 @@
                                 {$vo.description}
                             </div>
                             <div class="TextSource">
-                                <!--<span class="roof-placement">置顶</span>-->
+                                <!--{if condition="$vo['author_id']"}-->
+                                <span onclick='window.location.href="/Author/{$vo.author_id}"'>{$vo.author_name}</span>
+                                <!--{else /}-->
                                 <span>{$vo.author}</span>
+                                <!--{/if}-->
                                 <span>{$vo.time|format_time='Y/m/d H:i'}</span>
                                 <span class="Guankan"><img src="images/guankan.png" alt="" width="15px">{$vo.views}</span>
-                                <!--<span class="thumbs-up">-->
-                                    <!--<img src="images/dingImg.png" alt="" width="14px" height="14px">-->
-                                <!--</span>-->
                             </div>
                         </div>
                     </div>
