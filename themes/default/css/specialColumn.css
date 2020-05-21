@@ -23,6 +23,7 @@
     z-index: 2;
     background: url("/themes/default/images/columbtro.png")no-repeat top center;
     background-size: 100% 100%;
+    /*color: #696969;*/
 
 }
 .troTitle{
@@ -35,10 +36,14 @@
 }
 .troContent{
     width: 85%;
-    float: left;
-    font-size: 21px;
-    margin-top: 34px;
+    /*float: left;*/
+    font-size: 16px;
     text-align: left;
+    height: 125px;
+    display: table-cell;
+    vertical-align:middle;
+    color: #696969;
+    letter-spacing: 1.3px;
 }
 
 
@@ -120,6 +125,7 @@
 .Column-ranking-ul li{
     border-top: 1px #e0e3e7 solid;
     height: 95px;
+    cursor: pointer;
 }
 .Column-ranking-ul li:nth-child(1) .numRank {
     color: #ff0000!important;
