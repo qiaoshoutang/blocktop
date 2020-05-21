@@ -1,44 +1,45 @@
-<h3>{$name}列表</h3>
+<h3>用户列表</h3>
 <admin:panel>
-	<admin:tabletool filter="true" url="index.php?s=/Admin/User/index/smappid/{$_GET['smappid']}" keyword="{$pageMaps.keyword}">
-		<admin:select name="status" item="==状态==,正常,未验证,禁止,禁言中" value="0,1,2,3,4" selected="$pageMaps['status']" />		
+	<admin:tabletool filter="true" url="/Admin/User/index" keyword="{$pageMaps.keyword}">
+		<admin:select name="role" item="==角色==,普通用户,头条作者" value="0,1,2" selected="$pageMaps['role']" />
 	</admin:tabletool>
 
-	<admin:table id="table" show="选择|30,编号|30,OPENID,活动ID,上级ID,子用户数,钱包地址,糖果码,验证,注册余额,推广余额,注册时间,状态|70,操作|350">
+	<admin:table id="table" show="选择|30,编号|30,电话号,昵称,头像,角色,头条编号,简介|180,注册时间,状态|70,是否加V,操作|50">
 		<foreach name="list" item="vo">
 			<tr>
 				<td>
 					<input type="checkbox" name="id[]" value="{$vo.id}" />
 				</td>
 				<td>{$vo.id}</td>
-				<td>{$vo.openid}</td>
-				<td>{$vo.act_id}</td>
-				<td>{$vo.parent_id}</td>
-				<td>{$vo.son_num}</td>
-				<td>{$vo.imtoken}</td>
-				<td>{$vo.candy}</td>
+				<td>{$vo.phone}</td>
+				<td>{$vo.nickname}</td>
+				<td><img src='{$vo.portrait}' style='height:100px'></td>
 				<td>
-					<if condition="$vo['candy_ver'] eq 1">
-						已验证
-
+					<if condition="$vo['role'] eq 2">
+						头条作者
 					<else />
-						未验证
+						普通用户
 					</if>
 				</td>
-				<td>{$vo.money_reg}</td>
-				<td>{$vo.money_inv}</td>
-
+				<td>{$vo.top_num}</td>
+				<td>{$vo.desc}</td>
 				<td>{$vo.create_time|date="Y-m-d H:i:s",###}</td>
-			
 				<td>
-					<if condition="$vo['user_status'] eq 1">
+					<if condition="$vo['status'] eq 1">
 						<span class="u-badge u-badge-success">正常</span>
-						<elseif condition="$vo['user_status'] eq 2" />
+						<elseif condition="$vo['status'] eq 2" />
 						<span class="u-badge u-badge-danger">未验证</span>
-						<elseif condition="$vo['user_status'] eq 0" />
+						<elseif condition="$vo['status'] eq 0" />
 						<span class="u-badge u-badge-danger">禁止登陆</span>
 						<else />
-						<span style="color: red;">禁言{$vo.jinyanDays}天</span>
+						<span style="color: red;">未定义</span>
+					</if>
+				</td>
+				<td>
+					<if condition="$vo['is_v'] eq 2">
+						加V
+					<else />
+						不加V
 					</if>
 				</td>
                 

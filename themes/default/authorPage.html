@@ -188,7 +188,7 @@
 
                 <ul>
                     <!--{foreach name='articleList' item='vo' }-->
-                    <li onclick='window.location.href="/newsContent/{$vo.content_id}"'>
+                    <li>
                         <div class="NewType-Detail">
                             <div class="NewTypeImg">
                                 <div class="NewTypeImgBox">
@@ -197,15 +197,13 @@
 
                             </div>
                             <div class="NewTypeText">
-                                <div class="TextTitle">
+                                <div class="TextTitle" onclick='window.location.href="/newsContent/{$vo.content_id}"'>
                                     {$vo.title}
                                 </div>
                                 <div class="TextContent">
                                     {$vo.description}
                                 </div>
                                 <div class="TextSource">
-                                    <span class="roof-placement">置顶</span>
-                                    <span>{$authorInfo.nickname}</span>
                                     <span>{$vo.time|format_time='Y/m/d H:i'}</span>
                                     <span class="Guankan"><img src="images/guankan.png" alt="" width="15px">{$vo.views}</span>
                                 </div>

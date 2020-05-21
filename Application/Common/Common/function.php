@@ -1,4 +1,20 @@
 <?php
+
+//获取头条编号
+function getTopnum(){
+    $arr = ['0','1','2','3','4','5','6','7','8','9','a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','x','t','u','v','w','x','y','z'];
+    shuffle($arr);
+    $code = 'top'.implode(array_slice($arr,0,7));
+    $userMod = D('Users');
+    $res = $userMod->where(['top_num',$code])->find();
+    while($res){
+        shuffle($arr);
+        $code = 'top'.implode(array_slice($arr,0,7));
+        $res = $userMod->where(['top_num',$code])->find();
+    }
+    
+    return $code;
+}
 /* base64数据转图片*/
 function base64_image_content($base64_image_content,$path){
     //匹配出图片的格式

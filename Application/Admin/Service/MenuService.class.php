@@ -47,6 +47,22 @@ class MenuService{
 	                )
 	            )
 	        ),
+	        'Users' => array(
+	            'name' => '用户管理',
+	            'order' => 3,
+	            'menu' => array(
+	                array(
+	                    'name' => '用户列表',
+	                    'url' => U('Admin/User/index'),
+	                    'order' => 1
+	                ),
+	                array(
+	                    'name' => '添加用户',
+	                    'url' =>  U('Admin/User/add'),
+	                    'order' => 3
+	                )
+	            )
+	        ),
 	    
 		    'Activity' => array(
 		        'name' => '活动',

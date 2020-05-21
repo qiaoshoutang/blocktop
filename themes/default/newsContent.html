@@ -62,8 +62,16 @@
                         {$contentInfo.title}
                     </div>
                     <div class="authorAndTime">
-                        <span>{$contentInfo.author}</span><span style="margin-left: 10px"> {$contentInfo.time|format_time='Y/m/d H:i'}</span><span style="margin-left: 10px"><img
-                            src="/themes/default/images/guankan01.png" alt="" width="2%">{$contentInfo.views}</span>
+                        <!--{if condition="$contentInfo['author_id']"}-->
+                        <span onclick='window.location.href="/Author/{$contentInfo.author_id}"'>{$contentInfo.author_name}</span>
+                        <!--{else /}-->
+                        <span>{$contentInfo.author}</span>
+                        <!--{/if}-->
+                        <span style="margin-left: 10px"> {$contentInfo.time|format_time='Y/m/d H:i'}</span>
+                        <span style="margin-left: 10px">
+                            <img src="/themes/default/images/guankan01.png" alt="" width="2%">
+                            {$contentInfo.views}
+                        </span>
                     </div>
                     <div class="DynamicArticle">
                         {$contentInfo.content}
