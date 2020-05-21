@@ -99,16 +99,16 @@
     width: 100%;
 }
 .rankImg{
-    width: 27%;
+    width: 25%;
     display: inline-block;
     float: left;
     height: 100%;
 }
 .rankImg img{
-    width: 67px;
-    height: 67px;
+    width: 45px;
+    height: 45px;
     position: relative;
-    top: 14px;
+    top: 25px;
     left: 8px;
 }
 .Column-ranking-ul{
@@ -131,7 +131,7 @@
     color: #ff9600!important;
 }
 .numRank{
-    font-size: 31px;
+    font-size: 22px;
     width: 20%;
     display: inline-block;
     height: 100%;
