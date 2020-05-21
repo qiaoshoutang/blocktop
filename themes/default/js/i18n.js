@@ -376,7 +376,7 @@ var tyLang = localStorage.tyLang;
 if(tyLang == 'zh'){
     $('body').addClass('zhlang');
     $('body').removeClass('otherlang');
-    FoundingTeam()
+    FoundingTeam();
     Zh()
 }else {
     $('body').addClass('otherlang');

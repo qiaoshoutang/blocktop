@@ -72,6 +72,9 @@
         margin: 10px auto;
         text-align: center;
     }
+    .badDownGood{
+        cursor: pointer;
+    }
 
 </style>
 <div class="box">
@@ -220,6 +223,7 @@
         var exdate=new Date();
         exdate.setDate(exdate.getDate()+expiredays);
         document.cookie=c_name+ "=" +escape(value)+ ((expiredays==null) ? "" : ";expires="+exdate.toGMTString());
+        // $.cookie("cookieColor", "cookieValue", { expires: 365 });//第一种
     }
     //取回cookie
     function getCookie(c_name)
@@ -234,6 +238,7 @@
                 if (c_end==-1) c_end=document.cookie.length;
                 return unescape(document.cookie.substring(c_start,c_end))
             }
+            // var cookieWord=$.cookie("cookieColor");
         }
         return "";
     }
@@ -262,6 +267,8 @@
         var type = obj.attr('data-type');
         var aaa=getCookie(type+id);
         var cida=type+id;
+        // console.log(setCookie(type+id,type+id, 365));
+        // return false;
         if(aaa==cida){
             return false
         }
@@ -276,6 +283,9 @@
                 obj.css({"pointer-events":"none"});
                 obj.find('.count-f').html(parseInt(obj.find('.count-f').html())+1);
                 var cid = obj.find('.count-f').html();
+                // obj.css({
+                //     "color":"#00a911"
+                // });
                 setCookie(type+id,type+id, 365);
             }else{
 

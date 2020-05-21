@@ -1,6 +1,6 @@
 body{
     /*background:#111216 ;*/
-    font-family:'PingFang SC','Lantinghei SC','Helvetica Neue',Helvetica,Arial,'Microsoft YaHei',"sans-serif"
+    font-family:'PingFang SC','Lantinghei SC','Helvetica Neue',Helvetica,Arial,'Microsoft YaHei',"sans-serif"!important
 }
 *{
     padding: 0;
@@ -323,11 +323,11 @@ a{
      margin-left: 55px;
      margin-top: 25px;
      background:#FFFFFF ;
-     opacity: 0;
-    cursor: pointer;
+     display: none;
+     cursor: pointer;
 }
 .when-landing:hover .user-window{
-    opacity: 1;
+    display: block;
 }
 .user-window ul{
     width: 90%;
@@ -346,6 +346,7 @@ a{
 .when-landing-Img img{
     width: 100%;
     margin-top: 14px;
+    border-radius: 50%;
 }
 .register{
     width: 69px;
