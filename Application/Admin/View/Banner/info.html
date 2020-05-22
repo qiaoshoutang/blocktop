@@ -16,6 +16,14 @@
       <a class="u-btn u-btn-primary u-img-upload" data="path" preview="image-preview" href="javascript:;" >上传</a> 
       <a class="u-btn u-btn-primary" href="javascript:;" id="image-preview">预览</a> 
     </admin:formrow>
+    <admin:formrow title="截止时间" tip="过了截止的时间，自动不显示">
+      <if condition="empty($info['dead_time'])">
+        <admin:text name="dead_time" value="" len="250" class="u-time" />
+      <else/>
+        <admin:text name="dead_time" value="{$info.dead_time|date='Y/m/d H:i',###}" len="250"  class="u-time" />
+      </if>
+      <a class="u-btn u-btn-primary"  onclick='setEmpty(this)'>清除</a> 
+    </admin:formrow>
 	  <admin:formrow title="状态" tip="" >
       <admin:radio name="state"  item="显示,不显示" value="1,2" checked="$info['state']" isset="1" />
     </admin:formrow>
@@ -25,7 +33,6 @@
 </admin:panel>
 <script>
 Do.ready('base',function(){
-
   var option={};
   option.returnUrl="{:U('Admin/Banner/index')}";
   $('#form').duxFormPage(option);
@@ -37,6 +44,10 @@ Do.ready('base',function(){
       }
   });
 });
+
+function setEmpty(para){
+  $(para).prev().val(0);
+}
 
 </script> 
 

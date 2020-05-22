@@ -94,7 +94,7 @@ class IndexController extends SiteController {
         }
         //热门新闻
         $newsList =D('Article/ContentArticle')
-                   ->loadList($where,'content_id,title,description,image,time,views,author,author_id,U.nickname as author_name',10,'time desc,sequence desc');
+                   ->loadList($where,'content_id,title,description,image,time,views,author,author_id,U.nickname as author_name',10,'is_top desc,time desc,sequence desc');
 
         foreach($newsList as $key=>$val){
             $newsList[$key]['description'] = html_out($val['description']);
@@ -108,7 +108,6 @@ class IndexController extends SiteController {
         
         $messageList = $messageMod->loadList($map,'0,3');
         
-
         //推荐导航
         $naviList = D('Admin/Navi')->loadList(['recom'=>1],'0,6');
         
@@ -116,8 +115,6 @@ class IndexController extends SiteController {
         $columnMod = D('Admin/Column');
         $columnList  = $columnMod->where(['state'=>1])->order('order_id desc')->limit(10)->select();
 
-        
-//         dd($loginInfo);
         $this->assign('class_id',$class_id);
         $this->assign('newsCate',M('category')->where(['show'=>1])->order('sequence asc')->select());
         $this->assign('newsList',$newsList);
@@ -135,7 +132,7 @@ class IndexController extends SiteController {
         
         $contentMod = D('Article/ContentArticle');
         
-        M('content')->where(['content_id'=>$content_id])->setInc('views'); //浏览自增1
+        M('content')->where(['content_id'=>$content_id])->setInc('views',rand(5,10)); //浏览自增1
         
         $contentInfo = $contentMod->getInfo($content_id);
 //         dump($contentInfo);

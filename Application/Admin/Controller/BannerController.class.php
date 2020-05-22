@@ -117,6 +117,7 @@ class BannerController extends AdminController
                 return '参数不能未空';
             }
             $_POST['time'] = time();
+
             $re=$bannerMod->saveData('edit');
             if($re){
                 $this->success('修改成功',true);

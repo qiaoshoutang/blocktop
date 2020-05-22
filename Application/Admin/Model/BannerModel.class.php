@@ -6,6 +6,11 @@ use Think\Model;
  */
 class BannerModel extends Model {
 
+    //完成
+    protected $_auto = array (
+        array('dead_time','strtotime',3,'function'), //置顶时间
+
+    );
     /**
      * 获取列表
      * @return array 列表
@@ -69,6 +74,10 @@ class BannerModel extends Model {
         if(!$data){
             return false;
         }
+        if($data['dead_time']>time()){
+            $data['state'] = 1;
+        }
+
         if($type == 'add'){
             //保存基本信息
             $id = $this->add($data);
@@ -82,7 +91,7 @@ class BannerModel extends Model {
             if(empty($data['id'])){
                 return false;
             }
-            $status = $this->save();
+            $status = $this->save($data);
             if($status === false){
                 return false;
             }

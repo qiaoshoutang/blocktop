@@ -59,6 +59,14 @@
         <admin:formrow title="权重" tip="越大越靠前">
           <admin:text name="sequence" value="{$info.sequence}" len="50"  width="full" />
         </admin:formrow>
+        <admin:formrow title="置顶时间" tip="置顶截止的时间">
+          <if condition="empty($info['top_time'])">
+            <admin:text name="top_time" value="" len="250" class="u-time" />
+          <else/>
+            <admin:text name="top_time" value="{$info.top_time|date='Y/m/d H:i',###}" len="250"  class="u-time" />
+          </if>
+          <a class="u-btn u-btn-primary"  onclick='setEmpty(this)'>清除</a> 
+        </admin:formrow>
         <admin:formrow title="浏览量" tip="">
           <admin:text name="views" value="{$info.views}" len="50"  width="full" />
         </admin:formrow>
@@ -68,14 +76,13 @@
           <a class="u-btn u-btn-primary" href="javascript:;" id="image-preview">预览</a> 
         </admin:formrow>
 
-      <admin:formrow title="添加时间" tip="请按照格式填写发布时间">
-        <if condition="empty($info['time'])">
+        <admin:formrow title="添加时间" tip="请按照格式填写发布时间">
+          <if condition="empty($info['time'])">
             <admin:text name="time" value="{$time|date='Y/m/d H:i',###}" len="250" class="u-time" />
-        <else/>
+          <else/>
             <admin:text name="time" value="{$info.time|date='Y/m/d H:i',###}" len="250"  class="u-time" />
-        </if>
-       
-      </admin:formrow>
+          </if>
+        </admin:formrow>
 
         <admin:formrow title="文章状态" tip="">
           <admin:radio name="status" item="草稿,通过,不通过" value="1,2,3" checked="$info['status']" isset="1" />
@@ -106,5 +113,7 @@
         });
     });
     
-
+function setEmpty(para){
+  $(para).prev().val('');
+}
 </script>

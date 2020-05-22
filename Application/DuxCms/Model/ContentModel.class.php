@@ -13,6 +13,7 @@ class ContentModel extends Model {
 //         array('description','getDescription',3,'callback'), //描述
         array('image','getImage',3,'callback'), //形象图
         array('time','strtotime',3,'function'), //时间
+        array('top_time','strtotime',3,'function'), //置顶时间
         array('status','intval',3,'function'), //状态
         array('sequence','intval',3,'function'), //顺序
         array('views','intval',3,'function'), //访问量
@@ -96,14 +97,13 @@ class ContentModel extends Model {
      */
     public function saveData($type = 'add'){
 
-
-
-        
         $data=$this->create();
-
 
         if(!$data){
             return false;
+        }
+        if($data['top_time']>time()){ //置顶时间大于当前时间  置顶状态为2
+            $data['is_top'] = 2;
         }
         if($type == 'add'){
             //保存基本信息
