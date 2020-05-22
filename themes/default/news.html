@@ -173,8 +173,10 @@
                             </div>
                         </div>
                     </div>
-                    <span class="thumbs-Down">
+                    <span class="thumbs-Down" data-id="{$vo.content_id}">
+
                         <img src="images/caiImg.png" alt="" width="14px" height="14px">
+                        <span style="font-size: 12px;position: relative;">122</span>
                     </span>
                 </li>
                 <!--{/foreach}-->
@@ -272,10 +274,6 @@ var class_id = '{$class_id}';
     $(".NewType-Content ul li .NewTypeTop").eq(1).html("TOP 2");
     $(".NewType-Content ul li .NewTypeTop").eq(2).html("TOP 3");
 
-    $(".thumbs-Down").click(function () {
-        $(this).find("img").attr("src","/themes/default/images/dingImg.png");
-    });
-
     $(".NewType-Content ul li").hover(function () {
         $(this).addClass("bg-color");
         $(this).find($(".NewType-Detail")).css({
@@ -302,7 +300,7 @@ var class_id = '{$class_id}';
             }
           }
         });
-    })
+    });
     /*视频*/
     // $(".VideoNews").hover(function () {
     //     $(this).find($(".VideoNewsBt")).hide();
@@ -329,5 +327,28 @@ var class_id = '{$class_id}';
             $(this).find("video").removeAttr("controls","controls")
         }
         return false;
+    });
+
+
+    $(".thumbs-Down").click(function () {
+        var obj=$(this);
+        obj.find("img").attr("src","/themes/default/images/dingImg.png");
+        var id=obj.attr("data-id");
+        console.log(id);
+        $.ajax({
+            type:"post",
+            url:"/Home/Ajax/opera_news",
+            data:{id:id},
+            dataType:'json',
+            success:function(rdata){
+                console.log(rdata);
+                return false
+                if(rdata.code==1){
+
+                }else{
+
+                }
+            }
+        });
     })
 </script>
