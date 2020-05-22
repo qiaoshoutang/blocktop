@@ -36,30 +36,12 @@
 
 
         <div class="columnType" >
-            <!--标题栏-->
-            <div class="NewType-nav">
-                <ul>
-                    <li class='<!--{if condition="$class_id eq all"}--> active <!--{/if}-->'>
-                        <a href = '/news/all'>
-                            今日头条
-                        </a>
-                    </li>
-                    <!--{foreach name='newsCate' item='vo' }-->
-                    <li class='<!--{if condition="$class_id eq $vo['class_id']"}--> active <!--{/if}-->'>
-                        <a href = '/news/{$vo.class_id}'>
-                            {$vo.name}
-                        </a>
-                    </li>
-                    <!--{/foreach}-->
-
-                </ul>
-            </div>
             <!--主要内容文章-->
             <div class="columnType-content">
                 <!--{if condition="empty($newsList)"}-->
                 <ul>
                     <div>
-                        <span>该专栏下没未有文章</span>
+                        <span>该专栏下暂时没有文章</span>
                     </div>
                 </ul>
                 <!--{else /}-->
@@ -95,6 +77,9 @@
                     <!--{/foreach}-->
                 </ul>
                 <!--{/if}-->
+                <div class="LookMore">
+                    <span id='news_more'>查看更多</span>
+                </div>
             </div>
 
             <!--专栏排行-->
@@ -131,3 +116,25 @@
 </body>
 <script src="js/commom.js"></script>
 </html>
+<script>
+    var page_num=2;
+    var column_id = '{$info.id}';
+
+    $('#news_more').click(function(){
+        $.ajax({
+            type:"post",
+            url:"/Home/Ajax/get_news",
+            data:{column_id:column_id,page_num:page_num},
+            dataType:'json',
+            success:function(rdata){
+                console.log(rdata);
+                if(rdata.code==1){
+                    $('.columnType-content ul').append(rdata.data);
+                    page_num++;
+                }else{
+                    $('#news_more').html(rdata.info);
+                }
+            }
+        });
+    });
+</script>

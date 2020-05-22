@@ -75,6 +75,9 @@
     .badDownGood{
         cursor: pointer;
     }
+    .green{
+        color: #00a911;
+    }
 
 </style>
 <div class="box">
@@ -126,12 +129,25 @@
                                         {$vo.content}
                                     </div>
                                     <div class="Favorable-BadProfit">
+                                        <!--利好点前-->
                                         <span class="badDownGood" data-id='{$vo.id}' data-type='up' id="GOUPID">
                                             <img src="images/up.png" alt=""> 利好<span class="count-f">{$vo.up}</span>
                                         </span>
+
+                                        <!--利好点后-->
+                                        <!--<span class="badDownGood" data-id='{$vo.id}' data-type='up' id="GOUPID" style="color: #00a911">-->
+                                            <!--<img src="images/up.png" alt=""> 利好<span class="count-f" style="color: #00a911">{$vo.up}</span>-->
+                                        <!--</span>-->
+
+                                        <!--利空点前-->
                                         <span class="badDownGood" data-id='{$vo.id}' data-type='down'>
                                             <img src="images/down.png" alt=""> 利空<span class="count-f">{$vo.down}</span>
                                         </span>
+
+                                        <!--利空点后-->
+                                        <!--<span class="badDownGood" data-id='{$vo.id}' data-type='down' style="color:#A90000">-->
+                                            <!--<img src="images/down.png" alt=""> 利空<span class="count-f" style="color:#A90000">{$vo.down}</span>-->
+                                        <!--</span>-->
                                         <span class="shareKx">
                                             <img src="images/fenxiang.png" alt="">
                                             分享
@@ -242,6 +258,7 @@
         }
         return "";
     }
+
     var page_num = 2;
     $('#message_more').click(function(){
         
@@ -261,14 +278,21 @@
           }
         });
     });
+
+
+
     $("body").on("click",".badDownGood",function () {
         var obj =$(this);
         var id = obj.attr('data-id');
         var type = obj.attr('data-type');
+        $("#GOUPID").css("color","#00a911");
+        var color=$("#GOUPID").css("color");
         var aaa=getCookie(type+id);
         var cida=type+id;
-        // console.log(setCookie(type+id,type+id, 365));
-        // return false;
+        // console.log(cida);
+        // console.log(color);
+        // var colorcookie=getCookie(color);
+        // console.log(colorcookie);
         if(aaa==cida){
             return false
         }
@@ -283,14 +307,17 @@
                 obj.css({"pointer-events":"none"});
                 obj.find('.count-f').html(parseInt(obj.find('.count-f').html())+1);
                 var cid = obj.find('.count-f').html();
-                // obj.css({
-                //     "color":"#00a911"
-                // });
-                setCookie(type+id,type+id, 365);
+                setCookie(type+id,type+id,365);
+                setCookie("color",color,365);
             }else{
 
             }
           }
         });
     })
+
+    // $(document).ready(function(){
+    //     var colorcookie=getCookie(color);
+    //     console.log(colorcookie)
+    // })
 </script>
