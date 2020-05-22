@@ -16,7 +16,7 @@ class AjaxController extends SiteController {
     public function opera_news(){
         $id = I('request.id',0,'intval');
 
-        $re = M('content')->where(['id'=>$id])->setInc('look');
+        $re = M('content')->where(['content_id'=>$id])->setInc('look');
                 
         if(!$re){
             $rdata['code'] = 0;
