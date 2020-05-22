@@ -10,6 +10,23 @@ use AlibabaCloud\Client\Exception\ServerException;
 
 class AjaxController extends SiteController {
     
+    /*
+     * 快讯操作
+     */
+    public function opera_news(){
+        $id = I('request.id',0,'intval');
+
+        $re = M('content')->where(['id'=>$id])->setInc('look');
+                
+        if(!$re){
+            $rdata['code'] = 0;
+            $rdata['info'] = '请求失败';
+            $this->ajaxReturn($rdata);
+        }
+        $rdata['code'] = 1;
+        $rdata['info'] = '请求成功';
+        $this->ajaxReturn($rdata);
+    }
 
     /*
      * 作者主页 ajax更多文章
@@ -92,44 +109,33 @@ class AjaxController extends SiteController {
         $class_id = I('post.class_id','all','intval');
         $column_id = I('post.column_id','0','intval');
 
-        
-        $where['status'] = 2;
+        $where['A.status'] = 2;
         if($class_id != 'all'){
             $where['class_id'] = $class_id;
         }
         if($column_id){
             $where['column_id'] = $column_id;
         }
-        //热门新闻
-        $newsList = M('content')->where($where)->field('content_id,title,description,image,time,views,author')->page($page_num,10)
-                    ->order('content_id desc')->select();
+        //新闻列表
+
+        $newsList =D('Article/ContentArticle')
+                ->loadList($where,'content_id,title,description,image,time,views,author,author_id,U.nickname as author_name',$page_num.',10','A.time desc,A.sequence desc');
+
         if(empty($newsList)){
-            $rdata['code'] = 0;
+            $rdata['code'] = 2;
             $rdata['info'] = '已经没有更多了';
             $this->ajaxReturn($rdata);
         }
-        
-        $detect = new \Common\Util\Mobile_Detect();
-        
-        if($detect->isMobile()){
-            foreach($newsList as $key=>$val){
-                $newsList[$key]['description'] = html_out($val['description']);
-                if($val['time']>(time()-3600)){ //一小时内
-                    $newsList[$key]['time'] = ceil((time()-$val['time'])/60).'分钟前';
-                }else{
-                    $newsList[$key]['time'] = date('m-d H:i');
-                }
-            }
-            $this->assign('newsList',$newsList);
-            $data = $this->fetch('news_list_m');
-        }else{
-            foreach($newsList as $key=>$val){
-                $newsList[$key]['description'] = html_out($val['description']);
-            }
-            $this->assign('newsList',$newsList);
-            
-            $data = $this->fetch('news_list');
+        foreach($newsList as $key=>$val){
+            $newsList[$key]['description'] = html_out($val['description']);
+            $newsList[$key]['time'] = format_time($val['time'],2);
         }
+
+        
+        $this->assign('newsList',$newsList);
+        
+        $data = $this->fetch('news_list');
+
         
         $rdata['code'] = 1;
         $rdata['info'] = '获取信息成功';

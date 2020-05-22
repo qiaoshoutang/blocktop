@@ -15,7 +15,11 @@
                     {$vo.description}
                 </div>
                 <div class="TextSource">
+                    <if condition="$vo['author_id']">
+                    <span onclick='window.location.href="/Author/{$vo.author_id}"'>{$vo.author_name}</span>
+                    <else/>
                     <span>{$vo.author}</span>
+                    </if>
                     <span>{$vo.time|format_time='Y-m-d H:i:s'}</span>
                     <span class="Guankan"><img src="/themes/default/images/guankan.png" alt="" width="15px">{$vo.views}</span>
                 </div>

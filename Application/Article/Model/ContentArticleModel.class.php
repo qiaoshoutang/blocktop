@@ -25,7 +25,6 @@ class ContentArticleModel extends Model {
                         ->select();
 
         return $pageList;
-
     }
 
     /**
