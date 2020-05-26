@@ -54,22 +54,14 @@ class ColumnController extends AdminController
             $where['state'] = $state;
             $pageMaps['state'] = $state;
         }
-        $recom = I('request.recom','');
-        if(!empty($recom)){
-            $where['recom'] = $recom;
-            $pageMaps['recom'] = $recom;
-        }
-        
 
         $columnMod=D('Admin/Column');
-        
         $count = $columnMod->countList($where);
-        
         $limit = $this->getPageLimit($count,20);
         $list  = $columnMod->loadList($where,$limit);
 
-        
         $this->assign('stateArr',array(1=>'展示',2=>'隐藏'));
+        $this->assign('typeArr',array(1=>'文章',2=>'视频'));
         $this -> assign('pageMaps',$pageMaps);
         $this->assign('page',$this->getPageShow($pageMaps));
         $this->assign('list',$list);

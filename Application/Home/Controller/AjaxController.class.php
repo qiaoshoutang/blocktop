@@ -117,7 +117,6 @@ class AjaxController extends SiteController {
             $where['column_id'] = $column_id;
         }
         //新闻列表
-
         $newsList =D('Article/ContentArticle')
                 ->loadList($where,'content_id,title,description,image,time,views,author,author_id,U.nickname as author_name',$page_num.',10','A.time desc,A.sequence desc');
 

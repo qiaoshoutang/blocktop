@@ -73,9 +73,18 @@
                             {$contentInfo.views}
                         </span>
                     </div>
+                    <!--{if condition="$type eq 1"}-->
                     <div class="DynamicArticle">
                         {$contentInfo.content}
                     </div>
+                    <!--{/if}-->
+                    <!--{if condition="$type eq 2"}-->
+                    <div class="DynamicArticle">
+                        <video src="{$contentInfo.target}" controls="controls" width='100%'>
+                            您的浏览器不支持 video 标签。
+                        </video>
+                    </div>
+                    <!--{/if}-->
                 </div>
             </div>
             <div class="statement">

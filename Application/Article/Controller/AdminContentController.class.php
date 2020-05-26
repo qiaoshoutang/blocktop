@@ -94,7 +94,7 @@ class AdminContentController extends AdminController {
             $this->assign('breadCrumb',$breadCrumb);
             $this->assign('name','添加');
             $this->assign('categoryList',M('category')->where(['show'=>1])->order('sequence asc')->select());
-            $this->assign('columnList',M('column')->order('order_id desc')->select());
+            $this->assign('columnList',M('column')->where(['type'=>1])->order('order_id desc')->select());
             $this->assign('authorList',M('users')->where(['role'=>2])->field('id,nickname')->order('id desc')->select());
             $this->adminDisplay('info');
         }else{
@@ -142,7 +142,7 @@ class AdminContentController extends AdminController {
             $this->assign('name','修改');
             $this->assign('info',$info);
             $this->assign('categoryList',M('category')->where(['show'=>1])->order('sequence asc')->select());
-            $this->assign('columnList',M('column')->order('order_id desc')->select());
+            $this->assign('columnList',M('column')->where(['type'=>1])->order('order_id desc')->select());
             $this->assign('authorList',M('users')->where(['role'=>2])->field('id,nickname')->order('id desc')->select());
             $this->adminDisplay('info');
         }else{

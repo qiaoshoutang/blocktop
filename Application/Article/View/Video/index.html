@@ -1,0 +1,100 @@
+<h3>视频列表</h3>
+<admin:panel >
+  <admin:tabletool filter="true" keyword="{$pageMaps.keyword}">
+    <select name="state" id="class_id" class="form-element">
+      <option value="0">==状态==</option>
+      <foreach name="statusArr" item="vo">
+        <option value="{$key}"
+          <if condition="$pageMaps['status'] == $key"> selected="selected" </if>
+          >{$vo}
+          </option>
+      </foreach>
+    </select>
+  </admin:tabletool>
+
+  <admin:table id="table" show="选择|30,编号|30,权重,标题|80,地址,浏览量,状态|100,时间|170,操作|130">
+    <foreach name="list" item="vo">
+      <tr>
+        <td>
+        	<input type="checkbox" name="id[]" value="{$vo.id}" />
+        </td>
+        <td>{$vo.id}</td>
+        <td>{$vo.sequence}</td>
+        <td>{$vo.title}</td>
+        <td>
+            {$vo.target}
+        </td>
+        <td>
+            {$vo.views}
+        </td>
+        <td>
+          <if condition="$vo['status']==1"> 
+            <span class="u-badge u-badge-primary">草稿</span>
+          </if>
+
+          <if condition="$vo['status']==2"> 
+            <span class="u-badge u-badge-success">通过</span>
+          </if>
+          <if condition="$vo['status']==3"> 
+            <span class="u-badge u-badge-danger">不通过</span>
+          </if>
+        </td>
+        <td>{$vo.time|date="Y-m-d H:i:s",###}</td>
+
+        <td>
+          <a class="u-btn u-btn-success  u-btn-small" href="{:U('edit',array('id'=>$vo['id']))}">修改</a>
+          <a class="u-btn u-btn-danger  u-btn-small del" href="javascript:;" data="{$vo.id}">删除</a>
+        </td>
+      </tr>
+    </foreach>
+  </admin:table>
+  <admin:tablefoot action="true" item="删除" value="4" />
+</admin:panel>
+<script type="text/javascript" charset="utf-8">
+	Do.ready('base',function() {
+
+		//表格处理
+		$('#table').duxTable({
+			actionUrl : "{:U('batchAction')}",
+			deleteUrl: "{:U('del')}",
+			actionParameter : function(){
+				return {'class_id' : $('#selectAction').next('#class_id').val()};
+			}
+		});
+	});
+
+
+  function message_review(par){   //ajax 向后台提交审核
+
+    var obj=$(par); 
+    var obj_status=obj.parents('tr').children('td').eq(4);
+    var id=obj.attr('data');
+    var operation=obj.attr('operation');
+
+    $.ajax({
+      type:"post",
+      url:"/Article/Message/message_review",
+      data:{id:id,operation:operation},
+      dataType:'json',
+      success:function(data){
+        if(data.code==1){ 
+          obj.parent().children('.article').remove();
+
+          if(data.operation==2){
+              obj_status.html('<span class="u-badge u-badge-success">通过</span>');
+          }
+          if(data.operation==3){
+              obj_status.html('<span class="u-badge u-badge-danger">不通过</span>');
+          }
+        }else{
+          console.log(data);
+        }
+      }
+    });
+  }
+</script>
+
+
+
+
+

@@ -44,6 +44,16 @@ class MenuService{
 	                    'name' => '添加快讯',
 	                    'url' =>  U('Article/Messag/add'),
 	                    'order' => 7
+	                ),
+	                array(
+	                    'name' => '视频列表',
+	                    'url' =>  U('Article/Video/index'),
+	                    'order' => 9
+	                ),
+	                array(
+	                    'name' => '添加视频',
+	                    'url' =>  U('Article/Video/add'),
+	                    'order' => 11
 	                )
 	            )
 	        ),
@@ -116,7 +126,7 @@ class MenuService{
 		    ),
 		    'Column' => array(
 		        'name' => '专栏管理',
-		        'order' => 12,
+		        'order' => 14,
 		        'menu' => array(
 		            array(
 		                'name' => '专栏列表',
@@ -124,7 +134,7 @@ class MenuService{
 		                'order' => 1
 		            ),
 		            array(
-		                'name' => '轮播添加',
+		                'name' => '专栏添加',
 		                'url' => U('Admin/Column/add'),
 		                'order' => 2
 		            ),

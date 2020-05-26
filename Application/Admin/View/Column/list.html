@@ -4,11 +4,12 @@
   <admin:select name="state" item="==状态==,展示,隐藏" value="0,1,2" selected="$pageMaps['state']" />
 </admin:tabletool>
 
-<admin:table id="table" show="编号|80,权重,名称,图标,Banner,简介,添加时间,状态,操作|130">
+<admin:table id="table" show="编号|80,权重,类型,名称,图标,Banner,简介,添加时间,状态,操作|130">
   <foreach name="list" item="vo">
     <tr>
       <td>{$vo.id}</td>
       <td>{$vo.order_id}</td>
+      <td>{$typeArr[$vo['type']]}</td>
       <td>{$vo.name}</td>
       <td><img src="{$vo.icon}" style="height:80px"></td>
       <td><img src="{$vo.banner}" style="height:80px"></td>

@@ -19,13 +19,13 @@ class IndexController extends SiteController {
             $ishttps=1;
         }
             
-        if ($detect->isMobile()){           
-            if($ishttps){
-                redirect('https://'.$_SERVER['HTTP_HOST'].'/home_m');
-            }else{
-                redirect('http://'.$_SERVER['HTTP_HOST'].'/home_m');
-            }
-        } 
+//         if ($detect->isMobile()){           
+//             if($ishttps){
+//                 redirect('https://'.$_SERVER['HTTP_HOST'].'/home_m');
+//             }else{
+//                 redirect('http://'.$_SERVER['HTTP_HOST'].'/home_m');
+//             }
+//         } 
         
         $cateList = M('navi_category')->where(['state'=>1])->select();
         $this->assign('cateList',$cateList);
@@ -94,7 +94,7 @@ class IndexController extends SiteController {
         }
         //热门新闻
         $newsList =D('Article/ContentArticle')
-                   ->loadList($where,'content_id,title,description,image,time,views,author,author_id,U.nickname as author_name',10,'is_top desc,time desc,sequence desc');
+                   ->loadList($where,'content_id,title,description,image,time,views,author,author_id,U.nickname as author_name','1,10','is_top desc,time desc,sequence desc');
 
         foreach($newsList as $key=>$val){
             $newsList[$key]['description'] = html_out($val['description']);
@@ -128,16 +128,27 @@ class IndexController extends SiteController {
     //新闻详情
     public function newsContent(){
         
+        $type = I('request.type',1);
         $content_id = I('request.content_id',0);
         
-        $contentMod = D('Article/ContentArticle');
-        
-        M('content')->where(['content_id'=>$content_id])->setInc('views',rand(5,10)); //浏览自增1
-        
-        $contentInfo = $contentMod->getInfo($content_id);
-//         dump($contentInfo);
-//         exit;
-        $contentInfo['content'] = html_out($contentInfo['content']);
+        if(empty($type)){
+            $this->error('参数不能为空');
+        }
+        if($type == 1){ //文章类型
+            $contentMod = D('Article/ContentArticle');
+            
+            M('content')->where(['content_id'=>$content_id])->setInc('views',rand(5,10)); //浏览自增
+            $contentInfo = $contentMod->getInfo($content_id);
+            $contentInfo['content'] = html_out($contentInfo['content']);
+        }
+        if($type == 2){ //视频类型
+            $contentMod = D('Article/Video');
+            
+            
+            M('video')->where(['id'=>$content_id])->setInc('views',rand(5,10)); //浏览自增
+            $contentInfo = $contentMod->getInfo($content_id);
+        }
+
         
         //如果用户登录  添加浏览历史
         $home_user = session('home_user');
@@ -146,6 +157,7 @@ class IndexController extends SiteController {
             $historMod = M('history');
             $hdata['user_id'] = $home_user['user_id'];
             $hdata['article_id'] = $content_id;
+            $hdata['type'] = $type;
             $exist = $historMod->where($hdata)->field('id')->find();
             if($exist){ //浏览记录已存在   更新浏览时间
                 $historMod->save(['id'=>$exist['id'],'time'=>time()]);
@@ -175,6 +187,7 @@ class IndexController extends SiteController {
         $this->assign('messageList',$messageList);
         $this->assign('naviList',$naviList);
         $this->assign('contentInfo',$contentInfo);
+        $this->assign('type',$type);
         $this -> siteDisplay('newsContent');
     }
 
@@ -351,22 +364,50 @@ class IndexController extends SiteController {
             $info = $columnMod->where(['state'=>1])->order('order_id desc')->find();
         }
         
-        //新闻列表
-
-        $newsList =D('Article/ContentArticle')
-                    ->loadList(['A.column_id'=>$info['id']],'content_id,title,description,image,time,views,author,author_id,U.nickname as author_name',10,'time desc,sequence desc');
-        
-        foreach($newsList as $key=>$val){
-            $newsList[$key]['description'] = html_out($val['description']);
-            $newsList[$key]['time'] = format_time($val['time'],2);
+        if(empty($info)){
+            $this->error('找不到该栏目信息');
         }
-        // 专栏列表
-        $columnList  = $columnMod->where(['state'=>1])->order('order_id desc')->limit(10)->select();
+        //文章类型栏目
+        if($info['type'] == 1){
+            //新闻列表
+            $newsList =D('Article/ContentArticle')
+                       ->loadList(['A.column_id'=>$info['id']],'content_id,title,description,image,time,views,author,author_id,U.nickname as author_name','1,10','time desc,sequence desc');
+            
+            foreach($newsList as $key=>$val){
+                $newsList[$key]['description'] = html_out($val['description']);
+                $newsList[$key]['time'] = format_time($val['time'],2);
+                $newsList[$key]['url'] = '/newsContent/1/'.$val['content_id'];
+            }
+            
+            // 专栏列表
+            $columnList  = $columnMod->where(['state'=>1])->order('order_id desc')->limit(10)->select();
+            
+            $this->assign('info',$info);
+            $this->assign('newsList',$newsList);
+            $this->assign('columnList',$columnList);
+            $this -> siteDisplay('specialColumn');
+        }
+        //视频类型栏目
+        if($info['type'] == 2){
+            
+            $newsList =D('Article/Video')
+                       ->loadList(['A.column_id'=>$info['id']],'A.id as content_id,title,A.desc,image,time,views,author,author_id,U.nickname as author_name','1,10','time desc,sequence desc');
+
+            foreach($newsList as $key=>$val){
+                $newsList[$key]['description'] = html_out($val['desc']);
+                $newsList[$key]['time'] = format_time($val['time'],2);
+                $newsList[$key]['url'] = '/newsContent/2/'.$val['content_id'];
+            }
+            // 专栏列表
+            $columnList  = $columnMod->where(['state'=>1])->order('order_id desc')->limit(10)->select();
+            
+            $this->assign('info',$info);
+            $this->assign('newsList',$newsList);
+            $this->assign('columnList',$columnList);
+            $this -> siteDisplay('specialColumn');
+        }
         
-        $this->assign('info',$info);
-        $this->assign('newsList',$newsList);
-        $this->assign('columnList',$columnList);
-        $this -> siteDisplay('specialColumn');
+
     }
     
     /**********************************************************************/
