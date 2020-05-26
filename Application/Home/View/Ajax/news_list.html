@@ -1,6 +1,6 @@
 
 <foreach name='newsList' item='vo'>
-    <li onclick='window.location.href="/newsContent/{$vo.content_id}"'>
+    <li >
         <div class="NewType-Detail">
             <div class="NewTypeImg">
                 <div class="NewTypeImgBox">
@@ -8,7 +8,7 @@
                 </div>
             </div>
             <div class="NewTypeText">
-                <div class="TextTitle">
+                <div class="TextTitle" onclick='window.location.href="/newsContent/{$vo.content_id}"'>
                     {$vo.title}
                 </div>
                 <div class="TextContent">
@@ -26,5 +26,9 @@
 
             </div>
         </div>
+        <span class="thumbs-Down" data-id="{$vo.content_id}">
+               <img src="/themes/default/images/caiImg.png" alt="" width="14px" height="14px">
+               <span style="font-size: 12px;position: relative;">{$vo.look}</span>
+        </span>
     </li>
 </foreach>
