@@ -39,11 +39,11 @@ class VideoController extends AdminController {
         $keyword = I('request.keyword','');
         $state = I('request.status',0,'intval');
         if(!empty($keyword)){
-            $where['title'] = array('like','%'.$keyword.'%');
+            $where['A.title'] = array('like','%'.$keyword.'%');
         }
 
         if(!empty($status)){
-            $where['status'] = $status;
+            $where['A.status'] = $status;
         }
         //URL参数
         $pageMaps = array();
@@ -56,7 +56,7 @@ class VideoController extends AdminController {
         $count = $videoMod->countList($where);
 
         $limit = $this->getPageLimit($count,20);
-        $list = $videoMod->loadList($where,$limit);
+        $list = $videoMod->loadList($where,'A.*',$limit);
 
         //位置导航
         $breadCrumb = array('视频列表'=>U());
