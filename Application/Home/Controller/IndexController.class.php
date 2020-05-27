@@ -371,7 +371,7 @@ class IndexController extends SiteController {
         if($info['type'] == 1){
             //新闻列表
             $newsList =D('Article/ContentArticle')
-                       ->loadList(['A.column_id'=>$info['id']],'content_id,title,description,image,time,views,author,author_id,U.nickname as author_name','1,10','time desc,sequence desc');
+                       ->loadList(['A.column_id'=>$info['id']],'content_id,title,description,image,time,views,author,author_id,U.nickname as author_name','1,10','sequence desc,time desc');
             
             foreach($newsList as $key=>$val){
                 $newsList[$key]['description'] = html_out($val['description']);
@@ -391,7 +391,7 @@ class IndexController extends SiteController {
         if($info['type'] == 2){
             
             $newsList =D('Article/Video')
-                       ->loadList(['A.column_id'=>$info['id']],'A.id as content_id,title,A.desc,image,time,views,author,author_id,U.nickname as author_name','1,10','time desc,sequence desc');
+                       ->loadList(['A.column_id'=>$info['id']],'A.id as content_id,title,A.desc,image,time,views,author,author_id,U.nickname as author_name','1,10','sequence desc,time desc');
 
             foreach($newsList as $key=>$val){
                 $newsList[$key]['description'] = html_out($val['desc']);
