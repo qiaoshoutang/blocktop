@@ -1,7 +1,7 @@
 <?php
 namespace Home\Controller;
 
-require '/vendor/autoload.php';
+require './vendor/autoload.php';
 
 use Home\Controller\SiteController;
 use AlibabaCloud\Client\AlibabaCloud;
