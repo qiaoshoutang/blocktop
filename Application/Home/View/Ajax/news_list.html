@@ -1,6 +1,6 @@
 
 <foreach name='newsList' item='vo'>
-    <li >
+    <li>
         <div class="NewType-Detail">
             <div class="NewTypeImg">
                 <div class="NewTypeImgBox">
@@ -8,7 +8,8 @@
                 </div>
             </div>
             <div class="NewTypeText">
-                <div class="TextTitle" onclick='window.location.href="/newsContent/{$vo.content_id}"'>
+
+                <div class="TextTitle" onclick='window.location.href="/newsContent/1/{$vo.content_id}"'>
                     {$vo.title}
                 </div>
                 <div class="TextContent">
@@ -23,12 +24,11 @@
                     <span>{$vo.time|format_time='Y-m-d H:i:s'}</span>
                     <span class="Guankan"><img src="/themes/default/images/guankan.png" alt="" width="15px">{$vo.views}</span>
                 </div>
-
             </div>
         </div>
         <span class="thumbs-Down" data-id="{$vo.content_id}">
-               <img src="/themes/default/images/caiImg.png" alt="" width="14px" height="14px">
-               <span style="font-size: 12px;position: relative;">{$vo.look}</span>
+            <img src="/themes/default/images/caiImg.png" alt="" width="14px" height="14px">
+            <span style="font-size: 12px;position: relative;">{$vo.look}</span>
         </span>
     </li>
 </foreach>

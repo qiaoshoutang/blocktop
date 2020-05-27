@@ -118,7 +118,7 @@ class AjaxController extends SiteController {
         }
         //新闻列表
         $newsList =D('Article/ContentArticle')
-                ->loadList($where,'content_id,title,description,image,time,views,author,author_id,U.nickname as author_name',$page_num.',10','A.time desc,A.sequence desc');
+                ->loadList($where,'content_id,title,description,image,time,views,author,author_id,look,U.nickname as author_name',$page_num.',10','A.time desc,A.sequence desc');
 
         if(empty($newsList)){
             $rdata['code'] = 2;
@@ -127,7 +127,7 @@ class AjaxController extends SiteController {
         }
         foreach($newsList as $key=>$val){
             $newsList[$key]['description'] = html_out($val['description']);
-            $newsList[$key]['time'] = format_time($val['time'],2);
+//             $newsList[$key]['time'] = format_time($val['time'],2);
         }
 
         

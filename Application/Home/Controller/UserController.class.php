@@ -172,6 +172,7 @@ class UserController extends SiteController {
     //我的主页
     public function myPage(){
         $user_info = session('home_user');
+//         dd($user_info);
         if(empty($user_info)){
             $this->error('您还未登陆，请先登录！');
         }
