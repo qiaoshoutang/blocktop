@@ -4,7 +4,7 @@
     height: 100px;
     position: relative;
     overflow: hidden;
-    background: #7777;
+    /*background: #7777;*/
 
 }
 .input-box{
@@ -17,7 +17,7 @@
     width: 560px;
     height: 95%;
     border: 1px silver solid;
-    font-size: 20px;
+    font-size: 16px;
     text-indent: 30px;
     position: absolute;
     left: 0;
@@ -33,8 +33,8 @@
     text-align: center;
 }
 .SearchK_Point img{
-    width: 50%;
-    margin-top: 10px;
+    width: 35%;
+    margin-top: 15px;
 }
 .haveY{
     /*display: none;*/

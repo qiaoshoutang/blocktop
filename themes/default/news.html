@@ -45,6 +45,9 @@
     .remen{
         display: none;
     }
+    .LookMore{
+
+    }
 </style>
 <body>
 <div class="box">
@@ -210,6 +213,7 @@
 
                 </ul>
         </div>
+        <!--<div style="clear: both"></div>-->
         <!--热门快讯-->
         <div class="Hot-News">
             <div class="Hot-News-content">
@@ -261,12 +265,19 @@
 <script src="js/jquery.js"></script>
 <script src="js/commom.js"></script>
 <script src="js/ft-carousel.min.js"></script>
+<script src="/themes/mobile/js/jquery.cookie.js"></script>
+
+
+
 
 <script>
+
+
     $("#carousel_1").FtCarousel();
 
 var page_num = 2;
 var class_id = '{$class_id}';
+var cookieId;
 
     /*热文前三*/
     $(".NewType-Content ul li .NewTypeTop").eq(0).html("TOP 1");
@@ -294,6 +305,7 @@ var class_id = '{$class_id}';
             if(rdata.code==1){
                 $('.NewType-Content ul').append(rdata.data);
                 page_num++;
+                cookieReady()
             }else{
                 $('#news_more').html(rdata.info);
             }
@@ -306,10 +318,9 @@ var class_id = '{$class_id}';
     // },function () {
     //     $(this).find($(".VideoNewsBt")).show();
     // });
-
     $(".HotNewsText-Article").click(function () {
         window.location.href="/message"
-    })
+    });
 
     $(".VideoNews,.ArticleNews").click(function () {
         var VideoNewsBt=$(this).find($(".VideoNewsBt"));
@@ -329,11 +340,51 @@ var class_id = '{$class_id}';
     });
 
 
-    $(".thumbs-Down").click(function () {
+
+    /*cookie操作*/
+
+    function setCookie(c_name,value,expiredays)
+    {
+        var exdate=new Date();
+        exdate.setDate(exdate.getDate()+expiredays);
+        document.cookie=c_name+ "=" +escape(value)+ ((expiredays==null) ? "" : ";expires="+exdate.toGMTString());
+        // $.cookie("cookieColor", "cookieValue", { expires: 365 });//第一种
+    }
+    //取回cookie
+    function getCookie(cookieName){
+        var cookieValue="";
+        if (document.cookie && document.cookie != '') {
+            var cookies = document.cookie.split(';');
+            for (var i = 0; i < cookies.length; i++) {
+                var cookie = cookies[i];
+                if (cookie.substring(0, cookieName.length + 2).trim() == cookieName.trim() + "=") {
+                    cookieValue = cookie.substring(cookieName.length + 2, cookie.length);
+                    break;
+                }
+            }
+        }
+        return cookieValue;
+    }
+
+    var id_arr = new Array();
+    var arrcookieval = new Array();
+    var id_cookieval;
+    $("body").on("click",".thumbs-Down",function () {
+        // console.log(id_cookieval);
         var obj=$(this);
-        obj.find("img").attr("src","/themes/default/images/dingImg.png");
         var id=obj.attr("data-id");
-        console.log(id);
+        obj.find("img").attr("src","/themes/default/images/dingImg.png");
+        id_arr.push(id);
+        id_arr = id_arr.concat(id_cookieval);
+        /*去重*/
+        for(var i=0;i<id_arr.length;i++) {
+            var items=id_arr[i];
+            /**/
+            if($.inArray(items,arrcookieval)==-1) {
+                arrcookieval.push(items);
+            }
+        }
+        // console.log(arrcookieval);
         $.ajax({
             type:"post",
             url:"/Home/Ajax/opera_news",
@@ -341,13 +392,40 @@ var class_id = '{$class_id}';
             dataType:'json',
             success:function(rdata){
                 console.log(rdata);
-                return false
                 if(rdata.code==1){
+                     obj.find("span").html(parseInt(obj.find('span').html())+1);
+                    setCookie("arrcookieval",arrcookieval,365);
+                    obj.css({"pointer-events":"none"});
 
                 }else{
 
                 }
             }
         });
-    })
+    });
+   /*获取cookie操作*/
+    function cookieReady(){
+            var cookieval=$.cookie('arrcookieval');
+            // console.log($.cookie('arrcookieval'));
+            id_cookieval=cookieval.split(',');
+            /*遍历dataid*/
+            $(".thumbs-Down").each(function () {
+                var $this=$(this);
+                if(($.inArray($(this).attr('data-id'),id_cookieval)) != -1){
+                    $(this).find("img").attr("src","/themes/default/images/dingImg.png");
+                    $(this).css({"pointer-events":"none"});
+                }
+            });
+    }
+
+    $(document).ready(function(){
+        cookieReady()
+    });
+
+
+
+
+
+
+
 </script>

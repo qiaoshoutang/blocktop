@@ -269,9 +269,61 @@
         top: 45px;
         cursor: pointer;
     }
+    .upgradeCodeEwm{
+        width: 100%;
+        height: 100%;
+        position: fixed;
+    }
+    .upgradeCodeEwmDiv{
+        width: 190px;
+        height: 190px;
+        background: rgba(0,0,0,.5);
+        position: absolute;
+        right: 0;
+        left: 0;
+        bottom: 0;
+        top: -80px;
+        margin: auto;
+        border-radius: 8px;
+        color: white;
+        text-align: center;
+        font-size: 12px;
+        overflow: hidden;
+        display: none;
+    }
+    .TtCodeImg{
+        width: 100px;
+        height: 100px;
+        position: relative;
+        top: 30px;
+    }
+    .CodeGuanbi{
+        position: absolute;
+        right: 10px;
+        top: 5px;
+        cursor: pointer;
+    }
+    .CodeGuanbi img{
+        width: 15px;
+        height: 15px;
+        margin-top: 5px;
+
+    }
 </style>
 <body>
    <div class="box">
+       <!--升级头条作者弹窗-->
+       <div class="upgradeCodeEwm">
+           <div class="upgradeCodeEwmDiv">
+               <div class="CodeGuanbi">
+                   <img src="images/guanbi.png" alt="">
+               </div>
+
+               <img src="images/TtCode.jpg" alt="" class="TtCodeImg">
+               <div style="margin-top: 44px">该功能暂未开放</div>
+               <div>详情可咨询微信官方客服。</div>
+           </div>
+       </div>
        <!--导航栏-->
        <!--弹窗（修改头像名字）-->
        <div class="headImageNameTc">
@@ -601,7 +653,11 @@
     });
     /*升级头条作者弹窗*/
     $(".upgrade").click(function () {
-        layer.msg('该功能暂未开放，可关注公众号咨询客服申请头条作者');
+        $(".upgradeCodeEwmDiv").show();
+    });
+    
+    $(".CodeGuanbi").click(function () {
+        $(".upgradeCodeEwmDiv").hide()
     });
     /*修改资料提交*/
 

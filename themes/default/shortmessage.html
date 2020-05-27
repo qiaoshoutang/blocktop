@@ -38,7 +38,7 @@
         width: 100%;
     }
     #GOUPID{
-       margin-left: 500px;
+       margin-left: 480px;
     }
     .shareKx{
         margin-left: 20px;
@@ -130,7 +130,7 @@
                                     </div>
                                     <div class="Favorable-BadProfit">
                                         <!--利好点前-->
-                                        <span class="badDownGood" data-id='{$vo.id}' data-type='up' id="GOUPID">
+                                        <span class="badDownGood greenUp" data-id='{$vo.id}' data-type='up' id="GOUPID">
                                             <img src="images/up.png" alt=""> 利好<span class="count-f">{$vo.up}</span>
                                         </span>
 
@@ -140,7 +140,7 @@
                                         <!--</span>-->
 
                                         <!--利空点前-->
-                                        <span class="badDownGood" data-id='{$vo.id}' data-type='down'>
+                                        <span class="badDownGood redDown" data-id='{$vo.id}' data-type='down'>
                                             <img src="images/down.png" alt=""> 利空<span class="count-f">{$vo.down}</span>
                                         </span>
 
@@ -259,6 +259,8 @@
         return "";
     }
 
+    var cookie_value;
+
     var page_num = 2;
     $('#message_more').click(function(){
         
@@ -272,6 +274,7 @@
             if(rdata.code==1){
                 $('.KxText ul').append(rdata.data);
                 page_num++;
+                cookieReady()
             }else{
                 $('#message_more').html(rdata.info);
             }
@@ -279,23 +282,55 @@
         });
     });
 
-
+    var id_arr = new Array();
+    var arrcookieval = new Array();
+    var id_cookieval;
+    var data_id= new Array();
+    var repeatId= new Array()
 
     $("body").on("click",".badDownGood",function () {
         var obj =$(this);
         var id = obj.attr('data-id');
         var type = obj.attr('data-type');
-        $("#GOUPID").css("color","#00a911");
-        var color=$("#GOUPID").css("color");
-        var aaa=getCookie(type+id);
-        var cida=type+id;
-        // console.log(cida);
-        // console.log(color);
-        // var colorcookie=getCookie(color);
-        // console.log(colorcookie);
-        if(aaa==cida){
-            return false
+        id_arr.push(id+type);
+        id_arr = id_arr.concat(id_cookieval);
+        /*去重*/
+        for(var i=0;i<id_arr.length;i++) {
+            var items=id_arr[i];
+            /**/
+            if($.inArray(items,arrcookieval)==-1) {
+                arrcookieval.push(items);
+            }
         }
+        console.log(arrcookieval);
+        // /*取id相同值拿出来作比较*/
+        // data_id.push(id);
+        // var data_id_repeat=data_id.sort();
+        // for(var i=0;i<data_id.length;i++){
+        //     if (data_id_repeat[i]==data_id_repeat[i+1]){
+        //         /*取出的相同id*/
+        //         var id_repeat=data_id_repeat[i];
+        //         repeatId.push(id_repeat);
+        //     }
+        // }
+        // $.unique(repeatId.sort());
+        // console.log(repeatId);
+        // // var repeatIdval=repeatId.split(',');
+        // /*看id值与数组内的id是否一致，一致的话做红绿颜色变换*/
+        // $(".badDownGood").each(function () {
+        //     var $this=$(this);
+        //     var id = $this.attr('data-id');
+        //     if(($.inArray(id,repeatId)) != -1){
+        //         $this.css({
+        //             "color":"silver"
+        //         });
+        //         $this.find("span").css({
+        //             "color":"silver"
+        //         });
+        //
+        //     }
+        // });
+        // data_id
         $.ajax({
           type:"post",
           url:"/Home/Ajax/opera_message",
@@ -303,21 +338,79 @@
           dataType:'json',
           success:function(rdata){
             if(rdata.code==1){
-                obj.find('.count-f').addClass("wyx");
-                obj.css({"pointer-events":"none"});
-                obj.find('.count-f').html(parseInt(obj.find('.count-f').html())+1);
-                var cid = obj.find('.count-f').html();
-                setCookie(type+id,type+id,365);
-                setCookie("color",color,365);
+                if(obj.hasClass("redDown")==true){
+                    obj.css({
+                        "color":"#A90000"
+                    });
+                    obj.find("span").css({
+                        "color":"#A90000"
+                    });
+                    obj.find('.count-f').html(parseInt(obj.find('.count-f').html())+1);
+                    // obj.prev().find('.count-f').html(parseInt(obj.find('.count-f').html())-1);
+                }
+                else {
+                    obj.css({
+                        "color":"#00a911"
+                    });
+                    obj.find("span").css({
+                        "color":"#00a911"
+                    });
+                    obj.find('.count-f').html(parseInt(obj.find('.count-f').html())+1);
+                    // obj.next().find('.count-f').html(parseInt(obj.find('.count-f').html())-1);
+                }
+                if(obj.css("color")=="rgb(0, 169, 17)"){
+                    obj.css({"pointer-events":"none"});
+                    // obj.next().css({"pointer-events":""});
+                }
+                if(obj.css("color")=="rgb(169, 0, 0)"){
+                    obj.css({"pointer-events":"none"});
+                    // obj.prev().css({"pointer-events":""});
+                }
+                // obj.find('.count-f').addClass("wyx");
+                setCookie("arrcookieval",arrcookieval,365);
             }else{
 
             }
           }
         });
-    })
+    });
 
-    // $(document).ready(function(){
-    //     var colorcookie=getCookie(color);
-    //     console.log(colorcookie)
-    // })
+    /*获取cookie操作*/
+    function cookieReady(){
+        var cookieval=$.cookie('arrcookieval');
+        console.log($.cookie('arrcookieval'));
+        id_cookieval=cookieval.split(',');
+        /*遍历dataid*/
+        $(".badDownGood").each(function () {
+            var obj =$(this);
+            var id = obj.attr('data-id');
+            var type = obj.attr('data-type');
+            if(($.inArray(id+type,id_cookieval)) != -1){
+                // obj.find('.count-f').addClass("wyx");
+                if(obj.hasClass("redDown")==true){
+                    obj.find("span").css({
+                        "color":"#A90000"
+                    });
+                    obj.css({
+                        "color":"#A90000"
+                    });
+                    obj.css({"pointer-events":"none"});
+                }else {
+                    obj.find("span").css({
+                        "color":"#00a911"
+                    });
+                    obj.css({
+                        "color":"#00a911"
+                    });
+                    obj.css({"pointer-events":"none"});
+                }
+            }
+        });
+    }
+
+    $(document).ready(function(){
+        cookieReady()
+    });
+
+
 </script>
