@@ -305,6 +305,7 @@ var cookieId;
             if(rdata.code==1){
                 $('.NewType-Content ul').append(rdata.data);
                 page_num++;
+                cookieReady()
             }else{
                 $('#news_more').html(rdata.info);
             }
@@ -395,7 +396,7 @@ var cookieId;
                      obj.find("span").html(parseInt(obj.find('span').html())+1);
                     setCookie("arrcookieval",arrcookieval,365);
                     obj.css({"pointer-events":"none"});
-                    cookieReady()
+
                 }else{
 
                 }
@@ -404,7 +405,6 @@ var cookieId;
     });
    /*获取cookie操作*/
     function cookieReady(){
-            $.removeCookie('PHPSESSID',{ path: '/'});
             var cookieval=$.cookie('arrcookieval');
             // console.log($.cookie('arrcookieval'));
             id_cookieval=cookieval.split(',');
