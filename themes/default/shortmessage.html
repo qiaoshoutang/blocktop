@@ -190,7 +190,7 @@
                 <!--内容-->
                 <div class="hot_New_Img">
                     <div class="hot_Img_TT">
-                        <div onclick='window.location.href="/newsContent/{$newsFirst.content_id}"' class="hot_Img_TT_Im">
+                        <div onclick='window.location.href="/newsContent/1/{$newsFirst.content_id}"' class="hot_Img_TT_Im">
                             <img src="{$newsFirst['image']|default='images/news_default.png'}" alt="" width="100%">
                             <div class="hot_Hover_A">
                                 {$newsFirst['title']}
@@ -198,7 +198,7 @@
                         </div>
                         <ul class="hot_NewContent_ul">
                             <!--{foreach name='newsList' item='vo' }-->
-                            <li onclick='window.location.href="/newsContent/{$vo.content_id}"'>
+                            <li onclick='window.location.href="/newsContent/1/{$vo.content_id}"'>
                                 <div class="hot_NewContentImg_Left">
                                     <img src="{$vo.image|default='images/news_default.png'}" alt="" width="100%">
                                 </div>

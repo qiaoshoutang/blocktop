@@ -39,7 +39,7 @@ class CollectionController extends SiteController {
 	    $listInfo=$this->curl_get_contents($href);
 	    
 	    $listInfo = json_decode($listInfo,true);
-// 	            dd($listInfo);
+	            dd($listInfo);
         if(!$listInfo){
             echo '接口数据返回错误';
             return;
@@ -48,7 +48,11 @@ class CollectionController extends SiteController {
         foreach($listInfo as $article){
 
             $info = M('content')->where(['unique_num'=>$article['id']])->field('content_id')->find(); //文章是否已存在
-
+            if($info){
+                continue;
+            }
+            
+            $info = M('content')->where(['title'=>$article['title']])->field('content_id')->find(); //文章是否已存在
             if($info){
                 continue;
             }
