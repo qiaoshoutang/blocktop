@@ -77,7 +77,6 @@ class IndexController extends SiteController {
         //推荐导航
         $naviList = D('Admin/Navi')->loadList(['recom'=>1],'0,5');
         
-        
         $this->assign('newsList',$newsList);
         $this->assign('messageList',$messageList);
         $this->assign('naviList',$naviList);
@@ -96,9 +95,21 @@ class IndexController extends SiteController {
         $newsList =D('Article/ContentArticle')
                    ->loadList($where,'content_id,title,description,image,time,views,author,author_id,look,U.nickname as author_name','1,10','is_top desc,time desc,sequence desc');
 
+
         foreach($newsList as $key=>$val){
             $newsList[$key]['description'] = html_out($val['description']);
         }
+        $number = count($newsList);
+        for($i=0;$i<$number-1;$i++){   //新闻列表根据流浪量 降序排列
+            for($j=0;$j<$number-$i-1;$j++){
+                if($newsList[$j]['views']<$newsList[$j+1]['views']){
+                    $temp = $newsList[$j];
+                    $newsList[$j] = $newsList[$j+1];
+                    $newsList[$j+1] = $temp;
+                }
+            }
+        }
+
         //轮播列表
         $bannerList = M('banner')->where(['state'=>1])->order('sequence desc')->select();
         
