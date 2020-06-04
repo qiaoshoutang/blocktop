@@ -86,7 +86,6 @@ class ContentArticleModel extends Model {
         $this->startTrans();
         $contentId = D('DuxCms/Content')->saveData($type);
 
-
         if(!$contentId){
             $this->error = D('DuxCms/Content')->getError();
             return false;
@@ -97,6 +96,7 @@ class ContentArticleModel extends Model {
             $this->rollback();
             return false;
         }
+
         if($type == 'add'){
             $this->content_id = $contentId;
             $status = $this->add();

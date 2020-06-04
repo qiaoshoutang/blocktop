@@ -13,7 +13,7 @@ class MessageModel extends Model {
      * 获取列表
      * @return array 列表
      */
-    public function loadList($where = array(), $limit = 0, $order = 'id desc'){
+    public function loadList($where = array(), $limit = 0, $order = 'time desc'){
 
         $pageList = $this->where($where)
                         ->order($order)

@@ -249,9 +249,9 @@ class UserController extends SiteController {
             S('yzm_'.$type.'_'.$phone,$code,300);
             $rdata['code'] = 1;
             $rdata['info'] = '验证码发送成功！';
-            $rdata['data'] = $code;
+//             $rdata['data'] = $code;
         }else{
-            $rdata['code'] = 3;
+            $rdata['code'] = 2;
             $rdata['info'] = '接口调用错误，请联系技术人员';
         }
         $this->ajaxReturn($rdata);

@@ -100,7 +100,7 @@ class IndexController extends SiteController {
             $newsList[$key]['description'] = html_out($val['description']);
         }
         $number = count($newsList);
-        for($i=0;$i<$number-1;$i++){   //新闻列表根据流浪量 降序排列
+        for($i=0;$i<$number-1;$i++){   //新闻列表根据浏览量 降序排列
             for($j=0;$j<$number-$i-1;$j++){
                 if($newsList[$j]['views']<$newsList[$j+1]['views']){
                     $temp = $newsList[$j];

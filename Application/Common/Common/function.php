@@ -1,5 +1,26 @@
 <?php
 
+//获取火星头条的签名
+function get_huoxing_sign(){
+    $secret = 'y2Qk4Ux29Lvlg8oY';
+    $platform = 'toutiao';
+    $nonce = rand(1000,9999);
+    $timestamp = time()*1000;
+    
+    $sign = md5('platform='.$platform.'&timestamp='.$timestamp.'&nonce='.$nonce.'&'.$secret);
+    
+    $httpParams = array(
+        'platform' => $platform,
+        'nonce'   => $nonce,
+        'timestamp'=> $timestamp,
+        'sig'    => $sign
+    );
+    
+    $json_str = json_encode($httpParams);
+    $json_base64 = base64_encode($json_str);
+    return $json_base64;
+}
+
 //获取头条编号
 function getTopnum(){
     $arr = ['0','1','2','3','4','5','6','7','8','9','a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','x','t','u','v','w','x','y','z'];

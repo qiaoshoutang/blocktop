@@ -12,10 +12,73 @@ class CollectionController extends SiteController {
 	
 	public function collection(){
 	    $this->jinse_collection();  //金色 财经文章采集
+	    $this->huoxing_collection();  //火星 财经文章采集
 	}
 
 
-	//采集文章
+	//火星财经 采集文章
+	public function huoxing_collection(){
+
+	    header("Content-Type:text/html; charset=utf-8"); 
+
+	    $base_path = 'https://www.huoxing24.com';
+	    
+	    $json_param =  get_huoxing_sign();
+	    $href = $base_path.'/info/news/shownews';
+	    
+	    $header = array('Sign-Param:'.$json_param);
+	    $listInfo=$this->curl_post($href,$header,['pageSize'=>5]);
+	    
+	    $listArr = json_decode($listInfo,true);
+	    if($listArr['code'] != 1){
+	        echo '接口返回错误';
+	        exit;
+	    }
+// 	    dd($listArr['obj']['inforList']);
+	    $is_collect = false;
+	    foreach($listArr['obj']['inforList'] as $article){
+// 	        dd($article);
+	        $info = M('content')->where(['source'=>2,'unique_num'=>substr($article['id'],4,10)])->field('content_id')->find(); //文章是否已存在
+	        if($info){
+	            continue;
+	        }
+	        $info = M('content')->where(['title'=>$article['title']])->field('content_id')->find(); //文章是否已存在
+	        if($info){
+	            continue;
+	        }
+	        
+	        $json_param = get_huoxing_sign();
+	        
+	        $header = array('Sign-Param:'.$json_param);
+	        $cover = json_decode($article['coverPic'],true);
+
+	        $articleInfo = $this->curl_post($base_path.'/info/news/getbyid',$header,['id'=>$article['id']]);
+	        $articleArr = json_decode($articleInfo,true);
+	        if($articleArr['code'] != 1){
+	            echo '获取文章id='.$article['id'].'的详情失败<br>'; 
+	        }
+	        
+	        $publishTime = date('Y-m-d H:i:s',$article['publishTime']/1000);
+
+	        $_POST = array('class_id'=>5,'title'=>$article['title'],'description'=>$article['synopsis'],'content'=>$articleArr['obj']['current']['content'],
+	            'author'=>$article['author'],'image'=>$cover['pc'],'time'=>$publishTime,'unique_num'=>substr($article['id'],4,10),
+	            'views'=>rand(60,120),'status'=>2,'source'=>2);
+	        
+
+	        $content_id=D('Article/ContentArticle')->saveData('add');
+
+	        echo '采集文章成功--'.$article['id'].'<br>';
+	        $is_collect = true;
+	    }
+	    if($is_collect){
+	        echo '采集完成';
+	    }else{
+	        echo '没有待采集的最新文章';
+	    }
+	    
+	}
+
+	//金色财经 采集文章
 	public function jinse_collection(){
 
 	    header("Content-Type:text/html; charset=utf-8"); 
@@ -39,7 +102,7 @@ class CollectionController extends SiteController {
 	    $listInfo=$this->curl_get_contents($href);
 	    
 	    $listInfo = json_decode($listInfo,true);
-	            dd($listInfo);
+// 	            dd($listInfo);
         if(!$listInfo){
             echo '接口数据返回错误';
             return;
@@ -47,7 +110,7 @@ class CollectionController extends SiteController {
         $is_collect = false;
         foreach($listInfo as $article){
 
-            $info = M('content')->where(['unique_num'=>$article['id']])->field('content_id')->find(); //文章是否已存在
+            $info = M('content')->where(['source'=>1,'unique_num'=>$article['id']])->field('content_id')->find(); //文章是否已存在
             if($info){
                 continue;
             }
@@ -59,7 +122,7 @@ class CollectionController extends SiteController {
 
             $_POST = array('class_id'=>5,'title'=>$article['title'],'description'=>$article['summary'],'content'=>$article['content'],
                      'author'=>$article['author'],'image'=>$article['thumbnail'],'time'=>$article['published_time'],'unique_num'=>$article['id'],
-                     'views'=>rand(60,120),'status'=>2);
+                'views'=>rand(60,120),'status'=>2,'source'=>1);
             
             
             $content_id=D('Article/ContentArticle')->saveData('add');
