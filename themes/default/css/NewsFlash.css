@@ -54,7 +54,7 @@
 
 }
 .KxConttt_Title{
-    font-size: 22px;
+    font-size: 20px;
     width: 100%;
     text-overflow: -o-ellipsis-lastline;
     overflow: hidden;
@@ -71,10 +71,11 @@
 }
 .KxConttt_Text{
     text-align: justify;
-    margin-top: 2px;
-    line-height: 160%;
+    margin-top: 7px;
+    line-height: 180%;
     letter-spacing:1px;
     color: #333;
+    font-size: 14px;
 }
 .count-f{
     margin-left:5px!important;
