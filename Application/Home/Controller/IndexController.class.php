@@ -65,7 +65,7 @@ class IndexController extends SiteController {
         $messageCount = $messageMod->countList($where);
         $limit = $this->getPageLimit($messageCount,10);
         $messageList = $messageMod->loadList($where,$limit);
-//         dd(M()->_sql());
+
         //热门新闻
         $newsList = M('content')->where(['status'=>2])->field('content_id,title,image,time')->limit('0,5')->order('sequence desc,content_id desc')->select();
         

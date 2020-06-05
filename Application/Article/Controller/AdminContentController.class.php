@@ -51,7 +51,6 @@ class AdminContentController extends AdminController {
             $where['A.title'] = array('like','%'.$keyword.'%');
         }
 
-
         if(!empty($status)){
             $where['A.status'] = $status;
         }

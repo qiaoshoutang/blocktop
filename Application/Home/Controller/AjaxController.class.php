@@ -155,7 +155,6 @@ class AjaxController extends SiteController {
         
         $messageList = $messageMod->where($where)->page($page_num,10)
                                 ->order('time desc')->select();
-//         dd(M()->_sql());
         if(empty($messageList)){
             $rdata['code'] = 0;
             $rdata['info'] = '已经没有更多了';
