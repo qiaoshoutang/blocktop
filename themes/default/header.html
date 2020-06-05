@@ -1,6 +1,7 @@
 <link rel="stylesheet" href="css/jigsaw.css">
 <script src="js/jquery.js"></script>
 <script src="js/layui/layui.all.js"></script>
+
 <style>
     .Headline-register,.slide-verification{
         width: 100%;
@@ -220,7 +221,7 @@
         position: fixed;
         background:rgba(0,0,0,.5);
         z-index: 10001;
-        /*display: none;*/
+        display: none;
     }
     .activitsPopupbtnEwm{
         width: 100%;
@@ -252,25 +253,6 @@
         cursor: pointer;
     }
 </style>
-<!--活动链接弹窗图片-->
-<div class="activitsPopupbtn">
-    <div class="Popupbtn">
-        <div class="PopupbtnClose" id="PopupbtnClose">
-            <img src="images/guanbi.png" alt="">
-        </div>
-        <img src="images/zcAciticty.png" alt="" width="100%" id="zcAciticty">
-    </div>
-</div>
-
-<!--活动二维码-->
-<div class="activitsPopupbtnEwm" >
-    <div class="PopupbtnAcEwm">
-        <div class="AcEwmClose" id="AcEwmClose">
-            <img src="images/guanbi.png" alt="">
-        </div>
-            <img src="images/AcEwmNew.png" alt="" width="100%">
-    </div>
-</div>
 <!--用户注册-->
 <div class="Headline-register">
     <!--滑动验证-->
@@ -560,10 +542,24 @@
 <script src="js/commom.js"></script>
 <script>
 
+    $(document).ready(function(){
+        if($.cookie('ActivitDna')==1){
+            $(".activitsPopupbtn").hide()
+        }else {
+            setTimeout(function () {
+                $(".activitsPopupbtn").show()
+            },500)
+        }
+    });
     /*活动点击按钮*/
     $("#PopupbtnClose img").click(function () {
-        $(".activitsPopupbtn").hide()
+        $(".activitsPopupbtn").hide();
+        $.cookie('ActivitDna', '1', { expires: 1 });
     });
+
+
+
+
     $("#AcEwmClose").click(function () {
         $(".activitsPopupbtnEwm").hide();
         location.reload()
