@@ -20,7 +20,7 @@ class VideoModel extends Model {
                         ->field($field)
                         ->where($where)
                         ->order($order)
-                        ->page($limit)
+                        ->limit($limit)
                         ->select();
 
         return $pageList;

@@ -14,14 +14,14 @@ class ContentArticleModel extends Model {
      * 获取列表
      * @return array 列表
      */
-    public function loadList($where = array(), $field='',$page = 0, $order = 'A.content_id desc'){
+    public function loadList($where = array(), $field='',$limit = 0, $order = 'A.content_id desc'){
 
         $pageList = $this->table("__CONTENT__ as A")
                         ->join('__USERS__ as U ON A.author_id = U.id','left')
                         ->field($field)
                         ->where($where)
                         ->order($order)
-                        ->page($page)
+                        ->limit($limit)
                         ->select();
 
         return $pageList;

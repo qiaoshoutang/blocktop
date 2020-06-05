@@ -116,10 +116,12 @@ class AjaxController extends SiteController {
         if($column_id){
             $where['column_id'] = $column_id;
         }
+        $limit = (($page_num-1)*10).','.($page_num*10);
         //新闻列表
         $newsList =D('Article/ContentArticle')
-                ->loadList($where,'content_id,title,description,image,time,views,author,author_id,look,U.nickname as author_name',$page_num.',10','A.time desc,A.sequence desc');
+        ->loadList($where,'content_id,title,description,image,time,views,author,author_id,look,U.nickname as author_name',$limit,'A.time desc,A.sequence desc');
 
+//         dd(M()->_sql());
         if(empty($newsList)){
             $rdata['code'] = 2;
             $rdata['info'] = '已经没有更多了';
@@ -152,8 +154,8 @@ class AjaxController extends SiteController {
         $messageMod = D('Article/Message');
         
         $messageList = $messageMod->where($where)->page($page_num,10)
-                                ->order('id desc')->select();
-        
+                                ->order('time desc')->select();
+//         dd(M()->_sql());
         if(empty($messageList)){
             $rdata['code'] = 0;
             $rdata['info'] = '已经没有更多了';

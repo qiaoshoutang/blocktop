@@ -46,9 +46,14 @@ class ShortController extends SiteController {
             if($re){//已存在该记录  跳过
                 continue;
             }
+            $_POST['title']=$this->getNeedBetween($article['content'],'【','】');
+            
+            $re = $messageMod->where(['title'=>$_POST['title']])->field('id')->find(); //快讯是否已存在
+            if($re){
+                continue;
+            }
             
             $_POST['unique_num']=substr($article['id'],4,10);
-            $_POST['title']=$this->getNeedBetween($article['content'],'【','】');
             $_POST['time']=date('Y/m/d H:i:s',$article['createdTime']/1000);
             $_POST['up']=rand(30,50);
             $_POST['down']=rand(1,10);
@@ -102,7 +107,7 @@ class ShortController extends SiteController {
 	                continue;
 	            }
 	            
-	            $isjscj=stripos($valb['content'],'金色财经');
+// 	            $isjscj=stripos($valb['content'],'金色财经');
 	            $title_temp =explode('|',$this->getNeedBetween($valb['content'],'【','】'));
 	            $_POST['unique_num']=$valb['id'];
 	            $_POST['title']=$title_temp[1]?$title_temp[1]:$title_temp[0];
@@ -110,13 +115,13 @@ class ShortController extends SiteController {
 	            $_POST['up']=rand(30,50);
 	            $_POST['down']=rand(1,10);
 	            $_POST['source'] = 1;
+	            $_POST['state']=2;
 	            
-	            
-	            if($isjscj){//如果包含‘金色财经’,则需要后台审核
-	                $_POST['state']=1;
-	            }else{
-	                $_POST['state']=2;
-	            }
+// 	            if($isjscj){//如果包含‘金色财经’,则需要后台审核
+// 	                $_POST['state']=1;
+// 	            }else{
+// 	                $_POST['state']=2;
+// 	            }
 	            
 	            $_POST['content']=$this->getNeedAfter($valb['content'],'】');
 	            if(!$_POST['content']){
