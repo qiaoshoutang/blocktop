@@ -65,7 +65,7 @@ function send_sms_code($alibabaCloud,$phone,$code){
     
     if(empty($phone)||empty($code)){
         return false;
-    }
+    } 
     $alibabaCloud->accessKeyClient(C('AccessKey'), C('AccessSecret'))
                 ->regionId('cn-hangzhou')
                 ->asDefaultClient();
