@@ -240,10 +240,10 @@ class UserController extends SiteController {
         }
         $code = rand(1,9).rand(1,9).rand(1,9).rand(1,9);
 
-//        $alibabaCloud = new AlibabaCloud();
-//        $result = send_sms_code($alibabaCloud,$phone,$code);
-//        $resultArr = json_decode($result,true);
-         $resultArr['Message'] = 'OK';
+        $alibabaCloud = new AlibabaCloud();
+        $result = send_sms_code($alibabaCloud,$phone,$code);
+        $resultArr = json_decode($result,true);
+//         $resultArr['Message'] = 'OK';
         if($resultArr['Message'] == 'OK'){
             S('yzm_time_'.$type.'_'.$phone,time(),60);
             S('yzm_'.$type.'_'.$phone,$code,300);

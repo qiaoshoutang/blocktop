@@ -1,0 +1,92 @@
+.bannerImg{
+    height: 3.15rem;
+    width: 100%;
+}
+.bannerImgBox{
+    width: 95%;
+    margin: 0.2rem auto 0 auto;
+}
+.bannerImgBox img{
+    width: 100%;
+}
+.nav_ss{
+    width: 100%;
+    height: .7rem;
+    overflow: hidden;
+    overflow-x: auto;
+    overflow-y: hidden;
+    margin-top: .2rem;
+}
+.nav_ss ul{
+    width: 130%;
+    background: #f0f0f0;
+    height: .7rem;
+}
+.nav_ss::-webkit-scrollbar {
+    display: none;
+}
+.nav_ss ul li{
+    height: .7rem;
+    line-height: .7rem;
+    text-align: center;
+    float: left;
+    margin-left: .21rem;
+    position: relative;
+    z-index: 999;
+}
+.nav_ss ul li a{
+    font-size: .26rem;
+    color: #999999;
+    height: .73rem;
+    line-height: .77rem;
+    display: inline-block;
+    vertical-align: top;
+    outline: none;
+    text-decoration: none;
+}
+.antmap-content{
+    margin-top: .2rem;
+}
+.nav_Content{
+    width:100%;
+    margin: 0rem auto 0 auto;
+}
+.nav_Top{
+    margin-top: .2rem;
+}
+.nav_Content_ul{
+    width:98%;
+    margin: 0 auto;
+    display: inline-block;
+    position: relative;
+    left: 1%;
+}
+.nav_Content_ul li{
+    text-align: center;
+    width: 25%;
+    float: left;
+    margin-top: .2rem;
+    height: 1.5rem;
+}
+.nav_Title{
+    font-size: .26rem;
+    text-indent: 1em;
+}
+.Content_ulBall{
+    width: .6rem;
+    height: .6rem;
+    /*border-radius: 50%;*/
+    overflow: hidden;
+    position: relative;
+    margin:.2rem 0 .1rem 0;
+    left: .55rem;
+}
+.Content_ulBall img{
+    width: 100%;
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+.BzName{
+    font-size: .2rem;
+}
