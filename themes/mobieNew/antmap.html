@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <meta name="keywords" content=""/>
+    <meta name="description" content=""/>
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <script>
+        (function (doc, win) {
+            var docEl = doc.documentElement,
+                resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+                recalc = function () {
+                    var clientWidth = docEl.clientWidth;
+                    if (!clientWidth) return;
+                    if(clientWidth>=640){
+                        docEl.style.fontSize = '100px';
+                    }else{
+                        docEl.style.fontSize = 100 * (clientWidth / 640) + 'px';
+                    }
+                };
+            if (!doc.addEventListener) return;
+            win.addEventListener(resizeEvt, recalc, false);
+            doc.addEventListener('DOMContentLoaded', recalc, false);
+        })(document, window);
+    </script>
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/antmap.css">
+</head>
+
+<body>
+<div class="box">
+    <!--最顶部logo与注册登录-->
+    <div class="topMost">
+        <!--logo-->
+        <div class="topLogo">
+            <img src="images/topLogo.png" alt="">
+        </div>
+        <!--注册登录-->
+        <div class="signInTop">
+            <div class="registerbtn">注册</div>
+            <div class="signInbtn">登录</div>
+        </div>
+
+    </div>
+    <!--导航栏-->
+    <div class="boxNav">
+        <!--boxNav ul-->
+        <div class="boxNav-ul">
+            <ul>
+                <li>首页</li>
+                <li>头条导航</li>
+                <li>7*24快讯</li>
+                <li>专栏</li>
+            </ul>
+        </div>
+        <!--导航按钮-->
+        <div class="navigationBtn">
+            <img src="images/navber.png" alt="">
+            <!--下拉菜单-->
+            <ul id="Dhl">
+                <li class="header_list"><a href="">首页</a></li>
+                <li class="header_list"><a href="">头条导航</a></li>
+                <li class="header_list"><a href="">7*24快讯</a></li>
+                <li class="header_list"><a href="">专栏</a></li>
+                <li class="header_list"><a href="">关于我们</a></li>
+            </ul>
+        </div>
+
+
+    </div>
+    <!--轮播图-->
+    <div class="bannerImg">
+        <!--轮播-->
+        <div id="slideBox" class="slideBox">
+            <div class="bd">
+                <ul>
+                    <li>
+                        <a class="pic" href="#"><img src="images/banner.png" /></a>
+                        <a class="tit" href="#"></a>
+                    </li>
+                    <li>
+                        <a class="pic" href="#"><img src="images/aboutBanner.png"/></a>
+                        <a class="tit" href="#"></a>
+                    </li>
+                    <li>
+                        <a class="pic" href="#"><img src="images/zlbanner.png"/></a>
+                        <a class="tit" href="#"></a>
+                    </li>
+                </ul>
+            </div>
+            <div class="hd">
+                <ul></ul>
+            </div>
+        </div>
+        <!--<div class="bannerImgBox">-->
+        <!--<img src="images/banner.png" alt="">-->
+        <!--</div>-->
+    </div>
+    <!--导航-->
+    <div class="nav_ss">
+        <ul>
+            <li><a href="">推荐</a></li>
+            <li><a href="">行情</a></li>
+            <li><a href="">资产管理</a></li>
+            <li><a href="">应用</a></li>
+            <li><a href="">钱包</a></li>
+            <li><a href="">矿池</a></li>
+            <li><a href="">媒体</a></li>
+            <li><a href="">技术服务</a></li>
+            <li><a href="">社区</a></li>
+        </ul>
+    </div>
+
+    <div class='antmap-content'>
+        <!--交易所-->
+        <div class="nav_Content">
+            <p class="nav_Title">
+                行情
+                <span style="float: right;margin-right: .2rem;color: #999999">
+                    <a href="/antmap_m/1" style="color: #999999;font-size: .23rem">更多</a>
+                </span>
+            </p>
+            <ul class="nav_Content_ul">
+                <!--{foreach name='naviList1' item='vo' }-->
+                <li onclick='window.location.href="{$vo.target}"' target="_blank">
+                    <div class="Content_ulBall">
+                        <img src="{$vo.icon}" alt="">
+                    </div>
+                    <div class="BzName">{$vo.name}</div>
+                </li>
+                <!--{/foreach}-->
+            </ul>
+        </div>
+        <div class="nav_Content nav_Top">
+
+            <p class="nav_Title">资产管理
+                <span style="float: right;margin-right: .2rem;">
+                    <a href="/antmap_m/2" style="color: #999999;font-size: .23rem">更多</a>
+                </span>
+            </p>
+            <ul class="nav_Content_ul">
+                <!--{foreach name='naviList2' item='vo' }-->
+                <li onclick='window.location.href="{$vo.target}"'>
+                    <div class="Content_ulBall">
+                        <img src="{$vo.icon}" alt="">
+                    </div>
+                    <div class="BzName">{$vo.name}</div>
+                </li>
+                <!--{/foreach}-->
+            </ul>
+        </div>
+
+        <div class="nav_Content">
+            <p class="nav_Title">应用
+                <span style="float: right;margin-right: .2rem;">
+                    <a href="/antmap_m/3" style="color: #999999;font-size: .23rem">更多</a>
+                </span>
+            </p>
+            <ul class="nav_Content_ul">
+                <!--{foreach name='naviList3' item='vo' }-->
+                <li onclick='window.location.href="{$vo.target}"'>
+                    <div class="Content_ulBall">
+                        <img src="{$vo.icon}" alt="">
+                    </div>
+                    <div class="BzName">{$vo.name}</div>
+                </li>
+                <!--{/foreach}-->
+            </ul>
+        </div>
+
+        <div class="nav_Content">
+            <p class="nav_Title">钱包
+                <span style="float: right;margin-right: .2rem;">
+                    <a href="/antmap_m/4" style="color: #999999;font-size: .23rem">更多</a>
+                </span>
+            </p>
+            <ul class="nav_Content_ul">
+                <!--{foreach name='naviList4' item='vo' }-->
+                <li onclick='window.location.href="{$vo.target}"'>
+                    <div class="Content_ulBall">
+                        <img src="{$vo.icon}" alt="">
+                    </div>
+                    <div class="BzName">{$vo.name}</div>
+                </li>
+                <!--{/foreach}-->
+            </ul>
+        </div>
+
+        <div class="nav_Content">
+            <p class="nav_Title">矿池
+                <span style="float: right;margin-right: .2rem;">
+                    <a href="/antmap_m/5" style="color: #999999;font-size: .23rem">更多</a>
+                </span>
+            </p>
+            <ul class="nav_Content_ul">
+                <!--{foreach name='naviList5' item='vo' }-->
+                <li onclick='window.location.href="{$vo.target}"'>
+                    <div class="Content_ulBall">
+                        <img src="{$vo.icon}" alt="">
+                    </div>
+                    <div class="BzName">{$vo.name}</div>
+                </li>
+                <!--{/foreach}-->
+            </ul>
+        </div>
+
+        <div class="nav_Content">
+            <p class="nav_Title">媒体
+                <span style="float: right;margin-right: .2rem;">
+                    <a href="/antmap_m/6" style="color: #999999;font-size: .23rem">更多</a>
+                </span>
+            </p>
+            <ul class="nav_Content_ul">
+                <!--{foreach name='naviList6' item='vo' }-->
+                <li onclick='window.location.href="{$vo.target}"'>
+                    <div class="Content_ulBall">
+                        <img src="{$vo.icon}" alt="">
+                    </div>
+                    <div class="BzName">{$vo.name}</div>
+                </li>
+                <!--{/foreach}-->
+            </ul>
+        </div>
+        <div class="nav_Content">
+            <p class="nav_Title">技术服务
+                <span style="float: right;margin-right: .2rem;">
+                    <a href="/antmap_m/7" style="color: #999999;font-size: .23rem">更多</a>
+                </span>
+            </p>
+            <ul class="nav_Content_ul">
+                <!--{foreach name='naviList7' item='vo' }-->
+                <li onclick='window.location.href="{$vo.target}"'>
+                    <div class="Content_ulBall">
+                        <img src="{$vo.icon}" alt="">
+                    </div>
+                    <div class="BzName">{$vo.name}</div>
+                </li>
+                <!--{/foreach}-->
+            </ul>
+        </div>
+        <div class="nav_Content">
+            <p class="nav_Title">社区
+                <span style="float: right;margin-right: .2rem;">
+                    <a href="/antmap_m/8" style="color: #999999;font-size: .23rem">更多</a>
+                </span>
+            </p>
+            <ul class="nav_Content_ul">
+                <!--{foreach name='naviList8' item='vo' }-->
+                <li onclick='window.location.href="{$vo.target}"'>
+                    <div class="Content_ulBall">
+                        <img src="{$vo.icon}" alt="">
+                    </div>
+                    <div class="BzName">{$vo.name}</div>
+                </li>
+                <!--{/foreach}-->
+            </ul>
+        </div>
+    </div>
+
+
+
+
+
+    <!--底部-->
+    <div class="foodNav">
+        <!--联系我们-->
+        <div class="foodNavbox">
+            <div class="contacUs">
+                <div class="contacTitle">联系我们</div>
+                <ul>
+                    <li>
+                        <img src="images/dianhua.png" alt="">
+                        <span>0592-6600592</span>
+                    </li>
+                    <li>
+                        <img src="images/youxiang.png" alt="">
+                        <span>info@ababtc.com</span>
+                    </li>
+                    <li>
+                        <img src="images/dizhi.png" alt="">
+                        <span>厦门市湖里区</span>
+                    </li>
+                </ul>
+
+
+            </div>
+            <div class="focusUs">
+                <div class="focusUsbox">
+                    <div class="focusUsTitle">
+                        关注我们
+                    </div>
+                    <img src="images/focusUsCode.png" alt="">
+                </div>
+
+
+            </div>
+
+            <!--备案-->
+            <div class="RecordNo">
+                闽CP备18014082号-12 Copyright ©2019 blocktop.cn 区块链头条版权所有
+            </div>
+        </div>
+
+
+
+    </div>
+</div>
+
+</body>
+</html>
+
+<script src="js/jquery.js"></script>
+<script src="js/common.js"></script>
+<script src="../mobile/js/TouchSlide.1.1.js"></script>
+<script>
+    TouchSlide({
+        slideCell:"#slideBox",
+        titCell:".hd ul", //开启自动分页 autoPage:true ，此时设置 titCell 为导航元素包裹层
+        mainCell:".bd ul",
+        effect:"leftLoop",
+        autoPage:true,//自动分页
+        autoPlay:true //自动播放
+    });
+</script>

@@ -1,0 +1,178 @@
+.personInformation{
+    width: 100%;
+    height: 2.3rem;
+    background: url("images/pageBanner.png")no-repeat top center;
+    background-size: 100% 100%;
+    overflow: hidden;
+}
+.personInformationBox{
+    width: 80%;
+    margin: 0.5rem auto 0 auto;
+}
+.personTxImg{
+    width: 30%;
+    float: left;
+}
+.personName{
+    width: 70%;
+    float: left;
+    height: 2rem;
+    font-size: .23rem;
+    font-weight: 300;
+}
+.personName div{
+    line-height: 170%;
+}
+.personTxImg img{
+    width: 1.2rem;
+    height: 1.2rem;
+}
+.NameBold{
+    font-size: .28rem;
+    font-weight: bold;
+}
+.historyAndSubscribe{
+    width: 90%;
+    margin: 0.2rem auto 0 auto;
+    height: .5rem;
+}
+
+.historyAndSubscribe ul li{
+    float: left;
+    width: 25%;
+    font-size: .25rem;
+    text-align: left;
+    color: #999999;
+    height: .5rem;
+    line-height:.5rem ;
+}
+.variousArticles{
+    width: 100%;
+    padding-bottom: .7rem;
+   position: relative;
+    top: .2rem;
+}
+.variousArticles ul {
+    width: 100%;
+    display: inline-block;
+}
+.variousArticles ul li:nth-child(1){
+    margin-top: 0;
+}
+.variousArticles ul li{
+    width: 95%;
+    height: 1.6rem;
+    border-bottom: .5px #c8c8c8 solid;
+    float: left;
+    margin-top: .3rem;
+    margin-left: 2.5%;
+}
+.ArticlesBanner{
+    width:34%;
+    float: left;
+}
+.ArticlesBanner img{
+    width: 100%;
+}
+.ArticlesText{
+    width: 66%;
+    float: left;
+    height: 100%;
+}
+.ArticlesTitle{
+    width: 90%;
+    float: left;
+    margin-left: .2rem;
+    font-size: .28rem;
+    overflow : hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+}
+.ArticlesTime{
+    width: 95%;
+    float: right;
+    margin: .24rem auto 0 auto;
+    font-size: .22rem;
+    color: #AAAAAA;
+}
+.ArticlesTime span{
+    width: 1.2rem;
+    display: inline-block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.moreArticles{
+    width: 95%;
+    background:#eaeaea;
+    border-radius: 4px;
+    height: .8rem;
+    margin: 0 auto;
+    position: relative;
+}
+.moreArticles img{
+    position: absolute;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    top: 0;
+    margin: auto;
+    width: 4%;
+}
+.Subscribe ul{
+    display: inline-block;
+
+}
+.Subscribe ul li{
+    width: 100%;
+    float: left;
+    height: 1.6rem;
+    position: relative;
+}
+.subscribeTx{
+    width: 23%;
+    float: left;
+}
+.subscribeTx img{
+    width: 80%;
+    margin-top: .3rem;
+}
+.authorInfor{
+    width: 77%;
+    float: right;
+    height: 100%;
+}
+.authorN{
+    margin-top: .5rem;
+    font-size: .25rem;
+}
+.authorIn{
+    font-size: .2rem;
+    color: #AAAAAA;
+}
+.subscripSucceed{
+    width: 1.3rem;
+    height: .4rem;
+    background: #AAAAAA;
+    position: absolute;
+    right: 0;
+    top: .6rem;
+    color: white;
+    font-size: .2rem;
+    text-align: center;
+    line-height: .4rem;
+}
+.Unsubscribed{
+    width: 1.3rem;
+    height: .4rem;
+    background: #e7141a;
+    position: absolute;
+    right: 0;
+    top: .6rem;
+    color: white;
+    font-size: .2rem;
+    text-align: center;
+    line-height: .4rem;
+}
