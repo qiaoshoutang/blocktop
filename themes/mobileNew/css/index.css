@@ -1,0 +1,112 @@
+
+.bannerImg{
+    height: 3.15rem;
+    width: 100%;
+}
+.bannerImgBox{
+    width: 95%;
+    margin: 0.2rem auto 0 auto;
+}
+.bannerImgBox img{
+    width: 100%;
+}
+.ArticleType{
+    width: 100%;
+    height: .82rem;
+}
+.ArticleTypeBox{
+    width: 89%;
+    margin: 0 auto;
+    height: .82rem;
+}
+.ArticleTypeBox ul{
+    width: 100%;
+    height: .82rem;
+}
+.ArticleTypeBox ul li{
+    width: 16%;
+    height: .82rem;
+    line-height: .82rem;
+    text-align: center;
+    color: #7d7d7d;
+    font-size: .27rem;
+    float: left;
+}
+.ArticleTypeBox ul li:nth-child(1){
+    width: 20%;
+    color: #e7141a;
+}
+.variousArticles{
+    width: 100%;
+    padding-bottom: .7rem;
+
+}
+.variousArticles ul {
+    width: 100%;
+    display: inline-block;
+}
+.variousArticles ul li:nth-child(1){
+    margin-top: 0;
+}
+.variousArticles ul li{
+    width: 95%;
+    height: 1.6rem;
+    border-bottom: .5px #c8c8c8 solid;
+    float: left;
+    margin-top: .3rem;
+    margin-left: 2.5%;
+}
+.ArticlesBanner{
+    width:34%;
+    float: left;
+}
+.ArticlesBanner img{
+    width: 100%;
+}
+.ArticlesText{
+    width: 66%;
+    float: left;
+    height: 100%;
+}
+.ArticlesTitle{
+    width: 90%;
+    float: left;
+    margin-left: .2rem;
+    font-size: .28rem;
+    overflow : hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+}
+.ArticlesTime{
+    width: 95%;
+    float: right;
+    margin: .24rem auto 0 auto;
+    font-size: .22rem;
+    color: #AAAAAA;
+}
+.ArticlesTime span{
+    width: 1.2rem;
+    display: inline-block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.moreArticles{
+    width: 95%;
+    background:#eaeaea;
+    border-radius: 4px;
+    height: .8rem;
+    margin: 0 auto;
+    position: relative;
+}
+.moreArticles img{
+    position: absolute;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    top: 0;
+    margin: auto;
+    width: 4%;
+}

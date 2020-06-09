@@ -19,13 +19,13 @@ class IndexController extends SiteController {
             $ishttps=1;
         }
             
-//         if ($detect->isMobile()){           
-//             if($ishttps){
-//                 redirect('https://'.$_SERVER['HTTP_HOST'].'/home_m');
-//             }else{
-//                 redirect('http://'.$_SERVER['HTTP_HOST'].'/home_m');
-//             }
-//         } 
+        if ($detect->isMobile()){           
+            if($ishttps){
+                redirect('https://'.$_SERVER['HTTP_HOST'].'/home_m');
+            }else{
+                redirect('http://'.$_SERVER['HTTP_HOST'].'/home_m');
+            }
+        } 
         
         $cateList = M('navi_category')->where(['state'=>1])->select();
         $this->assign('cateList',$cateList);

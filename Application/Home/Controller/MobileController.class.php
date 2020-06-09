@@ -11,13 +11,41 @@ class MobileController extends SiteController {
     public function __construct() {
         parent::__construct ();
         header("Content-Type:text/html; charset=utf-8");
-        C('TPL_NAME','mobile');
+        C('TPL_NAME','mobileNew');
     }
     
     //首页
     public function index(){
         
-        $this->redirect('/news_m/all');
+//         $class_id = I('request.class_id','all');
+        
+//         $where['status'] = 2;
+//         if($class_id != 'all'){
+//             $where['class_id'] = $class_id;
+//         }
+//         //热门新闻
+//         $newsList = M('content')->where($where)->field('content_id,title,description,image,time,views,author')->limit(10)
+//         ->order('sequence desc,content_id desc')->select();
+        
+//         foreach($newsList as $key=>$val){
+//             $newsList[$key]['description'] = html_out($val['description']);
+//             if($val['time']>(time()-3600)){ //一小时内
+//                 $newsList[$key]['time'] = ceil((time()-$val['time'])/60).'分钟前';
+//             }else{
+//                 $newsList[$key]['time'] = date('m-d H:i',$val['time']);
+//             }
+//         }
+        
+//         if($newsList){
+//             $newsFirst = array_shift($newsList);
+//             $this->assign('newsFirst',$newsFirst);
+//         }
+        
+//         $this->assign('class_id',$class_id);
+//         $this->assign('newsCate',M('category')->where(['show'=>1])->order('sequence asc')->select());
+//         $this->assign('newsList',$newsList);
+        
+
         $this -> siteDisplay('index');
     }
     
@@ -42,34 +70,7 @@ class MobileController extends SiteController {
     //新闻列表
     public function news(){
         
-        $class_id = I('request.class_id','all');
-        
-        $where['status'] = 2;
-        if($class_id != 'all'){
-            $where['class_id'] = $class_id;
-        }
-        //热门新闻
-        $newsList = M('content')->where($where)->field('content_id,title,description,image,time,views,author')->limit(10)
-                                ->order('sequence desc,content_id desc')->select();
-        
-        foreach($newsList as $key=>$val){
-            $newsList[$key]['description'] = html_out($val['description']);
-            if($val['time']>(time()-3600)){ //一小时内
-                $newsList[$key]['time'] = ceil((time()-$val['time'])/60).'分钟前';
-            }else{
-                $newsList[$key]['time'] = date('m-d H:i',$val['time']);
-            }
-        }
-        
-        if($newsList){
-            $newsFirst = array_shift($newsList);
-            $this->assign('newsFirst',$newsFirst);
-        }
 
-        $this->assign('class_id',$class_id);
-        $this->assign('newsCate',M('category')->where(['show'=>1])->order('sequence asc')->select());
-        $this->assign('newsList',$newsList);
-        $this -> siteDisplay('news');
     }
     
     //新闻详情

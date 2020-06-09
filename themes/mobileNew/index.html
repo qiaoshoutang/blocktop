@@ -1,0 +1,815 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>区块链头条</title>
+    <meta name="keywords" content=""/>
+    <meta name="description" content=""/>
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <script>
+        (function (doc, win) {
+            var docEl = doc.documentElement,
+                resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+                recalc = function () {
+                    var clientWidth = docEl.clientWidth;
+                    if (!clientWidth) return;
+                    if(clientWidth>=640){
+                        docEl.style.fontSize = '100px';
+                    }else{
+                        docEl.style.fontSize = 100 * (clientWidth / 640) + 'px';
+                    }
+                };
+            if (!doc.addEventListener) return;
+            win.addEventListener(resizeEvt, recalc, false);
+            doc.addEventListener('DOMContentLoaded', recalc, false);
+        })(document, window);
+    </script>
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/common.css">
+    <script src="/themes/default/js/layui/layui.all.js"></script>
+
+</head>
+<style>
+   .TxImg{
+       width: .45rem;
+       height: .45rem;
+       float: left;
+       margin-left: .5rem;
+       margin-top: .38rem;
+   }
+    .TxName{
+        font-size: .25rem;
+        float: left;
+        margin-top: .45rem;
+        color: #D40507;
+    }
+
+</style>
+<body>
+    <div class="box">
+        <!--用户注册-->
+        <div class="Headline-register">
+            <!--注册账户-->
+            <form action="" onsubmit="return false">
+                <div class="reg-FraDiv-frame" id="reg-FraDiv-frame" type="1">
+                    <div class="reg-FraDiv" id="reg-FraDiv">
+
+                        <div class="registerTitle">
+                            注册账户
+                            <div class="guanbi" id="guanbi">
+                                <img src="images/guanbi.png" alt="">
+                            </div>
+
+                        </div>
+                        <!--输入手机号-->
+                        <div class="cell-phone-number">
+                            <input type="text" placeholder="请输入手机号码" class="cell-phone-number-input">
+                        </div>
+                        <!--点击按钮开始验证-->
+                        <!--<button class="VerificationImgBtn">-->
+                        <!--<img src="images/VerificationImgBtn.png" alt="" class="VerificationImg">-->
+                        <!--<span>点击按钮开始验证</span>-->
+                        <!--</button>-->
+                        <!--验证码-->
+                        <div class="Verification-Code" >
+                            <input type="text" placeholder="验证码" class="Verification-Code-input">
+                            <button class="Verification-Code-btn" id="Verification-Code-btn" onclick='send_yzm(this)' type="1">发送验证码</button>
+                        </div>
+                        <!--密码-->
+                        <div class="password">
+                            <input type="password" placeholder="密码">
+                        </div>
+                        <div class="password">
+                            <input type="password" placeholder="再次输入密码" class="againNewPassword">
+                        </div>
+                        <!--提交按钮-->
+                        <button class="submitBtn">
+                            注册
+                        </button>
+                        <!--已有账户,直接登录>-->
+                        <div class="Sign-in-frame">
+                            已有账户，直接登录>
+                        </div>
+                    </div>
+                </div>
+            </form>
+            <!--&lt;!&ndash;登录&ndash;&gt;-->
+            <form action="" onsubmit="return false">
+                <div class="SignFrame" id="SignFrame" type="1">
+                    <div class="reg-FraDiv">
+                        <div class="registerTitle">
+                            账号密码登录
+                            <span class="reg-newAccount">注册新账号></span>
+                            <div class="guanbi">
+                                <img src="images/guanbi.png" alt="">
+                            </div>
+                        </div>
+                        <!--输入手机号-->
+                        <div class="cell-phone-number">
+                            <input type="text" placeholder="请输入手机号码" class="cell-phone-number-input">
+                        </div>
+                        <!--密码-->
+                        <div class="password">
+                            <input type="password" placeholder="密码">
+                        </div>
+                        <!--忘记密码-->
+                        <div class="findPassword">
+                            忘记密码
+                        </div>
+                        <!--提交按钮-->
+                        <button class="submitBtn">
+                            确定
+                        </button>
+                        <!--短信登录-->
+                        <div class="SMS-login">
+                            短信登录
+                        </div>
+                    </div>
+                </div>
+            </form>
+            <!--找回密码-->
+            <form action="" onsubmit="return false">
+                <div class="retrieve-password-frame" id="retrieve-password-frame">
+                    <div class="reg-FraDiv">
+
+                        <div class="registerTitle">
+                            找回密码
+                            <div class="guanbi">
+                                <img src="images/guanbi.png" alt="">
+                            </div>
+
+                        </div>
+                        <!--输入手机号-->
+                        <div class="cell-phone-number">
+                            <input type="text" placeholder="请输入手机号码" class="cell-phone-number-input">
+                        </div>
+                        <!--点击按钮开始验证-->
+                        <!--<button class="VerificationImgBtn">-->
+                        <!--<img src="images/VerificationImgBtn.png" alt="" class="VerificationImg">-->
+                        <!--<span>点击按钮开始验证</span>-->
+                        <!--</button>-->
+                        <!--验证码-->
+                        <div class="Verification-Code">
+                            <input type="text" placeholder="验证码" class="Verification-Code-input">
+                            <button class="VerificationFindpassword" id="VerificationFindpassword" onclick='send_yzm(this)' type="3">发送验证码</button>
+                        </div>
+                        <!--密码-->
+                        <div class="password">
+                            <input type="password" placeholder="输入新密码" class="newPassword">
+                        </div>
+                        <div class="password">
+                            <input type="password" placeholder="再次输入密码" class="againNewPassword">
+                        </div>
+                        <!--提交按钮-->
+                        <button class="submitBtn">
+                            确定
+                        </button>
+                        <!--已有账户,直接登录>-->
+                        <div class="Sign-in-frame">
+                            已有账户,直接登录>
+                        </div>
+                    </div>
+                </div>
+            </form>
+
+            <!--短信登录-->
+            <form action="" onsubmit="return false">
+                <div class="SMSLogin-frame" id="SMSLogin-frame" type="2">
+                    <div class="reg-FraDiv">
+                        <div class="registerTitle">
+                            短信登录
+                            <div class="guanbi">
+                                <img src="images/guanbi.png" alt="">
+                            </div>
+
+                        </div>
+                        <!--输入手机号-->
+                        <div class="cell-phone-number">
+                            <input type="text" placeholder="请输入手机号码" class="cell-phone-number-input">
+                        </div>
+                        <!--验证码-->
+                        <div class="Verification-Code">
+                            <input type="text" placeholder="验证码" class="Verification-Code-input">
+                            <button class="VerificationCodeLogin" onclick='send_yzm(this)' type="2">发送验证码</button>
+                        </div>
+                        <!--提交按钮-->
+                        <button class="submitBtn">
+                            确定
+                        </button>
+                        <!--账号登录-->
+                        <div class="account-login">
+                            账号登录
+                        </div>
+                    </div>
+                </div>
+            </form>
+
+        </div>
+
+        <!--最顶部logo与注册登录-->
+        <div class="topMost">
+            <!--logo-->
+            <div class="topLogo">
+                <img src="images/topLogo.png" alt="">
+            </div>
+            <!--注册登录-->
+            <div class="signInTop">
+                <!--未登录-->
+                <div >
+                    <div class="registerbtn">注册</div>
+                    <div class="signInbtn">登录</div>
+                </div>
+
+                <!--登录成功-->
+                    <div style="display: none">
+                        <img src="images/TxImg.png" alt="" class="TxImg">
+                        <span class="TxName">18050793767 <img src="images/TxMore.png" alt=""></span>
+                    </div>
+            </div>
+
+        </div>
+        <!--导航栏-->
+        <div class="boxNav">
+            <!--boxNav ul-->
+            <div class="boxNav-ul">
+                <ul>
+                    <li>首页</li>
+                    <li>头条导航</li>
+                    <li>7*24快讯</li>
+                    <li>专栏</li>
+                </ul>
+            </div>
+            <!--导航按钮-->
+            <div class="navigationBtn">
+                <img src="images/navber.png" alt="">
+                <!--下拉菜单-->
+                <ul id="Dhl">
+                    <li class="header_list"><a href="">首页</a></li>
+                    <li class="header_list"><a href="">头条导航</a></li>
+                    <li class="header_list"><a href="">7*24快讯</a></li>
+                    <li class="header_list"><a href="">专栏</a></li>
+                    <li class="header_list"><a href="">关于我们</a></li>
+                </ul>
+            </div>
+
+
+        </div>
+        <!--轮播图-->
+        <div class="bannerImg">
+            <!--轮播-->
+            <div id="slideBox" class="slideBox">
+                <div class="bd">
+                    <ul>
+                        <li>
+                            <a class="pic" href="#"><img src="images/banner.png" /></a>
+                            <a class="tit" href="#"></a>
+                        </li>
+                        <li>
+                            <a class="pic" href="#"><img src="images/aboutBanner.png"/></a>
+                            <a class="tit" href="#"></a>
+                        </li>
+                        <li>
+                            <a class="pic" href="#"><img src="images/zlbanner.png"/></a>
+                            <a class="tit" href="#"></a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="hd">
+                    <ul></ul>
+                </div>
+            </div>
+            <!--<div class="bannerImgBox">-->
+                <!--<img src="images/banner.png" alt="">-->
+            <!--</div>-->
+        </div>
+        <!--文章分类-->
+        <div class="ArticleType">
+            <div class="ArticleTypeBox">
+                <ul>
+                    <li>今日头条</li>
+                    <li>最新</li>
+                    <li>行情</li>
+                    <li>政策</li>
+                    <li>产业</li>
+                    <li>声音</li>
+                </ul>
+            </div>
+        </div>
+        <!--各个文章-->
+        <div class="variousArticles">
+            <div class="variousArticlesBox">
+                <ul>
+                    <li>
+                        <!--配图-->
+                        <div class="ArticlesBanner">
+                            <img src="images/Imgcontent.png" alt="">
+                        </div>
+                        <!--标题概述-->
+                        <div class="ArticlesText">
+                            <div class="ArticlesTitle">
+                                抒情研究院|2020年第一季度全球区块链政策分析
+                            </div>
+                            <div class="ArticlesTime">
+                                <span>亲属科技</span>
+                                <span class="TimeHa">12小时前</span>
+                            </div>
+
+                        </div>
+                    </li>
+                    <li>
+                        <!--配图-->
+                        <div class="ArticlesBanner">
+                            <img src="images/Imgcontent.png" alt="">
+                        </div>
+                        <!--标题概述-->
+                        <div class="ArticlesText">
+                            <div class="ArticlesTitle">
+                                抒情研究院|2020年第一季度全球区块链政策分析
+                            </div>
+                            <div class="ArticlesTime">
+                                <span>亲属科技</span>
+                                <span class="TimeHa">12小时前</span>
+                            </div>
+
+                        </div>
+                    </li>
+                    <li>
+                        <!--配图-->
+                        <div class="ArticlesBanner">
+                            <img src="images/Imgcontent.png" alt="">
+                        </div>
+                        <!--标题概述-->
+                        <div class="ArticlesText">
+                            <div class="ArticlesTitle">
+                                抒情研究院|2020年第一季度全球区块链政策分析
+                            </div>
+                            <div class="ArticlesTime">
+                                <span>亲属科技</span>
+                                <span class="TimeHa">12小时前</span>
+                            </div>
+
+                        </div>
+                    </li>
+                    <li>
+                        <!--配图-->
+                        <div class="ArticlesBanner">
+                            <img src="images/Imgcontent.png" alt="">
+                        </div>
+                        <!--标题概述-->
+                        <div class="ArticlesText">
+                            <div class="ArticlesTitle">
+                                抒情研究院|2020年第一季度全球区块链政策分析
+                            </div>
+                            <div class="ArticlesTime">
+                                <span>亲属科技</span>
+                                <span class="TimeHa">12小时前</span>
+                            </div>
+
+                        </div>
+                    </li>
+                    <li>
+                        <!--配图-->
+                        <div class="ArticlesBanner">
+                            <img src="images/Imgcontent.png" alt="">
+                        </div>
+                        <!--标题概述-->
+                        <div class="ArticlesText">
+                            <div class="ArticlesTitle">
+                                抒情研究院|2020年第一季度全球区块链政策分析
+                            </div>
+                            <div class="ArticlesTime">
+                                <span>亲属科技</span>
+                                <span class="TimeHa">12小时前</span>
+                            </div>
+
+                        </div>
+                    </li>
+                    <li>
+                        <!--配图-->
+                        <div class="ArticlesBanner">
+                            <img src="images/Imgcontent.png" alt="">
+                        </div>
+                        <!--标题概述-->
+                        <div class="ArticlesText">
+                            <div class="ArticlesTitle">
+                                抒情研究院|2020年第一季度全球区块链政策分析
+                            </div>
+                            <div class="ArticlesTime">
+                                <span>亲属科技</span>
+                                <span class="TimeHa">12小时前</span>
+                            </div>
+
+                        </div>
+                    </li>
+                </ul>
+
+            </div>
+            <!--更多-->
+             <div class="moreArticles">
+                 <img src="images/moremore.png" alt="">
+             </div>
+        </div>
+        <!--底部-->
+        <div class="foodNav">
+            <!--联系我们-->
+            <div class="foodNavbox">
+                <div class="contacUs">
+                    <div class="contacTitle">联系我们</div>
+                    <ul>
+                        <li>
+                            <img src="images/dianhua.png" alt="">
+                            <span>0592-6600592</span>
+                        </li>
+                        <li>
+                            <img src="images/youxiang.png" alt="">
+                            <span>info@ababtc.com</span>
+                        </li>
+                        <li>
+                            <img src="images/dizhi.png" alt="">
+                            <span>厦门市湖里区</span>
+                        </li>
+                    </ul>
+
+
+                </div>
+                <div class="focusUs">
+                    <div class="focusUsbox">
+                        <div class="focusUsTitle">
+                            关注我们
+                        </div>
+                            <img src="images/focusUsCode.png" alt="">
+                    </div>
+
+
+                </div>
+
+                <!--备案-->
+                <div class="RecordNo">
+                    闽CP备18014082号-12 Copyright ©2019 blocktop.cn 区块链头条版权所有
+                </div>
+            </div>
+
+
+
+        </div>
+
+    </div>
+
+
+</body>
+</html>
+<script src="js/jquery.js"></script>
+<script src="js/common.js"></script>
+<script src="../mobile/js/TouchSlide.1.1.js"></script>
+
+
+<script>
+    $(".ArticleTypeBox ul li").click(function () {
+        $(this).css({
+            "color":"#e7141a",
+            "font-weight":"bold"
+        });
+        $(this).siblings().css({
+            "color":"#7d7d7d",
+            "font-weight":"normal"
+        })
+    });
+
+    TouchSlide({
+        slideCell:"#slideBox",
+        titCell:".hd ul", //开启自动分页 autoPage:true ，此时设置 titCell 为导航元素包裹层
+        mainCell:".bd ul",
+        effect:"leftLoop",
+        autoPage:true,//自动分页
+        autoPlay:true //自动播放
+    });
+</script>
+<script>
+    layui.use('layer', function(){  //layer弹框
+        var layer = layui.layer;
+    });
+    var countdown =60;
+    var Timeid;
+    //倒计时
+    function send_yzm(val){
+        var valClass=val.className;
+        // console.log($('.'+valClass+'').parent().siblings(".VerificationImgBtn"));
+        var yzm=$('.'+valClass+'').parent().siblings(".VerificationImgBtn")
+        // var valClass=val.className;
+        var phone = $('.'+valClass+'').parent().siblings(".cell-phone-number").find("input").val();
+        // console.log($('.'+valClass+'').attr("type"))
+        var type=$('.'+valClass+'').attr("type");
+        // if(yzm.hasClass("wyx")==false){
+        //     layer.msg('请点击按钮进行图形验证');
+        //     return false
+        // }
+        $.ajax({
+            type:"post",
+            url:"/Home/User/send_code",
+            data:{phone:phone,type:type},
+            dataType:'json',
+            success:function(data){
+                console.log(data);
+                // console.log(data.data)
+                // return false;
+                if(data.code==1){
+                    settime(val)
+                }
+                if(data.code==3){
+                    layer.msg(data.info+"，距离下次发送还有"+(60-(data.data))+"秒");
+                }
+                else{
+                    layer.msg(data.info);
+                }
+            }
+        });
+    }
+    /*倒计时*/
+    function settime(val){
+        var valClass=val.className;
+        if (countdown == 0){
+            $('.'+valClass+'').css({
+                "pointer-events":"",
+                "background":"#0c7ff2"
+            });
+            val.innerHTML = "发送验证码";
+            countdown = 60;
+            return false
+        }
+        else {
+            $('.'+valClass+'').css({
+                "pointer-events":"none",
+                "background":"#aaaaaa"
+            });
+            val.innerHTML = "重新发送(" + countdown + ")";
+            countdown--;
+            // console.log(countdown)
+        }
+        Timeid=setTimeout(function() {
+            settime(val);
+        }, 1000);
+    }
+
+    $(document).ready(function() {
+        if($(".when-landing").hasClass("when-landing-Ac")){
+            $(".activitsPopupbtn").hide()
+        }
+    });
+
+
+
+    /*四个表单提交*/
+    /*注册登录*/
+    $(document).on('click','#reg-FraDiv-frame .submitBtn',function() {
+        var number = /^1([358][0-9]|4[579]|66|7[0135678]|9[89])[0-9]{8}$/;
+        var phone_number=$("#reg-FraDiv-frame .cell-phone-number-input").val();
+        var password=$("#reg-FraDiv-frame .password input").val();
+        var Verification_Code=$("#reg-FraDiv-frame .Verification-Code-input").val();
+        var repassword=$("#reg-FraDiv-frame .againNewPassword").val();
+        if(phone_number==''||phone_number=='null'){
+            layer.msg('您的电话不能为空');
+            return false
+        }
+        if(!number.test(phone_number)){
+            layer.msg('手机号码不正确，请重新输入');
+            return false
+        }
+        // if($("#reg-FraDiv-frame .VerificationImgBtn").hasClass("wyx")==false){
+        //     layer.msg('请点击按钮进行图形验证');
+        //     return false
+        // }
+        if(Verification_Code==''||Verification_Code=='null'){
+            layer.msg('您的验证码不能为空');
+            return false
+        }
+        if(password==''||password=='null'){
+            layer.msg('您的密码不能为空');
+            return false
+        }
+        if(password!=repassword){
+            layer.msg('两次输入的密码不一致');
+            return false
+        }
+        else {
+            $.ajax({
+                type:"post",
+                url:"/Home/User/register",
+                data:{phone:phone_number,code:Verification_Code,repassword:repassword,password:password},
+                dataType:'json',
+                success:function(data){
+                    // console.log(data);
+                    if(data.code==1){
+                        layer.msg('注册成功');
+                        // location.reload()
+                        $(".activitsPopupbtnEwm").show();
+                        $(".Headline-register").hide()
+
+                    }else{
+                        // console.log(data.info);
+                        layer.msg(data.info);
+                    }
+                }
+            });
+        }
+    });
+    /*账号密码登录*/
+    $(document).on('click','#SignFrame .submitBtn',function() {
+        var number = /^1([358][0-9]|4[579]|66|7[0135678]|9[89])[0-9]{8}$/;
+        var phone_number=$("#SignFrame .cell-phone-number-input").val();
+        var password=$("#SignFrame .password input").val();
+        var type=$("#SignFrame").attr("type");
+        console.log(type);
+        if(phone_number==''||phone_number=='null'){
+            layer.msg('您的电话不能为空');
+            return false
+        }
+        if(!number.test(phone_number)){
+            layer.msg('手机号码不正确，请重新输入');
+            return false
+        }
+        if(password==''||password=='null'){
+            layer.msg('您的密码不能为空');
+            return false
+        }
+        else {
+            $.ajax({
+                type:"post",
+                url:"/Home/User/accountLogin",
+                data:{phone:phone_number,password:password,type:type},
+                dataType:'json',
+                success:function(data){
+                    console.log(data);
+                    if(data.code==1){
+                        // console.log(data.data.nickname)
+                        layer.msg('登录成功');
+                        location.reload();
+                        $(".userbtn").hide();
+                        $(".when-landing").show();
+                        $(".usernamenumber").html(data.data.nickname);
+                    }else{
+                        // console.log(data.info);
+                        layer.msg(data.info);
+                    }
+                }
+            });
+        }
+    });
+    /*找回密码*/
+    $(document).on('click','#retrieve-password-frame .submitBtn',function() {
+        var number = /^1([358][0-9]|4[579]|66|7[0135678]|9[89])[0-9]{8}$/;
+        var phone_number=$("#retrieve-password-frame .cell-phone-number-input").val();
+        var againNewPassword=$("#retrieve-password-frame .againNewPassword").val();
+        var newPassword=$("#retrieve-password-frame .newPassword").val();
+        var Verification_Code=$("#retrieve-password-frame .Verification-Code-input").val();
+
+        if(phone_number==''||phone_number=='null'){
+            layer.msg('您的电话不能为空');
+            return false
+        }
+        if(!number.test(phone_number)){
+            layer.msg('手机号码不正确，请重新输入');
+            return false
+        }
+        // if($("#retrieve-password-frame .VerificationImgBtn").hasClass("wyx")==false){
+        //     layer.msg('请点击按钮进行图形验证');
+        //     return false
+        // }
+        if(Verification_Code==''||Verification_Code=='null'){
+            layer.msg('您的验证码不能为空');
+            return false
+        }
+        if(newPassword==''||newPassword=='null'){
+            layer.msg('新密码不能为空');
+            return false
+        }
+        if(againNewPassword==''||againNewPassword=='null'){
+            layer.msg('请核对新密码');
+            return false
+        }
+        if(newPassword!=againNewPassword){
+            layer.msg('输入的两次密码不吻合');
+            return false
+        }
+
+        else {
+            $.ajax({
+                type:"post",
+                url:"/Home/User/getPassword",
+                data:{phone:phone_number,password:newPassword,repassword:againNewPassword,code:Verification_Code},
+                dataType:'json',
+                success:function(data){
+                    console.log(data);
+                    if(data.code==1){ // 显示用户数据 隐藏输入框
+                        layer.msg('修改成功');
+                        location.reload()
+                    }else{
+                        layer.msg(data.info);
+                        // console.log(data.info);
+                    }
+                }
+            });
+        }
+    });
+    /*短信登录*/
+    $(document).on('click','#SMSLogin-frame .submitBtn',function() {
+        var number = /^1([358][0-9]|4[579]|66|7[0135678]|9[89])[0-9]{8}$/;
+        var phone_number=$("#SMSLogin-frame .cell-phone-number-input").val();
+        var Verification_Code=$("#SMSLogin-frame .Verification-Code-input").val();
+        var type=$("#SMSLogin-frame").attr("type");
+        if(phone_number==''||phone_number=='null'){
+            layer.msg('您的电话不能为空');
+            return false
+        }
+        if(!number.test(phone_number)){
+            layer.msg('手机号码不正确，请重新输入');
+            return false
+        }
+        // if($("#SMSLogin-frame .VerificationImgBtn").hasClass("wyx")==false){
+        //     layer.msg('请点击按钮进行图形验证');
+        //     return false
+        // }
+        if(Verification_Code==''||Verification_Code=='null'){
+            layer.msg('您的验证码不能为空');
+            return false
+        }
+        else {
+            $.ajax({
+                type:"post",
+                url:"/Home/User/accountLogin",
+                data:{phone:phone_number,code:Verification_Code,type:type},
+                dataType:'json',
+                success:function(data){
+                    console.log(data);
+                    if(data.code==1){
+                        layer.msg('登录成功');
+                        location.reload()
+                    }else{
+                        // console.log(data.info);
+                        layer.msg(data.info);
+                    }
+                }
+            });
+        }
+    });
+
+    /*关闭弹窗*/
+    $(document).on('click','.guanbi',function() {
+        $(".Headline-register").hide()
+    });
+    /*注册*/
+    $(document).on('click','.registerbtn',function() {
+        $("#reg-FraDiv-frame").show();
+        $(".Headline-register").show()
+        $("#retrieve-password-frame").hide();
+        $("#SignFrame").hide();
+        $("#SMSLogin-frame").hide()
+    });
+    /*登录*/
+    $(document).on('click','.signInbtn',function() {
+        $("#SignFrame").show();
+        $("#reg-FraDiv-frame").hide();
+        $(".Headline-register").show();
+        $("#retrieve-password-frame").hide();
+        $("#SMSLogin-frame").hide()
+    });
+    /*注册新账号*/
+    $(document).on('click','.reg-newAccount',function() {
+        $("#reg-FraDiv-frame").show();
+        $("#SignFrame").hide();
+        $("#retrieve-password-frame").hide();
+        clearTimeout(Timeid);
+        countdown =60;
+        $("#reg-FraDiv-frame").load(location.href + " #reg-FraDiv-frame")
+    })
+    /*找回密码*/
+    $(document).on('click','.findPassword',function() {
+        $("#reg-FraDiv-frame").hide();
+        $("#SignFrame").hide();
+        $("#retrieve-password-frame").show();
+        clearTimeout(Timeid);
+        countdown =60;
+        $("#retrieve-password-frame").load(location.href + " #retrieve-password-frame")
+    });
+    /*直接登录*/
+    $(document).on('click','.Sign-in-frame',function() {
+        $("#reg-FraDiv-frame").hide();
+        $("#SignFrame").show();
+        $("#retrieve-password-frame").hide();
+        clearTimeout(Timeid);
+        countdown =60;
+
+    });
+    /*账号登录*/
+    $(document).on('click','.account-login',function() {
+        $("#SignFrame").show();
+        $(".SMSLogin-frame").hide()
+    });
+    /*短信登录*/
+    $(document).on('click','.SMS-login',function() {
+        $("#SignFrame").hide();
+        $(".SMSLogin-frame").show();
+        clearTimeout(Timeid);
+        countdown =60;
+        $("#SMSLogin-frame").load(location.href + " #SMSLogin-frame")
+    });
+</script>
