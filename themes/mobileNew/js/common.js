@@ -1,6 +1,6 @@
 s=0;
-$(".navigationBtn").on("touchstart",function (e) {
-    e.preventDefault();
+$(".navigationBtn").on("touchstart",function () {
+   
     if(s==0){
         $(this).find($("#Dhl")).slideDown(500);
         s=1;

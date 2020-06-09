@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>新闻动态内容</title>
+    <meta name="keywords" content=""/>
+    <meta name="description" content=""/>
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <script>
+        (function (doc, win) {
+            var docEl = doc.documentElement,
+                resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+                recalc = function () {
+                    var clientWidth = docEl.clientWidth;
+                    if (!clientWidth) return;
+                    if(clientWidth>=640){
+                        docEl.style.fontSize = '100px';
+                    }else{
+                        docEl.style.fontSize = 100 * (clientWidth / 640) + 'px';
+                    }
+                };
+            if (!doc.addEventListener) return;
+            win.addEventListener(resizeEvt, recalc, false);
+            doc.addEventListener('DOMContentLoaded', recalc, false);
+        })(document, window);
+    </script>
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/contentDetail.css">
+    <script src="js/common.js"></script>
+</head>
+<body>
+    <div class="box">
+        <!--#include file="header.html"-->
+        <!--内容详情-->
+        <div class="contentDetail">
+            <!--标题-->
+            <div class="contentTitle">
+                {$contentInfo.title}
+            </div>
+            <!--作者时间阅读量-->
+            <div class="contentTimeAuthor">
+                
+                <!--{if condition="$contentInfo['author_id']"}-->
+                <span class="contentAuthor" onclick='window.location.href="/Author/{$contentInfo.author_id}"'>{$contentInfo.author_name}</span>
+                <!--{else /}-->
+                <span class="contentAuthor">{$contentInfo.author_name}</span>
+                <!--{/if}-->
+                <span class="contentTime">{$contentInfo.time|format_time='Y/m/d H:i'}</span>
+                <span>
+                    <img src="images/yanjing.png" alt="" >
+                    <strong>{$contentInfo.views}</strong>
+                </span>
+            </div>
+
+            <!--{if condition="$type eq 1"}-->
+             <div class="ContentText">
+                {$contentInfo.content}
+            </div>
+            <!--{/if}-->
+            <!--{if condition="$type eq 2"}-->
+            <div class="ContentText">
+                <iframe class="" style="z-index:1" src="{$contentInfo.target}" allowfullscreen="" frameborder="0" width="100%" height="500px">
+                    您的浏览器不支持 video 标签。
+                </iframe>
+            </div>
+            <!--{/if}-->
+
+            <!--声明、提示-->
+            <div class="contentStatement">
+                <p>声明:本文观点仅代表作者本人，绝不代表区块链头条官方赞同其观点或证实其描述</p>
+                <p>提示：投资有风险，入市须谨慎。本资讯不作为投资理财建议。</p>
+            </div>
+
+        </div>
+        <!--底部-->
+        <!--#include file="footer.html"-->
+    </div>
+
+
+</body>
+</html>

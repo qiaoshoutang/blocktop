@@ -540,17 +540,10 @@
 <script src="js/i18n.js"></script>
 <script src="js/jigsaw.js"></script>
 <script src="js/commom.js"></script>
+
 <script>
 
-    $(document).ready(function(){
-        if($.cookie('ActivitDna')==1){
-            $(".activitsPopupbtn").hide()
-        }else {
-            setTimeout(function () {
-                $(".activitsPopupbtn").show()
-            },500)
-        }
-    });
+   
     /*活动点击按钮*/
     $("#PopupbtnClose img").click(function () {
         $(".activitsPopupbtn").hide();

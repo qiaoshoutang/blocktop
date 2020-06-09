@@ -95,7 +95,6 @@ class IndexController extends SiteController {
         $newsList =D('Article/ContentArticle')
                    ->loadList($where,'content_id,title,description,image,time,views,author,author_id,look,U.nickname as author_name','0,10','is_top desc,time desc,sequence desc');
 
-
         foreach($newsList as $key=>$val){
             $newsList[$key]['description'] = html_out($val['description']);
         }
@@ -202,7 +201,7 @@ class IndexController extends SiteController {
         $this -> siteDisplay('newsContent');
     }
 
-    //蚂蚁导航
+    //头条导航
     public function antMap(){
 
         $class_id = I('request.class_id','recom');

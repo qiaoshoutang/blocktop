@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>区块链头条专栏</title>
+    <meta name="keywords" content=""/>
+    <meta name="description" content=""/>
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <script>
+        (function (doc, win) {
+            var docEl = doc.documentElement,
+                resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+                recalc = function () {
+                    var clientWidth = docEl.clientWidth;
+                    if (!clientWidth) return;
+                    if(clientWidth>=640){
+                        docEl.style.fontSize = '100px';
+                    }else{
+                        docEl.style.fontSize = 100 * (clientWidth / 640) + 'px';
+                    }
+                };
+            if (!doc.addEventListener) return;
+            win.addEventListener(resizeEvt, recalc, false);
+            doc.addEventListener('DOMContentLoaded', recalc, false);
+        })(document, window);
+    </script>
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/specialColumn.css">
+</head>
+<style>
+    .specialColumnText{
+        width: 100%;
+    }
+    .specialColumnText ul li{
+        width: 90%;
+        margin: 0.4rem auto 0 auto;
+        box-shadow: 2px 2px 2px 2px rgba(0,0,0,.2);
+        min-height: 4.5rem;
+        border-radius: 4px;
+        overflow: hidden;
+    }
+    .specialColumnText ul li img{
+        width: 100%;
+    }
+    .specialColumnContent{
+        width: 90%;
+        margin: 0 auto;
+        font-size: .25rem;
+        text-align: justify;
+    }
+    .foodNav{
+        margin-top: .5rem;
+    }
+</style>
+
+<body>
+<div class="box">
+    <!--#include file="header.html"-->
+
+    <!--主要内容-->
+    <div class="specialColumnText">
+        <ul>
+            <!--{foreach name='columnList' item='vo' }-->
+            <li onclick='window.location.href="/columns_m/{$vo.id}"'>
+                <img src="{$vo.banner}" alt="">
+                <div class="specialColumnContent">
+                    {$vo.desc}
+                </div>
+            </li>
+            <!--{/foreach}-->
+        </ul>
+    </div>
+
+    <!--底部-->
+    <!--#include file="footer.html"-->
+</div>
+
+
+
+</body>
+</html>
+<script src="js/jquery.js"></script>
+<script src="js/common.js"></script>

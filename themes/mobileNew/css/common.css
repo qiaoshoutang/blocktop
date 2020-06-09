@@ -25,6 +25,19 @@ ul li{
     float: left;
     position: relative;
 }
+.TxImg{
+   width: .45rem;
+   height: .45rem;
+   float: left;
+   margin-left: .5rem;
+   margin-top: .38rem;
+}
+.TxName{
+    font-size: .25rem;
+    float: left;
+    margin-top: .45rem;
+    color: #D40507;
+}
 .topLogo img{
     width: 60%;
     position: absolute;

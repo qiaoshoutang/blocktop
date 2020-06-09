@@ -283,12 +283,18 @@
 <script src="js/jquery.js"></script>
 <script src="js/commom.js"></script>
 <script src="js/ft-carousel.min.js"></script>
-<script src="/themes/mobile/js/jquery.cookie.js"></script>
-
-
-
-
+<script src="/themes/mobileNew/js/jquery.cookie.js"></script>
 <script>
+
+ $(document).ready(function(){
+        if($.cookie('ActivitDna')==1){
+            $(".activitsPopupbtn").hide()
+        }else {
+            setTimeout(function () {
+                $(".activitsPopupbtn").show()
+            },500)
+        }
+    });
 
 
     $("#carousel_1").FtCarousel();

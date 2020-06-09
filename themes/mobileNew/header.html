@@ -1,0 +1,199 @@
+
+
+<!--用户注册-->
+<div class="Headline-register">
+    <!--注册账户-->
+    <form action="" onsubmit="return false">
+        <div class="reg-FraDiv-frame" id="reg-FraDiv-frame" type="1">
+            <div class="reg-FraDiv" id="reg-FraDiv">
+
+                <div class="registerTitle">
+                    注册账户
+                    <div class="guanbi" id="guanbi">
+                        <img src="images/guanbi.png" alt="">
+                    </div>
+
+                </div>
+                <!--输入手机号-->
+                <div class="cell-phone-number">
+                    <input type="text" placeholder="请输入手机号码" class="cell-phone-number-input">
+                </div>
+
+                <div class="Verification-Code" >
+                    <input type="text" placeholder="验证码" class="Verification-Code-input">
+                    <button class="Verification-Code-btn" id="Verification-Code-btn" onclick='send_yzm(this)' type="1">发送验证码</button>
+                </div>
+                <!--密码-->
+                <div class="password">
+                    <input type="password" placeholder="密码">
+                </div>
+                <div class="password">
+                    <input type="password" placeholder="再次输入密码" class="againNewPassword">
+                </div>
+                <!--提交按钮-->
+                <button class="submitBtn">
+                    注册
+                </button>
+                <!--已有账户,直接登录>-->
+                <div class="Sign-in-frame">
+                    已有账户，直接登录>
+                </div>
+            </div>
+        </div>
+    </form>
+    <!--&lt;!&ndash;登录&ndash;&gt;-->
+    <form action="" onsubmit="return false">
+        <div class="SignFrame" id="SignFrame" type="1">
+            <div class="reg-FraDiv">
+                <div class="registerTitle">
+                    账号密码登录
+                    <span class="reg-newAccount">注册新账号></span>
+                    <div class="guanbi">
+                        <img src="images/guanbi.png" alt="">
+                    </div>
+                </div>
+                <!--输入手机号-->
+                <div class="cell-phone-number">
+                    <input type="text" placeholder="请输入手机号码" class="cell-phone-number-input">
+                </div>
+                <!--密码-->
+                <div class="password">
+                    <input type="password" placeholder="密码">
+                </div>
+                <!--忘记密码-->
+                <div class="findPassword">
+                    忘记密码
+                </div>
+                <!--提交按钮-->
+                <button class="submitBtn">
+                    确定
+                </button>
+                <!--短信登录-->
+                <div class="SMS-login">
+                    短信登录
+                </div>
+            </div>
+        </div>
+    </form>
+    <!--找回密码-->
+    <form action="" onsubmit="return false">
+        <div class="retrieve-password-frame" id="retrieve-password-frame">
+            <div class="reg-FraDiv">
+                <div class="registerTitle">
+                    找回密码
+                    <div class="guanbi">
+                        <img src="images/guanbi.png" alt="">
+                    </div>
+                </div>
+                <!--输入手机号-->
+                <div class="cell-phone-number">
+                    <input type="text" placeholder="请输入手机号码" class="cell-phone-number-input">
+                </div>
+
+                <!--验证码-->
+                <div class="Verification-Code">
+                    <input type="text" placeholder="验证码" class="Verification-Code-input">
+                    <button class="VerificationFindpassword" id="VerificationFindpassword" onclick='send_yzm(this)' type="3">发送验证码</button>
+                </div>
+                <!--密码-->
+                <div class="password">
+                    <input type="password" placeholder="输入新密码" class="newPassword">
+                </div>
+                <div class="password">
+                    <input type="password" placeholder="再次输入密码" class="againNewPassword">
+                </div>
+                <!--提交按钮-->
+                <button class="submitBtn">
+                    确定
+                </button>
+                <!--已有账户,直接登录>-->
+                <div class="Sign-in-frame">
+                    已有账户,直接登录>
+                </div>
+            </div>
+        </div>
+    </form>
+
+    <!--短信登录-->
+    <form action="" onsubmit="return false">
+        <div class="SMSLogin-frame" id="SMSLogin-frame" type="2">
+            <div class="reg-FraDiv">
+                <div class="registerTitle">
+                    短信登录
+                    <div class="guanbi">
+                        <img src="images/guanbi.png" alt="">
+                    </div>
+                </div>
+                <!--输入手机号-->
+                <div class="cell-phone-number">
+                    <input type="text" placeholder="请输入手机号码" class="cell-phone-number-input">
+                </div>
+                <!--验证码-->
+                <div class="Verification-Code">
+                    <input type="text" placeholder="验证码" class="Verification-Code-input">
+                    <button class="VerificationCodeLogin" onclick='send_yzm(this)' type="2">发送验证码</button>
+                </div>
+                <!--提交按钮-->
+                <button class="submitBtn">
+                    确定
+                </button>
+                <!--账号登录-->
+                <div class="account-login">
+                    账号登录
+                </div>
+            </div>
+        </div>
+    </form>
+
+</div>
+
+<!--最顶部logo与注册登录-->
+<div class="topMost">
+    <!--logo-->
+    <div class="topLogo">
+        <img src="images/topLogo.png" alt="">
+    </div>
+    <!--注册登录-->
+    <div class="signInTop">
+        <!--{if condition="$loginInfo"}-->
+        <!--登录成功-->
+        <div>
+            <img src="images/TxImg.png" alt="" class="TxImg">
+            <span class="TxName">18050793767 <img src="images/TxMore.png" alt=""></span>
+        </div>
+        <!--{else /}-->
+        <!--未登录-->
+        <div>
+            <div class="registerbtn">注册</div>
+            <div class="signInbtn">登录</div>
+        </div>
+        <!--{/if}-->
+        
+    </div>
+
+</div>
+<!--导航栏-->
+<div class="boxNav">
+    <!--boxNav ul-->
+    <div class="boxNav-ul">
+        <ul>
+            <li onclick='window.location.href="/home_m/all"'>首页</li>
+            <li onclick='window.location.href="/topmap_m/recom"'>头条导航</li>
+            <li onclick='window.location.href="/message_m"'>7*24快讯</li>
+            <li onclick='window.location.href="/columns_list_m"'>专栏</li>
+        </ul>
+    </div>
+    <!--导航按钮-->
+    <div class="navigationBtn">
+        <img src="images/navber.png" alt="">
+        <!--下拉菜单-->
+        <ul id="Dhl">
+            <li class="header_list"><a href="/home_m/all">首页</a></li>
+            <li class="header_list"><a href="/topmap_m/recom">头条导航</a></li>
+            <li class="header_list"><a href="/message_m">7*24快讯</a></li>
+            <li class="header_list"><a href="/columns_list_m">专栏</a></li>
+            <li class="header_list"><a href="/aboutus_m">关于我们</a></li>
+        </ul>
+    </div>
+</div>
+

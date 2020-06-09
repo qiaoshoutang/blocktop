@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>关于我们</title>
+    <meta name="keywords" content=""/>
+    <meta name="description" content=""/>
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <script>
+        (function (doc, win) {
+            var docEl = doc.documentElement,
+                resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+                recalc = function () {
+                    var clientWidth = docEl.clientWidth;
+                    if (!clientWidth) return;
+                    if(clientWidth>=640){
+                        docEl.style.fontSize = '100px';
+                    }else{
+                        docEl.style.fontSize = 100 * (clientWidth / 640) + 'px';
+                    }
+                };
+            if (!doc.addEventListener) return;
+            win.addEventListener(resizeEvt, recalc, false);
+            doc.addEventListener('DOMContentLoaded', recalc, false);
+        })(document, window);
+    </script>
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/personalPage.css">
+    <link rel="stylesheet" href="css/abouts.css">
+</head>
+<body>
+<div class="box">
+    <!--#include file="header.html"-->
+    <!--banner-->
+    <div class="aboutbanner"></div>
+    <!--简介-->
+    <div class="blockInformation">
+        <div class="informationtitle">
+            <img src="images/jianjie.png" alt="">
+        </div>
+        <div class="blocktext">
+            <p>区块链头条成立于2017年11 月，是新锐区块链媒体品牌，专注于区块链产业的服务平台。</p>
+            <p>区块链头条集快讯、时讯、深研、行情、课堂等为一体。7*24 小时行业资讯追踪报道，秉承“客观、真实、深度”的理念，服务全球区块链领域生态。</p>
+            <p>目前，区块链头条覆盖粉丝数20W+。并且和微博、搜狐、简书、知乎、今日头条、凤凰网、财经网等媒体达成内容合作，已成为区块链行业最具影响力的服务平台之一。</p>
+        </div>
+        <!--头条小姐姐微信-->
+        <div class="codeSister">
+            <div class="SisterTitle">
+                <img src="images/meitihezuo.png" alt="">
+            </div>
+            <img src="images/jiejieCode.png" alt="" class="jiejieCode">
+            <div style="font-size: .23rem;position: relative;top: -.2rem;font-weight: bold">头条小姐姐</div>
+        </div>
+    </div>
+
+    <!--底部-->
+    <!--#include file="footer.html"-->
+</div>
+
+</body>
+<script src="js/jquery.js"></script>
+<script src="js/common.js"></script>
+</html>

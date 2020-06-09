@@ -25,19 +25,16 @@ return array(
 	    
 	    
 	    
-	    'home_m'          =>  'Home/Mobile/index',
-	    'message_m'       =>  'Home/Mobile/message',
-	    'news_m/:class_id' =>  'Home/Mobile/news',
-	    'newsContent_m/:content_id' =>'Home/Mobile/newsContent',
-	    'antmap_m/:class_id'=>  'Home/Mobile/antmap',
-	    'activit_m'        =>  'Home/Mobile/activity',
-	    'activitContent_m/:content_id'=>  'Home/Mobile/activityContent',
-	    
-	    
+	    'home_m/[:class_id]'          =>  'Home/Mobile/index',
+	    'topmap_m/:class_id'=>  'Home/Mobile/topmap',
+	    'message_m'         =>  'Home/Mobile/message',
+	    'columns_list_m'   =>'Home/Mobile/column_list',
+	    'columns_m/[:id]'   =>'Home/Mobile/column',
 	    'aboutus_m'         =>  'Home/Mobile/aboutus',
-	    'team_m'          =>  'Home/Mobile/team',
 	    
-	    'gocontent/:gzh_num'=>'Home/Short/message',
+	    'newsContent_m/:type/:content_id' =>'Home/Mobile/newsContent',
+
+
 	    
 	    'xfyun' =>'Home/WordToVoice/xfyun', //科大讯飞 文字转语音接口
 	    'test' =>'Home/WordToVoice/test',

@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>区块链头条作者主页</title>
+    <meta name="keywords" content=""/>
+    <meta name="description" content=""/>
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <script>
+        (function (doc, win) {
+            var docEl = doc.documentElement,
+                resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+                recalc = function () {
+                    var clientWidth = docEl.clientWidth;
+                    if (!clientWidth) return;
+                    if(clientWidth>=640){
+                        docEl.style.fontSize = '100px';
+                    }else{
+                        docEl.style.fontSize = 100 * (clientWidth / 640) + 'px';
+                    }
+                };
+            if (!doc.addEventListener) return;
+            win.addEventListener(resizeEvt, recalc, false);
+            doc.addEventListener('DOMContentLoaded', recalc, false);
+        })(document, window);
+    </script>
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/personalPage.css">
+</head>
+<style>
+    .hisArticle{
+        width: 90%;
+        margin: 0.2rem auto 0 auto;
+        height: .5rem;
+    }
+
+    .hisArticle ul li{
+        float: left;
+        width: 100%;
+        font-size: .25rem;
+        text-align: left;
+        color: #999999;
+        height: .5rem;
+        line-height:.5rem ;
+    }
+    .troAuthor{
+        width: 60%;
+        display: inline-block;
+        overflow: hidden;
+        text-overflow:ellipsis;
+        white-space: nowrap;
+        position: relative;
+        top: .121rem;
+    }
+    .personName{
+        width: 55%!important;
+    }
+    .Login-successful{
+        width:1.25rem ;
+        height: 1.25rem;
+        z-index: 99;
+        position: absolute;
+        right: .4rem;
+        top: .85rem;
+        background: white;
+        border: 1px solid #EEEEEE;
+        display: none;
+    }
+    .Login-successful ul{
+        margin-top: .1rem;
+    }
+    .Login-successful ul li{
+        width: 80%;
+        margin: 0 auto;
+        text-align: center;
+        height: .5rem;
+        border-bottom: 1px #f0f0f0 solid;
+        font-size: .2rem;
+        line-height: .5rem;
+    }
+    #Loginsuccess{
+       width: 100%;
+        display: inline-block;
+        position: relative;
+        top: -.3rem;
+    }
+
+
+</style>
+<body>
+<div class="box">
+    <!--#include file="header.html"-->
+
+    <!--个人信息-->
+    <div class="personInformation">
+        <div class="personInformationBox">
+            <div class="personTxImg">
+                <img src="images/TxImg.png" alt="" >
+            </div>
+            <div class="personName">
+                <div class="NameBold">{$authorInfo.nickname}</div>
+                <div>简介: <span class="troAuthor">{$authorInfo.desc}</span></div>
+                <div>
+                    <span>粉丝：</span>
+                    <span><strong style="color: #D40507">{$authorInfo.fans_num}</strong></span>
+                </div>
+            </div>
+
+
+            <div style="position: relative;top: 0rem;left:.3rem">
+                <!--{if condition="$subscribe"}-->
+                <!--订阅-->
+                <div class="subscripSucceed" type="2">
+                    取消订阅
+                </div>
+                <!--{else /}-->
+                <!--未订阅-->
+                <div class="Unsubscribed" type="1"> 
+                    +订阅
+                </div>
+                <!--{/if}-->
+            </div>
+
+        </div>
+    </div>
+    <!--游览历史、我的订阅btn-->
+    <div class="hisArticle">
+        <ul>
+            <li>他的文章<span>（{$authorInfo['article_num']}）</span></li>
+        </ul>
+    </div>
+
+    <div class="variousArticles">
+        <!--{if condition="$articleList"}-->
+        <div class="variousArticlesBox">
+            <ul>
+                <!--{foreach name='articleList' item='vo' }-->
+                <li>
+                    <!--配图-->
+                    <div class="ArticlesBanner">
+                        <img src="{$vo.image}" alt="">
+                    </div>
+                    <!--标题概述-->
+                    <div class="ArticlesText">
+                        <div class="ArticlesTitle" onclick='window.location.href="/newsContent_m/1/{$vo.content_id}"'>
+                            {$vo.title}
+                        </div>
+                        <div class="ArticlesTime">
+                            <span class="TimeHa">{$vo.time|format_time='Y/m/d H:i'}</span>
+                        </div>
+
+                    </div>
+                </li>
+                <!--{/foreach}-->
+            </ul>
+            <!--更多-->
+            <div class="moreArticles">
+                <img src="images/moremore.png" alt="">
+            </div>
+        </div>
+        <!--{else /}-->
+        <div class="NewType-Content">
+            <span>没有找到相关内容</span>
+        </div>
+        <!--{/if}-->
+    </div>
+    <!--底部-->
+    <!--#include file="footer.html"-->
+</div>
+
+</body>
+</html>
+<script src="js/jquery.js"></script>
+<script src="js/common.js"></script>
+<script>
+
+
+    red=0
+    $(".Unsubscribed").click(function () {
+        if (red==0){
+            $(this).css({
+                "background":"#999999",
+            })
+            $(this).html("取消订阅")
+            red=1
+        }else {
+            $(this).css({
+                "background":"#e7141a",
+            })
+            $(this).html("+订阅")
+            red=0
+        }
+    })
+
+</script>

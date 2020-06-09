@@ -13,9 +13,17 @@ use AlibabaCloud\Client\Exception\ServerException;
 
 class UserController extends SiteController {
     
-    public function test(){
-        session('home_user',['user_id'=>1]);
+    public function __construct() {
+        parent::__construct ();
+        header("Content-Type:text/html; charset=utf-8");
+        
+        $detect = new \Common\Util\Mobile_Detect();
+
+        if ($detect->isMobile()){
+            C('TPL_NAME','mobileNew');
+        } 
     }
+    
     
     //用户资料修改
     public function changeInfo(){
@@ -194,7 +202,7 @@ class UserController extends SiteController {
         $userInfo['subscribe'] = count($subscribe_list);
         
         $history_list = M('history')->where(['user_id'=>$userInfo['id']])->order('time desc')->field('article_id')->page(1,10)->select();
-
+//         dd($history_list);
         $articleMod =  M('content');
         $historyList = array();
         foreach($history_list as $val){

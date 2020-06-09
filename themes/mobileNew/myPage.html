@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>区块链头条个人主页</title>
+    <meta name="keywords" content=""/>
+    <meta name="description" content=""/>
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <script>
+        (function (doc, win) {
+            var docEl = doc.documentElement,
+                resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+                recalc = function () {
+                    var clientWidth = docEl.clientWidth;
+                    if (!clientWidth) return;
+                    if(clientWidth>=640){
+                        docEl.style.fontSize = '100px';
+                    }else{
+                        docEl.style.fontSize = 100 * (clientWidth / 640) + 'px';
+                    }
+                };
+            if (!doc.addEventListener) return;
+            win.addEventListener(resizeEvt, recalc, false);
+            doc.addEventListener('DOMContentLoaded', recalc, false);
+        })(document, window);
+    </script>
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/personalPage.css">
+</head>
+<style>
+    .Subscribe{
+        width: 90%;
+        margin: 0 auto;
+    }
+    .variousArticles{
+        display: none;
+    }
+    
+</style>
+<body>
+<div class="box">
+    <!--#include file="header.html"-->
+
+    <!--个人信息-->
+    <div class="personInformation">
+        <div class="personInformationBox">
+            <div class="personTxImg">
+                <img src="images/TxImg.png" alt="" >
+            </div>
+            <div class="personName">
+                <div class="NameBold">{$userInfo.nickname}</div>
+                <div>注册时间: {$userInfo.create_time|format_time='Y年m月d日'}</div>
+                <div>
+                    <span>UID: {$userInfo.top_num}</span>
+                    <span>订阅作者: <strong style="color: #D40507">{$userInfo.subscribe}</strong></span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--游览历史、我的订阅btn-->
+    <div class="historyAndSubscribe">
+        <ul>
+            <li>我的订阅</li>
+            <li>游览历史</li>
+        </ul>
+    </div>
+    <!--我的订阅-->
+   
+    <div class="Subscribe">
+        <!--{if condition="$subscribeList"}-->
+        <ul>
+            <!--{foreach name='subscribeList' item='vo' }-->
+            <li >
+                <!--头像配图-->
+                <div class="subscribeTx">
+                    <img src="images/TxImg.png" alt="" width="">
+                </div>
+                <!--作者信息-->
+                <div class="authorInfor" data='{$vo.id}' onclick='window.location.href="/Author/{$vo.id}"'>
+                    <div class="authorInforName">
+                        <p class="authorN">{$vo.nickname}</p>
+                        <p class="authorIn">{$vo.desc}</p>
+                    </div>
+                </div>
+
+                <!--订阅-->
+                <div class="subscripSucceed" style='display: none'>
+                    +订阅
+                </div>
+                <!--未订阅-->
+                <div class="Unsubscribed">
+                    取消订阅
+                </div>
+            </li>
+            <!--{/foreach}-->
+        </ul>
+        <!--{else /}-->
+        <ul>
+            <div class="NewType-Content">
+                <span>还未有订阅作者</span>
+            </div>
+        </ul>
+       <!--{/if}-->
+    </div>
+
+    <!--我的历史-->
+    <div class="variousArticles">
+        <!--{if condition="$historyList"}-->
+        <div class="variousArticlesBox">
+            <ul>
+            <!--{foreach name='historyList' item='vo' }-->
+                <li onclick='window.location.href="/newsContent_m/1/{$vo.content_id}"'>
+                    <!--配图-->
+                    <div class="ArticlesBanner">
+                        <img src="{$vo.image}" alt="">
+                    </div>
+                    <!--标题概述-->
+                    <div class="ArticlesText">
+                        <div class="ArticlesTitle">
+                            {$vo.title}
+                        </div>
+                        <div class="ArticlesTime">
+                            <!--{if condition="$vo['author_id']"}-->
+                            <span onclick='window.location.href="/Author/{$vo.author_id}"'>{$vo.author_name}</span>
+                            <!--{else /}-->
+                            <span>{$vo.author}</span>
+                            <!--{/if}-->
+                            <span class="TimeHa">{$vo.time|format_time='Y/m/d H:i'}</span>
+                        </div>
+
+                    </div>
+                </li>
+                <!--{/foreach}-->
+            </ul>
+            <!--更多-->
+            <div class="moreArticles">
+                <img src="images/moremore.png" alt="">
+            </div>
+        </div>
+
+        <!--{else /}-->
+       <div class="NewType-Content">
+           <span>没有找到相关内容</span>
+       </div>
+       <!--{/if}-->
+    </div>
+    <!--底部-->
+    <!--#include file="footer.html"-->
+</div>
+
+</body>
+</html>
+<script src="js/jquery.js"></script>
+<script src="js/common.js"></script>
+<script>
+    $(".historyAndSubscribe ul li").eq(0).css("color","#e7141a");
+    $(".historyAndSubscribe ul li").click(function () {
+        var $this=$(this)
+        $(this).css("color","#e7141a");
+        $(this).siblings().css("color","#999999");
+        // console.log($this.index());
+        if($this.index()==0){
+            $(".Subscribe").show();
+            $(".variousArticles").hide()
+        }else {
+            $(".Subscribe").hide();
+            $(".variousArticles").show()
+        }
+    });
+</script>

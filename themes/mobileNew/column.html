@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>区块链头条专栏</title>
+    <meta name="keywords" content=""/>
+    <meta name="description" content=""/>
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <script>
+        (function (doc, win) {
+            var docEl = doc.documentElement,
+                resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+                recalc = function () {
+                    var clientWidth = docEl.clientWidth;
+                    if (!clientWidth) return;
+                    if(clientWidth>=640){
+                        docEl.style.fontSize = '100px';
+                    }else{
+                        docEl.style.fontSize = 100 * (clientWidth / 640) + 'px';
+                    }
+                };
+            if (!doc.addEventListener) return;
+            win.addEventListener(resizeEvt, recalc, false);
+            doc.addEventListener('DOMContentLoaded', recalc, false);
+        })(document, window);
+    </script>
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/specialColumn.css">
+</head>
+
+<body>
+<div class="box">
+    <!--#include file="header.html"-->
+
+    <!--专栏banner-->
+    <div class="zlbanner">
+        <img src="{$info.banner}" alt="">
+        <!--专栏简介-->
+        <div class="columnTro">
+            <div class="columnTroTitle">
+                简介
+            </div>
+            <div class="columnTroText">
+                {$info.desc}
+            </div>
+
+        </div>
+    </div>
+    <!--各个文章-->
+    <div class="variousArticles">
+        <div class="variousArticlesBox">
+            <!--{if condition="empty($newsList)"}-->
+            <ul>
+                <div>
+                    <span>该专栏下暂时没有文章</span>
+                </div>
+            </ul>
+            <!--{else /}-->
+            <ul>
+            <!--{foreach name='newsList' item='vo' }-->
+                <li>
+                    <!--配图-->
+                    <div class="ArticlesBanner">
+                        <img src="{$vo.image}" alt="">
+                    </div>
+                    <!--标题概述-->
+                    <div class="ArticlesText">
+                        <div class="ArticlesTitle" onclick='window.location.href="{$vo.url}"'>
+                            {$vo.title}
+                        </div>
+                        <div class="ArticlesTime">
+                            <!--{if condition="$vo['author_id']"}-->
+                            <span onclick='window.location.href="/Author/{$vo.author_id}"'>{$vo.author_name}</span>
+                            <!--{else /}-->
+                            <span>{$vo.author}</span>
+                            <!--{/if}-->
+                            <span class="TimeHa">{$vo.time}</span>
+                        </div>
+                    </div>
+                </li>
+                <!--{/foreach}-->
+            </ul>
+            <!--{/if}-->
+        </div>
+        <!--更多-->
+        <div class="moreArticles">
+            <img src="images/moremore.png" alt="">
+        </div>
+    </div>
+    <!--底部-->
+    <!--#include file="footer.html"-->
+</div>
+
+
+
+</body>
+</html>
+<script src="js/jquery.js"></script>
+<script src="js/common.js"></script>
