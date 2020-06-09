@@ -2,15 +2,21 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="61e532fc-5bde-49c0-8b0f-0778b7705177" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/themes/mobieNew/newbox.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/themes/mobieNew/specialColumnIndex.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/themes/mobieNew/AuthorPage.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/default/activity.html" beforeDir="false" afterPath="$PROJECT_DIR$/themes/default/activity.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/default/antmap.html" beforeDir="false" afterPath="$PROJECT_DIR$/themes/default/antmap.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/themes/default/css/common.css" beforeDir="false" afterPath="$PROJECT_DIR$/themes/default/css/common.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/themes/default/header.html" beforeDir="false" afterPath="$PROJECT_DIR$/themes/default/header.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/themes/default/images/WxTxH.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/default/news.html" beforeDir="false" afterPath="$PROJECT_DIR$/themes/default/news.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/default/searchPage.html" beforeDir="false" afterPath="$PROJECT_DIR$/themes/default/searchPage.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/themes/default/shortmessage.html" beforeDir="false" afterPath="$PROJECT_DIR$/themes/default/shortmessage.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/themes/mobieNew/css/common.css" beforeDir="false" afterPath="$PROJECT_DIR$/themes/mobieNew/css/common.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/themes/mobieNew/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/themes/mobieNew/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/mobieNew/js/common.js" beforeDir="false" afterPath="$PROJECT_DIR$/themes/mobieNew/js/common.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/mobieNew/personalPage.html" beforeDir="false" afterPath="$PROJECT_DIR$/themes/mobieNew/personalPage.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/mobieNew/specialColumnIndex.html" beforeDir="false" afterPath="$PROJECT_DIR$/themes/mobieNew/specialColumnIndex.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -94,6 +100,7 @@
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -153,19 +160,25 @@
       <workItem from="1591681480260" duration="874000" />
       <workItem from="1591682769034" duration="164000" />
       <workItem from="1591683180686" duration="395000" />
-      <workItem from="1591683595961" duration="2376000" />
+      <workItem from="1591683595961" duration="12977000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="2" />
   </component>
+  <component name="WindowStateProjectService">
+    <state x="2381" y="171" key="SettingsEditor" timestamp="1591687192510">
+      <screen x="1920" y="0" width="1920" height="1080" />
+    </state>
+    <state x="2381" y="171" key="SettingsEditor/0.0.1920.1040/1920.0.1920.1080@1920.0.1920.1080" timestamp="1591687192510" />
+  </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/themes/default/header.html</url>
-          <line>411</line>
+          <line>397</line>
           <option name="timeStamp" value="1" />
         </line-breakpoint>
       </breakpoints>
