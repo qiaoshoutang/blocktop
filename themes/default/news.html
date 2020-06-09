@@ -284,18 +284,29 @@
 <script src="js/commom.js"></script>
 <script src="js/ft-carousel.min.js"></script>
 <script src="/themes/mobile/js/jquery.cookie.js"></script>
-
-
-
-
 <script>
 
+    $(document).ready(function(){
+        if($.cookie('ActivitDna')==1){
+            $(".activitsPopupbtn").hide()
+        }else {
+            setTimeout(function () {
+                $(".activitsPopupbtn").show()
+            },500)
+        }
+    });
+
+    /*活动点击按钮*/
+    $("#PopupbtnClose img").click(function () {
+        $(".activitsPopupbtn").hide();
+        $.cookie('ActivitDna', '1', { expires: 1 });
+    });
 
     $("#carousel_1").FtCarousel();
 
-var page_num = 2;
-var class_id = '{$class_id}';
-var cookieId;
+    var page_num = 2;
+    var class_id = '{$class_id}';
+    var cookieId;
 
     /*热文前三*/
     $(".NewType-Content ul li .NewTypeTop").eq(0).html("TOP 1");

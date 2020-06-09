@@ -100,6 +100,20 @@ ul li{
     font-size: .25rem;
     color: white;
 }
+.TxImg{
+    width: .45rem;
+    height: .45rem;
+    float: left;
+    margin-left: .5rem;
+    margin-top: .38rem;
+}
+.TxName{
+    font-size: .25rem;
+    float: left;
+    margin-top: .45rem;
+    color: #D40507;
+}
+
 .navigationBtn{
     width: 15%;
     float: right;
@@ -176,7 +190,6 @@ ul li{
 #Dhl{
     padding-top: .2rem;
     padding-bottom: .2rem;
-    display: inline-block;
     position: relative;
     z-index: 1000;
 }
@@ -192,13 +205,13 @@ ul li{
 }
 
 #Dhl{
-    width: 193%;
+    width: 30%;
     font-size: .25rem;
-    position: relative;
-    top: .8rem;
-    right: .9rem;
     background: black;
     color: #FFFFFF;
+    position: absolute;
+    right: 0;
+    top: 1.9rem;
     display: none;
 }
 
@@ -387,10 +400,14 @@ ul li{
     /*display: none;*/
 }
 /* 焦点图 */
+.bannerImg{
+    width: 95%;
+    margin: 0 auto;
+}
 .slideBox{
     position:relative;
     overflow:hidden;
-    margin:0px auto;
+    margin:.2rem auto 0 auto;
     max-width:560px;/* 设置焦点图最大宽度 */
 }
 .slideBox .hd{
