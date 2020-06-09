@@ -91,7 +91,14 @@ class AjaxController extends SiteController {
         }
         
         $this->assign('historyList',$historyList);
-        $data = $this->fetch('history_list');
+        
+        $detect = new \Common\Util\Mobile_Detect();
+        if($detect->isMobile()){
+            $data = $this->fetch('history_list_m');
+        }else{
+            $data = $this->fetch('history_list');
+        }
+
         
         $rdata['code'] = 1;
         $rdata['info'] = '获取信息成功';

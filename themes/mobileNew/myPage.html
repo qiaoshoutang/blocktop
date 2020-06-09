@@ -70,27 +70,24 @@
         <!--{if condition="$subscribeList"}-->
         <ul>
             <!--{foreach name='subscribeList' item='vo' }-->
-            <li >
+            <li data='{$vo.id}'>
                 <!--头像配图-->
                 <div class="subscribeTx">
                     <img src="images/TxImg.png" alt="" width="">
                 </div>
                 <!--作者信息-->
-                <div class="authorInfor" data='{$vo.id}' onclick='window.location.href="/Author/{$vo.id}"'>
+                <div class="authorInfor"  onclick='window.location.href="/Author/{$vo.id}"'>
                     <div class="authorInforName">
                         <p class="authorN">{$vo.nickname}</p>
                         <p class="authorIn">{$vo.desc}</p>
                     </div>
                 </div>
 
-                <!--订阅-->
-                <div class="subscripSucceed" style='display: none'>
-                    +订阅
-                </div>
                 <!--未订阅-->
-                <div class="Unsubscribed">
+                <div class="subscripSucceed" onclick='subscribe(this)' type='2'>
                     取消订阅
                 </div>
+
             </li>
             <!--{/foreach}-->
         </ul>
@@ -127,14 +124,15 @@
                             <!--{/if}-->
                             <span class="TimeHa">{$vo.time|format_time='Y/m/d H:i'}</span>
                         </div>
-
                     </div>
                 </li>
                 <!--{/foreach}-->
             </ul>
             <!--更多-->
             <div class="moreArticles">
-                <img src="images/moremore.png" alt="">
+                <span id='news_more' style='font-size: 22px'>
+                    <img src="images/moremore.png" alt="" >
+                </span> 
             </div>
         </div>
 
@@ -152,7 +150,14 @@
 </html>
 <script src="js/jquery.js"></script>
 <script src="js/common.js"></script>
+<script src="js/layui/layui.all.js"></script>
 <script>
+    var page_num = 2;
+
+    layui.use('layer', function(){  //layer弹框
+        var layer = layui.layer;
+    });
+
     $(".historyAndSubscribe ul li").eq(0).css("color","#e7141a");
     $(".historyAndSubscribe ul li").click(function () {
         var $this=$(this)
@@ -167,4 +172,60 @@
             $(".variousArticles").show()
         }
     });
+
+    $('#news_more').click(function(){
+        $.ajax({
+            type:"post",
+            url:"/Home/Ajax/get_history",
+            data:{page_num:page_num},
+            dataType:'json',
+            success:function(rdata){
+                // console.log(rdata)
+                if(rdata.code==1){
+                    $('.variousArticlesBox ul').append(rdata.data);
+                    page_num++;
+                }else{
+                    $('#news_more').html(rdata.info);
+                }
+            }
+        });
+    }); 
+
+    function subscribe(para){
+        var o  = $(para);
+        var type = o.attr("type");
+        var author_id=o.parent('li').attr("data");
+
+
+        $.ajax({
+            type:"post",
+            url:"/Home/User/subscribeAuthor",
+            data:{author_id:author_id,type:type},
+            dataType:'json',
+            success:function(data){
+                // console.log(data);
+                if(data.code==1){
+                    layer.msg(data.info);
+                        /*订阅与取消订阅按钮*/
+
+                    if(type==1){
+                        o.css({
+                            "background":"#999999"
+                        });
+                        o.html("取消订阅");
+                        o.attr("type","2")
+                    }else {
+                        o.css({
+                            "background":"#D40507"
+                        });
+                        o.html("+订阅");
+                        o.attr("type","1")
+                    }
+
+                }else{
+                    layer.msg(data.info);
+                }
+            }
+        });
+    }
 </script>

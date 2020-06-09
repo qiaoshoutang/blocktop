@@ -110,7 +110,7 @@
             <div style="position: relative;top: 0rem;left:.3rem">
                 <!--{if condition="$subscribe"}-->
                 <!--订阅-->
-                <div class="subscripSucceed" type="2">
+                <div class="Unsubscribed" type="2" style='background:#999999'>
                     取消订阅
                 </div>
                 <!--{else /}-->
@@ -172,24 +172,68 @@
 </html>
 <script src="js/jquery.js"></script>
 <script src="js/common.js"></script>
+<script src="js/layui/layui.all.js"></script>
 <script>
 
+    var author_id = '{$authorInfo.id}';
 
-    red=0
+    layui.use('layer', function(){  //layer弹框
+        var layer = layui.layer;
+    });
+
     $(".Unsubscribed").click(function () {
-        if (red==0){
-            $(this).css({
-                "background":"#999999",
-            })
-            $(this).html("取消订阅")
-            red=1
-        }else {
-            $(this).css({
-                "background":"#e7141a",
-            })
-            $(this).html("+订阅")
-            red=0
-        }
+        var o=$(this);
+        var type=$(".Unsubscribed").attr("type");
+        console.log(type);
+        console.log(author_id);
+        // return false;
+        $.ajax({
+            type:"post",
+            url:"/Home/User/subscribeAuthor",
+            data:{author_id:author_id,type:type},
+            dataType:'json',
+            success:function(data){
+                console.log(data);
+                if(data.code==1){
+                    layer.msg(data.info);
+
+                    if(o.attr("type")==1){
+                        o.css({
+                            "background":"#999999",
+                        });
+                        o.html("取消订阅");
+                        o.attr("type","2")
+                    }else {
+                        o.css({
+                            "background":"#D40507",
+                        });
+                        o.html("+订阅");
+                        o.attr("type","1")
+                    }
+                }else{
+                    layer.msg(data.info);
+                }
+            }
+        });
     })
+
+    // red=0
+    // $(".Unsubscribed").click(function () {
+    //     if (red==0){
+    //         $(this).css({
+    //             "background":"#999999",
+    //         })
+    //         $(this).html("取消订阅")
+    //         red=1
+    //     }else {
+    //         $(this).css({
+    //             "background":"#e7141a",
+    //         })
+    //         $(this).html("+订阅")
+    //         red=0
+    //     }
+    // })
+
+
 
 </script>
