@@ -2,21 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="61e532fc-5bde-49c0-8b0f-0778b7705177" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/themes/mobieNew/AuthorPage.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/themes/default/activity.html" beforeDir="false" afterPath="$PROJECT_DIR$/themes/default/activity.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/themes/default/antmap.html" beforeDir="false" afterPath="$PROJECT_DIR$/themes/default/antmap.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/themes/default/css/common.css" beforeDir="false" afterPath="$PROJECT_DIR$/themes/default/css/common.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/themes/default/header.html" beforeDir="false" afterPath="$PROJECT_DIR$/themes/default/header.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/themes/default/images/WxTxH.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/themes/default/news.html" beforeDir="false" afterPath="$PROJECT_DIR$/themes/default/news.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/themes/default/searchPage.html" beforeDir="false" afterPath="$PROJECT_DIR$/themes/default/searchPage.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/themes/default/shortmessage.html" beforeDir="false" afterPath="$PROJECT_DIR$/themes/default/shortmessage.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/themes/mobieNew/css/common.css" beforeDir="false" afterPath="$PROJECT_DIR$/themes/mobieNew/css/common.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/themes/mobieNew/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/themes/mobieNew/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/themes/mobieNew/js/common.js" beforeDir="false" afterPath="$PROJECT_DIR$/themes/mobieNew/js/common.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/themes/mobieNew/personalPage.html" beforeDir="false" afterPath="$PROJECT_DIR$/themes/mobieNew/personalPage.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/themes/mobieNew/specialColumnIndex.html" beforeDir="false" afterPath="$PROJECT_DIR$/themes/mobieNew/specialColumnIndex.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/mobieNew/AuthorPage.html" beforeDir="false" afterPath="$PROJECT_DIR$/themes/mobieNew/AuthorPage.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -160,7 +147,7 @@
       <workItem from="1591681480260" duration="874000" />
       <workItem from="1591682769034" duration="164000" />
       <workItem from="1591683180686" duration="395000" />
-      <workItem from="1591683595961" duration="12977000" />
+      <workItem from="1591683595961" duration="14289000" />
     </task>
     <servers />
   </component>
@@ -172,6 +159,10 @@
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
     <state x="2381" y="171" key="SettingsEditor/0.0.1920.1040/1920.0.1920.1080@1920.0.1920.1080" timestamp="1591687192510" />
+    <state width="498" height="446" key="SwitcherDM" timestamp="1591699369672">
+      <screen x="1920" y="0" width="1920" height="1080" />
+    </state>
+    <state width="498" height="446" key="SwitcherDM/0.0.1920.1040/1920.0.1920.1080@1920.0.1920.1080" timestamp="1591699369671" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

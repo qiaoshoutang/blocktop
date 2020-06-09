@@ -273,6 +273,7 @@
         width: 100%;
         height: 100%;
         position: fixed;
+        display: none;
     }
     .upgradeCodeEwmDiv{
         width: 190px;
@@ -289,7 +290,6 @@
         text-align: center;
         font-size: 12px;
         overflow: hidden;
-        display: none;
     }
     .TtCodeImg{
         width: 100px;
@@ -652,11 +652,11 @@
     });
     /*升级头条作者弹窗*/
     $(".upgrade").click(function () {
-        $(".upgradeCodeEwmDiv").show();
+        $(".upgradeCodeEwm").show();
     });
     
     $(".CodeGuanbi").click(function () {
-        $(".upgradeCodeEwmDiv").hide()
+        $(".upgradeCodeEwm").hide()
     });
     /*修改资料提交*/
 
