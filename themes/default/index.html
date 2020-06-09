@@ -1,0 +1,397 @@
+!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>区块链头条</title>
+    <meta name="baidu-site-verification" content="9h2o7ScMIE" />
+    <meta name="keywords" content=""/>
+    <meta name="description" content=""/>
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/index.css">
+    <script src="js/jquery.js"></script>
+    <link rel="stylesheet" href="css/style.css">
+    <!--<link rel="stylesheet" href="https://unpkg.com/swiper/css/swiper.min.css">-->
+    <!--<script src="https://unpkg.com/swiper/js/swiper.min.js"> </script>-->
+</head>
+
+
+<style>
+    .nav-header{
+        background: rgba(0,0,0,.1)!important;
+        /*position: fixed;*/
+        /*top: 0;*/
+        /*z-index: 9999999;*/
+    }
+    .sub-page{
+        background: none!important;
+    }
+    .Learn-More{
+        font-size: 13px;
+    }
+  .enshow{
+      margin-top: 40px;
+  }
+    .topServe{
+        margin-top: 25px;
+    }
+</style>
+
+<script>
+
+</script>
+<body>
+<div class="box">
+    <!--#include file="header.html"-->
+    <!--轮播-->
+    <div class="banner-picture">
+        <div class="wrap" id="wrap">
+            <div class=wrapper>
+                <div class=page_wp id=page_wp>
+                    <div class="page page_1">
+                        <span class="page_bg scale_box"></span>
+                        <div class=img_box></div>
+                        <div class="txt_box scale_box">
+                            <!--<h2>12</h2>-->
+                            <!--<p class=txt_brief>123</p>-->
+
+                        </div>
+                    </div>
+                    <!--<div class="page page_2">-->
+                    <!--<span class="page_bg scale_box"></span>-->
+                    <!--<div class=img_box></div>-->
+                    <!--<div class="txt_box scale_box">-->
+                    <!--&lt;!&ndash;<h2></h2>&ndash;&gt;-->
+                    <!--&lt;!&ndash;<p class=txt_brief></div>&ndash;&gt;-->
+                    <!--<img src="images/bannerImg02.png" alt="">-->
+                    <!--</div>-->
+                    <!--</div>-->
+                    <div class="page page_3">
+                        <span class="page_bg scale_box"></span>
+                        <div class=img_box><img src="" alt=""></div>
+                        <div class="txt_box scale_box">
+                            <!--<h2></h2>-->
+                            <!--<p class=txt_brief>-->
+                            <!--<img src="images/bannerImg01.png" alt="">-->
+                        </div>
+                    </div>
+                    <div class="page page_4"><span class="page_bg scale_box"></span>
+                        <div class=img_box><img src="" alt=""></div>
+                        <div class="light_wp scale_box">
+                                <span class=light_box>
+                                    <i class=light_1></i>
+                                    <i class=light_2></i>
+                                    <i class=light_3></i>
+                                    <i class=light_4></i>
+                                    <i class=light_5></i>
+                                </span></div><span class="meteor_box scale_box"></span>
+                        <div class="txt_box scale_box">
+                            <!--<h2></h2>-->
+                            <!--<p class=txt_brief></div>-->
+                            <img src="images/bannerImg01.png" alt="">
+                        </div>
+                    </div>
+                </div>
+                <div class="star_wp scale_box" id=star_wp>
+                    <span class=star_bg></span>
+                    <span class=star_box></span>
+                </div>
+                <canvas id=canvas></canvas>
+                <div class="btns_wp scale_box">
+                    <!--<a class="btn_download JS-btn-download" href='javascript:;'>立即下载</a>-->
+                </div>
+                <div class=btn_control id=btn_control>
+                    <!--<a href=javascript:; class=cur></a>-->
+                    <!--<a href=javascript:;></a>-->
+                    <!--<a href=javascript:;></a>-->
+                    <!--<a href=javascript:;></a>-->
+                </div>
+
+            </div>
+
+            <!--<img src="images/banner.png" alt="" width="100%">-->
+        </div>
+    </div>
+
+
+
+
+    <!--服务类型-->
+    <div class="service-types">
+        <div style="width: 1200px;margin: 0 auto;height: 100%;position: relative">
+            <!--标题-->
+            <div class="Tiele-service">
+                <img src="images/serviceTypes.png" alt="" class="Tiele-service-img zhshow">
+                <img src="images/serviceTypesEn.png" alt="" class="Tiele-service-img enshow">
+            </div>
+            <!--波动波-->
+            <div class="Expand-dottedLine">
+                <!--咨询管理-->
+                <div class="Consultation-management serviceType">
+                    <div class="management-text">
+                        <div class="management-Title" dom-i18n='ManagementConsult'>项目咨询管理</div>
+                        <div class="font-Mana font-margin" dom-i18n='ManagementTextA'>制定中短期及长期运营解决</div>
+                        <div class="font-Mana" dom-i18n='ManagementTextB'>方案，服务期间对项目进行</div>
+                        <div class="font-Mana" dom-i18n='ManagementTextC'>
+                            市场监控与管理
+                        </div>
+                    </div>
+                    <div class="management-img">
+                        <img src="images/Consultation.png" alt="" width="70%">
+
+                    </div>
+
+                </div>
+                <!--行业会议-->
+                <div class="Industry-meeting serviceType">
+                    <div class="management-text">
+                        <div class="management-Title" dom-i18n='ManagementConsult01'>行业会议</div>
+                        <div class="font-Mana font-margin" dom-i18n='ManagementTextA01'>专业承办行业千人峰会</div>
+                        <div class="font-Mana" dom-i18n='ManagementTextB01'>提供策划-推广-会务</div>
+                        <div class="font-Mana" dom-i18n='ManagementTextC01'>
+                            等一条龙服务
+                        </div>
+                    </div>
+                    <div class="management-img">
+                        <img src="images/33.png" alt="" width="55%">
+
+                    </div>
+
+                </div>
+                <!--教育培训-->
+                <div class="Education-training serviceType">
+                    <div class="management-text">
+                        <div class="management-Title" style="margin-top: 23px" dom-i18n='ManagementConsult02'>教育培训</div>
+                        <div class="font-Mana font-margin" dom-i18n='ManagementTextA02'>依托国家级教育培训资源</div>
+                        <div class="font-Mana" dom-i18n='ManagementTextB02'>提供专业教育咨询服务</div>
+                    </div>
+                    <div class="management-img">
+                        <img src="images/55.png" alt="" width="73%" style="margin-top: 40px">
+
+                    </div>
+
+                </div>
+                <!--社群运营-->
+                <div class="Community-operation serviceType">
+                    <div class="Community-img">
+                        <img src="images/22.png" alt="" width="65%" style="margin-top: 40px">
+
+                    </div>
+                    <div class="Community-text">
+                        <div class="management-Title" style="margin-top: 23px" dom-i18n='ManagementConsult03'>社群运营</div>
+                        <div class="font-Mana font-margin" dom-i18n='ManagementTextA03'>线上专业的微信社群</div>
+                        <div class="font-Mana" dom-i18n='ManagementTextB03'>管理团队</div>
+                    </div>
+                </div>
+                <!--媒体公关-->
+                <div class="Media-relations serviceType">
+                    <div class="Community-img">
+                        <img src="images/66.png" alt="" width="55%">
+
+                    </div>
+                    <div class="Community-text">
+                        <div class="management-Title" style="margin-top: 23px" dom-i18n='ManagementConsult04'>媒体公关</div>
+                        <div class="font-Mana font-margin" dom-i18n='ManagementTextA04'>覆盖40+行业主流媒体</div>
+                        <div class="font-Mana" dom-i18n='ManagementTextB04'>提供全方位媒体宣传服务</div>
+                    </div>
+                </div>
+                <!--投行上所-->
+                <div class="Investment-bank serviceType">
+                    <div class="Community-img">
+                        <img src="images/44.png" alt="" width="55%">
+
+                    </div>
+                    <div class="Community-text">
+                        <div class="management-Title" style="margin-top: 23px" dom-i18n='ManagementConsult05'>投行上所</div>
+                        <div class="font-Mana font-margin" dom-i18n='ManagementTextA05'>全球Top30</div>
+                        <div class="font-Mana" dom-i18n='ManagementTextB05'>主流交易所资源对接</div>
+                    </div>
+                </div>
+
+                <img src="images/MayiCenter.png" alt="" class="MayiCenter">
+                <div class="Expand-dottedLine-s">
+
+                </div>
+                <div class="Expand-dottedLine-x">
+
+                </div>
+                <div class="Expand-dottedLine-f">
+
+                </div>
+                <div class="Expand-dottedLine-a">
+
+                </div>
+            </div>
+        </div>
+
+
+
+    </div>
+    <!--合作伙伴-->
+    <div class="Cooperative-partner">
+        <div class="Cooperative-partner-box">
+            <!--标题-->
+            <div class="Tiele-service">
+                <img src="images/partnerC.png" alt="" class="Tiele-service-img zhshow">
+                <img src="images/partnerCEn.png" alt="" class="Tiele-service-img enshow">
+            </div>
+            <div class="partner-img">
+                <a href="https://mvs.org/" target="_blank" rel="nofollow">
+                    <img src="images/partner/Metaverse.png" alt="" class="Metaverse">
+                </a>
+                <a href="https://mvsdna.com/" target="_blank" rel="nofollow">
+                    <img src="images/partner/DNA.png" alt="" class="DNA">
+                </a>
+                <a href="https://www.rightbtc.pro/" target="_blank" rel="nofollow">
+                    <img src="images/partner/rightbtc.png" alt="" class="RightBtc">
+                </a>
+                <a href="https://www.gate.io/" target="_blank" rel="nofollow">
+                    <img src="images/partner/gate.png" alt="" class="Gate">
+                </a>
+                <a href="https://www.okex.me/" target="_blank" rel="nofollow">
+                    <img src="images/partner/Okex.png" alt="" class="Okex">
+                </a>
+                <a href="https://www.zb.com/" target="_blank" rel="nofollow">
+                    <img src="images/partner/ZB.png" alt="" class="ZB">
+                </a>
+                <a href="http://www.draperdragon.com/" target="_blank" rel="nofollow">
+                    <img src="images/partner/Draper.png" alt="" class="Draper">
+                </a>
+                <a href="https://www.binance-cn.com/cn" target="_blank" rel="nofollow">
+                    <img src="images/partner/Binance.png" alt="" class="Binance">
+                </a>
+                <a href="http://bitfinex.com/" target="_blank" rel="nofollow">
+                    <img src="images/partner/Bitfinex.png" alt="" class="Bitfinex">
+                </a>
+                <a href="http://cn.gfdvc.com/" target="_blank" rel="nofollow">
+                    <img src="images/partner/Golofo.png" alt="" class="Golofo">
+                </a>
+                <a href="https://www.mxc.co/" target="_blank" rel="nofollow">
+                    <img src="images/partner/MXC.png" alt="" class="MXC">
+                </a>
+                <a href="https://www.zg.com/" target="_blank" rel="nofollow">
+                    <img src="images/partner/ZG.png" alt="" class="ZG">
+                </a>
+                <a href="https://www.huobi.vn/zh-cn/" target="_blank" rel="nofollow">
+                    <img src="images/partner/Huobi.png" alt="" class="Huobi">
+                </a>
+            </div>
+        </div>
+
+
+
+
+
+    </div>
+    <!--旗下产品-->
+    <div class="Its-products">
+        <div class="Tiele-service jz-tit-img">
+            <img src="images/ourBrands.png" alt="" class="Tiele-service-img zhshow">
+            <img src="images/ourBrandsEn.png" alt="" class="Tiele-service-img enshow">
+        </div>
+        <ul class="ourBrands-ul">
+            <li>
+                <div class="Generalization-content">
+                    <div class="ourBrandsList-img">
+                        <img src="images/Qklt.png" alt=""  width="85%" class="ourBrands-products">
+                    </div>
+                    <div class="ourBrands-text" dom-i18n='ourBrands'>
+                        蚂蚁节点联盟旗下优质区块链自媒体平 台，致力打造最具行业影响力的财经媒
+                        体品牌，粉丝数5w+
+                    </div>
+                    <!--了解更多-->
+                    <div class="Learn-More" dom-i18n='LearnMore'>
+                        了解更多
+                    </div>
+                </div>
+                <div class="QR-Code">
+                    <img src="images/QRCode_Tt.png" alt="">
+                    <p dom-i18n='FollowUs'>扫码查看</p>
+                    <div class="crossCode">
+                        ×
+                    </div>
+                </div>
+
+            </li>
+            <li>
+                <div class="Generalization-content">
+                    <div class="ourBrandsList-img">
+                        <img src="images/bizhong.png" width="50%" alt=""  class="ourBrands-products">
+                    </div>
+                    <div class="ourBrands-text" dom-i18n='ourBrandsBz'>
+                        币众是基于LPChain理念开发的应用，利用LPChain的通证机制解决网络用户之间的信任和激励问题，实现用户各类行为价值化。旨在构建价值化自治社区，成为区块链领域流量入口，打造区块链领域项目孵化平台，为各类细分领域区块链项目提供流量资源与各种服务。
+                    </div>
+                    <!--了解更多-->
+                    <div class="Learn-More" dom-i18n='LearnMore'>
+                        了解更多
+                    </div>
+                </div>
+                <div class="QR-Code">
+                    <img src="images/QRCoBz.png" alt="">
+                    <p dom-i18n='FollowUs'>扫码查看</p>
+                    <div class="crossCode">
+                        ×
+                    </div>
+                </div>
+
+            </li>
+            <li>
+                <div class="Generalization-content">
+                    <div class="ourBrandsList-img">
+                        <img src="images/finwise.png" width="85%" alt=""  class="ourBrands-products" >
+                    </div>
+                    <div class="ourBrands-text" dom-i18n='ourBrandsFz'>
+                        FINWISE纷智峰会是全球最貝影响力的金融科技峰会之一，团队由经验丰富的金融市场专家和区块链行业精英组成，旨在加强行业从业者们的交流，推动全球金融科技的发展。
+                    </div>
+                    <!--了解更多-->
+                    <div class="Learn-More" dom-i18n='LearnMore'>
+                        了解更多
+                    </div>
+                </div>
+                <div class="QR-Code">
+                    <img src="images/QRCode.png" alt="">
+                    <p dom-i18n='FollowUs'>扫码查看</p>
+                    <div class="crossCode">
+                        ×
+                    </div>
+                </div>
+
+            </li>
+        </ul>
+    </div>
+    <!--底部-->
+    <!--#include file="footer.html"-->
+
+</div>
+</body>
+
+</html>
+
+<script src="js/commom.js"></script>
+
+<script>
+    $(".Learn-More").click(function () {
+        $(this).parent().next().show();
+        $(this).parent().hide();
+    })
+    $(".crossCode").click(function () {
+        $(this).parent().hide();
+        $(this).parent().prev().show()
+    });
+
+
+    var index=1
+    setTimeout(function () {
+        setInterval(function () {
+            index++; //index的值每次+1
+            if (index==3) { //判断如果index的值为5（图片最后一张）
+                index=1;   //index值变为1
+            }
+            $(".page_4 .txt_box img").attr("src","/themes/default/images/bannerImg0"+index+".png")
+        },10000)
+    },1000)
+
+
+
+</script>
+<script src="js/vendors.js"></script>
+<script src="js/banner.js"></script>
