@@ -101,7 +101,9 @@
             </div>
             <!--更多-->
              <div class="moreArticles">
-                 <img src="images/moremore.png" alt="">
+                <span id='news_more'>
+                    <img src="images/moremore.png" alt="">
+                </span>
              </div>
         </div>
         <!--{else /}-->
@@ -145,6 +147,25 @@
     layui.use('layer', function(){  //layer弹框
         var layer = layui.layer;
     });
+    var page_num = 2;
+    var class_id = '{$class_id}';
+    $('#news_more').click(function(){
+        $.ajax({
+          type:"post",
+          url:"/Home/Ajax/get_news",
+          data:{class_id:class_id,page_num:page_num},
+          dataType:'json',
+          success:function(rdata){
+            if(rdata.code==1){
+                $('.variousArticlesBox ul').append(rdata.data);
+                page_num++;
+            }else{
+                $('#news_more').html(rdata.info);
+            }
+          }
+        });
+    });
+
     var countdown =60;
     var Timeid;
     //倒计时

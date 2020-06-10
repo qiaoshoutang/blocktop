@@ -290,7 +290,7 @@
         $.ajax({
             type:"post",
             url:"/Home/Ajax/get_author_article",
-            data:{page_num:page_num},
+            data:{page_num:page_num,author_id:author_id},
             dataType:'json',
             success:function(data){
                 console.log(data)

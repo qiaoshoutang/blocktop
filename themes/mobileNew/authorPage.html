@@ -155,7 +155,9 @@
             </ul>
             <!--更多-->
             <div class="moreArticles">
-                <img src="images/moremore.png" alt="">
+                <span id='news_more'>
+                    <img src="images/moremore.png" alt="">
+                </span>
             </div>
         </div>
         <!--{else /}-->
@@ -174,11 +176,28 @@
 <script src="js/common.js"></script>
 <script src="js/layui/layui.all.js"></script>
 <script>
-
+    var page_num=2;
     var author_id = '{$authorInfo.id}';
 
     layui.use('layer', function(){  //layer弹框
         var layer = layui.layer;
+    });
+    $('#news_more').click(function(){
+        $.ajax({
+            type:"post",
+            url:"/Home/Ajax/get_author_article",
+            data:{page_num:page_num,author_id:author_id},
+            dataType:'json',
+            success:function(data){
+                console.log(data)
+                if(data.code==1){
+                    $('.variousArticlesBox ul').append(data.data);
+                    page_num++;
+                }else{
+                    $('#news_more').html(data.info);
+                }
+            }
+        });
     });
 
     $(".Unsubscribed").click(function () {
@@ -216,24 +235,6 @@
             }
         });
     })
-
-    // red=0
-    // $(".Unsubscribed").click(function () {
-    //     if (red==0){
-    //         $(this).css({
-    //             "background":"#999999",
-    //         })
-    //         $(this).html("取消订阅")
-    //         red=1
-    //     }else {
-    //         $(this).css({
-    //             "background":"#e7141a",
-    //         })
-    //         $(this).html("+订阅")
-    //         red=0
-    //     }
-    // })
-
 
 
 </script>

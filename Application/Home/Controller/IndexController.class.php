@@ -19,7 +19,7 @@ class IndexController extends SiteController {
             $ishttps=1;
         }
             
-        if ($detect->isMobile()){           
+        if ($detect->isMobile()){
             if($ishttps){
                 redirect('https://'.$_SERVER['HTTP_HOST'].'/home_m');
             }else{

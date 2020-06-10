@@ -38,9 +38,11 @@ class AjaxController extends SiteController {
         }
         
         $page_num = I('post.page_num',1,'intval');
+        $author_id = I('post.author_id',1,'intval');
         
-        $newsList = M('content')->where(['author_id'=>$user_info['user_id']])->field('content_id,title,description,image,time,views,author')->page($page_num,10)
-                                ->order('content_id desc')->select();
+        $newsList = M('content')->where(['author_id'=>$author_id])->field('content_id,title,description,image,time,views,author')->page($page_num,10)
+                                ->order('time desc')->select();
+//                                 dd( M('content')->_sql());
         if(empty($newsList)){
             $rdata['code'] = 2;
             $rdata['info'] = '已经没有更多了';
@@ -52,7 +54,13 @@ class AjaxController extends SiteController {
         }
         $this->assign('newsList',$newsList);
         
-        $data = $this->fetch('news_list');
+
+        $detect = new \Common\Util\Mobile_Detect();
+        if($detect->isMobile()){
+            $data = $this->fetch('news_list_m');
+        }else{
+            $data = $this->fetch('news_list');
+        }
 
         
         $rdata['code'] = 1;
@@ -126,9 +134,8 @@ class AjaxController extends SiteController {
         $limit = (($page_num-1)*10).','.($page_num*10);
         //新闻列表
         $newsList =D('Article/ContentArticle')
-        ->loadList($where,'content_id,title,description,image,time,views,author,author_id,look,U.nickname as author_name',$limit,'A.time desc,A.sequence desc');
+                ->loadList($where,'content_id,title,description,image,time,views,author,author_id,look,U.nickname as author_name',$limit,'A.time desc,A.sequence desc');
 
-//         dd(M()->_sql());
         if(empty($newsList)){
             $rdata['code'] = 2;
             $rdata['info'] = '已经没有更多了';
@@ -142,7 +149,13 @@ class AjaxController extends SiteController {
         
         $this->assign('newsList',$newsList);
         
-        $data = $this->fetch('news_list');
+        
+        $detect = new \Common\Util\Mobile_Detect();
+        if($detect->isMobile()){
+            $data = $this->fetch('news_list_m');
+        }else{
+            $data = $this->fetch('news_list');
+        }
 
         
         $rdata['code'] = 1;

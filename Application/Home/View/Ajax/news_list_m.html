@@ -1,12 +1,24 @@
 
 <foreach name='newsList' item='vo'>
-    <li onclick='window.location.href="/newsContent_m/{$vo.content_id}"'>
-        <div class="InfoContentText">
-            <p>{$vo.title}</p>
-            <p>{$vo.author} · {$vo.time}</p>
-        </div>
-        <div class="InfoImg">
+    <li>
+        <!--配图-->
+        <div class="ArticlesBanner">
             <img src="{$vo.image}" alt="">
+        </div>
+        <!--标题概述-->
+        <div class="ArticlesText">
+            <div class="ArticlesTitle"  onclick='window.location.href="/newsContent_m/1/{$vo.content_id}"'>
+                {$vo.title}
+            </div>
+            <div class="ArticlesTime">
+                <!--{if condition="$vo['author_id']"}-->
+                <span onclick='window.location.href="/Author/{$vo.author_id}"'>{$vo.author_name}</span>
+                <!--{else /}-->
+                <span>{$vo.author}</span>
+                <!--{/if}-->
+                <span class="TimeHa">{$vo.time|format_time='Y/m/d H:i'}</span>
+            </div>
+
         </div>
     </li>
 </foreach>

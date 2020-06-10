@@ -104,8 +104,8 @@ class UserController extends SiteController {
         $authorInfo['fans_num'] = $fans_num;
         
         $articleMod =  M('content');
-        $articleList = $articleMod->where(['author_id'=>$author_id])->select();
-        $authorInfo['article_num'] = count($articleList);
+        $articleList = $articleMod->where(['author_id'=>$author_id])->page(1,10)->order('time desc')->select();
+        $authorInfo['article_num'] = $articleMod->where(['author_id'=>$author_id])->count();
         // 专栏列表
         $columnMod = D('Admin/Column');
         $columnList  = $columnMod->where(['state'=>1])->order('order_id desc')->limit(10)->select();
