@@ -71,6 +71,9 @@
     float: left;
     height: 100%;
 }
+#news_more{
+    font-size: .25rem;
+}
 .ArticlesTitle{
     width: 90%;
     float: left;
@@ -103,6 +106,17 @@
     height: .8rem;
     margin: 0 auto;
     position: relative;
+    text-align: center;
+    line-height: .8rem;
+}
+.moreArticles span{
+    height: .8rem;
+    line-height: .8rem;
+    width: 100%;
+    display: inline-block;
+    position: absolute;
+    top: 0;
+    right: 0;
 }
 .moreArticles img{
     position: absolute;
