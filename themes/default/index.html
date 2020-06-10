@@ -45,8 +45,10 @@
     .remen{
         display: none;
     }
-    .LookMore{
-
+    .carousel-item a{
+        width: 100%;
+        height: 100%;
+        display: inline-block;
     }
 </style>
 <body>
@@ -100,7 +102,11 @@
                      <div class="ft-carousel" id="carousel_1">
                          <ol class="carousel-inner">
                              <!--{foreach name='bannerList' item='vo' }-->
-                             <li class="carousel-item"><a href=" {$vo.target}"><img src=" {$vo.path}" /></a></li>
+                             <li class="carousel-item">
+                                 <a href=" {$vo.target}">
+                                     <img src=" {$vo.path}" />
+                                 </a>
+                             </li>
                              <!--{/foreach}-->
                          </ol>
                      </div>
