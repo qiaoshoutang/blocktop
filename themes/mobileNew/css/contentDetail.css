@@ -50,6 +50,9 @@
     line-height: 200%;
     font-weight: 300;
 }
+.ContentText img{
+    max-width: 100%;
+}
 .contentStatement{
     width: 100%;
     font-size: .25rem;
