@@ -32,10 +32,13 @@
     font-size: .27rem;
     float: left;
 }
+.ArticleTypeBox ul li a{
+    color:#999999
+}
 .ArticleTypeBox ul li:nth-child(1){
     width: 20%;
-    color: #e7141a;
 }
+
 .variousArticles{
     width: 100%;
     padding-bottom: .7rem;
