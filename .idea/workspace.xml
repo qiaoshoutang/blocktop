@@ -3,7 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="61e532fc-5bde-49c0-8b0f-0778b7705177" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/themes/mobieNew/AuthorPage.html" beforeDir="false" afterPath="$PROJECT_DIR$/themes/mobieNew/AuthorPage.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/mobileNew/header.html" beforeDir="false" afterPath="$PROJECT_DIR$/themes/mobileNew/header.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -147,7 +147,7 @@
       <workItem from="1591681480260" duration="874000" />
       <workItem from="1591682769034" duration="164000" />
       <workItem from="1591683180686" duration="395000" />
-      <workItem from="1591683595961" duration="14289000" />
+      <workItem from="1591683595961" duration="15937000" />
     </task>
     <servers />
   </component>
@@ -155,6 +155,14 @@
     <option name="version" value="2" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="122" y="110" key="DiffContextDialog" timestamp="1591752836060">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="122" y="110" key="DiffContextDialog/0.0.1920.1040/1920.0.1920.1080@1920.0.1920.1080" timestamp="1591752836060" />
+    <state x="2765" y="405" width="240" height="272" key="MultipleFileMergeDialog" timestamp="1591752923995">
+      <screen x="1920" y="0" width="1920" height="1080" />
+    </state>
+    <state x="2765" y="405" width="240" height="272" key="MultipleFileMergeDialog/0.0.1920.1040/1920.0.1920.1080@1920.0.1920.1080" timestamp="1591752923995" />
     <state x="2381" y="171" key="SettingsEditor" timestamp="1591687192510">
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
@@ -163,13 +171,25 @@
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
     <state width="498" height="446" key="SwitcherDM/0.0.1920.1040/1920.0.1920.1080@1920.0.1920.1080" timestamp="1591699369671" />
+    <state x="2562" y="326" key="git4idea.merge.GitPullDialog" timestamp="1591752890508">
+      <screen x="1920" y="0" width="1920" height="1080" />
+    </state>
+    <state x="2562" y="326" key="git4idea.merge.GitPullDialog/0.0.1920.1040/1920.0.1920.1080@1920.0.1920.1080" timestamp="1591752890508" />
+    <state x="2732" y="437" key="git4idea.ui.GitStashDialog" timestamp="1591752868421">
+      <screen x="1920" y="0" width="1920" height="1080" />
+    </state>
+    <state x="2732" y="437" key="git4idea.ui.GitStashDialog/0.0.1920.1040/1920.0.1920.1080@1920.0.1920.1080" timestamp="1591752868421" />
+    <state x="2652" y="343" key="git4idea.ui.GitUnstashDialog" timestamp="1591752924097">
+      <screen x="1920" y="0" width="1920" height="1080" />
+    </state>
+    <state x="2652" y="343" key="git4idea.ui.GitUnstashDialog/0.0.1920.1040/1920.0.1920.1080@1920.0.1920.1080" timestamp="1591752924097" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/themes/default/header.html</url>
-          <line>397</line>
+          <line>394</line>
           <option name="timeStamp" value="1" />
         </line-breakpoint>
       </breakpoints>
