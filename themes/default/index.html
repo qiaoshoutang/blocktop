@@ -297,7 +297,7 @@
     });
  $('#PopupbtnClose').click(function(){
     $(".activitsPopupbtn").hide();
-    setCookie('ActivitDna',1,1);
+    setCookie('ActivitDna',1,1000);
  });
 
 
@@ -371,11 +371,11 @@ var cookieId;
 
     /*cookie操作*/
 
-    function setCookie(c_name,value,expiredays)
+    function setCookie(c_name,value,seconds)
     {
         var exdate=new Date();
-        exdate.setDate(exdate.getDate()+expiredays);
-        document.cookie=c_name+ "=" +escape(value)+ ((expiredays==null) ? "" : ";expires="+exdate.toGMTString());
+        exdate.setTime(exdate.getTime()+seconds*1000);
+        document.cookie=c_name+ "=" +escape(value)+ ((seconds==null) ? "" : ";expires="+exdate.toGMTString());
         // $.cookie("cookieColor", "cookieValue", { expires: 365 });//第一种
     }
     //取回cookie
