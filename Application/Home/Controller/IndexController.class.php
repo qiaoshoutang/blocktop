@@ -34,25 +34,60 @@ class IndexController extends SiteController {
 
     //首页
     public function index(){
-        $this->redirect('/news/all');
+        
+        $class_id = I('request.class_id','all');
+        
+        $where['A.status'] = 2;
+        if($class_id != 'all'){
+            $where['A.class_id'] = $class_id;
+        }
+        //热门新闻
+        $newsList =D('Article/ContentArticle')
+        ->loadList($where,'content_id,title,description,image,time,views,author,author_id,look,U.nickname as author_name','0,10','is_top desc,time desc,sequence desc');
+        
+        foreach($newsList as $key=>$val){
+            $newsList[$key]['description'] = html_out($val['description']);
+        }
+        $number = count($newsList);
+        for($i=0;$i<$number-1;$i++){   //新闻列表根据浏览量 降序排列
+            for($j=0;$j<$number-$i-1;$j++){
+                if($newsList[$j]['views']<$newsList[$j+1]['views']){
+                    $temp = $newsList[$j];
+                    $newsList[$j] = $newsList[$j+1];
+                    $newsList[$j+1] = $temp;
+                }
+            }
+        }
+        
+        //轮播列表
+        $bannerList = M('banner')->where(['state'=>1])->order('sequence desc')->select();
+        
+        //快讯
+        $map['state'] = 2;
+        $messageMod = D('Article/Message');
+        
+        $messageList = $messageMod->loadList($map,'0,3');
+        
+        //推荐导航
+        $naviList = D('Admin/Navi')->loadList(['recom'=>1],'0,6');
+        
+        // 专栏列表
+        $columnMod = D('Admin/Column');
+        $columnList  = $columnMod->where(['state'=>1])->order('order_id desc')->limit(10)->select();
+        
+        $this->assign('class_id',$class_id);
+        $this->assign('newsCate',M('category')->where(['show'=>1])->order('sequence asc')->select());
+        $this->assign('newsList',$newsList);
+        $this->assign('bannerList',$bannerList);
+        $this->assign('messageList',$messageList);
+        $this->assign('columnList',$columnList);
+        $this->assign('naviList',$naviList);
         $this -> siteDisplay('index');
     }
     
     //关于我们  简介
     public function description(){
         $this -> siteDisplay('description');
-    }
-    
-    //关于我们  团队
-    public function aboutUs(){
-        
-        $this -> siteDisplay('aboutus');
-    }
-    
-    //关于我们  联系我们
-    public function contactUs(){
-        
-        $this -> siteDisplay('contactus');
     }
     
     //快讯
@@ -84,55 +119,7 @@ class IndexController extends SiteController {
     }
     //新闻动态
     public function news(){
-        
-        $class_id = I('request.class_id','all');
-
-        $where['A.status'] = 2;
-        if($class_id != 'all'){
-            $where['A.class_id'] = $class_id;
-        }
-        //热门新闻
-        $newsList =D('Article/ContentArticle')
-                   ->loadList($where,'content_id,title,description,image,time,views,author,author_id,look,U.nickname as author_name','0,10','is_top desc,time desc,sequence desc');
-
-        foreach($newsList as $key=>$val){
-            $newsList[$key]['description'] = html_out($val['description']);
-        }
-        $number = count($newsList);
-        for($i=0;$i<$number-1;$i++){   //新闻列表根据浏览量 降序排列
-            for($j=0;$j<$number-$i-1;$j++){
-                if($newsList[$j]['views']<$newsList[$j+1]['views']){
-                    $temp = $newsList[$j];
-                    $newsList[$j] = $newsList[$j+1];
-                    $newsList[$j+1] = $temp;
-                }
-            }
-        }
-
-        //轮播列表
-        $bannerList = M('banner')->where(['state'=>1])->order('sequence desc')->select();
-        
-        //快讯
-        $map['state'] = 2;
-        $messageMod = D('Article/Message');
-        
-        $messageList = $messageMod->loadList($map,'0,3');
-        
-        //推荐导航
-        $naviList = D('Admin/Navi')->loadList(['recom'=>1],'0,6');
-        
-        // 专栏列表
-        $columnMod = D('Admin/Column');
-        $columnList  = $columnMod->where(['state'=>1])->order('order_id desc')->limit(10)->select();
-
-        $this->assign('class_id',$class_id);
-        $this->assign('newsCate',M('category')->where(['show'=>1])->order('sequence asc')->select());
-        $this->assign('newsList',$newsList);
-        $this->assign('bannerList',$bannerList);
-        $this->assign('messageList',$messageList);
-        $this->assign('columnList',$columnList);
-        $this->assign('naviList',$naviList);
-        $this -> siteDisplay('news');
+     
     }
     
     //新闻详情

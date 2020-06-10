@@ -8,12 +8,12 @@ return array(
     'URL_ROUTER_ON'=>true, // URL路由
 	'URL_ROUTE_RULES'=>array(
 
-	    'anthome'=>'Home/Index/index',
+	    'tophome/[:class_id]'=>'Home/Index/index',
 	    'description'=>'Home/Index/description',
 	    'aboutus'=>'Home/Index/aboutUs',
 	    'contactus'=>'Home/Index/contactUs',
 	    'message' =>'Home/Index/shortMessage',
-	    'news/:class_id' =>'Home/Index/news',
+// 	    'news/:class_id' =>'Home/Index/news',
 	    'newsContent/:type/:content_id' =>'Home/Index/newsContent',
 	    'antmap/:class_id' =>'Home/Index/antMap',
 	    'activit/:state/:time' =>'Home/Index/activity',

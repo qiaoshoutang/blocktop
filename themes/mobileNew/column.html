@@ -84,7 +84,9 @@
         </div>
         <!--更多-->
         <div class="moreArticles">
-            <img src="images/moremore.png" alt="">
+            <span id='news_more'>
+                <img src="images/moremore.png" alt="">
+            </span>
         </div>
     </div>
     <!--底部-->
@@ -95,5 +97,26 @@
 
 </body>
 </html>
-<script src="js/jquery.js"></script>
 <script src="js/common.js"></script>
+<script>
+    var page_num=2;
+    var column_id = '{$info.id}';
+
+    $('#news_more').click(function(){
+        $.ajax({
+            type:"post",
+            url:"/Home/Ajax/get_news",
+            data:{column_id:column_id,page_num:page_num},
+            dataType:'json',
+            success:function(rdata){
+
+                if(rdata.code==1){
+                    $('.variousArticlesBox ul').append(rdata.data);
+                    page_num++;
+                }else{
+                    $('#news_more').html(rdata.info);
+                }
+            }
+        });
+    });
+</script>
