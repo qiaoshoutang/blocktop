@@ -58,7 +58,7 @@
 }
 .contentStatement{
     width: 100%;
-    font-size: .25rem;
+    font-size: .22rem;
     color:#bbbbbb;
     text-align: justify;
     letter-spacing: .5px;
@@ -69,4 +69,7 @@
 }
 .contentStatement p{
     margin-top: .1rem;
+}
+.ContentText iframe{
+    height:250px!important; ;
 }

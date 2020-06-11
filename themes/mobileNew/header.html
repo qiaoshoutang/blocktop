@@ -172,7 +172,7 @@
             <!--未登录-->
             <div>
                 <div class="registerbtn">注册</div>
-                <div class="signInbtn">登录</div>
+                <div class="signInbtn">登陆</div>
             </div>
             <!--{/if}-->
 
@@ -336,8 +336,12 @@
                     // console.log(data);
                     if(data.code==1){
                         layer.msg('注册成功');
-                        $(".ActivitPopup").show();
+                        $(".ActivitPopupCode").show();
                         $(".Headline-register").hide()
+                        $("#closePopupCode").click(function () {
+                            $(".ActivitPopupCode").hide();
+                            location.reload()
+                        })
 
                     }else{
                         // console.log(data.info);

@@ -217,7 +217,8 @@
         </div>
         <!--{/if}-->
         <!--专栏-->
-        <div class="column-special">
+        <div style="float: right;display: inline-block;width: 315px;">
+            <div class="column-special">
                 <div class="Column-ranking-picture">
                     <img src="images/columbTitle.png" alt="">
                 </div>
@@ -236,49 +237,51 @@
                     <!--{/foreach}-->
 
                 </ul>
-        </div>
-        <!--<div style="clear: both"></div>-->
-        <!--热门快讯-->
-        <div class="Hot-News">
-            <div class="Hot-News-content">
-                <!--标题-->
-                <div class="HotNewsTitle">
-                    <span>热门快讯</span>
-                    <span class="HotMore">
+            </div>
+            <!--<div style="clear: both"></div>-->
+            <!--热门快讯-->
+            <div class="Hot-News">
+                <div class="Hot-News-content">
+                    <!--标题-->
+                    <div class="HotNewsTitle">
+                        <span>热门快讯</span>
+                        <span class="HotMore">
                         <a href='/message'>
                             更多 <img src="images/MoreMoreM.png" alt="" width="5%">
                         </a>
                     </span>
-                </div>
-
-                <!--内容-->
-                <div class="HotNewsText">
-                    <!--{foreach name='messageList' item='vo' }-->
-                    <div class="HotNewsText-box">
-                        <div class="TuoY">
-                            <img src="images/TuoY.png" alt="" width="100%">
-                        </div>
-                        <div class="HotNewsText-Article">
-                            <div class="HotNewsTime">
-                                {$vo.time|format_time='H:i'}
-                            </div>
-                            <div class="HotNewsA-T">
-                                {$vo.title}
-                            </div>
-                            <div class="HotNewsTTT">
-                                {$vo.content}
-                            </div>
-                            <div class="Favorable-BadProfit">
-                                <span ><img src="images/up.png" alt=""> 利好<span class="count-f">{$vo.up}</span></span>
-                                <span class="Fb-span"><img src="images/down.png" alt=""> 利空<span class="count-f">{$vo.down}</span></span>
-                            </div>
-                        </div>
                     </div>
-                    <!--{/foreach}-->
 
+                    <!--内容-->
+                    <div class="HotNewsText">
+                        <!--{foreach name='messageList' item='vo' }-->
+                        <div class="HotNewsText-box">
+                            <div class="TuoY">
+                                <img src="images/TuoY.png" alt="" width="100%">
+                            </div>
+                            <div class="HotNewsText-Article">
+                                <div class="HotNewsTime">
+                                    {$vo.time|format_time='H:i'}
+                                </div>
+                                <div class="HotNewsA-T">
+                                    {$vo.title}
+                                </div>
+                                <div class="HotNewsTTT">
+                                    {$vo.content}
+                                </div>
+                                <div class="Favorable-BadProfit">
+                                    <span ><img src="images/up.png" alt=""> 利好<span class="count-f">{$vo.up}</span></span>
+                                    <span class="Fb-span"><img src="images/down.png" alt=""> 利空<span class="count-f">{$vo.down}</span></span>
+                                </div>
+                            </div>
+                        </div>
+                        <!--{/foreach}-->
+
+                    </div>
                 </div>
             </div>
         </div>
+
     </div>
 
     <!--底部-->

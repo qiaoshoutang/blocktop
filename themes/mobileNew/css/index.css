@@ -89,7 +89,7 @@
     -webkit-box-orient: vertical;
     min-height: .65rem;
     color:rgba(53,53,53,1) ;
-    text-align: justify;
+    text-align: left;
 }
 .ArticlesTime{
     width: 95%;
@@ -139,7 +139,10 @@
     bottom: 0;
     top: 0;
     margin: auto;
-    width: 4%;
+    width: 3%;
+}
+.NewType-Content{
+    font-size: .25rem;
 }
 .topRanking{
     /*width: .5rem;*/
