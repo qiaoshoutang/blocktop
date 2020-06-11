@@ -20,7 +20,21 @@
 }
 .informationtitle{
     text-align: center;
-    display: flex;
+    font-size: .28rem;
+    color: #e7141a;
+    height: .5rem;
+    line-height: .5rem;
+    padding-top: .2rem;
+    font-weight: bold;
+}
+.SisterTitle{
+    text-align: center;
+    font-size: .28rem;
+    color: #e7141a;
+    height: .5rem;
+    line-height: .5rem;
+    padding-top: .2rem;
+    font-weight: bold;
 }
 .informationtitle img{
     margin: .3rem auto 0 auto;
@@ -33,12 +47,16 @@
     margin: 0.25rem auto 0 auto;
     text-align: justify;
 }
+.blocktext p{
+    margin-top: .2rem;
+    letter-spacing:1.5px ;
+    line-height: 180%;
+}
 .codeSister{
     text-align: center;
 }
 .SisterTitle{
     text-align: center;
-    display: flex;
 }
 .SisterTitle img{
     margin: .3rem auto 0 auto;

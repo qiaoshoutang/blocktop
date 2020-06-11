@@ -51,10 +51,18 @@
 }
 .ArticlesTime span{
     width: 1.2rem;
-    display: inline-block;
+    /*display: inline-block;*/
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
+    float: left;
+}
+.ArticlesTime span:nth-child(1){
+    display: inline-block
+}
+.TimeHa{
+    width: 2.3rem!important;
+    margin-left: .2rem;
 }
 .moreArticles{
     width: 95%;
@@ -104,4 +112,14 @@
     text-align: justify;
     font-size: .25rem;
     padding-bottom: .3rem;
+}
+.moreArticles span{
+    height: .8rem;
+    line-height: .8rem;
+    width: 100%;
+    display: inline-block;
+    position: absolute;
+    top: 0;
+    right: 0;
+    text-align: center;
 }

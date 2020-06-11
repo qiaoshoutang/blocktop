@@ -57,12 +57,13 @@
 }
 .mainText{
     padding-top: .15rem;
-    font-size: .25rem;
+    font-size: .23rem;
     color: #333;
     font-weight: 300;
     text-align: justify;
     letter-spacing: 1.5px;
     word-break: break-all;
+    line-height: 180%;
 }
 .GoodUp_badDown{
     width: 100%;
