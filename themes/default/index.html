@@ -55,7 +55,7 @@
 <div class="box">
 
     <!--活动链接弹窗图片-->
-    <div class="activitsPopupbtn">
+    <div class="activitsPopupbtn" style='display: none'>
         <div class="Popupbtn">
             <div class="PopupbtnClose" id="PopupbtnClose">
                 <img src="images/guanbi.png" alt="">
@@ -306,7 +306,7 @@
     });
  $('#PopupbtnClose').click(function(){
     $(".activitsPopupbtn").hide();
-    setCookie('ActivitDna',1,1000);
+    setCookie('ActivitDna',1,3600);
  });
 
 
