@@ -28,9 +28,33 @@
     <link rel="stylesheet" href="css/common.css?5454352">
     
 </head>
+<style>
+
+</style>
 
 <body>
     <div class="box">
+        <!--活动开始弹窗-->
+        <div class="AcitivitPopup">
+            <div class="PopupbtnClose" id="PopupbtnClose">
+                 ×
+            </div>
+            <div class="AcitivitPopupImg">
+                <img src="images/zcAciticty.png" alt="">
+            </div>
+        </div>
+
+        <!--活动开始弹窗-->
+        <div class="AcitivitPopupCode">
+            <div class="PopupbtnClose" id="PopupCloseCode">
+                ×
+            </div>
+            <div class="AcitivitPopupImg">
+                <img src="images/AcEwmNew.png" alt="">
+            </div>
+        </div>
+
+
         <!--#include file="header.html"-->
         <!--轮播图-->
         <div class="bannerImg">
@@ -125,6 +149,25 @@
 
 
 <script>
+    $(".PopupbtnClose").click(function () {
+       $(".AcitivitPopup").hide()
+    })
+
+    $(document).ready(function() {
+        if($("#Loginsuccess").hasClass("when-landing-Ac")){
+            $(".AcitivitPopup").hide()
+        }
+    });
+
+    $(".AcitivitPopupImg img").click(function () {
+        $("#reg-FraDiv-frame").show();
+        $(".Headline-register").show();
+        $("#retrieve-password-frame").hide();
+        $("#SignFrame").hide();
+        $("#SMSLogin-frame").hide();
+        $(".AcitivitPopup").hide()
+    })
+
 
     TouchSlide({
         slideCell:"#slideBox",

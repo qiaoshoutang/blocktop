@@ -56,6 +56,9 @@
 .DynamicArticleImg img{
     width: 100%;
 }
+.DynamicArticle img{
+    height: auto;
+}
 .statement{
     color: #666666;
     margin-top: 10px;

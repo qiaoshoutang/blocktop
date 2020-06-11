@@ -148,7 +148,7 @@
 </div>
 
 <!--最顶部logo与注册登录-->
-<div style="position: fixed;top:0;z-index: 999;background: white;width: 100%;max-width: 640px;min-width: 320px;margin: 0 auto">
+<div style="position: fixed;top:0;z-index:1000;background: white;width: 100%;max-width: 640px;min-width: 320px;margin: 0 auto">
     <div class="topMost">
         <!--logo-->
         <div class="topLogo">
@@ -158,9 +158,9 @@
         <div class="signInTop">
             <!--{if condition="$loginInfo"}-->
             <!--登录成功-->
-            <div id="Loginsuccess">
+            <div id="Loginsuccess" class="when-landing-Ac">
                 <img src="images/TxImg.png" alt="" class="TxImg">
-                <span class="TxName">{$loginInfo['nickname']}<img src="images/TxMore.png" alt="" style="margin-left: .1rem"></span>
+                <span class="TxName">{$loginInfo['nickname']}<img src="images/TxMore.png" alt=""></span>
             </div>
             <div class="Login-successful">
                 <ul>
@@ -172,7 +172,7 @@
             <!--未登录-->
             <div>
                 <div class="registerbtn">注册</div>
-                <div class="signInbtn">登录</div>
+                <div class="signInbtn">登陆</div>
             </div>
             <!--{/if}-->
 
@@ -290,11 +290,7 @@
         }, 1000);
     }
 
-    $(document).ready(function() {
-        if($(".when-landing").hasClass("when-landing-Ac")){
-            $(".activitsPopupbtn").hide()
-        }
-    });
+
 
 
 
@@ -336,9 +332,12 @@
                     // console.log(data);
                     if(data.code==1){
                         layer.msg('注册成功');
-                        location.reload()
-                        $(".activitsPopupbtnEwm").show();
+                        $(".AcitivitPopupCode").show();
                         $(".Headline-register").hide()
+                        $("#PopupCloseCode").click(function () {
+                            $(".AcitivitPopupCode").hide();
+                            location.reload()
+                        })
 
                     }else{
                         // console.log(data.info);
