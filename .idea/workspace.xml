@@ -3,9 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="61e532fc-5bde-49c0-8b0f-0778b7705177" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/themes/mobileNew/column.html" beforeDir="false" afterPath="$PROJECT_DIR$/themes/mobileNew/column.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/themes/mobileNew/css/contentDetail.css" beforeDir="false" afterPath="$PROJECT_DIR$/themes/mobileNew/css/contentDetail.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/themes/mobileNew/css/specialColumn.css" beforeDir="false" afterPath="$PROJECT_DIR$/themes/mobileNew/css/specialColumn.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/default/css/common.css" beforeDir="false" afterPath="$PROJECT_DIR$/themes/default/css/common.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/default/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/themes/default/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/themes/mobileNew/header.html" beforeDir="false" afterPath="$PROJECT_DIR$/themes/mobileNew/header.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/themes/mobileNew/newsContent.html" beforeDir="false" afterPath="$PROJECT_DIR$/themes/mobileNew/newsContent.html" afterDir="false" />
     </list>
