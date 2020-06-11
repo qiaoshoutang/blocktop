@@ -2,7 +2,7 @@
     width: 100%;
     padding-bottom: .7rem;
     position: relative;
-    top: -.8rem;
+    /*top: -.8rem;*/
 }
 .variousArticles ul {
     width: 100%;
@@ -83,20 +83,22 @@
 }
 .zlbanner{
     width: 100%;
-    display: inline-block;
+    /*display: inline-block;*/
 }
 .zlbanner img{
     width: 100%;
+    /*min-height: 2.5rem;*/
 }
 .columnTro{
-    width: 90%;
+    width: 100%;
     margin: 0 auto;
     border-radius: 8px;
     background: white;
-    min-height:2rem ;
+    /*min-height:2rem ;*/
     position: relative;
-    top: -1.2rem;
-    box-shadow: 2px 2px 2px 1px rgba(0,0,0,.2)  ;
+    top: -.1rem;
+    /*top: -1.2rem;*/
+    /*box-shadow: 2px 2px 2px 1px rgba(0,0,0,.2)  ;*/
 }
 .columnTroTitle{
     text-align: center;
@@ -108,10 +110,11 @@
 }
 .columnTroText{
     width: 90%;
-    margin: 0.2rem auto 0 auto;
+    margin: 0rem auto 0 auto;
     text-align: justify;
-    font-size: .25rem;
-    padding-bottom: .3rem;
+    font-size: .22rem;
+    padding-bottom: .2rem;
+    color: #9d9d9d;
 }
 .moreArticles span{
     height: .8rem;
