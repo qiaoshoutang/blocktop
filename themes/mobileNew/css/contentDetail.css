@@ -1,6 +1,8 @@
 .contentDetail{
     width: 90%;
-    margin: 0 auto;
+    margin: 0rem auto 0 auto;
+    position: relative;
+    top: .2rem;
 }
 
 .contentTitle{
@@ -43,7 +45,7 @@
     max-width: 100%;
 }
 .ContentText{
-    font-size: .28rem;
+    font-size: .23rem;
     text-align: justify;
     color: #636363;
     letter-spacing: .5px;

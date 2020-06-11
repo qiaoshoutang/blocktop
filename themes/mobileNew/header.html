@@ -148,60 +148,66 @@
 </div>
 
 <!--最顶部logo与注册登录-->
-<div class="topMost">
-    <!--logo-->
-    <div class="topLogo">
-        <img src="images/topLogo.png" alt="">
-    </div>
-    <!--注册登录-->
-    <div class="signInTop">
-        <!--{if condition="$loginInfo"}-->
-        <!--登录成功-->
-        <div id="Loginsuccess">
-            <img src="images/TxImg.png" alt="" class="TxImg">
-            <span class="TxName">{$loginInfo['nickname']}<img src="images/TxMore.png" alt=""></span>
+<div style="position: fixed;top:0;z-index: 999;background: white;width: 100%;max-width: 640px;min-width: 320px;margin: 0 auto">
+    <div class="topMost">
+        <!--logo-->
+        <div class="topLogo">
+            <img src="images/topLogo.png" alt="">
         </div>
-        <div class="Login-successful">
+        <!--注册登录-->
+        <div class="signInTop">
+            <!--{if condition="$loginInfo"}-->
+            <!--登录成功-->
+            <div id="Loginsuccess">
+                <img src="images/TxImg.png" alt="" class="TxImg">
+                <span class="TxName">{$loginInfo['nickname']}<img src="images/TxMore.png" alt="" style="margin-left: .1rem"></span>
+            </div>
+            <div class="Login-successful">
+                <ul>
+                    <li onclick='window.location.href="/Home/User/myPage"'>个人主页</li>
+                    <li id="Log-out">退出登陆</li>
+                </ul>
+            </div>
+            <!--{else /}-->
+            <!--未登录-->
+            <div>
+                <div class="registerbtn">注册</div>
+                <div class="signInbtn">登录</div>
+            </div>
+            <!--{/if}-->
+
+        </div>
+
+    </div>
+    <!--导航栏-->
+    <div class="boxNav">
+        <!--boxNav ul-->
+        <div class="boxNav-ul">
             <ul>
-                <li onclick='window.location.href="/Home/User/myPage"'>个人主页</li>
-                <li id="Log-out">退出登陆</li>
+                <li onclick='window.location.href="/home_m/all"'>首页</li>
+                <li onclick='window.location.href="/message_m"'>7*24快讯</li>
+                <li onclick='window.location.href="/columns_list_m"'>专栏</li>
+                <li onclick='window.location.href="/topmap_m/recom"'>导航</li>
             </ul>
         </div>
-        <!--{else /}-->
-        <!--未登录-->
-        <div>
-            <div class="registerbtn">注册</div>
-            <div class="signInbtn">登录</div>
+        <!--导航按钮-->
+        <div class="navigationBtn">
+            <img src="images/navber.png" alt="">
+            <!--下拉菜单-->
         </div>
-        <!--{/if}-->
-        
-    </div>
-
-</div>
-<!--导航栏-->
-<div class="boxNav">
-    <!--boxNav ul-->
-    <div class="boxNav-ul">
-        <ul>
-            <li onclick='window.location.href="/home_m/all"'>首页</li>
-            <li onclick='window.location.href="/topmap_m/recom"'>头条导航</li>
-            <li onclick='window.location.href="/message_m"'>7*24快讯</li>
-            <li onclick='window.location.href="/columns_list_m"'>专栏</li>
+        <ul id="Dhl">
+            <li class="header_list"><a href="/home_m/all">首页</a></li>
+            <li class="header_list"><a href="/topmap_m/recom">头条导航</a></li>
+            <li class="header_list"><a href="/message_m">7*24快讯</a></li>
+            <li class="header_list"><a href="/columns_list_m">专栏</a></li>
+            <li class="header_list"><a href="/aboutus_m">关于我们</a></li>
         </ul>
     </div>
-    <!--导航按钮-->
-    <div class="navigationBtn">
-        <img src="images/navber.png" alt="">
-        <!--下拉菜单-->
-    </div>
-    <ul id="Dhl">
-        <li class="header_list"><a href="/home_m/all">首页</a></li>
-        <li class="header_list"><a href="/topmap_m/recom">头条导航</a></li>
-        <li class="header_list"><a href="/message_m">7*24快讯</a></li>
-        <li class="header_list"><a href="/columns_list_m">专栏</a></li>
-        <li class="header_list"><a href="/aboutus_m">关于我们</a></li>
-    </ul>
 </div>
+<div style="margin-top: 1.8rem">
+
+</div>
+
 <script src="js/jquery.js"></script>
 <script src="/themes/default/js/layui/layui.all.js"></script>
 <script>
@@ -330,7 +336,7 @@
                     // console.log(data);
                     if(data.code==1){
                         layer.msg('注册成功');
-                        // location.reload()
+                        location.reload()
                         $(".activitsPopupbtnEwm").show();
                         $(".Headline-register").hide()
 

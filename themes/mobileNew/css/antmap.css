@@ -16,6 +16,8 @@
     overflow-x: auto;
     overflow-y: hidden;
     margin-top: .2rem;
+    position: relative;
+    z-index: 8;
 }
 .nav_ss ul{
     width: 130%;
