@@ -89,7 +89,7 @@
     -webkit-box-orient: vertical;
     min-height: .65rem;
     color:rgba(53,53,53,1) ;
-    text-align: justify;
+    text-align: left;
 }
 .ArticlesTime{
     width: 95%;
@@ -139,7 +139,10 @@
     bottom: 0;
     top: 0;
     margin: auto;
-    width: 4%;
+    width: 3%;
+}
+.NewType-Content{
+    font-size: .25rem;
 }
 .topRanking{
     /*width: .5rem;*/
@@ -162,4 +165,52 @@
     font-size: .16rem;
     text-align: center;
     line-height: .3rem;
+}
+
+.AcitivitPopup{
+    width: 100%;
+    min-width: 320px;
+    max-width: 640px;
+    margin: 0 auto;
+    height: 100%;
+    position: fixed;
+    background: rgba(0,0,0,.3);
+    z-index: 9999;
+}
+.AcitivitPopupCode{
+    width: 100%;
+    min-width: 320px;
+    max-width: 640px;
+    margin: 0 auto;
+    height: 100%;
+    position: fixed;
+    background: rgba(0,0,0,.3);
+    z-index: 9999;
+    display: none;
+}
+.AcitivitPopupImg{
+    width: 100%;
+    height: 100%;
+
+}
+.AcitivitPopupImg img{
+    width: 80%;
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    margin: auto;
+}
+.PopupbtnClose{
+    width: .5rem;
+    height: .5rem;
+    font-size: .3rem;
+    text-align: center;
+    line-height: .45rem;
+    background: white;
+    position: absolute;
+    right: .5rem;
+    top: 2rem;
+    border-radius: 50%;
 }

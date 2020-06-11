@@ -47,17 +47,18 @@
 .ContentText{
     font-size: .23rem;
     text-align: justify;
-    color: #636363;
+    color: black;
     letter-spacing: .5px;
     line-height: 200%;
     font-weight: 300;
 }
 .ContentText img{
     max-width: 100%;
+    height: auto;
 }
 .contentStatement{
     width: 100%;
-    font-size: .25rem;
+    font-size: .2rem;
     color:#bbbbbb;
     text-align: justify;
     letter-spacing: .5px;
@@ -68,4 +69,7 @@
 }
 .contentStatement p{
     margin-top: .1rem;
+}
+.ContentText iframe{
+    height:250px!important; ;
 }

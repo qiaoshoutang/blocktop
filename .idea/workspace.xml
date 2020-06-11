@@ -3,9 +3,11 @@
   <component name="ChangeListManager">
     <list default="true" id="61e532fc-5bde-49c0-8b0f-0778b7705177" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/themes/mobileNew/css/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/themes/mobileNew/css/index.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/mobileNew/column.html" beforeDir="false" afterPath="$PROJECT_DIR$/themes/mobileNew/column.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/mobileNew/css/contentDetail.css" beforeDir="false" afterPath="$PROJECT_DIR$/themes/mobileNew/css/contentDetail.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/mobileNew/css/specialColumn.css" beforeDir="false" afterPath="$PROJECT_DIR$/themes/mobileNew/css/specialColumn.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/themes/mobileNew/header.html" beforeDir="false" afterPath="$PROJECT_DIR$/themes/mobileNew/header.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/themes/mobileNew/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/themes/mobileNew/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/mobileNew/newsContent.html" beforeDir="false" afterPath="$PROJECT_DIR$/themes/mobileNew/newsContent.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -150,7 +152,7 @@
       <workItem from="1591682769034" duration="164000" />
       <workItem from="1591683180686" duration="395000" />
       <workItem from="1591683595961" duration="15937000" />
-      <workItem from="1591838147177" duration="2505000" />
+      <workItem from="1591838147177" duration="13949000" />
     </task>
     <servers />
   </component>
@@ -158,10 +160,10 @@
     <option name="version" value="2" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="122" y="110" key="DiffContextDialog" timestamp="1591752836060">
+    <state x="122" y="110" key="DiffContextDialog" timestamp="1591863734865">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="122" y="110" key="DiffContextDialog/0.0.1920.1040/1920.0.1920.1080@1920.0.1920.1080" timestamp="1591752836060" />
+    <state x="122" y="110" key="DiffContextDialog/0.0.1920.1040/1920.0.1920.1080@1920.0.1920.1080" timestamp="1591863734865" />
     <state x="2765" y="405" width="240" height="272" key="MultipleFileMergeDialog" timestamp="1591752923995">
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
@@ -174,18 +176,18 @@
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
     <state width="498" height="446" key="SwitcherDM/0.0.1920.1040/1920.0.1920.1080@1920.0.1920.1080" timestamp="1591782629356" />
-    <state x="2562" y="326" key="git4idea.merge.GitPullDialog" timestamp="1591783047992">
+    <state x="2562" y="326" key="git4idea.merge.GitPullDialog" timestamp="1591865039195">
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
-    <state x="2562" y="326" key="git4idea.merge.GitPullDialog/0.0.1920.1040/1920.0.1920.1080@1920.0.1920.1080" timestamp="1591783047992" />
-    <state x="2732" y="437" key="git4idea.ui.GitStashDialog" timestamp="1591752868421">
+    <state x="2562" y="326" key="git4idea.merge.GitPullDialog/0.0.1920.1040/1920.0.1920.1080@1920.0.1920.1080" timestamp="1591865039195" />
+    <state x="2732" y="437" key="git4idea.ui.GitStashDialog" timestamp="1591861161198">
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
-    <state x="2732" y="437" key="git4idea.ui.GitStashDialog/0.0.1920.1040/1920.0.1920.1080@1920.0.1920.1080" timestamp="1591752868421" />
-    <state x="2652" y="343" key="git4idea.ui.GitUnstashDialog" timestamp="1591752924097">
+    <state x="2732" y="437" key="git4idea.ui.GitStashDialog/0.0.1920.1040/1920.0.1920.1080@1920.0.1920.1080" timestamp="1591861161198" />
+    <state x="2652" y="343" key="git4idea.ui.GitUnstashDialog" timestamp="1591863726389">
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
-    <state x="2652" y="343" key="git4idea.ui.GitUnstashDialog/0.0.1920.1040/1920.0.1920.1080@1920.0.1920.1080" timestamp="1591752924097" />
+    <state x="2652" y="343" key="git4idea.ui.GitUnstashDialog/0.0.1920.1040/1920.0.1920.1080@1920.0.1920.1080" timestamp="1591863726389" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
