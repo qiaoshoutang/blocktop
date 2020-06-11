@@ -80,6 +80,9 @@
                         <!--配图-->
                         <div class="ArticlesBanner">
                             <img src="{$vo.image}" alt="">
+                            <div class="topRanking">
+
+                            </div>
                         </div>
                         <!--标题概述-->
                         <div class="ArticlesText">
@@ -152,4 +155,10 @@
           }
         });
     });
+
+    $(".variousArticlesBox ul li .topRanking").eq(0).html("TOP1");
+    $(".variousArticlesBox ul li .topRanking").eq(1).html("TOP2")
+    $(".variousArticlesBox ul li .topRanking").eq(2).html("TOP3")
+
+
 </script>
