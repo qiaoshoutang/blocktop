@@ -59,9 +59,7 @@
         <div class="ArticleType">
             <div class="ArticleTypeBox">
                 <ul>
-                    <li class='<!--{if condition="$class_id eq all"}--> active <!--{/if}-->'>
-                        <a href='/home_m/all'>今日头条</a>
-                    </li>
+
                     <!--{foreach name='newsCate' item='vo' }-->
                     <li class='<!--{if condition="$class_id eq $vo['class_id']"}--> active <!--{/if}-->'>
                         <a href = '/home_m/{$vo.class_id}'>{$vo.name}</a>

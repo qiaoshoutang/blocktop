@@ -18,7 +18,7 @@ class MobileController extends SiteController {
     
     //首页
     public function index(){
-        $class_id = I('request.class_id','all');
+        $class_id = I('request.class_id','6');
         
         $where['A.status'] = 2;
         if($class_id != 'all'){
@@ -59,7 +59,7 @@ class MobileController extends SiteController {
         $columnList  = $columnMod->where(['state'=>1])->order('order_id desc')->limit(10)->select();
         
         $this->assign('class_id',$class_id);
-        $this->assign('newsCate',M('category')->where(['show'=>1])->order('sequence asc')->select());
+        $this->assign('newsCate',M('category')->where(['show'=>1])->order('sequence desc')->select());
         $this->assign('newsList',$newsList);
         $this->assign('bannerList',$bannerList);
         $this->assign('messageList',$messageList);

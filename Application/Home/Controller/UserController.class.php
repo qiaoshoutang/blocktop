@@ -290,9 +290,10 @@ class UserController extends SiteController {
         
         $userMod = D('Users');
         
-        $exist = $userMod->where(['phone'=>$phone])->find('id');
+        $exist = $userMod->where(['phone'=>$phone])->find();
+
         if($exist){
-            $this->ajaxReturn(['code'=>2,'info'=>'该手机号已注册！']);
+            $this->ajaxReturn(['code'=>2,'info'=>'该手机号已注册！可直接登录！']);
         }
         $userInfo['phone'] = $userInfo['nickname'] = $phone;
         $userInfo['portrait'] = '/Public/img/portrait.png';
