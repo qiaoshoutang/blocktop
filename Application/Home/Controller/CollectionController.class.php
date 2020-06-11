@@ -62,7 +62,7 @@ class CollectionController extends SiteController {
 
 	        $_POST = array('class_id'=>5,'title'=>$article['title'],'description'=>$article['synopsis'],'content'=>$articleArr['obj']['current']['content'],
 	            'author'=>$article['author'],'image'=>$cover['pc'],'time'=>$publishTime,'unique_num'=>substr($article['id'],4,10),
-	            'views'=>rand(60,120),'status'=>2,'source'=>2);
+	            'views'=>rand(60,120),'look'=>rand(5,20),'status'=>2,'source'=>2);
 	        
 
 	        $content_id=D('Article/ContentArticle')->saveData('add');
@@ -122,7 +122,7 @@ class CollectionController extends SiteController {
 
             $_POST = array('class_id'=>5,'title'=>$article['title'],'description'=>$article['summary'],'content'=>$article['content'],
                      'author'=>$article['author'],'image'=>$article['thumbnail'],'time'=>$article['published_time'],'unique_num'=>$article['id'],
-                'views'=>rand(60,120),'status'=>2,'source'=>1);
+                'views'=>rand(60,120),'look'=>rand(5,20),'status'=>2,'source'=>1);
             
             
             $content_id=D('Article/ContentArticle')->saveData('add');

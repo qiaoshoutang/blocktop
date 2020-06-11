@@ -146,14 +146,14 @@
     <div class="NewType" >
         <div class="NewType-nav">
             <ul>
-                <li class='<!--{if condition="$class_id eq all"}--> active <!--{/if}-->'>
-                    <a href = '/news/all'>
+<!--                 <li class='<!--{if condition="$class_id eq all"}--> active <!--{/if}-->'>
+                    <a href = '/tophome/all'>
                         今日头条
                     </a>
-                </li>
+                </li> -->
                 <!--{foreach name='newsCate' item='vo' }-->
                 <li class='<!--{if condition="$class_id eq $vo['class_id']"}--> active <!--{/if}-->'>
-                    <a href = '/news/{$vo.class_id}'>
+                    <a href = '/tophome/{$vo.class_id}'>
                         {$vo.name}
                     </a>
                 </li>
