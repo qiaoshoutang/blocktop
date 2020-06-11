@@ -54,6 +54,7 @@
 }
 .ContentText img{
     max-width: 100%;
+    height: auto;
 }
 .contentStatement{
     width: 100%;

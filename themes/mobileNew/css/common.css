@@ -2,6 +2,7 @@
     padding: 0;
     margin: 0;
 }
+body{-webkit-touch-callout: none!important;}
 .box{
     width: 100%;
     min-width: 320px;

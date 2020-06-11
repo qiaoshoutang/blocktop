@@ -28,9 +28,54 @@
     <link rel="stylesheet" href="css/common.css?5454352">
     
 </head>
+<style>
+    .ActivitPopup{
+        width: 100%;
+        height: 100%;
+        min-width: 320px;
+        max-width: 640px;
+        background: rgba(0,0,0,.4);
+        position: fixed;
+        z-index: 9999999;
+    }
+    .ActivitPopupImg{
+        width: 100%;
+        height: 100%;
+    }
+    .ActivitPopupImg img{
+        width:80%;
+        position: absolute;
+        top: 0;
+        right: 0;
+        left: 0;
+        bottom: 0;
+        margin: auto;
+    }
+    .closePopup{
+        width: .5rem;
+        height: .5rem;
+        text-align: center;
+        line-height: .45rem;
+        background: white;
+        border-radius: 50%;
+        font-size: .35rem;
+        position: absolute;
+        right: .5rem;
+        top: 2.5rem;
+    }
+</style>
 
 <body>
     <div class="box">
+        <!--活动弹窗-->
+        <div class="ActivitPopup">
+            <div class="closePopup" id="closePopup">
+                 ×
+            </div>
+            <div class="ActivitPopupImg">
+                <img src="images/AcEwmNew.png" alt="">
+            </div>
+        </div>
         <!--#include file="header.html"-->
         <!--轮播图-->
         <div class="bannerImg">
@@ -40,8 +85,8 @@
                     <ul>
                         <!--{foreach name='bannerList' item='vo' }-->
                         <li>
-                            <a href=" {$vo.target}" target="_blank">
-                                <img src=" {$vo.path}" />
+                            <a href="{$vo.target}"  target="_blank">
+                                <img src="{$vo.path}"/>
                             </a>
                         </li>
                         <!--{/foreach}-->
@@ -76,7 +121,7 @@
             <div class="variousArticlesBox">
                 <ul>
                     <!--{foreach name='newsList' item='vo' }-->
-                    <li>
+                    <li onclick='window.location.href="/newsContent_m/1/{$vo.content_id}"'>
                         <!--配图-->
                         <div class="ArticlesBanner">
                             <img src="{$vo.image}" alt="">
@@ -86,7 +131,7 @@
                         </div>
                         <!--标题概述-->
                         <div class="ArticlesText">
-                            <div class="ArticlesTitle"  onclick='window.location.href="/newsContent_m/1/{$vo.content_id}"'>
+                            <div class="ArticlesTitle">
                                 {$vo.title}
                             </div>
                             <div class="ArticlesTime">
@@ -124,9 +169,35 @@
 </html>
 <script src="js/common.js"></script>
 <script src="/themes/mobileNew/js/TouchSlide.1.1.js"></script>
-
+<script src="/themes/mobileNew/js/jquery.cookie.js"></script>
 
 <script>
+
+    /*cookie操作*/
+
+    function setCookie(c_name,value,seconds)
+    {
+        var exdate=new Date();
+        exdate.setTime(exdate.getTime()+seconds*1000);
+        document.cookie=c_name+ "=" +escape(value)+ ((seconds==null) ? "" : ";expires="+exdate.toGMTString());
+        // $.cookie("cookieColor", "cookieValue", { expires: 365 });//第一种
+    }
+    //取回cookie
+    function getCookie(cookieName){
+        var cookieValue="";
+        if (document.cookie && document.cookie != '') {
+            var cookies = document.cookie.split(';');
+            for (var i = 0; i < cookies.length; i++) {
+                var cookie = cookies[i];
+                if (cookie.substring(0, cookieName.length + 2).trim() == cookieName.trim() + "=") {
+                    cookieValue = cookie.substring(cookieName.length + 2, cookie.length);
+                    break;
+                }
+            }
+        }
+        return cookieValue;
+    }
+
 
     TouchSlide({
         slideCell:"#slideBox",
@@ -156,9 +227,27 @@
         });
     });
 
+  /*top前三热门*/
     $(".variousArticlesBox ul li .topRanking").eq(0).html("TOP1");
-    $(".variousArticlesBox ul li .topRanking").eq(1).html("TOP2")
-    $(".variousArticlesBox ul li .topRanking").eq(2).html("TOP3")
+    $(".variousArticlesBox ul li .topRanking").eq(1).html("TOP2");
+    $(".variousArticlesBox ul li .topRanking").eq(2).html("TOP3");
+    /*活动弹窗*/
+    $(document).ready(function(){
+        if($.cookie('ActivitDnaMobile')==1){
+            $(".ActivitPopup").hide()
+        }else {
+            setTimeout(function () {
+                $(".ActivitPopup").show()
+            },500)
+        }
+    });
+    console.log($.cookie('ActivitDnaMobile')==1)
+
+    $('#closePopup').click(function(){
+        $(".ActivitPopup").hide();
+        setCookie('ActivitDnaMobile',1,1000);
+        location.reload()
+    });
 
 
 </script>

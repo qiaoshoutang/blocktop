@@ -148,7 +148,7 @@
 </div>
 
 <!--最顶部logo与注册登录-->
-<div style="position: fixed;top:0;z-index: 999;background: white;width: 100%;max-width: 640px;min-width: 320px;margin: 0 auto">
+<div style="position: fixed;top:0;z-index:1000;background: white;width: 100%;max-width: 640px;min-width: 320px;margin: 0 auto">
     <div class="topMost">
         <!--logo-->
         <div class="topLogo">
@@ -160,7 +160,7 @@
             <!--登录成功-->
             <div id="Loginsuccess">
                 <img src="images/TxImg.png" alt="" class="TxImg">
-                <span class="TxName">{$loginInfo['nickname']}<img src="images/TxMore.png" alt="" style="margin-left: .1rem"></span>
+                <span class="TxName">{$loginInfo['nickname']}<img src="images/TxMore.png" alt=""></span>
             </div>
             <div class="Login-successful">
                 <ul>
@@ -336,8 +336,7 @@
                     // console.log(data);
                     if(data.code==1){
                         layer.msg('注册成功');
-                        location.reload()
-                        $(".activitsPopupbtnEwm").show();
+                        $(".ActivitPopup").show();
                         $(".Headline-register").hide()
 
                     }else{
