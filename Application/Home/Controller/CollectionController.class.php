@@ -9,7 +9,6 @@ use Think\AipSpeech;
 class CollectionController extends SiteController {
 
 	
-	
 	public function collection(){
 	    $this->jinse_collection();  //金色 财经文章采集
 	    $this->huoxing_collection();  //火星 财经文章采集
@@ -90,7 +89,8 @@ class CollectionController extends SiteController {
 	    $httpParams = array(
 	        'access_key' => $accessKey,
 	        'secret_key' => $secretKey,
-	        'date'      => time()
+	        'date'      => time(),
+	        'catelogue'=>'zhengce'
 	    );
 	    ksort($httpParams);
 	    $signString = http_build_query($httpParams);
@@ -102,7 +102,7 @@ class CollectionController extends SiteController {
 	    $listInfo=$this->curl_get_contents($href);
 	    
 	    $listInfo = json_decode($listInfo,true);
-// 	            dd($listInfo);
+	            dd($listInfo);
         if(!$listInfo){
             echo '接口数据返回错误';
             return;
@@ -138,7 +138,7 @@ class CollectionController extends SiteController {
 	}
 	
 	//语音
-	public function test(){
+	public function test2(){
 	    dd('dd');
 	    $client = new AipSpeech('19565576','g6nuKrel2B0LyrqbDTcdqmuE','Aph9f046ghj2B8UCrCNTjLiqB7ue8db7');
 	    
