@@ -8,8 +8,11 @@
     <admin:formrow title="标题" tip="轮播的标题"  >
       <admin:text name="title"  value="{$info.title}" len="100"   />
     </admin:formrow>
-    <admin:formrow title="跳转目标" tip="轮播图点击时跳转的地址" >
+    <admin:formrow title="PC端跳转目标" tip="轮播图点击时跳转的地址" >
        <admin:text name="target"  value="{$info.target}" len="100"   />
+    </admin:formrow>
+    <admin:formrow title="移动端跳转目标" tip="轮播图点击时跳转的地址" >
+       <admin:text name="target_m"  value="{$info.target_m}" len="100"   />
     </admin:formrow>
     <admin:formrow title="图片" tip="轮播图地址,尺寸为624*336">
       <admin:text name="path" type="text" value="{$info.path}" len="250" width="medium" />

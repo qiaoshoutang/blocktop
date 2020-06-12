@@ -35,7 +35,7 @@
 <body>
     <div class="box">
         <!--活动开始弹窗-->
-        <div class="AcitivitPopup">
+        <div class="AcitivitPopup" style='display: none'>
             <div class="PopupbtnClose" id="PopupbtnClose">
                  ×
             </div>
@@ -64,7 +64,7 @@
                     <ul>
                         <!--{foreach name='bannerList' item='vo' }-->
                         <li>
-                            <a href=" {$vo.target}" target=“_top”>
+                            <a href=" {$vo.target_m}" target="_blank">
                                 <img src=" {$vo.path}" />
                             </a>
                         </li>
@@ -83,7 +83,6 @@
         <div class="ArticleType">
             <div class="ArticleTypeBox">
                 <ul>
-
                     <!--{foreach name='newsCate' item='vo' }-->
                     <li class='<!--{if condition="$class_id eq $vo['class_id']"}--> active <!--{/if}-->'>
                         <a href = '/home_m/{$vo.class_id}'>{$vo.name}</a>
@@ -119,7 +118,6 @@
                                 <!--{/if}-->
                                 <span class="TimeHa">{$vo.time|format_time='Y/m/d H:i'}</span>
                             </div>
-
                         </div>
                     </li>
                     <!--{/foreach}-->
@@ -146,12 +144,32 @@
 </html>
 <script src="js/common.js"></script>
 <script src="/themes/mobileNew/js/TouchSlide.1.1.js"></script>
-
+<script src="/themes/mobileNew/js/jquery.cookie.js"></script>
 
 <script>
+
+
+    if($.cookie('ActivitDna')==1){
+        $(".AcitivitPopup").hide()
+    }else {
+        setTimeout(function () {
+            $(".AcitivitPopup").show()
+        },500)
+    }
+
+
     $(".PopupbtnClose").click(function () {
-       $(".AcitivitPopup").hide()
+       $(".AcitivitPopup").hide();
+       setCookie('ActivitDna',1,3600);
     })
+
+
+    function setCookie(c_name,value,seconds){
+        var exdate=new Date();
+        exdate.setTime(exdate.getTime()+seconds*1000);
+        document.cookie=c_name+ "=" +escape(value)+ ((seconds==null) ? "" : ";expires="+exdate.toGMTString());
+        // $.cookie("cookieColor", "cookieValue", { expires: 365 });//第一种
+    }
 
     $(document).ready(function() {
         if($("#Loginsuccess").hasClass("when-landing-Ac")){
