@@ -25,7 +25,7 @@
         })(document, window);
     </script>
     <link rel="stylesheet" href="css/index.css?12323">
-    <link rel="stylesheet" href="css/common.css?5454352">
+    <link rel="stylesheet" href="css/common.css?545ww4352">
     
 </head>
 <style>
@@ -97,17 +97,17 @@
             <div class="variousArticlesBox">
                 <ul>
                     <!--{foreach name='newsList' item='vo' }-->
-                    <li onclick='window.location.href="/newsContent_m/1/{$vo.content_id}"'>
+                    <li >
                         <!--配图-->
-                        <div class="ArticlesBanner">
-                            <img src="{$vo.image}" alt="">
+                        <div class="ArticlesBanner" >
+                            <img src="{$vo.image}" alt="" onclick='window.location.href="/newsContent_m/1/{$vo.content_id}"'>
                             <div class="topRanking">
 
                             </div>
                         </div>
                         <!--标题概述-->
-                        <div class="ArticlesText">
-                            <div class="ArticlesTitle">
+                        <div class="ArticlesText" >
+                            <div class="ArticlesTitle" onclick='window.location.href="/newsContent_m/1/{$vo.content_id}"'>
                                 {$vo.title}
                             </div>
                             <div class="ArticlesTime">
@@ -177,7 +177,7 @@
         }
     });
 
-    $(".AcitivitPopupImg img").click(function () {
+    $(".AcitivitPopup .AcitivitPopupImg img").click(function () {
         $("#reg-FraDiv-frame").show();
         $(".Headline-register").show();
         $("#retrieve-password-frame").hide();
