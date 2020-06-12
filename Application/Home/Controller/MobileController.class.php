@@ -21,9 +21,8 @@ class MobileController extends SiteController {
         $class_id = I('request.class_id','6');
         
         $where['A.status'] = 2;
-        if($class_id != 'all'){
-            $where['A.class_id'] = $class_id;
-        }
+        $where['A.class_id'] = $class_id;
+       
         //热门新闻
         $newsList =D('Article/ContentArticle')
         ->loadList($where,'content_id,title,description,image,time,views,author,author_id,look,U.nickname as author_name','0,10','is_top desc,time desc,sequence desc');
