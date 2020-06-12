@@ -295,15 +295,16 @@
 <script src="/themes/mobileNew/js/jquery.cookie.js"></script>
 <script>
 
- $(document).ready(function(){
-        if($.cookie('ActivitDna')==1){
-            $(".activitsPopupbtn").hide()
-        }else {
-            setTimeout(function () {
-                $(".activitsPopupbtn").show()
-            },500)
-        }
-    });
+ // $(document).ready(function(){
+ //        if($.cookie('ActivitDna')==1){
+ //            $(".activitsPopupbtn").hide()
+ //        }else {
+ //            setTimeout(function () {
+ //                $(".activitsPopupbtn").show()
+ //            },500)
+ //        }
+ //    });
+
  $('#PopupbtnClose').click(function(){
     $(".activitsPopupbtn").hide();
     setCookie('ActivitDna',1,3600);

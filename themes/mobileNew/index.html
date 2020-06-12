@@ -35,7 +35,7 @@
 <body>
     <div class="box">
         <!--活动开始弹窗-->
-        <div class="AcitivitPopup" style='display: none'>
+        <div class="AcitivitPopup">
             <div class="PopupbtnClose" id="PopupbtnClose">
                  ×
             </div>
@@ -97,7 +97,7 @@
             <div class="variousArticlesBox">
                 <ul>
                     <!--{foreach name='newsList' item='vo' }-->
-                    <li>
+                    <li onclick='window.location.href="/newsContent_m/1/{$vo.content_id}"'>
                         <!--配图-->
                         <div class="ArticlesBanner">
                             <img src="{$vo.image}" alt="">
@@ -107,7 +107,7 @@
                         </div>
                         <!--标题概述-->
                         <div class="ArticlesText">
-                            <div class="ArticlesTitle"  onclick='window.location.href="/newsContent_m/1/{$vo.content_id}"'>
+                            <div class="ArticlesTitle">
                                 {$vo.title}
                             </div>
                             <div class="ArticlesTime">
@@ -149,18 +149,18 @@
 <script>
 
 
-    if($.cookie('ActivitDna')==1){
-        $(".AcitivitPopup").hide()
-    }else {
-        setTimeout(function () {
-            $(".AcitivitPopup").show()
-        },500)
-    }
+//    if($.cookie('ActivitDna')==1){
+//        $(".AcitivitPopup").hide()
+//    }else {
+//        setTimeout(function () {
+//            $(".AcitivitPopup").show()
+//        },500)
+//    }
 
 
     $(".PopupbtnClose").click(function () {
        $(".AcitivitPopup").hide();
-       setCookie('ActivitDna',1,3600);
+       // setCookie('ActivitDna',1,3600);
     })
 
 

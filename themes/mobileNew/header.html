@@ -170,7 +170,7 @@
             </div>
             <!--{else /}-->
             <!--未登录-->
-            <div>
+            <div class="userbtn">
                 <div class="registerbtn">注册</div>
                 <div class="signInbtn">登陆</div>
             </div>
@@ -332,8 +332,8 @@
                     // console.log(data);
                     if(data.code==1){
                         layer.msg('注册成功');
-                        $(".AcitivitPopupCode").show();
                         $(".Headline-register").hide()
+                        $(".AcitivitPopupCode").show();
                         $("#PopupCloseCode").click(function () {
                             $(".AcitivitPopupCode").hide();
                             location.reload()
@@ -377,10 +377,16 @@
                     if(data.code==1){
                         // console.log(data.data.nickname)
                         layer.msg('登录成功');
-                        location.reload();
-                        $(".userbtn").hide();
-                        $(".when-landing").show();
-                        $(".usernamenumber").html(data.data.nickname);
+                        // location.reload();
+                        $(".Headline-register").hide()
+                        $(".AcitivitPopupCode").show();
+                        $("#PopupCloseCode").click(function () {
+                            $(".AcitivitPopupCode").hide();
+                            location.reload()
+                        })
+                        // $(".userbtn").hide();
+                        // $(".signInTop").show();
+                        // $(".TxName").html(data.data.nickname);
                     }else{
                         // console.log(data.info);
                         layer.msg(data.info);
@@ -468,8 +474,14 @@
                 success:function(data){
                     console.log(data);
                     if(data.code==1){
+                        $(".Headline-register").hide()
+                        $(".AcitivitPopupCode").show();
+                        $("#PopupCloseCode").click(function () {
+                            $(".AcitivitPopupCode").hide();
+                            location.reload()
+                        })
                         layer.msg('登录成功');
-                        location.reload()
+                        // location.reload()
                     }else{
                         // console.log(data.info);
                         layer.msg(data.info);
