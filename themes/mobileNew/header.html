@@ -165,14 +165,14 @@
             <div class="Login-successful">
                 <ul>
                     <li onclick='window.location.href="/Home/User/myPage"'>个人主页</li>
-                    <li id="Log-out">退出登陆</li>
+                    <li id="Log-out">退出登录</li>
                 </ul>
             </div>
             <!--{else /}-->
             <!--未登录-->
             <div class="userbtn">
                 <div class="registerbtn">注册</div>
-                <div class="signInbtn">登陆</div>
+                <div class="signInbtn">登录</div>
             </div>
             <!--{/if}-->
 
@@ -214,7 +214,7 @@
     layui.use('layer', function(){  //layer弹框
         var layer = layui.layer;
     });
-  /*退出登陆*/
+  /*退出登录*/
     $("#Log-out").click(function () {
         $.ajax({
             type:"post",
