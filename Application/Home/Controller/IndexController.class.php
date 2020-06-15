@@ -1,6 +1,8 @@
 <?php
 namespace Home\Controller;
 use Home\Controller\SiteController;
+
+
 /**
  * 站点首页
  */
@@ -34,7 +36,7 @@ class IndexController extends SiteController {
 
     //首页
     public function index(){
-        
+
         $class_id = I('request.class_id','6');
         
         $where['A.status'] = 2;
@@ -47,16 +49,16 @@ class IndexController extends SiteController {
         foreach($newsList as $key=>$val){
             $newsList[$key]['description'] = html_out($val['description']);
         }
-        $number = count($newsList);
-        for($i=0;$i<$number-1;$i++){   //新闻列表根据浏览量 降序排列
-            for($j=0;$j<$number-$i-1;$j++){
-                if($newsList[$j]['views']<$newsList[$j+1]['views']){
-                    $temp = $newsList[$j];
-                    $newsList[$j] = $newsList[$j+1];
-                    $newsList[$j+1] = $temp;
-                }
-            }
-        }
+//         $number = count($newsList);
+//         for($i=0;$i<$number-1;$i++){   //新闻列表根据浏览量 降序排列
+//             for($j=0;$j<$number-$i-1;$j++){
+//                 if($newsList[$j]['views']<$newsList[$j+1]['views']){
+//                     $temp = $newsList[$j];
+//                     $newsList[$j] = $newsList[$j+1];
+//                     $newsList[$j+1] = $temp;
+//                 }
+//             }
+//         }
         
         //轮播列表
         $bannerList = M('banner')->where(['state'=>1])->order('sequence desc')->select();
@@ -133,7 +135,7 @@ class IndexController extends SiteController {
         if($type == 1){ //文章类型
             $contentMod = D('Article/ContentArticle');
             
-            M('content')->where(['content_id'=>$content_id])->setInc('views',rand(5,10)); //浏览自增
+            M('content')->where(['content_id'=>$content_id])->setInc('views',rand(1,3)); //浏览自增
             $contentInfo = $contentMod->getInfo($content_id);
             $contentInfo['content'] = html_out($contentInfo['content']);
         }
@@ -141,7 +143,7 @@ class IndexController extends SiteController {
             $contentMod = D('Article/Video');
             
             
-            M('video')->where(['id'=>$content_id])->setInc('views',rand(5,10)); //浏览自增
+            M('video')->where(['id'=>$content_id])->setInc('views',rand(1,3)); //浏览自增
             $contentInfo = $contentMod->getInfo($content_id);
         }
 

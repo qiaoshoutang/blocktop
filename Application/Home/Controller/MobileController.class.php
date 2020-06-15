@@ -21,9 +21,8 @@ class MobileController extends SiteController {
         $class_id = I('request.class_id','6');
         
         $where['A.status'] = 2;
-        if($class_id != 'all'){
-            $where['A.class_id'] = $class_id;
-        }
+        $where['A.class_id'] = $class_id;
+       
         //热门新闻
         $newsList =D('Article/ContentArticle')
         ->loadList($where,'content_id,title,description,image,time,views,author,author_id,look,U.nickname as author_name','0,10','is_top desc,time desc,sequence desc');
@@ -31,16 +30,16 @@ class MobileController extends SiteController {
         foreach($newsList as $key=>$val){
             $newsList[$key]['description'] = html_out($val['description']);
         }
-        $number = count($newsList);
-        for($i=0;$i<$number-1;$i++){   //新闻列表根据浏览量 降序排列
-            for($j=0;$j<$number-$i-1;$j++){
-                if($newsList[$j]['views']<$newsList[$j+1]['views']){
-                    $temp = $newsList[$j];
-                    $newsList[$j] = $newsList[$j+1];
-                    $newsList[$j+1] = $temp;
-                }
-            }
-        }
+//         $number = count($newsList);
+//         for($i=0;$i<$number-1;$i++){   //新闻列表根据浏览量 降序排列
+//             for($j=0;$j<$number-$i-1;$j++){
+//                 if($newsList[$j]['views']<$newsList[$j+1]['views']){
+//                     $temp = $newsList[$j];
+//                     $newsList[$j] = $newsList[$j+1];
+//                     $newsList[$j+1] = $temp;
+//                 }
+//             }
+//         }
         
         //轮播列表
         $bannerList = M('banner')->where(['state'=>1])->order('sequence desc')->select();

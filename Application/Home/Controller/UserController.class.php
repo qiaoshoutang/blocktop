@@ -7,6 +7,8 @@ use Home\Controller\SiteController;
 use AlibabaCloud\Client\AlibabaCloud;
 use AlibabaCloud\Client\Exception\ClientException;
 use AlibabaCloud\Client\Exception\ServerException;
+use Think\Log;
+
 /**
  * 站点首页
  */
@@ -46,6 +48,24 @@ class UserController extends SiteController {
        }
 
        $sdata['nickname'] = htmlspecialchars($data['nickname']);
+       $is_exist = $userMod->where(['nickname'=>$sdata['nickname']])->field('id')->find();
+//        dd($is_exist);
+       if(($is_exist)&&($is_exist['id']!=$sdata['id'])){ //昵称存在  且不是本人
+           $rdata['code'] = 2;
+           $rdata['info'] = '该昵称已存在，换一个吧~';
+           $this->ajaxReturn($rdata);
+       }
+       $data_old = $userMod->where(['id'=>$user_info['user_id']])->field(['nickname','change_time'])->find();
+//        dd($data_old);
+       if($data_old != $sdata['nickname']){
+           if((time()-$data_old['change_time'])<(86400*30)){ //距离上次修改时间小于一个月
+               $rdata['code'] = 2;
+               $rdata['info'] = '修改失败！每个月只能修改一次昵称。';
+               $this->ajaxReturn($rdata);
+           }
+           $sdata['change_time'] = time();
+       }
+//        dd($data_old);
        $res = $userMod->save($sdata);
        if($res === false){
            $rdata['code'] = 2;
@@ -259,6 +279,8 @@ class UserController extends SiteController {
             $rdata['info'] = '验证码发送成功！';
 //             $rdata['data'] = $code;
         }else{
+            log::write($resultArr,'ALERT','',C('LOG_PATH').'sms_err.log');
+
             $rdata['code'] = 2;
             $rdata['info'] = '接口调用错误，请联系技术人员';
         }
