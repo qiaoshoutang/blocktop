@@ -1,7 +1,7 @@
 <link rel="stylesheet" href="css/jigsaw.css">
 <script src="js/jquery.js"></script>
 <script src="js/layui/layui.all.js"></script>
-
+<meta content="telephone=no" name="format-detection">
 <style>
 
 </style>
@@ -249,7 +249,7 @@
             </li>
         </ul>
         <!--{if condition="$loginInfo"}-->
-        <!--登陆时状态-->
+        <!--登录时状态-->
         <div class="when-landing when-landing-Ac">
             <div class="when-landing-Img">
                 <img src="{$loginInfo['portrait']}" alt="" style="border-radius: 50%">
@@ -261,16 +261,16 @@
                 <ul>
                     <li onclick='window.location.href="/Home/User/myPage"' >我的主页</li>
                     <li id="Switch-users">切换账户</li>
-                    <li id="Log-out">退出登陆</li>
+                    <li id="Log-out">退出登录</li>
                 </ul>
 
             </div>
         </div>
         <!--{else /}-->
-        <!--未登陆时状态-->
+        <!--未登录时状态-->
         <div class="userbtn">
             <div class="register">注册</div>
-            <div class="Sign-in">登陆</div>
+            <div class="Sign-in">登录</div>
         </div>
         <!--{/if}-->
     </div>
@@ -717,7 +717,7 @@ $('.search-s').click(function(){
             }
         });
     });
-  /*退出登陆*/
+  /*退出登录*/
     $("#Log-out").click(function () {
         $.ajax({
             type:"post",

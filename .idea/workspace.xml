@@ -3,10 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="61e532fc-5bde-49c0-8b0f-0778b7705177" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/themes/default/myPage.html" beforeDir="false" afterPath="$PROJECT_DIR$/themes/default/myPage.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/themes/mobileNew/css/common.css" beforeDir="false" afterPath="$PROJECT_DIR$/themes/mobileNew/css/common.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/themes/mobileNew/header.html" beforeDir="false" afterPath="$PROJECT_DIR$/themes/mobileNew/header.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/themes/mobileNew/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/themes/mobileNew/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/default/css/NewsDynamicContent.css" beforeDir="false" afterPath="$PROJECT_DIR$/themes/default/css/NewsDynamicContent.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/default/footer.html" beforeDir="false" afterPath="$PROJECT_DIR$/themes/default/footer.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/default/newsContent.html" beforeDir="false" afterPath="$PROJECT_DIR$/themes/default/newsContent.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -152,7 +151,9 @@
       <workItem from="1591683180686" duration="395000" />
       <workItem from="1591683595961" duration="15937000" />
       <workItem from="1591838147177" duration="13949000" />
-      <workItem from="1591923853574" duration="13736000" />
+      <workItem from="1591923853574" duration="17045000" />
+      <workItem from="1592184002991" duration="58000" />
+      <workItem from="1592184810391" duration="4665000" />
     </task>
     <servers />
   </component>
@@ -176,10 +177,10 @@
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
     <state width="498" height="446" key="SwitcherDM/0.0.1920.1040/1920.0.1920.1080@1920.0.1920.1080" timestamp="1591782629356" />
-    <state x="2562" y="326" key="git4idea.merge.GitPullDialog" timestamp="1591932289316">
+    <state x="2562" y="326" key="git4idea.merge.GitPullDialog" timestamp="1592186420471">
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
-    <state x="2562" y="326" key="git4idea.merge.GitPullDialog/0.0.1920.1040/1920.0.1920.1080@1920.0.1920.1080" timestamp="1591932289316" />
+    <state x="2562" y="326" key="git4idea.merge.GitPullDialog/0.0.1920.1040/1920.0.1920.1080@1920.0.1920.1080" timestamp="1592186420471" />
     <state x="2732" y="437" key="git4idea.ui.GitStashDialog" timestamp="1591861161198">
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>

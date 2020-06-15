@@ -75,6 +75,12 @@
     height: 175px;
     position: relative;
 }
+.hot_Img_TT_Div{
+    width: 100%;
+    height: 175px;
+    position: relative;
+    overflow: hidden;
+}
 .hot_Hover_A{
     position: absolute;
     width: 100%;
