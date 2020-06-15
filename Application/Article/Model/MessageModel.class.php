@@ -19,7 +19,9 @@ class MessageModel extends Model {
                         ->order($order)
                         ->limit($limit)
                         ->select();
-
+        foreach($pageList as $key=>$val){
+            $pageList[$key]['content'] = html_out($val['content']);
+        }
         return $pageList;
 
     }

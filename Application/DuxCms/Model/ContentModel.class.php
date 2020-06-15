@@ -24,7 +24,7 @@ class ContentModel extends Model {
     protected $_validate = array(
         //全部验证
 //         array('title','1,255', '标题只能为1~250个字符', 1 , 'length'),
-        array('class_id','not_empty', '请选择栏目', 1 ,'function'),
+//         array('class_id','not_empty', '请选择栏目', 1 ,'function'),
         //编辑验证
         array('content_id','not_empty', '内容ID获取不正确', 1 ,'function',2),
     );

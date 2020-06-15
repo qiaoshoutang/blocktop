@@ -63,9 +63,10 @@ class AdminContentController extends AdminController {
         //查询数据
         $contentMod=D('ContentArticle');
         $count = $contentMod->countList($where);
-//         dd($count);
+
         $limit = $this->getPageLimit($count,20);
-        $list = $contentMod->loadList($where,'',$limit);
+        $list = $contentMod->loadList($where,'A.*',$limit);
+
 //         dump($contentMod->_sql());
 //         dump($list);
 //         exit;

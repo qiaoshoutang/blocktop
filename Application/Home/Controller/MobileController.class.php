@@ -18,10 +18,12 @@ class MobileController extends SiteController {
     
     //首页
     public function index(){
-        $class_id = I('request.class_id','6');
+        $class_id = I('request.class_id','all');
         
         $where['A.status'] = 2;
-        $where['A.class_id'] = $class_id;
+        if($class_id != 'all'){
+            $where['A.class_id'] = $class_id;
+        }
        
         //热门新闻
         $newsList =D('Article/ContentArticle')
