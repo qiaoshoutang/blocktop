@@ -20,9 +20,9 @@ class SiteController extends BaseController {
      */
     protected function initialize(){
         //设置手机版参数
-        if(MOBILE){
-            C('TPL_NAME' , C('MOBILE_TPL'));
-        }
+//         if(MOBILE){
+//             C('TPL_NAME' , C('MOBILE_TPL'));
+//         }
         
         $isLogin = $this->isLogin();
         if($isLogin){

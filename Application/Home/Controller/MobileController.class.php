@@ -11,13 +11,19 @@ class MobileController extends SiteController {
     public function __construct() {
         parent::__construct ();
         header("Content-Type:text/html; charset=utf-8");
-        C('TPL_NAME','mobileNew');
+        
         $cateList = M('navi_category')->where(['state'=>1])->select();
         $this->assign('cateList',$cateList);
+
+        $tiket = A('Home/Wechat')->set_signature();
+//         dd($tiket);
+
+        C('TPL_NAME','mobileNew');
     }
     
     //首页
     public function index(){
+//         dd( C('TPL_NAME'));
         $class_id = I('request.class_id','all');
         
         $where['A.status'] = 2;
