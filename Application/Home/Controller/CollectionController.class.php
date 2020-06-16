@@ -102,7 +102,7 @@ class CollectionController extends SiteController {
 	    $listInfo=$this->curl_get_contents($href);
 	    
 	    $listInfo = json_decode($listInfo,true);
-	            dd($listInfo);
+// 	            dd($listInfo);
         if(!$listInfo){
             echo '接口数据返回错误';
             return;
@@ -119,11 +119,16 @@ class CollectionController extends SiteController {
             if($info){
                 continue;
             }
+            $is_pass = $this->jinse_author($article['author']);
 
+            if($is_pass){
+                $status = 2;
+            }else{
+                $status = 1;
+            }
             $_POST = array('class_id'=>5,'title'=>$article['title'],'description'=>$article['summary'],'content'=>$article['content'],
                      'author'=>$article['author'],'image'=>$article['thumbnail'],'time'=>$article['published_time'],'unique_num'=>$article['id'],
-                'views'=>rand(60,120),'look'=>rand(5,20),'status'=>2,'source'=>1);
-            
+                'views'=>rand(60,120),'look'=>rand(5,20),'status'=>$status,'source'=>1);
             
             $content_id=D('Article/ContentArticle')->saveData('add');
             echo '采集文章成功--'.$article['id'].'<br>';
@@ -135,6 +140,13 @@ class CollectionController extends SiteController {
             echo '没有待采集的最新文章';
         }
 	    
+	}
+	public function jinse_author($author){
+	    $authorArr = ['TokenInsight','BlockVC','区块链大本营','互链脉搏','金色财经 meio','链闻 ChainNews','蓝狐笔记','区块科技研究与监管','区块链学院','蜂巢财经News','加密谷Live','区块记',
+	                  '头等仓区块链研究院','Odaily','巴比特资讯','张姨杨姨','区块链服务网络BSN','核财经','人民创投区块链','币姥爷','区块掘金者','炊事团团长','加密谷Live','白话区块链','沈浩然',
+	                  '链内参','女侠区块链','数动派','硅谷密探','数字货币趋势狂人','链塔智库'];
+	    $is_exist = in_array($author,$authorArr);
+	    return $is_exist;
 	}
 	
 	//语音

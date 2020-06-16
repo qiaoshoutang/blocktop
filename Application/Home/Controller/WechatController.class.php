@@ -33,6 +33,7 @@ class WechatController extends SiteController {
         $this->assign('timestamp',$signArr['timestamp']);
         $this->assign('nonceStr',$signArr['noncestr']);
         $this->assign('signature',$signature);
+        $this->assign('url',$signArr['url']);
         return true;
         
     }
@@ -45,7 +46,8 @@ class WechatController extends SiteController {
         $url = "https://api.weixin.qq.com/cgi-bin/ticket/getticket?access_token=".$access_token."&type=jsapi";
         
         $res = $this->curl_get_contents($url);
-        $resArr = json_decode($res);
+        $resArr = json_decode($res,true);
+//         dd($resArr);
         if($resArr['errmsg'] == 'ok'){
             S('ticket_'.C('APPID'),$resArr['ticket'],7000);
             return $resArr['ticket'];

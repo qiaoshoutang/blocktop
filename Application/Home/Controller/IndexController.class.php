@@ -179,7 +179,7 @@ class IndexController extends SiteController {
         $map['state'] = 2;
         $messageMod = D('Article/Message');
         $messageList = $messageMod->loadList($map,3);
-        
+        dd($contentInfo);
         //推荐导航
         $naviList = D('Admin/Navi')->loadList(['recom'=>1],'0,5');
         
