@@ -187,18 +187,18 @@ wx.ready(function () {      //需在用户可能点击分享按钮前就先调�
   })
 });
 
-//    if($.cookie('ActivitDna')==1){
-//        $(".AcitivitPopup").hide()
-//    }else {
-//        setTimeout(function () {
-//            $(".AcitivitPopup").show()
-//        },500)
-//    }
+   if($.cookie('ActivitDna')==1){
+       $(".AcitivitPopup").hide()
+   }else {
+       setTimeout(function () {
+           $(".AcitivitPopup").show()
+       },500)
+   }
 
 
     $(".PopupbtnClose").click(function () {
        $(".AcitivitPopup").hide();
-       // setCookie('ActivitDna',1,3600);
+       setCookie('ActivitDna',1,3600);
     })
 
 
