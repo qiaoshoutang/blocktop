@@ -21,9 +21,28 @@ class MenuService{
                     )
                 )
             ),
+		    'Wechat' => array(
+		        'name' => '采集管理',
+		        'order' => 10,
+		        'menu' => array(
+		            array(
+		                'name' => '公众号列表',
+		                'url' => U('Admin/Wechat/index'),
+		                'order' => 1
+		            ),
+		            array(
+		                'name' => '添加公众号',
+		                'url' =>  U('Admin/Wechat/add'),
+		                'order' => 3
+		            )
+		        )
+		    ),
 
-	        'Content' => array(
 
+		    'Content' => array(
+		        'name' => '内容管理',
+		        'icon' => 'home',
+		        'order' => 20,
 	            'menu' => array(
 	                array(
 	                    'name' => '新闻列表',
@@ -59,7 +78,7 @@ class MenuService{
 	        ),
 	        'Users' => array(
 	            'name' => '用户管理',
-	            'order' => 3,
+	            'order' => 30,
 	            'menu' => array(
 	                array(
 	                    'name' => '用户列表',
@@ -75,8 +94,8 @@ class MenuService{
 	        ),
 	    
 		    'Activity' => array(
-		        'name' => '活动',
-		        'order' => 4,
+		        'name' => '活动管理',
+		        'order' => 40,
 		        'menu' => array(
 		            array(
 		                'name' => '活动列表',
@@ -93,7 +112,7 @@ class MenuService{
 
 		    'Council' => array(
 		        'name' => '蚂蚁导航',
-		        'order' => 10,
+		        'order' => 50,
 		        'menu' => array(
 		            array(
 		                'name' => '导航列表',
@@ -110,7 +129,7 @@ class MenuService{
 		    
 		    'Banner' => array(
 		        'name' => '轮播管理',
-		        'order' => 12,
+		        'order' => 60,
 		        'menu' => array(
 		            array(
 		                'name' => '轮播列表',
@@ -126,7 +145,7 @@ class MenuService{
 		    ),
 		    'Column' => array(
 		        'name' => '专栏管理',
-		        'order' => 14,
+		        'order' => 70,
 		        'menu' => array(
 		            array(
 		                'name' => '专栏列表',
@@ -144,7 +163,7 @@ class MenuService{
             'system' => array(
                 'name' => '系统',
                 'icon' => 'bars',
-                'order' => 16,
+                'order' => 80,
                 'menu' => array(
                     array(
                         'name' => '系统设置',

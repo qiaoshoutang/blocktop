@@ -1,0 +1,45 @@
+<h3>用户列表</h3>
+<admin:panel>
+	<admin:tabletool filter="false" url="/Admin/Wechat/index" keyword="{$pageMaps.keyword}">
+	</admin:tabletool>
+
+	<admin:table id="table" show="编号|30,名称,添加时间,最新采集时间,状态|70,操作|100">
+		<foreach name="list" item="vo">
+			<tr>
+				<td>{$vo.id}</td>
+				<td>{$vo.name}</td>
+				<td>{$vo.time|date="Y-m-d H:i:s",###}</td>
+				<td>{$vo.last_time|date="Y-m-d H:i:s",###}</td>
+				<td>
+					<if condition="$vo['status'] eq 1">
+						<span class="u-badge u-badge-success">开启</span>
+						<elseif condition="$vo['status'] eq 2" />
+						<span class="u-badge u-badge-danger">关闭</span>
+						<else />
+						<span style="color: red;">未定义</span>
+					</if>
+				</td>
+				<td>
+					<a class="u-btn u-btn-primary  u-btn-small" href="{:U('edit',array('id'=>$vo['id']))}">修改</a>			
+					<a class="u-btn u-btn-danger  u-btn-small del" href="javascript:;" data="{$vo.id}">删除</a>
+				</td>
+			</tr>
+		</foreach>
+	</admin:table>
+</admin:panel>
+<script type="text/javascript" charset="utf-8">
+	Do.ready('base', function() {
+
+		//表格处理
+		$('#table').duxTable({
+			actionUrl: "{:U('batchAction')}",
+			deleteUrl: "{:U('del')}",
+			actionParameter: function() {
+				return {
+					'class_id': $('#selectAction').next('#class_id').val()
+				};
+			}
+		});
+	});
+
+</script>

@@ -211,7 +211,7 @@ class SiteController extends BaseController {
     		}
     	}
     }
-    	public function siteBuildHtml($htmlfile='',$htmlpath='',$templateFile=''){
+    public function siteBuildHtml($htmlfile='',$htmlpath='',$templateFile=''){
 		C('TAGLIB_PRE_LOAD','Dux');
         C('TAGLIB_BEGIN','<!--{');
         C('TAGLIB_END','}-->');

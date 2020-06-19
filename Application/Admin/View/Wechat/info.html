@@ -1,0 +1,36 @@
+<h3>{$name}用户</h3>
+<admin:form url="{:U()}" method="post" id="form">
+	<div class="g-main-body">
+		<div class=" m-form-horizontal">
+			<admin:panel>
+
+				<admin:formrow title="公众号" tip="公众号名称">
+					<admin:text name="name" value="{$info.name}" len="20" />
+				</admin:formrow>
+				<admin:formrow title="最新采集时间" tip="上一次采集的时间">
+			       <admin:text name="last_time" value="{$info.last_time|date='Y/m/d H:i',###}" len="250"  class="u-time" />
+			    </admin:formrow>
+				
+				<admin:formrow title="采集状态" tip="">
+					<admin:radio name="status" item="开启,关闭" value="1,2" checked="$info['status']" isset="1" />
+				</admin:formrow>
+		
+				<admin:formsubmit/>
+			</admin:panel>
+		</div>
+	</div>
+	<admin:text name="id" type="hidden" value="{$info.id}" />
+</admin:form>
+
+<script>
+	Do.ready('base', function() {
+		//表单综合处理
+		$('#form').duxFormPage();
+		$('#class_id').change();
+	});
+
+function setEmpty(para){
+  $(para).prev().val(0);
+}
+
+</script>
