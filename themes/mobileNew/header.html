@@ -333,12 +333,12 @@
                     if(data.code==1){
                         layer.msg('注册成功');
                         $(".Headline-register").hide()
-                        $(".AcitivitPopupCode").show();
-                        $("#PopupCloseCode").click(function () {
-                            $(".AcitivitPopupCode").hide();
-                            location.reload()
-                        })
-
+                        // $(".AcitivitPopupCode").show();
+                        // $("#PopupCloseCode").click(function () {
+                        //     $(".AcitivitPopupCode").hide();
+                        //     location.reload()
+                        // })
+                        location.reload()
                     }else{
                         // console.log(data.info);
                         layer.msg(data.info);
@@ -377,13 +377,13 @@
                     if(data.code==1){
                         // console.log(data.data.nickname)
                         layer.msg('登录成功');
-                        // location.reload();
                         $(".Headline-register").hide()
-                        $(".AcitivitPopupCode").show();
-                        $("#PopupCloseCode").click(function () {
-                            $(".AcitivitPopupCode").hide();
-                            location.reload()
-                        })
+                        // $(".AcitivitPopupCode").show();
+                        // $("#PopupCloseCode").click(function () {
+                        //     $(".AcitivitPopupCode").hide();
+                        //     location.reload()
+                        // })
+                        location.reload()
                         // $(".userbtn").hide();
                         // $(".signInTop").show();
                         // $(".TxName").html(data.data.nickname);
@@ -475,13 +475,13 @@
                     console.log(data);
                     if(data.code==1){
                         $(".Headline-register").hide()
-                        $(".AcitivitPopupCode").show();
-                        $("#PopupCloseCode").click(function () {
-                            $(".AcitivitPopupCode").hide();
-                            location.reload()
-                        })
+                        // $(".AcitivitPopupCode").show();
+                        // $("#PopupCloseCode").click(function () {
+                        //     $(".AcitivitPopupCode").hide();
+                        //     location.reload()
+                        // })
                         layer.msg('登录成功');
-                        // location.reload()
+                        location.reload()
                     }else{
                         // console.log(data.info);
                         layer.msg(data.info);
