@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <title>区块链头条</title>
-    <meta name="keywords" content=""/>
-    <meta name="description" content=""/>
+    <meta name="keywords" content="区块链头条,区块链,区块链资讯,区块链是什么,区块链社区,区块链媒体。"/>
+    <meta name="description" content="区块链头条是新锐区块链媒体品牌，专注于区块链产业的服务平台。区块链头条集快讯、时讯、深研、行情、课堂等为一体。7*24 小时行业资讯追踪报道，秉承“客观、真实、深度”的理念，服务全球区块链领域生态。"/>
     <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
     <script>
         (function (doc, win) {
@@ -40,8 +40,8 @@
             <div class="PopupbtnClose" id="PopupbtnClose">
                  ×
             </div>
-            <div class="AcitivitPopupImg">
-                <img src="images/zcAciticty.png" alt="">
+            <div class="AcitivitPopupImg">0
+                <img src="images/zcAcitictyNew.png" alt="">
             </div>
         </div>
 
@@ -187,18 +187,18 @@ wx.ready(function () {      //需在用户可能点击分享按钮前就先调�
   })
 });
 
-//    if($.cookie('ActivitDna')==1){
-//        $(".AcitivitPopup").hide()
-//    }else {
-//        setTimeout(function () {
-//            $(".AcitivitPopup").show()
-//        },500)
-//    }
+   if($.cookie('ActivitDna')==1){
+       $(".AcitivitPopup").hide()
+   }else {
+       setTimeout(function () {
+           $(".AcitivitPopup").show()
+       },500)
+   }
 
 
     $(".PopupbtnClose").click(function () {
        $(".AcitivitPopup").hide();
-       // setCookie('ActivitDna',1,3600);
+       setCookie('ActivitDna',1,3600);
     })
 
 
