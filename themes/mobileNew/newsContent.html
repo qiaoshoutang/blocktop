@@ -28,6 +28,7 @@
     <link rel="stylesheet" href="css/common.css">
     <link rel="stylesheet" href="css/contentDetail.css">
 
+
 </head>
 <body>
     <div class="box">
@@ -113,3 +114,32 @@ wx.ready(function () {      //需在用户可能点击分享按钮前就先调�
 </script>
 </body>
 </html>
+
+<script>
+
+    function showImage(){
+        //获取Class为main-nav里面的所有img
+        //var imglist=$(".main-nav img");
+        //或使用下面这句，获取ID为divArticle里面的所有img
+        var imglist=$(".ContentText img");
+        for(var i=0;i<imglist.length;i++){
+            if(imglist[i].getAttribute('src')){
+                if(imglist[i].getAttribute('src').indexOf("mmbiz.qpic.cn")!=-1){
+                    imglist[i].setAttribute('src','http://img01.store.sogou.com/net/a/04/link?appid=100520029&url='+imglist[i].getAttribute('src'));
+                }
+            }
+        }
+    }
+    showImage();
+
+
+    // $(".ContentText img").each(function(){
+    //     var img = $(this);
+    //     var img_src = img.attr("src");
+    //     console.log(img_src);
+    //     var frameid = 'frameimg' + Math.random();
+    //     window.img = '<img id="img" src=\'' + img_src + '?' + Math.random() + '\' /><script><' + '/script>';
+    //     img.parent().append('<iframe id="' + frameid + '" src="javascript:parent.img;" frameBorder="0" scrolling="no" width="100%"></iframe>');
+    //     img.remove();
+    // });
+</script>
