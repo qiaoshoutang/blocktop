@@ -25,6 +25,12 @@ class IndexController extends AdminController {
                 )
             );
 	}
+	public function test(){
+
+	    dump($_SERVER);
+	    exit;
+	        dd($_SERVER['REQUEST_SCHEME']);
+	}
 	/**
      * 首页
      */

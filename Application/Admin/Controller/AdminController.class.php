@@ -9,7 +9,12 @@ class AdminController extends BaseController {
     public function __construct()
     {
         parent::__construct();
-       
+//         if($_SERVER['HTTPS'] == 'on'){
+//             $web_public = 'https://'.$_SERVER['HTTP_HOST'].'/Public';
+//         }else{
+//             $web_public = 'http://'.$_SERVER['HTTP_HOST'].'/Public';
+//         }
+//         $this->assign('web_public',$web_public);
     }
 
     /**

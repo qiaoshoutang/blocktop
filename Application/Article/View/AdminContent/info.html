@@ -68,7 +68,10 @@
           <a class="u-btn u-btn-primary"  onclick='setEmpty(this)'>清除</a> 
         </admin:formrow>
         <admin:formrow title="浏览量" tip="">
-          <admin:text name="views" value="{$info.views}" len="50"  width="full" />
+          <admin:text name="views" value="{$info.views}" len="50" />
+        </admin:formrow>
+        <admin:formrow title="点赞量" tip="">
+          <admin:text name="look" value="{$info.look}" len="50" />
         </admin:formrow>
         <admin:formrow title="缩略图" tip=""  >
           <admin:text name="image" type="text" value="{$info.image}" len="250" width="medium" />
