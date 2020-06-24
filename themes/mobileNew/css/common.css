@@ -446,7 +446,7 @@ ul li{
 .slideBox .hd{
     position: absolute;
     line-height:.3rem;
-    bottom:.6rem;
+    bottom:.4rem;
     width: 100%;
     text-align: center;
     z-index:1;
