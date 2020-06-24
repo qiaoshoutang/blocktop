@@ -105,7 +105,7 @@ class IndexController extends SiteController {
         $messageList = $messageMod->loadList($where,$limit);
 
         //热门新闻
-        $newsList = M('content')->where(['status'=>2])->field('content_id,title,image,time')->limit('0,5')->order('sequence desc,content_id desc')->select();
+        $newsList = M('content')->where(['status'=>2])->field('content_id,title,image,time')->limit('0,5')->order('is_top desc,time desc')->select();
         
         if($newsList){
             $newsFirst = array_shift($newsList);
@@ -179,7 +179,7 @@ class IndexController extends SiteController {
         $map['state'] = 2;
         $messageMod = D('Article/Message');
         $messageList = $messageMod->loadList($map,3);
-        dd($contentInfo);
+//         dd($contentInfo);
         //推荐导航
         $naviList = D('Admin/Navi')->loadList(['recom'=>1],'0,5');
         

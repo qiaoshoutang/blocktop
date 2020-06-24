@@ -28,7 +28,7 @@ class WechatCollectionController extends Controller {
             echo '没有公众号需要采集';
             exit;
         }
-        $wechatMod->where(['id'=>$wechatInfo['id']])->setField('last_time',time());
+//         $wechatMod->where(['id'=>$wechatInfo['id']])->setField('last_time',time());
         
         $resArr = $this->wechat_collection_one($wechatInfo['name'],$wechatInfo['id'],true);
         
@@ -55,7 +55,6 @@ class WechatCollectionController extends Controller {
             $res=S("wechat_name_".$wechat_name);
         }
         
-
         if($res){ 
             $resArr= json_decode($res,true);
         }else{  //无缓存  则请求接口
@@ -63,15 +62,15 @@ class WechatCollectionController extends Controller {
             
             $res = $this->curl_get_contents($url);
 
-            $resArr= json_decode($res,true);
 
+            $resArr= json_decode($res,true);
             if($resArr['error_code'] == 0){ //返回正常
                 S("wechat_name_".$wechat_name,$res,86400);
             }else{
                 return ['code'=>2,'info'=>'文章列表接口返回错误'];
             }
         }
-        
+
         $articleInfo = $resArr['data']['articles'][0];
 
         if(empty($articleInfo)){
@@ -105,7 +104,7 @@ class WechatCollectionController extends Controller {
             }
         }
 
-
+//         dd($resArr);
         $where = array();
         $where['source'] = 4;
         $where['author'] = $resArr['data']['weixin_nickname'];
@@ -122,7 +121,7 @@ class WechatCollectionController extends Controller {
         $_POST['author'] = $resArr['data']['weixin_nickname'];
         $_POST['title'] =$resArr['data']['article_title'];
         $_POST['content']  = $content;
-        $_POST['time']  =$resArr['data']['article_publish_time'];
+        $_POST['time']  =date('Y-m-d H:i:s',$resArr['data']['article_publish_time']);
         $_POST['status'] =2;
         $_POST['views'] =rand(5,20);
         $_POST['sequence'] =0;
