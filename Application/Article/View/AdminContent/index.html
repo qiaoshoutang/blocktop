@@ -12,7 +12,7 @@
     </select>
   </admin:tabletool>
 
-  <admin:table id="table" show="选择|30,编号|30,标题|80,分类|30,专栏|30,状态|100,更新时间|170,操作|130">
+  <admin:table id="table" show="选择|30,编号|30,标题|150,作者|50,分类|30,专栏|30,状态|100,更新时间|170,操作|130">
     <foreach name="list" item="vo">
       <tr>
         <td>
@@ -20,6 +20,7 @@
         </td>
         <td>{$vo.content_id}</td>
         <td>{$vo.title}</td>
+        <td>{$vo.author_name}</td>
         <td>{$vo.class_name}</td>
         <td>{$vo.column_name}</td>
         <td>
