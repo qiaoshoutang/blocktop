@@ -65,7 +65,12 @@ class AdminContentController extends AdminController {
         $count = $contentMod->countList($where);
 
         $limit = $this->getPageLimit($count,20);
-        $list = $contentMod->loadList($where,'A.*',$limit);
+        $list = $contentMod->loadList($where,'A.*,U.nickname as author_name',$limit);
+        foreach($list as $key=>$val){
+            if(empty($val['author_name'])){
+                $list[$key]['author_name'] = $val['author'];
+            }
+        }
 
 //         dump($contentMod->_sql());
 //         dump($list);
@@ -79,7 +84,7 @@ class AdminContentController extends AdminController {
         $this->assign('page',$this->getPageShow($pageMaps));
         $this->assign('statusArr',array(1=>'草稿',2=>'通过',3=>'不通过'));
         $this->assign('pageMaps',$pageMaps);
-
+//         dd($list);
         $this->adminDisplay();
     }
 

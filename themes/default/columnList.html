@@ -24,16 +24,13 @@
             <!--{if condition="empty($newsList)"}-->
             <ul>
                 <div>
-                    <span>该专栏下暂时没有文章</span>
-
-
-
+                    <span>没有设置专栏</span>
                 </div>
             </ul>
             <!--{else /}-->
             <ul>
-                <!--{foreach name='newsList' item='vo' }-->
-                <li >
+                <!--{foreach name='columnList' item='vo' }-->
+                <li onclick='window.location.href="/Columns/{$vo.id}"'>
                     <div class="NewType-Detail">
                         <div class="NewTypeImg" >
                             <div class="NewTypeImgBox" onclick='window.location.href="/Columns/{$vo.id}"'>

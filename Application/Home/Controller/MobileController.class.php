@@ -251,7 +251,14 @@ class MobileController extends SiteController {
             $contentInfo = $contentMod->getInfo($content_id);
         }
         
-        
+        if($contentInfo['image']&&(strpos($contentInfo['image'],'http') === false)){  //检验缩略图 是否全路径
+            if($_SERVER['HTTPS']=='on'){
+                $contentInfo['image'] = 'https://'.$_SERVER['HTTP_HOST'].$contentInfo['image'];
+            }else{
+                $contentInfo['image'] = 'http://'.$_SERVER['HTTP_HOST'].$contentInfo['image'];
+            }
+        }
+//         dd($contentInfo);
         //如果用户登录  添加浏览历史
         $home_user = session('home_user');
         
@@ -269,25 +276,6 @@ class MobileController extends SiteController {
             }
         }
         
-        //热门新闻
-        $newsList = M('content')->where(['status'=>2])->field('content_id,title,description,image,time,views')->limit(6)
-                                ->order('sequence desc,content_id desc')->select();
-        if($newsList){
-            $newsFirst = array_shift($newsList);
-            $this->assign('newsFirst',$newsFirst);
-        }
-        
-        //快讯
-        $map['state'] = 2;
-        $messageMod = D('Article/Message');
-        $messageList = $messageMod->loadList($map,3);
-//         dd($contentInfo);
-        //推荐导航
-        $naviList = D('Admin/Navi')->loadList(['recom'=>1],'0,5');
-        
-        $this->assign('newsList',$newsList);
-        $this->assign('messageList',$messageList);
-        $this->assign('naviList',$naviList);
         $this->assign('contentInfo',$contentInfo);
         $this->assign('type',$type);
         $this -> siteDisplay('newsContent');

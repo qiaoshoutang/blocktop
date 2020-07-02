@@ -11,6 +11,31 @@ use AlibabaCloud\Client\Exception\ServerException;
 class AjaxController extends SiteController {
     
     /*
+     * 加载更多专栏
+     */
+    public function get_column(){
+         
+        $page_num = I('post.page_num',0,'intval');
+        
+        $columnMod = D('Admin/Column');
+        $columnList  = $columnMod->where(['state'=>1])->order('order_id desc')->page($page_num,10)->select();
+
+        if(empty($columnList)){
+            $rdata['code'] = 2;
+            $rdata['info'] = '已经没有更多了';
+            $this->ajaxReturn($rdata);
+        }
+        
+        $this->assign('columnList',$columnList);
+        
+        $data = $this->fetch('column_list');
+        
+        $rdata['code'] = 1;
+        $rdata['info'] = '获取信息成功';
+        $rdata['data'] = $data;
+        $this->ajaxReturn($rdata);
+    }
+    /*
      * 快讯操作
      */
     public function opera_news(){

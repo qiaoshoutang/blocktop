@@ -20,6 +20,7 @@ return array(
 	    'activitContent/:content_id' =>'Home/Index/activityContent',
 	    'search/[:keyword]' =>'Home/Index/searchPage',
 	    'Apply' =>'Home/Index/apply',
+	    'ColumnsList' =>'Home/Index/columnList',
 	    'Columns/[:id]' =>'Home/Index/column',
 	    'Author/[:author_id]' =>'Home/User/authorPage',
 	    

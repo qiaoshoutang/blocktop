@@ -21,14 +21,14 @@ class WechatCollectionController extends Controller {
         $wechatMod = M('wechat');
         
         $where['status'] = 1;
-        $where['last_time'] = ['lt',time()-86400]; //每个公众号  每天采集一次
+        $where['last_time'] = ['lt',time()-43200]; //每个公众号  半天采集一次
         $wechatInfo = $wechatMod->where($where)->order('last_time asc,id asc')->find();
 
         if(empty($wechatInfo)){
             echo '没有公众号需要采集';
             exit;
         }
-//         $wechatMod->where(['id'=>$wechatInfo['id']])->setField('last_time',time());
+        $wechatMod->where(['id'=>$wechatInfo['id']])->setField('last_time',time());
         
         $resArr = $this->wechat_collection_one($wechatInfo['name'],$wechatInfo['id'],true);
         
@@ -65,7 +65,7 @@ class WechatCollectionController extends Controller {
 
             $resArr= json_decode($res,true);
             if($resArr['error_code'] == 0){ //返回正常
-                S("wechat_name_".$wechat_name,$res,86400);
+                S("wechat_name_".$wechat_name,$res,3600);
             }else{
                 return ['code'=>2,'info'=>'文章列表接口返回错误'];
             }
@@ -98,7 +98,7 @@ class WechatCollectionController extends Controller {
 
             $resArr = json_decode($res,true);
             if($resArr['error_code'] == 0){
-                S('wechat_article_'.$wechat_name,$res,86400);
+                S('wechat_article_'.$wechat_name,$res,3600);
             }else{
                 return ['code'=>2,'info'=>'文章详情接口返回错误'];
             }

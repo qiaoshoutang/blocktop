@@ -120,10 +120,7 @@ class IndexController extends SiteController {
         $this->assign('naviList',$naviList);
         $this -> siteDisplay('shortmessage');
     }
-    //新闻动态
-    public function news(){
-     
-    }
+
     
     //新闻详情
     public function newsContent(){
@@ -352,6 +349,23 @@ class IndexController extends SiteController {
         $this ->siteDisplay('apply');
     }
 
+    //专栏列表
+    public function columnList(){
+        
+        $columnMod = D('Admin/Column');
+        $columnList  = $columnMod->where(['state'=>1])->order('order_id desc')->limit(10)->select();
+        
+        //快讯
+        $map['state'] = 2;
+        $messageMod = D('Article/Message');
+        
+        $messageList = $messageMod->loadList($map,'0,3');
+        
+        
+        $this->assign('messageList',$messageList);
+        $this->assign('columnList',$columnList);
+        $this ->siteDisplay('columnList');
+    }
     //专栏
     public function column(){
         $id = I('request.id','');
