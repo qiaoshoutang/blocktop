@@ -35,7 +35,7 @@
     margin-right:-15px;
 }
 .troContent{
-    width: 85%;
+    width: 960px;
     /*float: left;*/
     font-size: 16px;
     text-align: left;
@@ -45,7 +45,6 @@
     color: #696969;
     letter-spacing: 1.3px;
 }
-
 
 .columnType{
     width: 1200px;

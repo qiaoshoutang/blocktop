@@ -26,13 +26,16 @@
         })(document, window);
     </script>
     <link rel="stylesheet" href="css/common.css">
-    <link rel="stylesheet" href="css/message.css">
+    <link rel="stylesheet" href="css/message.css?1243">
 </head>
+<style>
+
+</style>
 <body>
 <div class="box">
     <!--#include file="header.html"-->
     <!--弹窗-->
-    <div id="alert">
+    <div id="alert" >
         <button class="dj" style="cursor: pointer">×</button>
         <div class="nr">
             <div class="center_b" id="view"  style="width: 650px; overflow: hidden">
@@ -40,10 +43,10 @@
                     <div class="neirong_img">
                         <img src="images/topred_Kx.png" alt="" style="width: 100%"  >
                     </div>
-                    <div class="data_week" style="padding: 5px 30px;">
-                        <p class="data_week_p" style="color: #666;padding-top:8%;width: 95%;margin: 0 auto">
-                            <img src="/themes/default/image/yuan01.png" alt="" width="30px" height="30px">
-                            <span class="data_week_span" style="position: relative;top: 0px;font-size: 1.5em;color:#606060 ;left: 8px;font-weight: 100">星期二 2018-05-31 14:20</span>
+                    <div class="data_week" style="">
+                        <p class="data_week_p" style="">
+                            <img src="/themes/default/image/yuan01.png" alt="" width="5.5%" class="">
+                            <span class="data_week_span" style="">星期二 2018-05-31 14:20</span>
                         </p>
                         <div id="wrapper">
                             <p class="wrapper_h1" style="margin-top: 2%;color: #D40507">
@@ -83,7 +86,7 @@
                         {$vo.time|format_time='H:i'}
                     </div>
                     <div class="timeH" style="display:none">
-                        {$vo.time|format_time='H:i'}
+                        {$vo.time|format_time='Y-m-d H:i'}
                     </div>
                     <div class="maintitle">
                         <h1>{$vo.title}</h1>
@@ -140,7 +143,7 @@ wx.config({
 });
 
 wx.ready(function () {   //需在用户可能点击分享按钮前就先调用
-  wx.updateAppMessageShareData({ 
+  wx.updateAppMessageShareData({
     title: '区块链头条_7*24小时区块链行业快讯', // 分享标题
     desc: '区块链头条快讯提供区块链行业快讯、数字货币快讯、比特币快讯、以太坊快讯......', // 分享描述
     link: 'http://blocktop.cn/message_m',  // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
@@ -149,9 +152,9 @@ wx.ready(function () {   //需在用户可能点击分享按钮前就先调用
       // 设置成功
     }
   })
-}); 
+});
 wx.ready(function () {      //需在用户可能点击分享按钮前就先调用
-  wx.updateTimelineShareData({ 
+  wx.updateTimelineShareData({
     title: '区块链头条_7*24小时区块链行业快讯', // 分享标题
     link: 'http://blocktop.cn/message_m', // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
     imgUrl: 'http://blocktop.cn/Public/img/share_logo.jpg', // 分享图标

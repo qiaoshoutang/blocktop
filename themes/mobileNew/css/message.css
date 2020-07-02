@@ -152,14 +152,33 @@
     position: relative;
 }
 .data_week_p img{
-    position: absolute;
-    bottom: 0.03rem;
+   position: absolute;
+   bottom: 0.15rem;
+}
+.data_week_p{
+    color: #666;
+    padding-top:8%;
+    width: 95%;
+    margin: 0 auto;
+    height: .8rem;
+    line-height: .8rem;
+    position: relative;
 }
 .data_week_span{
-    margin-top: .2rem;
-    margin-left: .5rem;
-    font-size: .25rem;
-
+    display: inline-block;
+    position: absolute;
+    /*height: .8rem;*/
+    /*line-height: .8rem;*/
+    font-size: 1.5em;
+    color:#606060 ;
+    /*left: 8px;*/
+    font-weight: 100;
+    bottom: 0rem;
+}
+.data_week_span{
+    /*margin-top: .2rem;*/
+    margin-left: .7rem;
+    /*font-size: .25rem;*/
 }
 .data_weekContent{
     padding-top: .4rem;
