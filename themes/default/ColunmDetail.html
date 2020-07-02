@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>区块链头条_区块链头条官网</title>
+    <meta name="baidu-site-verification" content="" />
+    <meta name="keywords" content="区块链头条,区块链头条官网,区块链,区块链技术,比特币,区块链媒体"/>
+    <meta name="description" content=""/>
+    <link rel="stylesheet" href="css/common.css?1254">
+    <link rel="stylesheet" href="css/NewsInformation.css">
+    <link rel="stylesheet" href="css/specialColumn.css">
+</head>
+
+<body>
+<div class="box">
+    <!--导航栏-->
+    <!--#include file="header.html"-->
+    <!--主要内容-->
+
+
+    <div class="columnType" >
+        <!--主要内容文章-->
+        <div class="columnType-content">
+            <!--{if condition="empty($newsList)"}-->
+            <ul>
+                <div>
+                    <span>该专栏下暂时没有文章</span>
+                </div>
+            </ul>
+            <!--{else /}-->
+            <ul>
+                <!--{foreach name='newsList' item='vo' }-->
+                <li >
+                    <div class="NewType-Detail">
+                        <div class="NewTypeImg" >
+                            <div class="NewTypeImgBox" onclick='window.location.href="/Columns/{$vo.id}"'>
+                                <!--<img src="{$vo.image}" alt="">-->
+                                <img src="{$vo.icon}" alt="">
+                            </div>
+                        </div>
+                        <div class="NewTypeText">
+                            <div class="TextTitle" onclick='window.location.href="/Columns/{$vo.id}"'>
+                                {$vo.name}
+                            </div>
+                            <div class="TextContent">
+                                {$vo.desc}
+                            </div>
+                            <div class="TextSource">
+                                <!--{if condition="$vo['author_id']"}-->
+                                <span onclick='window.location.href="/Author/{$vo.author_id}"'>{$vo.author_name}</span>
+                                <!--{else /}-->
+                                <span>{$vo.author}</span>
+                                <!--{/if}-->
+                                <span>{$vo.time}</span>
+                                <span class="Guankan"><img src="images/guankan.png" alt="" width="15px">{$vo.views}</span>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <!--{/foreach}-->
+            </ul>
+            <!--{/if}-->
+            <div class="LookMore">
+                <span id='news_more'>查看更多</span>
+            </div>
+        </div>
+
+        <!--专栏排行-->
+        <div class="Column-ranking">
+            <div class="Column-ranking-picture">
+                <img src="images/columbTitle.png" alt="">
+            </div>
+            <ul class="Column-ranking-ul">
+                <!--{foreach name='columnList' item='vo' }-->
+                <li onclick='window.location.href="/Columns/{$vo.id}"'>
+                    <div class="numRank">{$key+1}</div>
+                    <div class="rankImg">
+                        <img src="{$vo.icon}" alt="">
+                    </div>
+                    <div class="rankContent">
+                        <p class="rankContentA">{$vo.name}</p>
+                        <p class="rankContentB">{$vo.desc}</p>
+                    </div>
+                </li>
+                <!--{/foreach}-->
+            </ul>
+        </div>
+
+        <div style="clear: both"></div>
+
+    </div>
+    <!--底部-->
+    <!--#include file="footer.html"-->
+
+
+
+</div>
+</body>
+<script src="js/commom.js"></script>
+</html>
+<script>
+    var page_num=2;
+    var column_id = '{$info.id}';
+
+    $('#news_more').click(function(){
+        $.ajax({
+            type:"post",
+            url:"/Home/Ajax/get_news",
+            data:{column_id:column_id,page_num:page_num},
+            dataType:'json',
+            success:function(rdata){
+                console.log(rdata);
+                if(rdata.code==1){
+                    $('.columnType-content ul').append(rdata.data);
+                    page_num++;
+                }else{
+                    $('#news_more').html(rdata.info);
+                }
+            }
+        });
+    });
+</script>
