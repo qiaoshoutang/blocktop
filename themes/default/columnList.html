@@ -10,18 +10,23 @@
     <link rel="stylesheet" href="css/NewsInformation.css">
     <link rel="stylesheet" href="css/specialColumn.css">
 </head>
-
+<style>
+    body{
+        background: white!important;
+    }
+    .Hot-News{
+        margin-top:30px;
+    }
+</style>
 <body>
 <div class="box">
     <!--导航栏-->
     <!--#include file="header.html"-->
     <!--主要内容-->
-
-
     <div class="columnType" >
         <!--主要内容文章-->
         <div class="columnType-content">
-            <!--{if condition="empty($newsList)"}-->
+            <!--{if condition="empty($columnList)"}-->
             <ul>
                 <div>
                     <span>没有设置专栏</span>
@@ -33,13 +38,13 @@
                 <li onclick='window.location.href="/Columns/{$vo.id}"'>
                     <div class="NewType-Detail">
                         <div class="NewTypeImg" >
-                            <div class="NewTypeImgBox" onclick='window.location.href="/Columns/{$vo.id}"'>
+                            <div class="NewTypeImgBox" >
                                 <!--<img src="{$vo.image}" alt="">-->
                                 <img src="{$vo.icon}" alt="">
                             </div>
                         </div>
                         <div class="NewTypeText">
-                            <div class="TextTitle" onclick='window.location.href="/Columns/{$vo.id}"'>
+                            <div class="TextTitle">
                                 {$vo.name}
                             </div>
                             <div class="TextContent">
@@ -56,25 +61,45 @@
             </div>
         </div>
 
-        <!--专栏排行-->
-        <div class="Column-ranking">
-            <div class="Column-ranking-picture">
-                <img src="images/columbTitle.png" alt="">
+        <!--热门快讯-->
+        <div class="Hot-News">
+            <div class="Hot-News-content">
+                <!--标题-->
+                <div class="HotNewsTitle">
+                    <span>热门快讯</span>
+                    <span class="HotMore">
+                    <a href='/message'>
+                        更多 <img src="images/MoreMoreM.png" alt="" width="5%">
+                    </a>
+                </span>
+                </div>
+
+                <!--内容-->
+                <div class="HotNewsText">
+                    <!--{foreach name='messageList' item='vo' }-->
+                    <div class="HotNewsText-box">
+                        <div class="TuoY">
+                            <img src="images/TuoY.png" alt="" width="100%">
+                        </div>
+                        <div class="HotNewsText-Article">
+                            <div class="HotNewsTime">
+                                {$vo.time|format_time='H:i'}
+                            </div>
+                            <div class="HotNewsA-T">
+                                {$vo.title}
+                            </div>
+                            <div class="HotNewsTTT">
+                                {$vo.content}
+                            </div>
+                            <div class="Favorable-BadProfit">
+                                <span ><img src="images/up.png" alt=""> 利好<span class="count-f">{$vo.up}</span></span>
+                                <span class="Fb-span"><img src="images/down.png" alt=""> 利空<span class="count-f">{$vo.down}</span></span>
+                            </div>
+                        </div>
+                    </div>
+                    <!--{/foreach}-->
+                </div>
             </div>
-            <ul class="Column-ranking-ul">
-                <!--{foreach name='columnList' item='vo' }-->
-                <li onclick='window.location.href="/Columns/{$vo.id}"'>
-                    <div class="numRank">{$key+1}</div>
-                    <div class="rankImg">
-                        <img src="{$vo.icon}" alt="">
-                    </div>
-                    <div class="rankContent">
-                        <p class="rankContentA">{$vo.name}</p>
-                        <p class="rankContentB">{$vo.desc}</p>
-                    </div>
-                </li>
-                <!--{/foreach}-->
-            </ul>
         </div>
 
         <div style="clear: both"></div>
@@ -91,13 +116,12 @@
 </html>
 <script>
     var page_num=2;
-    var column_id = '{$info.id}';
 
     $('#news_more').click(function(){
         $.ajax({
             type:"post",
-            url:"/Home/Ajax/get_news",
-            data:{column_id:column_id,page_num:page_num},
+            url:"/Home/Ajax/get_column",
+            data:{page_num:page_num},
             dataType:'json',
             success:function(rdata){
                 console.log(rdata);
