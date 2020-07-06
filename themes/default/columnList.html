@@ -12,11 +12,45 @@
 </head>
 <style>
     body{
-        background: white!important;
+
     }
     .Hot-News{
         margin-top:30px;
     }
+    .columnType-content{
+        width: 100%!important;
+    }
+    .columnType-content ul{
+        width: 85%;
+        margin: 10px auto 0 auto;
+        display: block;
+    }
+    .columnType-content ul li{
+        border-bottom: 1px solid #ececec;
+        transition: all .3s ease-in-out;
+        -webkit-transition: all .3s ease-in-out;
+        -moz-transition: all .3s ease-in-out;
+    }
+    .columnType-content ul li:hover{
+        box-shadow:5px 5px 5px 5px #f0f0f0 ;
+    }
+    .NewTypeImgBox{
+        margin-top: 28px;
+        width: 250px;
+        height: 153px;
+        border-radius: 4px;
+    }
+    .columnType{
+        background: white!important;
+    }
+    .NewTypeText{
+        width: 70%;
+    }
+    .LookMore{
+        width: 85%;
+        margin:30px auto 0 auto;
+    }
+
 </style>
 <body>
 <div class="box">
@@ -24,6 +58,7 @@
     <!--#include file="header.html"-->
     <!--主要内容-->
     <div class="columnType" >
+
         <!--主要内容文章-->
         <div class="columnType-content">
             <!--{if condition="empty($columnList)"}-->
@@ -50,6 +85,10 @@
                             <div class="TextContent">
                                 {$vo.desc}
                             </div>
+                            <div class="TextSource" style="color: #8c98a3">
+                                <span >{$vo.time|format_time='Y/m/d H:i'}</span>
+                                <span style="float: right">已阅<span style="font-size: 13px">5000</span>次</span>
+                            </div>
                         </div>
                     </div>
                 </li>
@@ -62,7 +101,7 @@
         </div>
 
         <!--热门快讯-->
-        <div class="Hot-News">
+        <div class="Hot-News" style="display: none">
             <div class="Hot-News-content">
                 <!--标题-->
                 <div class="HotNewsTitle">
