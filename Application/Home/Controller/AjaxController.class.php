@@ -36,7 +36,7 @@ class AjaxController extends SiteController {
         $this->ajaxReturn($rdata);
     }
     /*
-     * 快讯操作
+     * 新闻操作
      */
     public function opera_news(){
         $id = I('request.id',0,'intval');
@@ -159,7 +159,7 @@ class AjaxController extends SiteController {
         $limit = (($page_num-1)*10).','.($page_num*10);
         //新闻列表
         $newsList =D('Article/ContentArticle')
-                ->loadList($where,'content_id,title,description,image,time,views,author,author_id,look,U.nickname as author_name',$limit,'A.time desc,A.sequence desc');
+                ->loadList($where,'content_id,title,description,image,time,views,author,author_id,look,U.nickname as author_name',$limit,'A.is_top desc,A.time desc,A.sequence desc');
 
         if(empty($newsList)){
             $rdata['code'] = 2;
