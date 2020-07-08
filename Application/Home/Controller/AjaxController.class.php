@@ -18,12 +18,27 @@ class AjaxController extends SiteController {
         $page_num = I('post.page_num',0,'intval');
         
         $columnMod = D('Admin/Column');
+        $articleMod = D('content');
+        $videoMod  = D('video');
         $columnList  = $columnMod->where(['state'=>1])->order('order_id desc')->page($page_num,10)->select();
 
         if(empty($columnList)){
             $rdata['code'] = 2;
             $rdata['info'] = '已经没有更多了';
             $this->ajaxReturn($rdata);
+        }
+        foreach($columnList as $key=>$val){
+            
+            if($val['type'] == 1){
+                $total_views = $articleMod->where(['column_id'=>$val['id']])->sum('views');
+                $last_time = $articleMod->where(['column_id'=>$val['id']])->max('time');
+            }elseif($val['type'] == 2){
+                $total_views = $videoMod->where(['column_id'=>$val['id']])->sum('views');
+                $last_time   = $videoMod->where(['column_id'=>$val['id']])->max('time');
+            }
+            
+            $columnList[$key]['total_views'] = $total_views;
+            $columnList[$key]['last_time'] = $last_time;
         }
         
         $this->assign('columnList',$columnList);

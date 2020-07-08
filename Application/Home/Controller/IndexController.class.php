@@ -353,16 +353,29 @@ class IndexController extends SiteController {
     public function columnList(){
         
         $columnMod = D('Admin/Column');
+        $articleMod = D('content');
+        $videoMod = D('video');
         $columnList  = $columnMod->where(['state'=>1])->order('order_id desc')->limit(10)->select();
+        foreach($columnList as $key=>$val){
+
+            if($val['type'] == 1){
+                $total_views = $articleMod->where(['column_id'=>$val['id']])->sum('views');
+                $last_time = $articleMod->where(['column_id'=>$val['id']])->max('time');
+            }elseif($val['type'] == 2){
+                $total_views = $videoMod->where(['column_id'=>$val['id']])->sum('views');
+                $last_time   = $videoMod->where(['column_id'=>$val['id']])->max('time');
+            }
+            
+            $columnList[$key]['total_views'] = $total_views;
+            $columnList[$key]['last_time'] = $last_time;
+        }
         
         //快讯
-        $map['state'] = 2;
-        $messageMod = D('Article/Message');
+//         $map['state'] = 2;
+//         $messageMod = D('Article/Message');        
+//         $messageList = $messageMod->loadList($map,'0,3');
+//         $this->assign('messageList',$messageList);
         
-        $messageList = $messageMod->loadList($map,'0,3');
-        
-        
-        $this->assign('messageList',$messageList);
         $this->assign('columnList',$columnList);
         $this ->siteDisplay('columnList');
     }
