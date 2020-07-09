@@ -372,7 +372,7 @@ class IndexController extends SiteController {
         
         //快讯
 //         $map['state'] = 2;
-//         $messageMod = D('Article/Message');        
+//         $messageMod = D('Article/Message');
 //         $messageList = $messageMod->loadList($map,'0,3');
 //         $this->assign('messageList',$messageList);
         

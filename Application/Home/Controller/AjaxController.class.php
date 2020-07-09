@@ -42,7 +42,6 @@ class AjaxController extends SiteController {
         }
         
         $this->assign('columnList',$columnList);
-        
         $data = $this->fetch('column_list');
         
         $rdata['code'] = 1;
