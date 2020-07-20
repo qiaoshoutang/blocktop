@@ -25,18 +25,18 @@ a{
 
 }
 .nav-header{
-    height: 180px;
+    height: 165px;
     width: 1200px;
     margin: 0 auto;
     /*background:rosybrown;*/
     position: relative;
     z-index: 999;
-    border-bottom:1px #f0f0f0 solid ;
+    /*border-bottom:1px #f0f0f0 solid ;*/
 
 }
 .nav-My-logo{
     width: 100%;
-    height: 123px;
+    height: 108px;
 }
 .My-logo{
     width:90%;
@@ -73,7 +73,7 @@ a{
     height: 100%;
     line-height: 100px;
     float: left;
-    font-size:18px ;
+    font-size:17px ;
     cursor: pointer;
     color: black;
     position: relative;
@@ -152,12 +152,12 @@ a{
 }
 .search{
     width: 240px;
-    height: 35px;
+    height: 38px;
     border-radius: 2px;
     background:#999999 ;
     position: absolute;
     right: 0;
-    top: 44px;
+    top: 38px;
     color: #d2d2d2;
 }
 .search-i{
@@ -231,7 +231,7 @@ a{
     color: rgba(215,215,215,1);
     line-height: 50px;
     font-weight: 200;
-    font-size: 16px!important;
+    font-size: 14px!important;
 }
 .text-bottom ul li{
     float: left;
