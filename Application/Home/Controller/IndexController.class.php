@@ -113,7 +113,7 @@ class IndexController extends SiteController {
         }
 
         //推荐导航
-        $naviList = D('Admin/Navi')->loadList(['recom'=>1],'0,5');
+        $naviList = D('Admin/Navi')->loadList(['recom'=>1],'0,6');
         
         $this->assign('newsList',$newsList);
         $this->assign('messageList',$messageList);
@@ -140,7 +140,6 @@ class IndexController extends SiteController {
         }
         if($type == 2){ //视频类型
             $contentMod = D('Article/Video');
-            
             
             M('video')->where(['id'=>$content_id])->setInc('views',rand(1,3)); //浏览自增
             $contentInfo = $contentMod->getInfo($content_id);
@@ -178,7 +177,7 @@ class IndexController extends SiteController {
         $messageList = $messageMod->loadList($map,3);
 //         dd($contentInfo);
         //推荐导航
-        $naviList = D('Admin/Navi')->loadList(['recom'=>1],'0,5');
+        $naviList = D('Admin/Navi')->loadList(['recom'=>1],'0,6');
         
         $this->assign('newsList',$newsList);
         $this->assign('messageList',$messageList);
