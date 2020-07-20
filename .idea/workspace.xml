@@ -3,9 +3,13 @@
   <component name="ChangeListManager">
     <list default="true" id="61e532fc-5bde-49c0-8b0f-0778b7705177" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/themes/default/columnList.html" beforeDir="false" afterPath="$PROJECT_DIR$/themes/default/columnList.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/default/css/NewsInformation.css" beforeDir="false" afterPath="$PROJECT_DIR$/themes/default/css/NewsInformation.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/default/css/common.css" beforeDir="false" afterPath="$PROJECT_DIR$/themes/default/css/common.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/default/css/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/themes/default/css/index.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/default/footer.html" beforeDir="false" afterPath="$PROJECT_DIR$/themes/default/footer.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/themes/default/header.html" beforeDir="false" afterPath="$PROJECT_DIR$/themes/default/header.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/themes/mobileNew/columnList.html" beforeDir="false" afterPath="$PROJECT_DIR$/themes/mobileNew/columnList.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/default/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/themes/default/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/default/newsContent.html" beforeDir="false" afterPath="$PROJECT_DIR$/themes/default/newsContent.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -85,7 +89,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1591608151516" />
-    <property name="last_opened_file_path" value="E:/finwisesummit-com-master" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../ant2/themes" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -164,7 +168,14 @@
       <workItem from="1592961406750" duration="4304000" />
       <workItem from="1593306574245" duration="1698000" />
       <workItem from="1594093716135" duration="706000" />
-      <workItem from="1594171104454" duration="2284000" />
+      <workItem from="1594171104454" duration="4367000" />
+      <workItem from="1594192188056" duration="1652000" />
+      <workItem from="1594262229956" duration="2433000" />
+      <workItem from="1594344822798" duration="4625000" />
+      <workItem from="1594602628648" duration="1816000" />
+      <workItem from="1594690399430" duration="1206000" />
+      <workItem from="1594863079960" duration="616000" />
+      <workItem from="1595212252450" duration="2357000" />
     </task>
     <servers />
   </component>
@@ -172,14 +183,14 @@
     <option name="version" value="2" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="122" y="110" key="DiffContextDialog" timestamp="1591863734865">
+    <state x="122" y="110" key="DiffContextDialog" timestamp="1594176808235">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="122" y="110" key="DiffContextDialog/0.0.1920.1040/1920.0.1920.1080@1920.0.1920.1080" timestamp="1591863734865" />
-    <state x="2660" y="294" key="FileChooserDialogImpl" timestamp="1594175635030">
+    <state x="122" y="110" key="DiffContextDialog/0.0.1920.1040/1920.0.1920.1080@1920.0.1920.1080" timestamp="1594176808235" />
+    <state x="2660" y="294" key="FileChooserDialogImpl" timestamp="1594882891768">
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
-    <state x="2660" y="294" key="FileChooserDialogImpl/0.0.1920.1040/1920.0.1920.1080@1920.0.1920.1080" timestamp="1594175635030" />
+    <state x="2660" y="294" key="FileChooserDialogImpl/0.0.1920.1040/1920.0.1920.1080@1920.0.1920.1080" timestamp="1594882891768" />
     <state x="2765" y="405" width="240" height="272" key="MultipleFileMergeDialog" timestamp="1591752923995">
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
@@ -196,10 +207,10 @@
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
     <state x="2674" y="452" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040/1920.0.1920.1080@1920.0.1920.1080" timestamp="1592379502984" />
-    <state x="2562" y="326" key="git4idea.merge.GitPullDialog" timestamp="1592976903827">
+    <state x="2562" y="326" key="git4idea.merge.GitPullDialog" timestamp="1594176833142">
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
-    <state x="2562" y="326" key="git4idea.merge.GitPullDialog/0.0.1920.1040/1920.0.1920.1080@1920.0.1920.1080" timestamp="1592976903827" />
+    <state x="2562" y="326" key="git4idea.merge.GitPullDialog/0.0.1920.1040/1920.0.1920.1080@1920.0.1920.1080" timestamp="1594176833142" />
     <state x="2732" y="437" key="git4idea.ui.GitStashDialog" timestamp="1591861161198">
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>

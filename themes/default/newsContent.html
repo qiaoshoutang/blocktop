@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>新闻动态内容</title>
+    <title>{$contentInfo.title}</title>
     <meta name="baidu-site-verification" content="9h2o7ScMIE" />
     <meta name="keywords" content=""/>
     <meta name="description" content="{$contentInfo.keyword}"/>
@@ -204,4 +204,9 @@ $(".HotNewsText-box").click(function () {
     if(ContentHeigint<=780){
         $(".DtNew").hide()
     }
+
+    $("a").attr("rel","nofollow")
+
+
+
 </script>
