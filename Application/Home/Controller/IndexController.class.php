@@ -145,6 +145,7 @@ class IndexController extends SiteController {
             $contentInfo = $contentMod->getInfo($content_id);
         }
 
+//         dd($contentInfo);
         
         //如果用户登录  添加浏览历史
         $home_user = session('home_user');
