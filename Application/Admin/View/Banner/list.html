@@ -4,12 +4,13 @@
   <admin:select name="state" item="==状态==,显示,不显示" value="0,1,2" selected="$pageMaps['state']" /> 
 </admin:tabletool>
 
-<admin:table id="table" show="选择,权重|50,标题,PC端地址,移动端地址,图片,状态,时间,操作|130">
+<admin:table id="table" show="选择,位置,权重|50,标题,PC端地址,移动端地址,图片,状态,时间,操作|130">
   <foreach name="list" item="vo">
     <tr>
   	  <td>
   		  <input type="checkbox" name="id[]" value="{$vo.id}" />
   	  </td>
+      <td>{$positionArr[$vo['position']]}</td>
       <td>{$vo.sequence}</td>
       <td>{$vo.title}</td>
       <td>{$vo.target}</td>

@@ -2,6 +2,9 @@
 <admin:panel >
   <admin:form url="{:U()}" method="post" id="form"  class="m-form-horizontal" >
     
+    <admin:formrow title="位置" tip="" >
+      <admin:radio name="position"  item="首页,活动列表页" value="1,2" checked="$info['position']" isset="1" />
+    </admin:formrow>
     <admin:formrow title="权重" tip="数值越大越靠前"  >
       <admin:text name="sequence"  value="{$info.sequence}" len="100"   />
     </admin:formrow>

@@ -63,7 +63,7 @@ class IndexController extends SiteController {
 //         }
         
         //轮播列表
-        $bannerList = M('banner')->where(['state'=>1])->order('sequence desc')->select();
+        $bannerList = M('banner')->where(['state'=>1,'position'=>1])->order('sequence desc')->select();
         
         //快讯
         $map['state'] = 2;
@@ -275,6 +275,11 @@ class IndexController extends SiteController {
         $activityMod = D('Admin/Activity');
         
         $acitvityList = $activityMod->loadList($where,9,'order_id desc,id desc');
+        
+        //轮播列表
+        $bannerList = M('banner')->where(['state'=>1,'position'=>2])->order('sequence desc')->select();
+//         dd($bannerList);
+        $this->assign('bannerList',$bannerList);
         $this->assign('state',$state);
         $this->assign('time',$time);
         $this->assign('acitvityList',$acitvityList);

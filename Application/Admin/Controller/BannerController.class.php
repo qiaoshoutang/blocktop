@@ -64,6 +64,7 @@ class BannerController extends AdminController
         
 
         $this->assign('stateArr',array(1=>'显示',2=>'不显示'));
+        $this->assign('positionArr',array(1=>'首页',2=>'活动列表页'));
         $this -> assign('pageMaps',$pageMaps);
         $this->assign('page',$this->getPageShow($pageMaps));
         $this->assign('list',$list);
