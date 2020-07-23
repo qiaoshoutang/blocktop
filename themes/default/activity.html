@@ -38,6 +38,9 @@
         font-weight: 300!important;
         cursor: pointer;
     }
+    .roundabout-in-focus{
+        border: none!important;
+    }
 </style>
 <body>
 <div class="box">
@@ -50,10 +53,8 @@
             <div id="" class="roundabout_box">
                 <ul>
                 	<!--{foreach name='bannerList' item='vo' }-->
-
                     <li><a href="{$vo.target}"><img src="{$vo.path}" alt=""><span class="text"></span></a></li>
                     <!--{/foreach}-->
-
                 </ul>
             </div>
             <div class="clear"></div>

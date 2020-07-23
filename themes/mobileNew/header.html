@@ -303,7 +303,7 @@
         var Verification_Code=$("#reg-FraDiv-frame .Verification-Code-input").val();
         var repassword=$("#reg-FraDiv-frame .againNewPassword").val();
         if(phone_number==''||phone_number=='null'){
-            layer.msg('您的电话不能为空');
+            layer.msg('手机号不能为空');
             return false
         }
         if(!number.test(phone_number)){
@@ -355,7 +355,7 @@
         var type=$("#SignFrame").attr("type");
         console.log(type);
         if(phone_number==''||phone_number=='null'){
-            layer.msg('您的电话不能为空');
+            layer.msg('手机号不能为空');
             return false
         }
         if(!number.test(phone_number)){
@@ -404,7 +404,7 @@
         var Verification_Code=$("#retrieve-password-frame .Verification-Code-input").val();
 
         if(phone_number==''||phone_number=='null'){
-            layer.msg('您的电话不能为空');
+            layer.msg('手机号不能为空');
             return false
         }
         if(!number.test(phone_number)){
@@ -454,7 +454,7 @@
         var Verification_Code=$("#SMSLogin-frame .Verification-Code-input").val();
         var type=$("#SMSLogin-frame").attr("type");
         if(phone_number==''||phone_number=='null'){
-            layer.msg('您的电话不能为空');
+            layer.msg('手机号不能为空');
             return false
         }
         if(!number.test(phone_number)){
