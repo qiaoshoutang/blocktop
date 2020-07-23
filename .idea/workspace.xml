@@ -1,16 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="61e532fc-5bde-49c0-8b0f-0778b7705177" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/themes/default/css/NewsInformation.css" beforeDir="false" afterPath="$PROJECT_DIR$/themes/default/css/NewsInformation.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/themes/default/css/common.css" beforeDir="false" afterPath="$PROJECT_DIR$/themes/default/css/common.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/themes/default/css/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/themes/default/css/index.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/themes/default/footer.html" beforeDir="false" afterPath="$PROJECT_DIR$/themes/default/footer.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/themes/default/header.html" beforeDir="false" afterPath="$PROJECT_DIR$/themes/default/header.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/themes/default/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/themes/default/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/themes/default/newsContent.html" beforeDir="false" afterPath="$PROJECT_DIR$/themes/default/newsContent.html" afterDir="false" />
-    </list>
+    <list default="true" id="61e532fc-5bde-49c0-8b0f-0778b7705177" name="Default Changelist" comment="" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -95,6 +87,18 @@
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
   </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -175,22 +179,45 @@
       <workItem from="1594602628648" duration="1816000" />
       <workItem from="1594690399430" duration="1206000" />
       <workItem from="1594863079960" duration="616000" />
-      <workItem from="1595212252450" duration="2357000" />
+      <workItem from="1595212252450" duration="4068000" />
+      <workItem from="1595293994316" duration="2172000" />
+      <workItem from="1595316038012" duration="643000" />
+      <workItem from="1595317084544" duration="381000" />
+      <workItem from="1595317493309" duration="44000" />
+      <workItem from="1595318556339" duration="716000" />
+      <workItem from="1595319293587" duration="199000" />
+      <workItem from="1595319523784" duration="177000" />
+      <workItem from="1595320005132" duration="2092000" />
+      <workItem from="1595380470627" duration="2961000" />
+      <workItem from="1595467538074" duration="1739000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="2" />
+    <option name="version" value="1" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="WindowStateProjectService">
     <state x="122" y="110" key="DiffContextDialog" timestamp="1594176808235">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="122" y="110" key="DiffContextDialog/0.0.1920.1040/1920.0.1920.1080@1920.0.1920.1080" timestamp="1594176808235" />
-    <state x="2660" y="294" key="FileChooserDialogImpl" timestamp="1594882891768">
+    <state x="2660" y="294" key="FileChooserDialogImpl" timestamp="1595303697204">
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
-    <state x="2660" y="294" key="FileChooserDialogImpl/0.0.1920.1040/1920.0.1920.1080@1920.0.1920.1080" timestamp="1594882891768" />
+    <state x="2660" y="294" key="FileChooserDialogImpl/0.0.1920.1040/1920.0.1920.1080@1920.0.1920.1080" timestamp="1595303697204" />
     <state x="2765" y="405" width="240" height="272" key="MultipleFileMergeDialog" timestamp="1591752923995">
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
@@ -207,10 +234,10 @@
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
     <state x="2674" y="452" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040/1920.0.1920.1080@1920.0.1920.1080" timestamp="1592379502984" />
-    <state x="2562" y="326" key="git4idea.merge.GitPullDialog" timestamp="1594176833142">
+    <state x="2562" y="326" key="git4idea.merge.GitPullDialog" timestamp="1595230114897">
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
-    <state x="2562" y="326" key="git4idea.merge.GitPullDialog/0.0.1920.1040/1920.0.1920.1080@1920.0.1920.1080" timestamp="1594176833142" />
+    <state x="2562" y="326" key="git4idea.merge.GitPullDialog/0.0.1920.1040/1920.0.1920.1080@1920.0.1920.1080" timestamp="1595230114897" />
     <state x="2732" y="437" key="git4idea.ui.GitStashDialog" timestamp="1591861161198">
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
