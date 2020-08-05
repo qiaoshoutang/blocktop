@@ -50,7 +50,7 @@ class MobileController extends SiteController {
 //         }
         
         //轮播列表
-        $bannerList = M('banner')->where(['state'=>1])->order('sequence desc')->select();
+        $bannerList = M('banner')->where(['state'=>1,'position'=>1])->order('sequence desc')->select();
 
         //快讯
         $map['state'] = 2;
