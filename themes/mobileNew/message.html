@@ -29,6 +29,10 @@
     <link rel="stylesheet" href="css/message.css?1243">
 </head>
 <style>
+    .mainText img{
+        max-width: 100%;
+        margin: 0 auto;
+    }
 
 </style>
 <body>
@@ -272,7 +276,8 @@ wx.ready(function () {      //需在用户可能点击分享按钮前就先调�
         $(".wrapper_p span").css('color', '#333');
         $(".data_week_span").html(time_date);
         $("#LGood").html(LGood);
-        $("#Lkong").html(LKong)
+        $("#Lkong").html(LKong);
+        $("#wrapper img").css("max-width","100%");
 
         $('#wrapper').append(content_img);//快讯图片
 
