@@ -278,7 +278,7 @@ class IndexController extends SiteController {
         
         //轮播列表
         $bannerList = M('banner')->where(['state'=>1,'position'=>2])->order('sequence desc')->select();
-//         dd($bannerList);
+
         $this->assign('bannerList',$bannerList);
         $this->assign('state',$state);
         $this->assign('time',$time);

@@ -55,7 +55,6 @@ class BannerController extends AdminController
             $pageMaps['state'] = $state;
         }
         
-
         $bannerMod=D('Admin/Banner');
         
         $count = $bannerMod->countList($where);
@@ -80,8 +79,6 @@ class BannerController extends AdminController
         if(!IS_POST){
 
             $this->assign('name','添加');
-            
-
             $this->adminDisplay('info');
         }else{
             $_POST['time'] = time();
