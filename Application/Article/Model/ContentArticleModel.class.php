@@ -82,7 +82,7 @@ class ContentArticleModel extends Model {
 //         var_dump($data);
 //         exit;
         if(empty($_POST['keyword'])){
-            $_POST['keyword'] ='区块链,区块链头条,区块链头条官网';
+            $_POST['keyword'] ='区块链头条官网,区块链头条,区块链';
         }
 
         //事务总表处理
