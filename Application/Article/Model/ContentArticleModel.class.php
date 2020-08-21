@@ -81,6 +81,9 @@ class ContentArticleModel extends Model {
 //         $data=I('post.');
 //         var_dump($data);
 //         exit;
+        if(empty($_POST['keyword'])){
+            $_POST['keyword'] ='区块链头条官网,区块链头条,区块链';
+        }
 
         //事务总表处理
         $this->startTrans();
