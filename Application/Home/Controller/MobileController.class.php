@@ -72,7 +72,8 @@ class MobileController extends SiteController {
         $this->assign('messageList',$messageList);
         $this->assign('columnList',$columnList);
         $this->assign('naviList',$naviList);
-
+        $this->assign('navi_id',1);
+        
         $this -> siteDisplay('index');
     }
     
@@ -128,6 +129,7 @@ class MobileController extends SiteController {
         }
         
         $this->assign('class_id',$class_id);
+        $this->assign('navi_id',4);
         $this -> siteDisplay('topmap');
     }
     
@@ -155,6 +157,7 @@ class MobileController extends SiteController {
         $this->assign('newsList',$newsList);
         $this->assign('messageList',$messageList);
         $this->assign('naviList',$naviList);
+        $this->assign('navi_id',2);
         $this -> siteDisplay('message');
     }
     
@@ -168,6 +171,7 @@ class MobileController extends SiteController {
         
 
         $this->assign('columnList',$columnList);
+        $this->assign('navi_id',3);
         $this -> siteDisplay('columnList');
 
     }
@@ -217,13 +221,13 @@ class MobileController extends SiteController {
             
             $this->assign('info',$info);
             $this->assign('newsList',$newsList);
+            $this->assign('navi_id',3);
             $this -> siteDisplay('column');
         }
     }
     
     //关于我们
     public function aboutus(){
-        
         $this -> siteDisplay('aboutus');
     }
 
