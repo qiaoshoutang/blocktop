@@ -7,6 +7,6 @@ return array(
 	'SITE_URL' => '',
     'AccessKey'=>'',
     'AccessSecret'=>'',
-    'APPID' =>'wx9155044e062ec8b4',
-    'SECRET'=>'6d6bcba232d126e65db893e0288ee7b6',
+    'APPID' =>'',
+    'SECRET'=>'',
 );
