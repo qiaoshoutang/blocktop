@@ -2,11 +2,61 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="61e532fc-5bde-49c0-8b0f-0778b7705177" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/themes/mobileNew/messageDetial.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/default/antmap.html" beforeDir="false" afterPath="$PROJECT_DIR$/themes/default/antmap.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/default/footer.html" beforeDir="false" afterPath="$PROJECT_DIR$/themes/default/footer.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/themes/default/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/themes/default/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/themes/default/message.html" beforeDir="false" afterPath="$PROJECT_DIR$/themes/default/message.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/themes/mobileNew/message.html" beforeDir="false" afterPath="$PROJECT_DIR$/themes/mobileNew/message.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/mobileNew/css/common.css" beforeDir="false" afterPath="$PROJECT_DIR$/themes/mobileNew/css/common.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/mobileNew/css/contentDetail.css" beforeDir="false" afterPath="$PROJECT_DIR$/themes/mobileNew/css/contentDetail.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/mobileNew/css/message.css" beforeDir="false" afterPath="$PROJECT_DIR$/themes/mobileNew/css/message.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/mobileNew/header.html" beforeDir="false" afterPath="$PROJECT_DIR$/themes/mobileNew/header.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/mobileNew/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/themes/mobileNew/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/mobileNew/newsContent.html" beforeDir="false" afterPath="$PROJECT_DIR$/themes/mobileNew/newsContent.html" afterDir="false" />
     </list>
+    <ignored path="$PROJECT_DIR$/vendor/adbario/php-dot-notation/" />
+    <ignored path="$PROJECT_DIR$/vendor/alibabacloud/client/" />
+    <ignored path="$PROJECT_DIR$/vendor/cboden/ratchet/" />
+    <ignored path="$PROJECT_DIR$/vendor/clagiordano/weblibs-configmanager/" />
+    <ignored path="$PROJECT_DIR$/vendor/composer/" />
+    <ignored path="$PROJECT_DIR$/vendor/danielstjules/stringy/" />
+    <ignored path="$PROJECT_DIR$/vendor/doctrine/instantiator/" />
+    <ignored path="$PROJECT_DIR$/vendor/evenement/evenement/" />
+    <ignored path="$PROJECT_DIR$/vendor/guzzle/guzzle/" />
+    <ignored path="$PROJECT_DIR$/vendor/guzzlehttp/guzzle/" />
+    <ignored path="$PROJECT_DIR$/vendor/guzzlehttp/promises/" />
+    <ignored path="$PROJECT_DIR$/vendor/guzzlehttp/psr7/" />
+    <ignored path="$PROJECT_DIR$/vendor/mtdowling/jmespath.php/" />
+    <ignored path="$PROJECT_DIR$/vendor/phpunit/php-code-coverage/" />
+    <ignored path="$PROJECT_DIR$/vendor/phpunit/php-file-iterator/" />
+    <ignored path="$PROJECT_DIR$/vendor/phpunit/php-text-template/" />
+    <ignored path="$PROJECT_DIR$/vendor/phpunit/php-timer/" />
+    <ignored path="$PROJECT_DIR$/vendor/phpunit/php-token-stream/" />
+    <ignored path="$PROJECT_DIR$/vendor/phpunit/phpunit/" />
+    <ignored path="$PROJECT_DIR$/vendor/phpunit/phpunit-mock-objects/" />
+    <ignored path="$PROJECT_DIR$/vendor/phpunit/phpunit-selenium/" />
+    <ignored path="$PROJECT_DIR$/vendor/psr/http-message/" />
+    <ignored path="$PROJECT_DIR$/vendor/psr/log/" />
+    <ignored path="$PROJECT_DIR$/vendor/ralouphie/getallheaders/" />
+    <ignored path="$PROJECT_DIR$/vendor/react/event-loop/" />
+    <ignored path="$PROJECT_DIR$/vendor/react/promise/" />
+    <ignored path="$PROJECT_DIR$/vendor/react/socket/" />
+    <ignored path="$PROJECT_DIR$/vendor/react/stream/" />
+    <ignored path="$PROJECT_DIR$/vendor/symfony/config/" />
+    <ignored path="$PROJECT_DIR$/vendor/symfony/console/" />
+    <ignored path="$PROJECT_DIR$/vendor/symfony/debug/" />
+    <ignored path="$PROJECT_DIR$/vendor/symfony/event-dispatcher/" />
+    <ignored path="$PROJECT_DIR$/vendor/symfony/filesystem/" />
+    <ignored path="$PROJECT_DIR$/vendor/symfony/http-foundation/" />
+    <ignored path="$PROJECT_DIR$/vendor/symfony/polyfill-ctype/" />
+    <ignored path="$PROJECT_DIR$/vendor/symfony/polyfill-intl-idn/" />
+    <ignored path="$PROJECT_DIR$/vendor/symfony/polyfill-mbstring/" />
+    <ignored path="$PROJECT_DIR$/vendor/symfony/polyfill-php70/" />
+    <ignored path="$PROJECT_DIR$/vendor/symfony/polyfill-php72/" />
+    <ignored path="$PROJECT_DIR$/vendor/symfony/routing/" />
+    <ignored path="$PROJECT_DIR$/vendor/symfony/stopwatch/" />
+    <ignored path="$PROJECT_DIR$/vendor/symfony/yaml/" />
+    <ignored path="$PROJECT_DIR$/bin/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -15,6 +65,40 @@
   </component>
   <component name="ComposerSettings" doNotAsk="true" synchronizationState="SYNCHRONIZE">
     <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/themes/mobileNew/newsContent.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="510">
+              <caret line="17" column="26" lean-forward="true" selection-end-line="137" selection-end-column="9" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/themes/mobileNew/messageDetial.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="360">
+              <caret line="12" column="38" lean-forward="true" selection-start-line="12" selection-start-column="38" selection-end-line="12" selection-end-column="38" />
+              <folding>
+                <element signature="n#style#0;n#span#0;n#span#0;n#div#5;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/themes/mobileNew/message.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="701">
+              <caret line="112" column="31" lean-forward="true" selection-start-line="101" selection-start-column="24" selection-end-line="112" selection-end-column="31" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -25,8 +109,24 @@
       </list>
     </option>
   </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>蚂蚁节点联盟</find>
+      <find>contentTime</find>
+      <find>#fenXImg</find>
+      <find>分享</find>
+    </findStrings>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/themes/default/footer.html" />
+        <option value="$PROJECT_DIR$/themes/mobileNew/messageDetial.html" />
+      </list>
+    </option>
   </component>
   <component name="PhpWorkspaceProjectConfiguration">
     <include_path>
@@ -74,7 +174,44 @@
       <path value="$PROJECT_DIR$/vendor/psr/log" />
     </include_path>
   </component>
+  <component name="ProjectFrameBounds">
+    <option name="x" value="1907" />
+    <option name="y" value="-6" />
+    <option name="width" value="3860" />
+    <option name="height" value="1100" />
+  </component>
   <component name="ProjectId" id="1d4BZnSTbyYfYVmi3CWUNT34CFP" />
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="ant" type="b2602c69:ProjectViewProjectNode" />
+              <item name="blocktop" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ant" type="b2602c69:ProjectViewProjectNode" />
+              <item name="blocktop" type="462c0819:PsiDirectoryNode" />
+              <item name="themes" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ant" type="b2602c69:ProjectViewProjectNode" />
+              <item name="blocktop" type="462c0819:PsiDirectoryNode" />
+              <item name="themes" type="462c0819:PsiDirectoryNode" />
+              <item name="mobileNew" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+    </panes>
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -85,7 +222,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1591608151516" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1600408766940" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
@@ -104,6 +241,7 @@
       </list>
     </option>
   </component>
+  <component name="SpellCheckerSettings" BundledDictionaries="0" Folders="0" CustomDictionaries="0" Dictionaries="0" CorrectionsLimit="5" DefaultDictionary="application-level" UseSingleDictionary="true" />
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -201,9 +339,70 @@
       <workItem from="1596421896521" duration="1888000" />
       <workItem from="1596504423443" duration="1011000" />
       <workItem from="1597051131556" duration="617000" />
-      <workItem from="1597195114865" duration="1816000" />
+      <workItem from="1597195114865" duration="19877000" />
+      <workItem from="1597280614723" duration="1198000" />
+      <workItem from="1597368329608" duration="101000" />
+      <workItem from="1597634475907" duration="14959000" />
+      <workItem from="1597982263889" duration="10242000" />
+      <workItem from="1598237719223" duration="1429000" />
+      <workItem from="1598341991799" duration="1327000" />
+      <workItem from="1598404628306" duration="1208000" />
+      <workItem from="1598490962203" duration="599000" />
+      <workItem from="1598577719454" duration="616000" />
+      <workItem from="1598861099904" duration="1084000" />
+      <workItem from="1598922894946" duration="678000" />
+      <workItem from="1599115857139" duration="3909000" />
+      <workItem from="1599182916917" duration="9217000" />
+      <workItem from="1599441500744" duration="598000" />
+      <workItem from="1599527555237" duration="1198000" />
+      <workItem from="1599705345371" duration="1818000" />
+      <workItem from="1599787544476" duration="1198000" />
+      <workItem from="1600046022724" duration="8559000" />
+      <workItem from="1600132539743" duration="1198000" />
+      <workItem from="1600152975000" duration="549000" />
+      <workItem from="1600153708457" duration="627000" />
+      <workItem from="1600219473348" duration="3287000" />
+      <workItem from="1600307419309" duration="598000" />
+      <workItem from="1600391773814" duration="4024000" />
     </task>
     <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="8536000" />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="1907" y="-6" width="3860" height="1100" extended-state="0" />
+    <editor active="true" />
+    <layout>
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.12868421" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info id="Image Layers" order="2" />
+      <window_info id="Designer" order="3" />
+      <window_info id="UI Designer" order="4" />
+      <window_info id="Capture Tool" order="5" />
+      <window_info id="Favorites" order="6" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Run" order="2" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="8" />
+      <window_info anchor="bottom" id="Database Changes" order="9" />
+      <window_info anchor="bottom" id="Terminal" order="10" />
+      <window_info active="true" anchor="bottom" id="Event Log" order="11" side_tool="true" visible="true" weight="0.32988626" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Palette" order="3" />
+      <window_info anchor="right" id="Theme Preview" order="4" />
+      <window_info anchor="right" id="Maven" order="5" />
+      <window_info anchor="right" id="Capture Analysis" order="6" />
+      <window_info anchor="right" id="Palette&#9;" order="7" />
+      <window_info anchor="right" id="Database" order="8" />
+    </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
@@ -214,22 +413,41 @@
         <entry key="MAIN">
           <value>
             <State>
-              <option name="COLUMN_ORDER" />
+              <option name="RECENTLY_FILTERED_USER_GROUPS">
+                <collection />
+              </option>
+              <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
+                <collection />
+              </option>
             </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="RECENT_FILTERS">
+      <map>
+        <entry key="Branch">
+          <value>
+            <list />
+          </value>
+        </entry>
+        <entry key="User">
+          <value>
+            <list />
           </value>
         </entry>
       </map>
     </option>
   </component>
   <component name="WindowStateProjectService">
-    <state x="122" y="110" key="DiffContextDialog" timestamp="1594176808235">
+    <state x="122" y="110" key="DiffContextDialog" timestamp="1598002528826">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="122" y="110" key="DiffContextDialog/0.0.1920.1040/1920.0.1920.1080@1920.0.1920.1080" timestamp="1594176808235" />
-    <state x="2660" y="294" key="FileChooserDialogImpl" timestamp="1595303697204">
+    <state x="122" y="110" key="DiffContextDialog/0.0.1920.1040/1920.0.1920.1080@1920.0.1920.1080" timestamp="1598002528826" />
+    <state x="2660" y="294" key="FileChooserDialogImpl" timestamp="1598924883010">
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
-    <state x="2660" y="294" key="FileChooserDialogImpl/0.0.1920.1040/1920.0.1920.1080@1920.0.1920.1080" timestamp="1595303697204" />
+    <state x="2660" y="294" key="FileChooserDialogImpl/0.0.1920.1040/1920.0.1920.1080@1920.0.1920.1080" timestamp="1598924883010" />
     <state x="2765" y="405" width="240" height="272" key="MultipleFileMergeDialog" timestamp="1591752923995">
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
@@ -269,5 +487,45 @@
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/themes/default/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="12" column="54" lean-forward="true" selection-start-line="12" selection-start-column="54" selection-end-line="12" selection-end-column="54" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/themes/default/footer.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="405">
+          <caret line="369" column="24" lean-forward="true" selection-start-line="369" selection-start-column="24" selection-end-line="369" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/themes/mobileNew/newsContent.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="510">
+          <caret line="17" column="26" lean-forward="true" selection-end-line="137" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/themes/mobileNew/message.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="701">
+          <caret line="112" column="31" lean-forward="true" selection-start-line="101" selection-start-column="24" selection-end-line="112" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/themes/mobileNew/messageDetial.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="12" column="38" lean-forward="true" selection-start-line="12" selection-start-column="38" selection-end-line="12" selection-end-column="38" />
+          <folding>
+            <element signature="n#style#0;n#span#0;n#span#0;n#div#5;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
   </component>
 </project>

@@ -45,6 +45,7 @@
     max-width: 100%;
 }
 .ContentText{
+    width: 100%;
     font-size: .23rem;
     text-align: justify;
     color: black;

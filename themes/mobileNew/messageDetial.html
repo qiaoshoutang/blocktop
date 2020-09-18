@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>新闻动态内容</title>
+    <meta name="keywords" content="{$contentInfo.keyword}"/>
+    <meta name="description" content="{$contentInfo.description}"/>
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <script>
+        (function (doc, win) {
+            var docEl = doc.documentElement,
+                resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+                recalc = function () {
+                    var clientWidth = docEl.clientWidth;
+                    if (!clientWidth) return;
+                    if(clientWidth>=640){
+                        docEl.style.fontSize = '100px';
+                    }else{
+                        docEl.style.fontSize = 100 * (clientWidth / 640) + 'px';
+                    }
+                };
+            if (!doc.addEventListener) return;
+            win.addEventListener(resizeEvt, recalc, false);
+            doc.addEventListener('DOMContentLoaded', recalc, false);
+        })(document, window);
+    </script>
+    <meta name="referrer" content="never">
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/contentDetail.css">
+</head>
+<style>
+    .share-Page-detail{
+        width: 100%;
+        font-size: .21rem;
+        color: #b2b2b2;
+        text-align: right;
+        margin-top: .2rem;
+        padding-bottom: .2rem;
+        z-index: 999;
+        position: relative;
+    }
+    .shara-font{
+        width: 100%;
+        font-size: .21rem;
+        color: #b2b2b2;
+        text-align: right;
+        margin-top: .2rem;
+        padding-bottom: .2rem;
+        z-index: 999;
+        position: relative;
+    }
+    #fenXImg{
+        width: 5%;
+        position: relative;
+        top: .05rem;
+    }
+    .sharekxPage{
+        width: 100%;
+        height: 100%;
+        position: fixed;
+        z-index: 99999;
+        background: rgba(0,0,0,.5);
+        display: none;
+    }
+    .sharekxPageImg{
+        position: absolute;
+        width: 37%;
+        right: 1rem;
+        top: 1.5rem;
+        transform: rotate(13deg);
+        -ms-transform: rotate(13deg);
+        -moz-transform: rotate(13deg);
+        -webkit-transform: rotate(13deg);
+        -o-transform: rotate(13deg);
+
+    }
+    .sharekxPageFont{
+        color: white;
+        font-size: .3rem;
+        position: absolute;
+        top: 3.8rem;
+        left: .8rem;
+    }
+    .badDownGood{
+        float: left;
+        display: inline-block;
+        margin-top: .05rem;
+        position: relative;
+        right: .3rem;
+    }
+    .badDownGood img{
+         width: 15%;
+    }
+</style>
+<body>
+<div class="box">
+    <!--分享页面弹窗-->
+    <div class="sharekxPage">
+        <span style="" class="sharekxPageFont">点击"..."分享给微信好友</span>
+        <img src="images/sharekxPage.png" alt="" class="sharekxPageImg">
+
+    </div>
+    <!--#include file="header.html"-->
+    <!--内容详情-->
+    <div class="contentDetail">
+        <!--标题-->
+        <div class="contentTitle">
+            {$contentInfo.title}
+        </div>
+        <!--作者时间阅读量-->
+        <div class="contentTimeAuthor">
+
+            <!--{if condition="$contentInfo['author_id']"}-->
+            <span class="contentAuthor" onclick='window.location.href="/Author/{$contentInfo.author_id}"'>{$contentInfo.author_name}</span>
+            <!--{else /}-->
+            <span class="contentAuthor">{$contentInfo.author_name}</span>
+            <!--{/if}-->
+            <span class="contentTime">{$contentInfo.time|format_time='Y/m/d H:i'}</span>
+
+        </div>
+
+        <!--{if condition="$type eq 1"}-->
+        <div class="ContentText">
+            {$contentInfo.content}
+        </div>
+        <!--{/if}-->
+        <!--{if condition="$type eq 2"}-->
+        <div class="ContentText">
+            <iframe class="" style="z-index:1" src="{$contentInfo.target}" allowfullscreen="" frameborder="0" width="100%" height="500px">
+                您的浏览器不支持 video 标签。
+            </iframe>
+        </div>
+        <!--{/if}-->
+
+        <!--声明、提示-->
+        <div class="contentStatement">
+            <p><span style="font-weight: bold">免责声明:</span>本文观点仅代表作者本人,绝不代表区块链头条官方赞同其观点或证实其描述.投资有风险,入市须谨慎.本资讯不作为投资理财建议.</p>
+        </div>
+        <!--分享+利好利空-->
+        <div class="share-Page-detail">
+            <span  data-id='{$vo.id}' data-type='up' class="badDownGood">
+                 <img src="images/UpC.png" alt="">
+                 <span id="UPC">
+                    <span>利好</span><span class="num_G numb_count">{$vo.up}</span>
+                 </span>
+            </span>
+            <span data-id='{$vo.id}' data-type='down' class="badDownGood"><!--onclick='message_operation(this)' -->
+                  <img src="images/downC.png" alt="">
+                       <span id="UPDown">
+                             <span>利空</span><span class="num_B numb_count">{$vo.down}</span>
+                       </span>
+              </span>
+              <span class="share-Page-detail-span">
+                  <img src="images/fenxiang.png" alt="" id="fenXImg">
+                  <span style="margin-left: .02rem" class="shara-font">分享</span>
+              </span>
+        </div>
+
+    </div>
+    <!--底部-->
+    <!--#include file="footer.html"-->
+</div>
+
+<script src="js/common.js"></script>
+<script src="http://res.wx.qq.com/open/js/jweixin-1.6.0.js"></script>
+<script>
+    wx.config({
+        debug: false, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
+        appId: '{$appid}', // 必填，公众号的唯一标识
+        timestamp: '{$timestamp}', // 必填，生成签名的时间戳
+        nonceStr: '{$nonceStr}', // 必填，生成签名的随机串
+        signature: '{$signature}',// 必填，签名
+        jsApiList: ['updateAppMessageShareData','updateTimelineShareData'] // 必填，需要使用的JS接口列表
+    });
+
+    wx.ready(function () {   //需在用户可能点击分享按钮前就先调用
+        wx.updateAppMessageShareData({
+            title: '{$contentInfo.title}', // 分享标题
+            desc: '{$contentInfo.description}', // 分享描述
+            link: '{$url}',  // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
+            imgUrl: '{$contentInfo.image}', // 分享图标
+            success: function () {
+                // 设置成功
+            }
+        })
+    });
+    wx.ready(function () {      //需在用户可能点击分享按钮前就先调用
+        wx.updateTimelineShareData({
+            title: ' {$contentInfo.title}', // 分享标题
+            link: '{$url}', // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
+            imgUrl: '{$contentInfo.image}', // 分享图标
+            success: function () {
+                // 设置成功
+            }
+        })
+    });
+</script>
+</body>
+</html>
+
+<script>
+      $(".share-Page-detail-span").click(function () {
+          $(".sharekxPage").show()
+      });
+      $(".sharekxPage").click(function () {
+          $(this).hide()
+      });
+
+
+    // console.log($(".ContentText img").attr("src"));
+
+    function showImage(){
+        //var imglist=$(".ContentText img");
+        var imglist=$(".ContentText img");
+
+        for(var i=0;i<imglist.length;i++){
+            if(imglist[i].getAttribute('src').indexOf("mmbiz.qpic.cn")!=-1){
+                var ipos=imglist[i].getAttribute('src').indexOf("?");
+                var urlPicture=imglist[i].getAttribute('src').substring(0,ipos);
+                imglist[i].setAttribute("src",urlPicture)
+            }
+        }
+    }
+    showImage();
+
+</script>
