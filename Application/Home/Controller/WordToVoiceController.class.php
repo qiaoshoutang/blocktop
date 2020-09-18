@@ -6,7 +6,7 @@ use Think\AipSpeech;
 
 
 /**
- * 爬虫采集
+ * 
  */
 
 class WordToVoiceController extends SiteController {
@@ -74,14 +74,9 @@ class WordToVoiceController extends SiteController {
 //         $url_all = $url."?".http_build_query($param);
 //         dump($url_all);
 //         exit;
+
         
-        //         $date = urlencode($date);
-        
-        //         $worker  = new Worker($url_all);
-        
-        //         exit;
-        
-        //         dd($url_all);
+//         dd($url_all);
         $this ->assign('url',$url_all);
         
         $this -> siteDisplay('xfyun');
