@@ -28,6 +28,8 @@
     <link rel="stylesheet" href="css/common.css">
     <link rel="stylesheet" href="css/contentDetail.css">
 </head>
+<style>
+</style>
 <body>
     <div class="box">
         <!--#include file="header.html"-->
@@ -122,6 +124,7 @@ wx.ready(function () {      //需在用户可能点击分享按钮前就先调�
     function showImage(){
         //var imglist=$(".ContentText img");
         var imglist=$(".ContentText img");
+
         for(var i=0;i<imglist.length;i++){
                 if(imglist[i].getAttribute('src').indexOf("mmbiz.qpic.cn")!=-1){
                     var ipos=imglist[i].getAttribute('src').indexOf("?");
