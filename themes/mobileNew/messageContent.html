@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>新闻动态内容</title>
+    <title>快讯详情</title>
     <meta name="keywords" content="{$contentInfo.keyword}"/>
     <meta name="description" content="{$contentInfo.description}"/>
     <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
@@ -108,30 +108,12 @@
         <div class="contentTitle">
             {$contentInfo.title}
         </div>
-        <!--作者时间阅读量-->
-        <div class="contentTimeAuthor">
 
-            <!--{if condition="$contentInfo['author_id']"}-->
-            <span class="contentAuthor" onclick='window.location.href="/Author/{$contentInfo.author_id}"'>{$contentInfo.author_name}</span>
-            <!--{else /}-->
-            <span class="contentAuthor">{$contentInfo.author_name}</span>
-            <!--{/if}-->
-            <span class="contentTime">{$contentInfo.time|format_time='Y/m/d H:i'}</span>
 
-        </div>
-
-        <!--{if condition="$type eq 1"}-->
         <div class="ContentText">
             {$contentInfo.content}
         </div>
-        <!--{/if}-->
-        <!--{if condition="$type eq 2"}-->
-        <div class="ContentText">
-            <iframe class="" style="z-index:1" src="{$contentInfo.target}" allowfullscreen="" frameborder="0" width="100%" height="500px">
-                您的浏览器不支持 video 标签。
-            </iframe>
-        </div>
-        <!--{/if}-->
+
 
         <!--声明、提示-->
         <div class="contentStatement">
@@ -142,13 +124,13 @@
             <span  data-id='{$vo.id}' data-type='up' class="badDownGood">
                  <img src="images/UpC.png" alt="">
                  <span id="UPC">
-                    <span>利好</span><span class="num_G numb_count">{$vo.up}</span>
+                    <span>利好</span><span class="num_G numb_count">{$contentInfo.up}</span>
                  </span>
             </span>
             <span data-id='{$vo.id}' data-type='down' class="badDownGood"><!--onclick='message_operation(this)' -->
                   <img src="images/downC.png" alt="">
                        <span id="UPDown">
-                             <span>利空</span><span class="num_B numb_count">{$vo.down}</span>
+                             <span>利空</span><span class="num_B numb_count">{$contentInfo.down}</span>
                        </span>
               </span>
               <span class="share-Page-detail-span">
@@ -177,9 +159,9 @@
     wx.ready(function () {   //需在用户可能点击分享按钮前就先调用
         wx.updateAppMessageShareData({
             title: '{$contentInfo.title}', // 分享标题
-            desc: '{$contentInfo.description}', // 分享描述
+            desc: '{$contentInfo.content}', // 分享描述
             link: '{$url}',  // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
-            imgUrl: '{$contentInfo.image}', // 分享图标
+            imgUrl: 'http://blocktop.cn/Public/img/share_logo.jpg', // 分享图标
             success: function () {
                 // 设置成功
             }
@@ -189,7 +171,7 @@
         wx.updateTimelineShareData({
             title: ' {$contentInfo.title}', // 分享标题
             link: '{$url}', // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
-            imgUrl: '{$contentInfo.image}', // 分享图标
+            imgUrl: 'http://blocktop.cn/Public/img/share_logo.jpg', // 分享图标
             success: function () {
                 // 设置成功
             }

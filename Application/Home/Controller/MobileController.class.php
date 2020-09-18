@@ -285,5 +285,33 @@ class MobileController extends SiteController {
         $this -> siteDisplay('newsContent');
     }
     
+    //快讯详情
+    public function messageContent(){
+        
+        $content_id = I('request.content_id',0);
+        if(empty($content_id)){
+            $this->error('参数不能为空');
+        }
+
+
+        $messageMod = D('Article/Message');
+        
+        $contentInfo = $messageMod->getInfo($content_id);
+        $contentInfo['content'] = html_out($contentInfo['content']);
+
+
+        
+        if($contentInfo['image']&&(strpos($contentInfo['image'],'http') === false)){  //检验缩略图 是否全路径
+            if($_SERVER['HTTPS']=='on'){
+                $contentInfo['image'] = 'https://'.$_SERVER['HTTP_HOST'].$contentInfo['image'];
+            }else{
+                $contentInfo['image'] = 'http://'.$_SERVER['HTTP_HOST'].$contentInfo['image'];
+            }
+        }
+
+        $this->assign('contentInfo',$contentInfo);
+        $this -> siteDisplay('messageContent');
+    }
+    
     
 }

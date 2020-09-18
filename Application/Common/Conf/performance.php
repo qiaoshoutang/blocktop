@@ -34,6 +34,7 @@ return array(
 	    'aboutus_m'         =>  'Home/Mobile/aboutus',
 	    
 	    'newsContent_m/:type/:content_id' =>'Home/Mobile/newsContent',
+	    'messageContent_m/:content_id' =>'Home/Mobile/messageContent',
 
 	    'gocontent/:gzh_num'=>'Home/Short/message',
 	    
