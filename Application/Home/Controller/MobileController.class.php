@@ -121,6 +121,7 @@ class MobileController extends SiteController {
             $this->assign('naviList6',$naviList6);
             $this->assign('naviList7',$naviList7);
             $this->assign('naviList8',$naviList8);
+
         }else{
             $where['class_id'] = $class_id;
             
